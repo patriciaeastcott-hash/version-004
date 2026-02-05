@@ -1,0 +1,23 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/digitalabcs/public_html
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp about.html $DEPLOYPATH
+    - /bin/cp services.html $DEPLOYPATH
+    - /bin/cp apps.html $DEPLOYPATH
+    - /bin/cp bbblogistics.html $DEPLOYPATH
+    - /bin/cp contact.html $DEPLOYPATH
+    - /bin/cp terms.html $DEPLOYPATH
+    - /bin/cp privacy.html $DEPLOYPATH
+    - /bin/cp ai_transparency.html $DEPLOYPATH
+    - /bin/cp insights.php $DEPLOYPATH
+    - /bin/cp article.php $DEPLOYPATH
+    - /bin/cp image_generator.html $DEPLOYPATH
+    - /bin/cp prompt_refinement.html $DEPLOYPATH
+    - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp htaccess $DEPLOYPATH/.htaccess
+    - /bin/mkdir -p $DEPLOYPATH/assets
+    - /bin/cp -r assets/* $DEPLOYPATH/assets/
+    - /bin/mkdir -p $DEPLOYPATH/apps
+    - /bin/cp -r apps/* $DEPLOYPATH/apps/
