@@ -11,15 +11,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apps & Tools | DigitalABCs</title>
-    <meta name="description" content="Explore DigitalABCs apps and tools designed to automate your business operations. Support resources and decoder tools available.">
-    <meta property="og:title" content="Apps & Tools | DigitalABCs">
-    <meta property="og:description" content="Discover our collection of business automation apps and tools.">
+    <title>Apps We've Built | Digital ABCs</title>
+    <meta name="description" content="Custom applications built by Digital ABCs. Linguistic Decoder, CompliancePulse, Smart Capture Finance and more - real solutions for real workflow problems.">
+    <meta property="og:title" content="Apps We've Built | Digital ABCs">
+    <meta property="og:description" content="Custom applications that solve real workflow problems. See what we've built.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
     <meta property="og:url" content="https://digitalabcs.com.au/apps">
     <link rel="canonical" href="https://digitalabcs.com.au/apps">
-    
+
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,41 +34,57 @@
             --brand-light: #F3F4F6;
         }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #F9FAFB; 
-            color: #1F2937; 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB;
+            color: #1F2937;
         }
 
-        /* HERO SECTION */
         .apps-hero {
             background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
-            color: white; 
-            padding: 6rem 0; 
+            color: white;
+            padding: 6rem 0;
             text-align: center;
         }
 
-        .apps-hero h1 { 
-            font-size: 3rem; 
+        .apps-hero h1 {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .apps-hero p { 
-            font-size: 1.25rem; 
-            color: #E0E7FF; 
-            max-width: 700px; 
-            margin: 0 auto; 
-            line-height: 1.6; 
+        .apps-hero p {
+            font-size: 1.25rem;
+            color: #E0E7FF;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
-        /* APPS GRID */
-        .apps-section { 
-            padding: 5rem 0; 
+        .apps-section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--brand-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: #6B7280;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -83,12 +99,42 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
         }
 
         .app-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             border-color: var(--brand-purple);
+        }
+
+        .app-card.featured {
+            border: 2px solid var(--brand-green);
+        }
+
+        .app-card.featured::before {
+            content: "Coming Soon";
+            position: absolute; top: 0; right: 0;
+            background: var(--brand-green); color: white;
+            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
+            border-bottom-left-radius: 12px; text-transform: uppercase;
+        }
+
+        .app-card.live::before {
+            content: "Live";
+            position: absolute; top: 0; right: 0;
+            background: var(--brand-purple); color: white;
+            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
+            border-bottom-left-radius: 12px; text-transform: uppercase;
+        }
+
+        .app-card.dev::before {
+            content: "In Development";
+            position: absolute; top: 0; right: 0;
+            background: #F59E0B; color: white;
+            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
+            border-bottom-left-radius: 12px; text-transform: uppercase;
         }
 
         .app-icon {
@@ -111,26 +157,18 @@
             flex-grow: 1;
         }
 
-        .app-features {
-            list-style: none;
-            padding: 0;
+        .app-problem {
+            background: #F3F4F6;
+            padding: 1rem;
+            border-radius: 8px;
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
         }
 
-        .app-features li {
+        .app-problem strong {
+            color: var(--brand-navy);
+            display: block;
             margin-bottom: 0.5rem;
-            color: #4B5563;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .app-features li::before {
-            content: "✓";
-            color: var(--brand-green);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
         }
 
         .app-link {
@@ -149,59 +187,50 @@
             background: #6D28D9;
         }
 
-        /* SECTION HEADERS */
-        .section-header {
-            text-align: center;
-            margin-bottom: 2rem;
+        .app-link.secondary {
+            background: var(--brand-green);
         }
 
-        .section-header h2 {
-            font-size: 2rem;
-            color: var(--brand-navy);
-            margin-bottom: 0.5rem;
+        .app-link.secondary:hover {
+            background: #059669;
         }
 
-        .section-header p {
-            color: #6B7280;
-            font-size: 1.1rem;
-            max-width: 600px;
+        .approach-section {
+            background: white;
+            padding: 4rem 0;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        /* SUPPORT CTA */
-        .support-cta {
-            background: linear-gradient(135deg, var(--brand-purple) 0%, #6D28D9 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 16px;
-            text-align: center;
-            margin-top: 4rem;
+        .approach-card {
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--brand-purple);
+            background: #F9FAFB;
         }
 
-        .support-cta h3 {
-            font-size: 1.75rem;
+        .approach-card h3 {
+            color: var(--brand-navy);
+            margin-top: 0;
             margin-bottom: 1rem;
-            color: white;
         }
 
-        .support-cta p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .support-cta .app-link {
-            background: white;
-            color: var(--brand-purple);
-            font-weight: 700;
-        }
-
-        .support-cta .app-link:hover {
-            background: #F3F4F6;
+        .approach-card p {
+            color: #4B5563;
+            line-height: 1.6;
+            margin-bottom: 0;
         }
 
         @media (max-width: 768px) {
-            .apps-hero h1 { 
-                font-size: 2rem; 
+            .apps-hero h1 {
+                font-size: 2rem;
             }
 
             .apps-grid {
@@ -213,17 +242,17 @@
 
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="DigitalABCs Home">
-                <img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Tools & Services</a></li>
-                    <li><a href="apps.html" class="active">Apps</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html" class="active">Apps We've Built</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -234,55 +263,99 @@
     </header>
 
     <main id="main-content">
-        
+
         <section class="apps-hero">
             <div class="container">
-                <h1>DigitalABCs Apps</h1>
-                <p>Powerful applications designed to help you understand conversations, automate workflows, and optimize your business. Start with Linguistic Decoder.</p>
+                <h1>Apps We've Built</h1>
+                <p>Every app here started with someone saying "there has to be a better way." We listened, we dug into the problem, and we built the solution.</p>
             </div>
         </section>
 
         <section class="apps-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Linguistic Decoder</h2>
-                    <p>Coming soon to the App Store. Understand what people really mean.</p>
+                    <h2>Our Applications</h2>
+                    <p>Real tools solving real problems. Each one built to eliminate a specific workflow bottleneck.</p>
                 </div>
 
                 <div class="apps-grid">
-                    <div class="app-card">
+
+                    <div class="app-card featured">
                         <div>
                             <span class="app-icon">🧠</span>
                             <h3 class="app-title">Linguistic Decoder</h3>
-                            <p class="app-desc">AI-powered analysis of conversations to reveal hidden meanings. Understand what people really mean in work emails, family chats, and relationship conversations.</p>
-                            <ul class="app-features">
-                                <li>Multi-Speaker Emotional Analysis</li>
-                                <li>Communication Goal Detection</li>
-                                <li>Test Response Impact</li>
-                                <li>Educational Library</li>
-                                <li>Offline Access</li>
-                            </ul>
+                            <p class="app-desc">AI-powered conversation analysis that reveals what people really mean. Decode work emails, family texts, relationship chats - understand the hidden meanings behind the words.</p>
+                            <div class="app-problem">
+                                <strong>The Problem It Solves:</strong>
+                                Miscommunication costs relationships, time, and sanity. This app gives you the tools to understand what's really being said.
+                            </div>
                         </div>
                         <a href="apps/decoder.html" class="app-link">Learn More</a>
                     </div>
+
+                    <div class="app-card live">
+                        <div>
+                            <span class="app-icon">🛡️</span>
+                            <h3 class="app-title">CompliancePulse</h3>
+                            <p class="app-desc">Compliance monitoring meets market intelligence. Continuously scans for ISO/GDPR risks while watching government feeds for grants, tenders, and regulatory changes.</p>
+                            <div class="app-problem">
+                                <strong>The Problem It Solves:</strong>
+                                Small businesses get blindsided by compliance issues and miss opportunities because they can't monitor everything. This does it automatically.
+                            </div>
+                        </div>
+                        <a href="apps/compliancepulse.html" class="app-link secondary">Learn More</a>
+                    </div>
+
+                    <div class="app-card dev">
+                        <div>
+                            <span class="app-icon">📊</span>
+                            <h3 class="app-title">Smart Capture Finance</h3>
+                            <p class="app-desc">The "black box" recorder for financial workflows. It watches how you process invoices and payments to identify exactly where time and money are being lost.</p>
+                            <div class="app-problem">
+                                <strong>The Problem It Solves:</strong>
+                                You know your invoicing process is inefficient but can't prove it or find where the bottlenecks are. This records everything and shows you the truth.
+                            </div>
+                        </div>
+                        <a href="apps/smartcapture.html" class="app-link" style="background: #F59E0B;">Learn More</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="approach-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How We Build Apps</h2>
+                    <p>Every app follows the same process: understand the problem deeply, then build exactly what's needed.</p>
                 </div>
 
-                <div class="support-cta">
-                    <h3>Get Notified When It Launches</h3>
-                    <p>Linguistic Decoder is coming soon to the App Store. Sign up to be notified on launch day.</p>
-                    <a href="contact.html" class="app-link">Notify Me</a>
+                <div class="approach-grid">
+                    <div class="approach-card">
+                        <h3>1. Find the Real Problem</h3>
+                        <p>Not the symptom. Not what you think the problem is. The actual root cause that's eating your time or money.</p>
+                    </div>
+                    <div class="approach-card" style="border-left-color: var(--brand-green);">
+                        <h3>2. Build for Your Reality</h3>
+                        <p>We design around how you actually work - not how software thinks you should work. No forcing square pegs into round holes.</p>
+                    </div>
+                    <div class="approach-card" style="border-left-color: #F59E0B;">
+                        <h3>3. Keep It Simple</h3>
+                        <p>If it needs a training course to use, we've failed. Our apps should feel obvious from the first time you open them.</p>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #E5E7EB; text-align: center;">
-                    <h3 style="color: var(--brand-navy); margin-bottom: 1rem;">Need Support?</h3>
-                    <p style="color: #6B7280; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                        Have questions about Linguistic Decoder? Our support team is ready to help.
-                    </p>
-                    <a href="apps/support.html" class="app-link" style="background: var(--brand-green); display: inline-block;">
-                        Get Support
-                    </a>
-                </div>
-
+        <section style="background: var(--brand-navy); color: white; padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Got a Problem That Needs an App?</h2>
+                <p style="color: #BFDBFE; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    If you've got a workflow that's driving you mad, let's talk. We might already be building something that solves it, or we can build it together.
+                </p>
+                <a href="contact.html" style="background: var(--brand-green); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                    Tell Me About Your Problem
+                </a>
             </div>
         </section>
 
@@ -292,15 +365,14 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>DigitalABCs</h4>
-                    <p>Empowering Australian businesses through practical technology.</p>
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
                         <li><a href="apps.html">Apps</a></li>
-                        <li><a href="services.html">Tools</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -322,7 +394,7 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #E5E7EB; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #9CA3AF;">
-                <p>&copy; 2024 DigitalABCs. All rights reserved.</p>
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
