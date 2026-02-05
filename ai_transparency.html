@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-4JD4ZCN0G8');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Transparency Statement - DigitalABCs</title>
-    <meta name="description"
-        content="Our commitment to responsible, transparent, and human-centric AI. Learn how DigitalABCs uses artificial intelligence safely.">
-    <link rel="canonical" href="https://digitalabcs.com.au/ai-transparency.html">
+    <title>AI Transparency Statement | Digital ABCs</title>
+    <meta name="description" content="How Digital ABCs uses AI responsibly. Our commitment to transparency, human oversight, and data privacy in AI-powered applications.">
+    <link rel="canonical" href="https://digitalabcs.com.au/ai_transparency.html">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Specific styles for the Transparency Cards */
         .ai-card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -41,7 +36,6 @@
 
         .ai-card h4 {
             color: #1E3A8A;
-            /* Navy Brand Color */
             margin-bottom: 1rem;
             font-size: 1.25rem;
         }
@@ -55,22 +49,11 @@
             margin-bottom: 1rem;
         }
 
-        .badge-green {
-            background-color: #D1FAE5;
-            color: #065F46;
-        }
+        .badge-green { background-color: #D1FAE5; color: #065F46; }
+        .badge-blue { background-color: #DBEAFE; color: #1E40AF; }
+        .badge-purple { background-color: #EDE9FE; color: #5B21B6; }
+        .badge-orange { background-color: #FEF3C7; color: #92400E; }
 
-        .badge-blue {
-            background-color: #DBEAFE;
-            color: #1E40AF;
-        }
-
-        .badge-purple {
-            background-color: #EDE9FE;
-            color: #5B21B6;
-        }
-
-        /* Table for Model Register */
         .model-table {
             width: 100%;
             border-collapse: collapse;
@@ -78,8 +61,7 @@
             font-size: 0.95rem;
         }
 
-        .model-table th,
-        .model-table td {
+        .model-table th, .model-table td {
             text-align: left;
             padding: 12px;
             border-bottom: 1px solid #e5e7eb;
@@ -90,6 +72,18 @@
             color: #1E3A8A;
             font-weight: 600;
         }
+
+        .transparency-section { margin-bottom: 2.5rem; }
+        .transparency-section h2 { color: #1E3A8A; border-bottom: 2px solid #E5E7EB; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+
+        .callout-box {
+            background: #F0FDF4;
+            border: 1px solid #10B981;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .callout-box h4 { color: #065F46; margin-top: 0; }
     </style>
 </head>
 
@@ -97,19 +91,18 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="DigitalABCs Home">
-                <img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Tools & Services</a></li>
-                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a>
-                    </li>
+                    <li><a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -118,93 +111,173 @@
         <section class="legal-page section-padding">
             <div class="container text-container">
                 <h1>AI Transparency Statement</h1>
-                <p class="last-updated"><strong>Last Updated:</strong> January 22, 2026</p>
+                <p class="last-updated"><strong>Last Updated:</strong> February 5, 2026</p>
 
-                <p class="lead-text">At Digital ABCs, we believe AI should be an engine for empowerment, not a "black
-                    box" of mystery. In line with the <strong>Australian Government’s Voluntary AI Safety
-                        Standard</strong>, we are committed to being fully transparent about when, how, and why we use
-                    Artificial Intelligence.</p>
+                <p class="lead-text" style="font-size: 1.1rem; color: #4B5563; line-height: 1.7;">
+                    Digital ABCs builds apps that use AI to solve real problems. We believe you should know exactly when AI is involved, what it's doing, and how your data is handled. No mystery, no "black box" - just straight answers about how our technology works.
+                </p>
 
-                <h3>1. Our Core Principles</h3>
-                <div class="ai-card-grid">
-                    <div class="ai-card">
-                        <span class="status-badge badge-green">Human Oversight</span>
-                        <h4>Humans in the Driver's Seat</h4>
-                        <p>AI generates drafts; humans make decisions. Every line of code we ship and every strategy we
-                            deliver is reviewed, tested, and validated by a human expert. We do not let AI auto-publish
-                            critical content without oversight.</p>
-                    </div>
-                    <div class="ai-card">
-                        <span class="status-badge badge-blue">Data Privacy</span>
-                        <h4>Your Data is Yours</h4>
-                        <p>We do not use your private business data to train public AI models. When we use AI tools, we
-                            utilize enterprise-grade APIs (like Google Gemini via Vertex AI) that contractually ensure
-                            your data remains isolated and ephemeral.</p>
-                    </div>
-                    <div class="ai-card">
-                        <span class="status-badge badge-purple">Accessibility</span>
-                        <h4>Tech for Everyone</h4>
-                        <p>We use AI to make complex tech accessible. From "Linguistic Decoders" that simplify jargon to
-                            coding assistants that help us build accessible apps faster, our goal is to lower barriers,
-                            not build walls.</p>
+                <div class="transparency-section">
+                    <h2>1. Our Principles</h2>
+                    <div class="ai-card-grid">
+                        <div class="ai-card">
+                            <span class="status-badge badge-green">Human Oversight</span>
+                            <h4>Humans Make the Decisions</h4>
+                            <p>AI generates suggestions and drafts - humans decide what to use. Every piece of code we ship, every strategy we recommend, gets reviewed by a person. AI is a tool, not the boss.</p>
+                        </div>
+                        <div class="ai-card">
+                            <span class="status-badge badge-blue">Data Privacy</span>
+                            <h4>Your Data Stays Yours</h4>
+                            <p>We don't use your data to train AI models. When we use third-party AI (like Google Gemini), we use enterprise APIs that contractually prevent your data from being used for training. Your conversations, your business data - it's processed and forgotten.</p>
+                        </div>
+                        <div class="ai-card">
+                            <span class="status-badge badge-purple">Transparency</span>
+                            <h4>Clear About When AI Is Used</h4>
+                            <p>If a feature uses AI, we tell you. Before you submit content to an AI-powered feature, you'll know it's being processed by AI. No hidden algorithms working in the background without your knowledge.</p>
+                        </div>
+                        <div class="ai-card">
+                            <span class="status-badge badge-orange">Practical Purpose</span>
+                            <h4>AI That Actually Helps</h4>
+                            <p>We don't use AI because it's trendy. We use it when it genuinely solves a problem better than alternatives. If a simpler solution works, we use that instead.</p>
+                        </div>
                     </div>
                 </div>
 
-                <h3>2. AI Model Register</h3>
-                <p>Transparency means knowing exactly what is under the hood. Below is a list of the primary AI models
-                    and systems currently integrated into our workflows and products.</p>
+                <div class="transparency-section">
+                    <h2>2. Where We Use AI</h2>
 
-                <div style="overflow-x:auto;">
-                    <table class="model-table">
-                        <thead>
-                            <tr>
-                                <th>System/Provider</th>
-                                <th>Purpose</th>
-                                <th>Data Handling</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Google Gemini (via API)</strong></td>
-                                <td>Powering the "Linguistic Decoder", drafting code, and summarizing technical
-                                    documentation.</td>
-                                <td><strong>Zero Retention.</strong> Data sent via API is not stored by Google for model
-                                    training.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>GitHub Copilot</strong></td>
-                                <td>Assisting in writing software code (autocompletion and debugging).</td>
-                                <td>Code snippets are processed to provide suggestions but proprietary client logic is
-                                    kept within our secure repositories.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Vapi AI / Twilio</strong></td>
-                                <td>Voice automation for scheduling and initial client intake calls.</td>
-                                <td>Transcripts are stored securely in our CRM for human review; voice data is processed
-                                    for the duration of the call.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h3>In Our Applications</h3>
+                    <div style="overflow-x:auto;">
+                        <table class="model-table">
+                            <thead>
+                                <tr>
+                                    <th>Application</th>
+                                    <th>AI Feature</th>
+                                    <th>What It Does</th>
+                                    <th>Data Handling</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Linguistic Decoder</strong></td>
+                                    <td>Conversation Analysis</td>
+                                    <td>Analyses text you submit to identify communication patterns, emotional tone, and underlying meanings</td>
+                                    <td>Text sent to Google Gemini API. Not stored for training. Processed and discarded.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CompliancePulse</strong></td>
+                                    <td>Risk Assessment</td>
+                                    <td>Analyses your business data against compliance frameworks to identify potential gaps</td>
+                                    <td>Processed locally where possible. Third-party AI used only for complex analysis.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Insights Generator</strong></td>
+                                    <td>Content Summarisation</td>
+                                    <td>Summarises news feeds and regulatory updates for weekly reports</td>
+                                    <td>Publicly available information only. No personal data involved.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>In Our Internal Operations</h3>
+                    <div style="overflow-x:auto;">
+                        <table class="model-table">
+                            <thead>
+                                <tr>
+                                    <th>System/Provider</th>
+                                    <th>Purpose</th>
+                                    <th>Data Handling</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Google Gemini (API)</strong></td>
+                                    <td>Drafting documentation, code assistance, research summaries</td>
+                                    <td>Zero retention policy. Data processed via API is not stored by Google for training.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GitHub Copilot</strong></td>
+                                    <td>Code completion and debugging assistance</td>
+                                    <td>Code suggestions based on context. Proprietary client code kept in secure repositories.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Claude (Anthropic)</strong></td>
+                                    <td>Complex problem-solving, code review, analysis</td>
+                                    <td>Conversations not used for training. Enterprise-grade data handling.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
-                <h3>3. Limitations and Risks</h3>
-                <p>While AI is powerful, it is not infallible. We want our clients and users to be aware of the
-                    following:</p>
-                <ul>
-                    <li><strong>Hallucinations:</strong> Large Language Models (LLMs) can sometimes confidently state
-                        incorrect facts. We mitigate this by manually verifying outputs against official documentation
-                        (e.g., WCAG standards, legislation).</li>
-                    <li><strong>Context:</strong> AI lacks real-world lived experience. It acts as a processor of
-                        information, not a holder of wisdom. We add the human context—the "Trish factor"—to ensure
-                        solutions work for real people.</li>
-                </ul>
+                <div class="transparency-section">
+                    <h2>3. What AI Can't Do</h2>
+                    <p>Being honest about AI means being honest about its limitations:</p>
+                    <ul>
+                        <li><strong>AI Can Be Wrong:</strong> Large Language Models sometimes confidently state incorrect information ("hallucinations"). We manually verify AI outputs against official sources before using them.</li>
+                        <li><strong>AI Lacks Context:</strong> AI processes information but doesn't understand your specific business situation. That's why we combine AI analysis with human expertise.</li>
+                        <li><strong>AI Can't Replace Judgment:</strong> For important decisions, AI provides input - it doesn't make the call. You (and we) always have the final say.</li>
+                        <li><strong>AI Reflects Its Training:</strong> AI systems can have biases based on their training data. We review AI outputs for fairness and accuracy.</li>
+                    </ul>
+                </div>
 
-                <h3>4. Challenging AI Decisions</h3>
-                <p>We believe in the right to contestability. If you believe an AI-assisted outcome (such as a code
-                    recommendation or an automated summary) is incorrect, biased, or harmful, please contact us
-                    immediately.</p>
-                <p>We will perform a manual human review of the output and correct any errors. You can reach us at <a
-                        href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a>.</p>
+                <div class="transparency-section">
+                    <h2>4. Your Control</h2>
+
+                    <div class="callout-box">
+                        <h4>You Can Always Challenge AI Outputs</h4>
+                        <p>If you believe an AI-assisted output in any of our applications or services is incorrect, biased, or problematic, contact us. We'll:</p>
+                        <ol>
+                            <li>Perform a manual human review</li>
+                            <li>Explain how the output was generated</li>
+                            <li>Correct any errors</li>
+                            <li>Consider improvements to prevent similar issues</li>
+                        </ol>
+                        <p><strong>Contact:</strong> <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a></p>
+                    </div>
+
+                    <h3>Opting Out of AI Features</h3>
+                    <p>Where possible, we provide alternatives:</p>
+                    <ul>
+                        <li>Some app features can be used without AI processing</li>
+                        <li>For consulting services, you can request we avoid AI tools for your project (this may affect pricing)</li>
+                        <li>If you have concerns about specific AI usage, discuss it with us - we're flexible</li>
+                    </ul>
+                </div>
+
+                <div class="transparency-section">
+                    <h2>5. Alignment with Australian Standards</h2>
+                    <p>Our AI practices align with the <strong>Australian Government's Voluntary AI Safety Standard</strong> principles:</p>
+                    <ul>
+                        <li><strong>Human oversight:</strong> AI assists, humans decide</li>
+                        <li><strong>Transparency:</strong> Clear communication about AI use</li>
+                        <li><strong>Accountability:</strong> We take responsibility for AI outputs in our services</li>
+                        <li><strong>Privacy protection:</strong> Data minimisation and secure handling</li>
+                        <li><strong>Fairness:</strong> Review for bias and discrimination</li>
+                        <li><strong>Contestability:</strong> You can challenge AI decisions</li>
+                    </ul>
+                </div>
+
+                <div class="transparency-section">
+                    <h2>6. Changes to Our AI Use</h2>
+                    <p>AI technology changes quickly. When we adopt new AI tools or change how we use existing ones, we'll:</p>
+                    <ul>
+                        <li>Update this statement</li>
+                        <li>Note significant changes in our changelog</li>
+                        <li>Notify users of affected applications about material changes</li>
+                    </ul>
+                </div>
+
+                <div class="transparency-section">
+                    <h2>7. Questions?</h2>
+                    <p>If you have questions about how we use AI, want to understand a specific feature, or have concerns about AI in our services:</p>
+                    <p>
+                        <strong>Email:</strong> <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        <strong>Location:</strong> Toongabbie, NSW, Australia
+                    </p>
+                    <p>We're happy to explain any aspect of our AI use in plain English.</p>
+                </div>
 
             </div>
         </section>
@@ -213,27 +286,25 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>DigitalABCs</h4>
-                    <p>Empowering Australian businesses through practical technology. Built on resilience, for
-                        resilience.</p>
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
                         <li><a href="apps.html">Apps</a></li>
-                        <li><a href="services.html">Tools & Services</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Legal & Ethics</h4>
+                    <h4>Legal</h4>
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="ai-transparency.html">AI Transparency</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -242,48 +313,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DigitalABCs. All rights reserved.</p>
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <style>
-        .tally-float-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ba38eb;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            padding: 14px 22px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            z-index: 9999;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .tally-float-btn:hover {
-            background-color: #10B981;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 600px) {
-            .tally-float-btn {
-                padding: 12px 18px;
-                font-size: 14px;
-                bottom: 15px;
-                right: 15px;
-            }
-        }
-    </style>
-    <button class="tally-float-btn" data-tally-open="wkDaP1" data-tally-layout="modal" data-tally-width="700"
-        data-tally-overlay="true" data-tally-hide-title="false" data-tally-emoji-text="💡"
-        data-tally-emoji-animation="tada"> Where are you in your AI journey?</button>
 </body>
-
 </html>
