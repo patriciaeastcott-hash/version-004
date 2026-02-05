@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Transparency Statement - DigitalABCs</title>
+    <meta name="description"
+        content="Our commitment to responsible, transparent, and human-centric AI. Learn how DigitalABCs uses artificial intelligence safely.">
+    <link rel="canonical" href="https://digitalabcs.com.au/ai-transparency.html">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the Transparency Cards */
+        .ai-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ai-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .ai-card h4 {
+            color: #1E3A8A;
+            /* Navy Brand Color */
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .badge-green {
+            background-color: #D1FAE5;
+            color: #065F46;
+        }
+
+        .badge-blue {
+            background-color: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .badge-purple {
+            background-color: #EDE9FE;
+            color: #5B21B6;
+        }
+
+        /* Table for Model Register */
+        .model-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .model-table th,
+        .model-table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .model-table th {
+            background-color: #f9fafb;
+            color: #1E3A8A;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="DigitalABCs Home">
+                <img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Tools & Services</a></li>
+                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="legal-page section-padding">
+            <div class="container text-container">
+                <h1>AI Transparency Statement</h1>
+                <p class="last-updated"><strong>Last Updated:</strong> January 22, 2026</p>
+
+                <p class="lead-text">At Digital ABCs, we believe AI should be an engine for empowerment, not a "black
+                    box" of mystery. In line with the <strong>Australian Government’s Voluntary AI Safety
+                        Standard</strong>, we are committed to being fully transparent about when, how, and why we use
+                    Artificial Intelligence.</p>
+
+                <h3>1. Our Core Principles</h3>
+                <div class="ai-card-grid">
+                    <div class="ai-card">
+                        <span class="status-badge badge-green">Human Oversight</span>
+                        <h4>Humans in the Driver's Seat</h4>
+                        <p>AI generates drafts; humans make decisions. Every line of code we ship and every strategy we
+                            deliver is reviewed, tested, and validated by a human expert. We do not let AI auto-publish
+                            critical content without oversight.</p>
+                    </div>
+                    <div class="ai-card">
+                        <span class="status-badge badge-blue">Data Privacy</span>
+                        <h4>Your Data is Yours</h4>
+                        <p>We do not use your private business data to train public AI models. When we use AI tools, we
+                            utilize enterprise-grade APIs (like Google Gemini via Vertex AI) that contractually ensure
+                            your data remains isolated and ephemeral.</p>
+                    </div>
+                    <div class="ai-card">
+                        <span class="status-badge badge-purple">Accessibility</span>
+                        <h4>Tech for Everyone</h4>
+                        <p>We use AI to make complex tech accessible. From "Linguistic Decoders" that simplify jargon to
+                            coding assistants that help us build accessible apps faster, our goal is to lower barriers,
+                            not build walls.</p>
+                    </div>
+                </div>
+
+                <h3>2. AI Model Register</h3>
+                <p>Transparency means knowing exactly what is under the hood. Below is a list of the primary AI models
+                    and systems currently integrated into our workflows and products.</p>
+
+                <div style="overflow-x:auto;">
+                    <table class="model-table">
+                        <thead>
+                            <tr>
+                                <th>System/Provider</th>
+                                <th>Purpose</th>
+                                <th>Data Handling</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Google Gemini (via API)</strong></td>
+                                <td>Powering the "Linguistic Decoder", drafting code, and summarizing technical
+                                    documentation.</td>
+                                <td><strong>Zero Retention.</strong> Data sent via API is not stored by Google for model
+                                    training.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GitHub Copilot</strong></td>
+                                <td>Assisting in writing software code (autocompletion and debugging).</td>
+                                <td>Code snippets are processed to provide suggestions but proprietary client logic is
+                                    kept within our secure repositories.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vapi AI / Twilio</strong></td>
+                                <td>Voice automation for scheduling and initial client intake calls.</td>
+                                <td>Transcripts are stored securely in our CRM for human review; voice data is processed
+                                    for the duration of the call.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>3. Limitations and Risks</h3>
+                <p>While AI is powerful, it is not infallible. We want our clients and users to be aware of the
+                    following:</p>
+                <ul>
+                    <li><strong>Hallucinations:</strong> Large Language Models (LLMs) can sometimes confidently state
+                        incorrect facts. We mitigate this by manually verifying outputs against official documentation
+                        (e.g., WCAG standards, legislation).</li>
+                    <li><strong>Context:</strong> AI lacks real-world lived experience. It acts as a processor of
+                        information, not a holder of wisdom. We add the human context—the "Trish factor"—to ensure
+                        solutions work for real people.</li>
+                </ul>
+
+                <h3>4. Challenging AI Decisions</h3>
+                <p>We believe in the right to contestability. If you believe an AI-assisted outcome (such as a code
+                    recommendation or an automated summary) is incorrect, biased, or harmful, please contact us
+                    immediately.</p>
+                <p>We will perform a manual human review of the output and correct any errors. You can reach us at <a
+                        href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a>.</p>
+
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>DigitalABCs</h4>
+                    <p>Empowering Australian businesses through practical technology. Built on resilience, for
+                        resilience.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="services.html">Tools & Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal & Ethics</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai-transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DigitalABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <style>
+        .tally-float-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ba38eb;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 22px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .tally-float-btn:hover {
+            background-color: #10B981;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .tally-float-btn {
+                padding: 12px 18px;
+                font-size: 14px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+    <button class="tally-float-btn" data-tally-open="wkDaP1" data-tally-layout="modal" data-tally-width="700"
+        data-tally-overlay="true" data-tally-hide-title="false" data-tally-emoji-text="💡"
+        data-tally-emoji-animation="tada"> Where are you in your AI journey?</button>
+</body>
+
+</html>

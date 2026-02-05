@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Prompt Builder - DigitalABCs</title>
+    <meta name="description" content="Use the DigitalABCs Prompt Builder to turn your vague ideas into clear, powerful, and effective AI prompts.">
+    
+    <meta property="og:title" content="Prompt Builder - DigitalABCs">
+    <meta property="og:description" content="A free tool to turn your ideas into clear, powerful AI prompts.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:url" content="https://digitalabcs.com.au/prompt_builder.html">
+    
+    <link rel="canonical" href="https://digitalabcs.com.au/prompt_builder.html">
+    
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://tally.so/widgets/embed.js"></script>
+
+    <style>
+        /* --- Prompt Builder Grid --- */
+        .prompt-builder-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .prompt-builder-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* --- Chat Column --- */
+        .prompt-chat-column {
+            background-color: var(--color-white);
+            border: 1px solid #E5E7EB;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chat-window {
+            flex-grow: 1;
+            min-height: 400px;
+            max-height: 60vh;
+            overflow-y: auto;
+            background-color: var(--color-light-bg);
+            border: 1px solid #E5E7EB;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* Brand-specific chat bubbles */
+        .chat-bubble-user,
+        .chat-bubble-ai {
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        .chat-bubble-user {
+            background-color: #E0E7FF; /* Light blue */
+            color: var(--color-navy);
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .chat-bubble-ai {
+            background-color: #F3E8FF; /* Light Purple */
+            color: #5B21B6; /* Darker Purple */
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        
+        /* Chat Input Form */
+        #chat-form {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        #chat-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            border: 1px solid #D1D5DB;
+            border-radius: var(--border-radius);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        #chat-input:focus-visible {
+            border-color: var(--color-purple);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+            outline: none;
+        }
+
+        /* Loading spinner */
+        .loader-container {
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--color-purple); /* Purple spinner */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 0.5rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loader-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-grey);
+        }
+
+        /* --- Analysis Column --- */
+        .prompt-analysis-column {
+            background-color: var(--color-white);
+            padding: 1.5rem;
+            border: 1px solid #E5E7EB;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        #analysis-placeholder {
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-grey);
+            border: 2px dashed #D1D5DB;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+        }
+        #analysis-placeholder svg {
+            width: 3rem;
+            height: 3rem;
+            color: #9CA3AF;
+            margin-bottom: 0.75rem;
+        }
+
+        #analysis-panel h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-navy);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        #analysis-panel h3:first-of-type {
+            margin-top: 0;
+        }
+
+        /* Style for code blocks (prompts) */
+        .prompt-code {
+            font-family: var(--font-code);
+            background-color: #1E293B; /* Dark slate */
+            color: #F8FAFC; /* Light text */
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Initial prompt is muted */
+        #initial-prompt-display {
+            background-color: var(--color-light-bg);
+            color: var(--color-grey);
+            font-style: italic;
+        }
+
+        .analysis-box {
+            background-color: var(--color-light-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #E5E7EB;
+        }
+        .analysis-box strong {
+            color: var(--color-navy);
+            display: block;
+            margin-top: 0.5rem;
+        }
+        .analysis-box strong:first-child {
+            margin-top: 0;
+        }
+
+        .analysis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #copy-button {
+            padding: 0.5rem 1rem; /* Smaller button */
+            font-size: 0.9rem;
+        }
+        #copy-feedback {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-green-cta);
+        }
+
+        /* New button style for Reset */
+        .btn-danger {
+            background-color: var(--color-red-error);
+            color: var(--color-white);
+        }
+        .btn-danger:hover {
+            background-color: #B91C1C;
+            color: var(--color-white);
+        }
+        #reset-button {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        /* Make secondary nav link active */
+        .resources-menu a.active {
+            background-color: #f0f5ff; /* Light blue */
+            font-weight: 600;
+            color: var(--color-navy);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="DigitalABCs Home">
+                <img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Tools & Services</a></li>
+                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        
+        <section class="hero">
+            <div class="container">
+                <h1>Prompt Builder</h1>
+                <p class="subtitle">A free tool to turn your vague ideas into clear, powerful, and effective AI prompts.</p>
+            </div>
+        </section>
+
+        <nav class="secondary-nav" aria-label="Secondary site resources">
+            <div class="container">
+                <div class="resources-dropdown">
+                    <button
+                        id="resources-toggle"
+                        class="resources-toggle"
+                        aria-expanded="false"
+                        aria-controls="resources-menu"
+                    >
+                        Resources
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        width="20"
+                        height="20"
+                        >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                            clip-rule="evenodd"
+                        ></path>
+                        </svg>
+                    </button>
+                    <div id="resources-menu" class="resources-menu">
+                        <ul>
+                            <li><a href="prompt_builder.html" class="active" aria-current="page">Prompt Builder</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <section class="section-padding" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="prompt-builder-grid">
+                    
+                    <section id="chat-section" class="prompt-chat-column" aria-labelledby="chat-heading">
+                        <h2 id="chat-heading" class="section-title-left" style="margin-bottom: 1rem;">1. Refinement Chat</h2>
+                        
+                        <div id="chat-window" aria-live="polite" aria-atomic="false">
+                            <div class="chat-bubble-ai">
+                                Hello! I'm here to help you build better prompts.
+                                <br><br>
+                                Please tell me what you're trying to achieve, or give me your first-draft prompt to get started.
+                            </div>
+                        </div>
+
+                        <div id="loader" class="loader-container hidden">
+                            <div class="loader"></div>
+                            <p class="loader-text" role="status">Coach is thinking...</p>
+                        </div>
+
+                        <form id="chat-form" class="mt-4 flex gap-2">
+                            <label for="chat-input" class="sr-only">Your message</label>
+                            <input type="text" id="chat-input" placeholder="Type your prompt or reply..."
+                                   aria-label="Type your message or initial prompt"
+                                   required>
+                            <button type="submit" id="send-button" class="btn btn-primary"
+                                    aria-label="Send message">
+                                Send
+                            </button>
+                        </form>
+                    </section>
+                    
+                    <!-- Right Column: Analysis Blueprint -->
+                    <section id="analysis-section" class="bg-white p-4 md:p-6 rounded-lg shadow-md" aria-labelledby="analysis-heading">
+                        <h2 id="analysis-heading" class="text-xl font-semibold text-gray-900 mb-4">2. The Clarity Blueprint</h2>
+                        
+                        <!-- This panel is hidden until the analysis is complete -->
+                        <div id="analysis-panel" class="hidden flex flex-col gap-6">
+                            
+                            <!-- Initial Prompt -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-700 mb-2">Your Initial Prompt</h3>
+                                <blockquote id="initial-prompt-display" class="prompt-code bg-gray-100 text-gray-600 italic p-3">
+                                    <!-- Initial prompt will be populated here -->
+                                </blockquote>
+                            </div>
+            
+                            <!-- Refined Prompt -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h3 class="text-lg font-semibold text-purple-700">The Refined Prompt</h3>
+                                    <button id="copy-button"
+                                            class="bg-gray-200 text-gray-700 px-3 py-1 rounded-md text-sm font-medium hover:bg-gray-300"
+                                            aria-label="Copy refined prompt to clipboard">
+                                        Copy
+                                    </button>
+                                </div>
+                                <pre id="refined-prompt-display" class="prompt-code"><code><!-- Refined prompt will be populated here --></code></pre>
+                                <span id="copy-feedback" class="text-sm text-green-600 hidden" role="alert">Copied!</span>
+                            </div>
+            
+                            <!-- Prompt Foundations -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-700 mb-2">Prompt Foundations</h3>
+                                <div id="foundations-display" class="prose max-w-none text-gray-600 bg-blue-50 p-3 rounded-lg border border-blue-200">
+                                    <!-- Foundations explanation will be populated here -->
+                                </div>
+                            </div>
+            
+                            <!-- Why It's Better -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-700 mb-2">Why It's Better</h3>
+                                <div id="why-display" class="prose max-w-none text-gray-600 bg-green-50 p-3 rounded-lg border border-green-200">
+                                    <!-- 'Why' explanation will be populated here -->
+                                </div>
+                            </div>
+                            
+                            <!-- Start Over Button -->
+                            <div>
+                                <button id="reset-button"
+                                        class="w-full mt-4 p-3 bg-[#DC2626] text-white rounded-lg font-semibold shadow-sm hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                                        aria-label="Start a new prompt refinement">
+                                    Start Over
+                                </button>
+                            </div>
+            
+                        </div>
+                        
+                        <!-- Placeholder shown before analysis -->
+                        <div id="analysis-placeholder" class="min-h-[400px] flex flex-col items-center justify-center text-center text-gray-500 border-2 border-dashed border-gray-300 rounded-lg p-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-label="Awaiting analysis icon">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <p class="font-semibold">Your blueprint will appear here.</p>
+                            <p class="text-sm">Follow the chat instructions to generate your analysis.</p>
+                        </div>
+            
+                    </section>
+                            </div>
+                        </div>
+                    </section>
+    
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>DigitalABCs</h4>
+                    <p>Empowering Australian businesses through practical technology. Built on resilience, for resilience.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DigitalABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+        .tally-float-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ba38eb;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 22px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease-in-out;
+        }
+        .tally-float-btn:hover {
+            background-color: #10B981;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            .tally-float-btn {
+                padding: 12px 18px;
+                font-size: 14px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+    <button class="tally-float-btn" data-tally-open="wkDaP1"
+        data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true"
+        data-tally-hide-title="false" data-tally-emoji-text="💡"
+        data-tally-emoji-animation="tada"> Where are you in your AI journey?</button>
+
+  <!-- Temporary Textarea for Copy-to-Clipboard (WCAG friendly) -->
+    <textarea id="copy-helper" class="absolute -left-[9999px]" aria-hidden="true" tabindex="-1"></textarea>
+
+    <script type="module">
+        // --- DOM Elements ---
+        const chatWindow = document.getElementById('chat-window');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-button');
+        const loader = document.getElementById('loader');
+        
+        const analysisPanel = document.getElementById('analysis-panel');
+        const analysisPlaceholder = document.getElementById('analysis-placeholder');
+        
+        const initialPromptDisplay = document.getElementById('initial-prompt-display');
+        const refinedPromptDisplay = document.getElementById('refined-prompt-display').querySelector('code');
+        const foundationsDisplay = document.getElementById('foundations-display');
+        const whyDisplay = document.getElementById('why-display');
+        
+        const copyButton = document.getElementById('copy-button');
+        const copyFeedback = document.getElementById('copy-feedback');
+        const copyHelper = document.getElementById('copy-helper');
+        const resetButton = document.getElementById('reset-button');
+
+        // --- State ---
+        let chatHistory = [];
+        let initialPrompt = "";
+        let isAwaitingAnalysis = false;
+
+        // --- Gemini API Configuration ---
+        const GEMINI_API_KEY = ""; // Leave empty, as per instructions.
+        const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
+        
+        // This is the "brain" of our coach.
+        const SYSTEM_PROMPT = `
+You are the "Prompt Clarity Coach." Your mission is to teach users how to write effective prompts by guiding them from a vague idea to a clear, actionable prompt. You must follow this exact workflow:
+
+1.  **GREET & CAPTURE:** The user will provide their first message. This is their 'Initial Prompt'. Store it.
+2.  **ANALYZE & QUESTION (Step 1):** Do NOT answer the user's prompt. Instead, analyze it for missing key components:
+    * **Persona:** Who should the AI be?
+    * **Task:** What is the specific action?
+    * **Context:** What background info is missing?
+    * **Format:** What should the output look like (e.g., list, JSON, markdown)?
+    * **Goal:** What is the user's ultimate objective?
+    Based on this analysis, ask the user 2-3 concise, clarifying questions. Your tone should be helpful and encouraging.
+3.  **SYNTHESIZE & ANALYZE (Step 2):** When the user answers your questions, you MUST generate a final response. This response MUST be a single JSON object.
+    
+    You must format your entire response as a single, valid JSON object, starting with \`\`\`json and ending with \`\`\`.
+    The JSON object must have this exact structure:
+    {
+      "refinedPrompt": "...",
+      "foundations": "...",
+      "why": "..."
+    }
+
+    * **refinedPrompt:** Create the new, optimized prompt using the user's 'Initial Prompt' AND their answers.
+    * **foundations:** A markdown-formatted explanation of the *principles* you applied. (e.g., "- **Added a Persona:** We told the AI to act as a 'senior developer' to get more technical results.\n- **Defined the Format:** We asked for a 'numbered list' for clarity.").
+    * **why:** A markdown-formatted explanation of *why* this new prompt is better and will lead to a better AI response.
+
+* **IMPORTANT:** Your first reply must be just the clarifying questions (plain text). Your second reply (after they answer) MUST be the JSON object and nothing else.
+`;
+
+
+        // --- Event Listeners ---
+        chatForm.addEventListener('submit', handleUserSubmit);
+        copyButton.addEventListener('click', copyToClipboard);
+        resetButton.addEventListener('click', resetApp);
+
+
+        // --- Core Functions ---
+
+        /**
+         * Handles the user submitting the chat form.
+         */
+        async function handleUserSubmit(e) {
+            e.preventDefault();
+            const userInput = chatInput.value.trim();
+            if (!userInput) return;
+
+            // Store the very first prompt
+            if (chatHistory.length === 0) {
+                initialPrompt = userInput;
+                initialPromptDisplay.textContent = initialPrompt;
+            }
+
+            addMessageToChat(userInput, 'user');
+            chatInput.value = '';
+            toggleLoading(true);
+
+            // Add user message to history
+            chatHistory.push({ role: 'user', parts: [{ text: userInput }] });
+            
+            try {
+                const aiResponseText = await getAiResponse();
+                
+                // Check if the response is our JSON analysis
+                if (aiResponseText.trim().startsWith('```json')) {
+                    isAwaitingAnalysis = true; // Flag that we got the final answer
+                    const jsonString = aiResponseText.trim().slice(7, -3); // Remove ```json and ```
+                    const analysis = JSON.parse(jsonString);
+                    displayAnalysis(analysis);
+                    addMessageToChat("Great! I've used your answers to build a 'Clarity Blueprint' for you. Check it out!", 'ai');
+                } else {
+                    // This is the clarifying question step
+                    addMessageToChat(aiResponseText, 'ai');
+                    chatHistory.push({ role: 'model', parts: [{ text: aiResponseText }] });
+                }
+
+            } catch (error) {
+                console.error("Error fetching from Gemini:", error);
+                addMessageToChat("Sorry, I'm having trouble connecting to my brain right now. Please try again in a moment.", 'ai');
+            } finally {
+                toggleLoading(false);
+            }
+        }
+
+        /**
+         * Fetches a response from the Gemini API.
+         */
+        async function getAiResponse() {
+            // Add system prompt to the payload, but not to the visible chat history
+            const payload = {
+                contents: chatHistory,
+                systemInstruction: {
+                    parts: [{ text: SYSTEM_PROMPT }]
+                },
+                generationConfig: {
+                    // Request JSON output
+                    responseMimeType: isAwaitingAnalysis ? "application/json" : "text/plain",
+                }
+            };
+            
+            // If we are expecting the JSON analysis, update the payload
+            if (isAwaitingAnalysis) {
+                payload.generationConfig.responseSchema = {
+                    type: "OBJECT",
+                    properties: {
+                        "refinedPrompt": { "type": "STRING" },
+                        "foundations": { "type": "STRING" },
+                        "why": { "type": "STRING" }
+                    },
+                    required: ["refinedPrompt", "foundations", "why"]
+                };
+            }
+
+            const response = await exponentialBackoffFetch(GEMINI_API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API request failed with status ${response.status}`);
+            }
+
+            const result = await response.json();
+            
+            if (result.candidates && result.candidates.length > 0) {
+                const text = result.candidates[0].content.parts[0].text;
+                // If we got JSON, we must stringify it to pass it as 'text'
+                if (typeof text !== 'string') {
+                    return JSON.stringify(text);
+                }
+                return text;
+            } else if (result.promptFeedback) {
+                console.warn("Prompt was blocked:", result.promptFeedback);
+                return "My safety filters blocked that request. Let's try a different topic.";
+            }
+            
+            throw new Error("Invalid response structure from API.");
+        }
+        
+        /**
+         * Parses the final analysis and displays it in the right-hand panel.
+         * @param {object} analysis - The parsed JSON object from the AI.
+         */
+        function displayAnalysis(analysis) {
+            if (analysis.refinedPrompt) {
+                refinedPromptDisplay.textContent = analysis.refinedPrompt;
+            }
+            if (analysis.foundations) {
+                // Simple markdown-to-HTML for lists
+                foundationsDisplay.innerHTML = analysis.foundations
+                    .replace(/\n/g, '<br>')
+                    .replace(/- \*\*(.*?)\*\*:/g, '<strong class="text-blue-800 block mt-2">$1</strong>');
+            }
+            if (analysis.why) {
+                whyDisplay.innerHTML = analysis.why
+                    .replace(/\n/g, '<br>')
+                    .replace(/- \*\*(.*?)\*\*:/g, '<strong class="text-green-800 block mt-2">$1</strong>');
+            }
+            
+            analysisPlaceholder.classList.add('hidden');
+            analysisPanel.classList.remove('hidden');
+            analysisPanel.classList.add('flex');
+            
+            // Set flag to prevent further API calls
+            isAwaitingAnalysis = true;
+            chatInput.disabled = true;
+            sendButton.disabled = true;
+            chatInput.placeholder = "Please 'Start Over' to refine a new prompt.";
+        }
+
+        /**
+         * Adds a message to the chat UI.
+         * @param {string} text - The message content.
+         * @param {'user' | 'ai'} sender - The sender of the message.
+         */
+        function addMessageToChat(text, sender) {
+            const bubble = document.createElement('div');
+            bubble.className = `p-3 rounded-lg shadow-sm w-fit ${sender === 'user' ? 'chat-bubble-user' : 'chat-bubble-ai'}`;
+            bubble.textContent = text;
+            bubble.setAttribute('role', 'log');
+            chatWindow.appendChild(bubble);
+            
+            // Scroll to bottom
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        /**
+        * Copies the refined prompt text to the clipboard using the execCommand fallback.
+        */
+        function copyToClipboard() {
+            const textToCopy = refinedPromptDisplay.textContent;
+            
+            // Use the hidden textarea
+            copyHelper.value = textToCopy;
+            copyHelper.select();
+            
+            try {
+                document.execCommand('copy');
+                // Show feedback
+                copyFeedback.classList.remove('hidden');
+                setTimeout(() => {
+                    copyFeedback.classList.add('hidden');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                copyFeedback.textContent = 'Failed to copy!';
+                copyFeedback.classList.remove('hidden');
+                copyFeedback.classList.remove('text-green-600');
+                copyFeedback.classList.add('text-red-600');
+            }
+            
+            // Deselect
+            window.getSelection().removeAllRanges();
+        }
+
+
+        /**
+         * Resets the entire application to its initial state.
+         */
+        function resetApp() {
+            chatHistory = [];
+            initialPrompt = "";
+            isAwaitingAnalysis = false;
+            
+            // Clear chat window
+            chatWindow.innerHTML = '';
+            addMessageToChat("Hello! I'm here to help you build better prompts. Please tell me what you're trying to achieve, or give me your first-draft prompt to get started.", 'ai');
+            
+            // Reset analysis panel
+            analysisPanel.classList.add('hidden');
+            analysisPanel.classList.remove('flex');
+            analysisPlaceholder.classList.remove('hidden');
+            
+            initialPromptDisplay.textContent = '';
+            refinedPromptDisplay.textContent = '';
+            foundationsDisplay.innerHTML = '';
+            whyDisplay.innerHTML = '';
+            
+            // Enable form
+            chatInput.disabled = false;
+            sendButton.disabled = false;
+            chatInput.placeholder = "Type your prompt or reply...";
+        }
+
+        /**
+         * Shows or hides the loading spinner and disables/enables the form.
+         * @param {boolean} isLoading - Whether to show the loader.
+         */
+        function toggleLoading(isLoading) {
+            if (isLoading) {
+                loader.classList.remove('hidden');
+                chatInput.disabled = true;
+                sendButton.disabled = true;
+            } else {
+                loader.classList.add('hidden');
+                // Only re-enable if we are not in the final 'analyzed' state
+                if (!isAwaitingAnalysis) {
+                    chatInput.disabled = false;
+                    sendButton.disabled = false;
+                    chatInput.focus();
+                }
+            }
+        }
+        
+        /**
+         * A fetch wrapper with exponential backoff for retries.
+         * @param {string} url - The URL to fetch.
+         * @param {object} options - The fetch options.
+         * @param {number} maxRetries - Maximum number of retries.
+         * @returns {Promise<Response>}
+         */
+        async function exponentialBackoffFetch(url, options, maxRetries = 5) {
+            let delay = 1000; // 1 second
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status === 429 || (response.status >= 500 && response.status < 600)) {
+                        // Rate limited or server error, wait and retry
+                        throw new Error(`Retryable error: ${response.status}`);
+                    }
+                    return response; // Success
+                } catch (error) {
+                    if (i === maxRetries - 1) throw error; // Max retries reached
+                    // Don't log to console, as per instructions
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; // Exponential backoff
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>

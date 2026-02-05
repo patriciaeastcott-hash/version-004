@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Support | DigitalABCs</title>
+    <meta name="description" content="Get support for DigitalABCs apps. FAQs, troubleshooting guides, and direct contact options.">
+    <meta property="og:title" content="App Support | DigitalABCs">
+    <meta property="og:description" content="Find the help you need for DigitalABCs applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:url" content="https://digitalabcs.com.au/apps/support">
+    <link rel="canonical" href="https://digitalabcs.com.au/apps/support">
+    
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-purple: #7C3AED;
+            --brand-green: #10B981;
+            --brand-light: #F3F4F6;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #F9FAFB; 
+            color: #1F2937; 
+        }
+
+        /* HERO SECTION */
+        .support-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            color: white; 
+            padding: 6rem 0; 
+            text-align: center;
+        }
+
+        .support-hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem;
+        }
+
+        .support-hero p { 
+            font-size: 1.25rem; 
+            color: #E0E7FF; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            line-height: 1.6; 
+        }
+
+        /* SUPPORT SECTION */
+        .support-section {
+            padding: 5rem 0;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .support-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+            border-color: var(--brand-purple);
+        }
+
+        .support-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .support-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .support-desc {
+            color: #4B5563;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .support-link {
+            color: var(--brand-purple);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .support-link:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .faq-title {
+            font-size: 2rem;
+            color: var(--brand-navy);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #F9FAFB;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--brand-navy);
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: #F3F4F6;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: #4B5563;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: linear-gradient(135deg, var(--brand-purple) 0%, #6D28D9 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .contact-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: white;
+            color: var(--brand-purple);
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .contact-link:hover {
+            background: #F3F4F6;
+        }
+
+        @media (max-width: 768px) {
+            .support-hero h1 { 
+                font-size: 2rem; 
+            }
+
+            .faq-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="DigitalABCs Home">
+                <img src="../assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Tools & Services</a></li>
+                    <li><a href="../apps.html">Apps</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        
+        <section class="support-hero">
+            <div class="container">
+                <h1>Linguistic Decoder Support</h1>
+                <p>Get answers to common questions about Linguistic Decoder. Learn how to use the app, understand our AI analysis, and access helpful resources.</p>
+            </div>
+        </section>
+
+        <section class="support-section">
+            <div class="container">
+                
+                <div class="support-grid">
+                    <div class="support-card">
+                        <span class="support-icon">📚</span>
+                        <h3 class="support-title">Getting Started</h3>
+                        <p class="support-desc">
+                            New to Linguistic Decoder? Learn how to use the app, upload conversations, and get your first analysis.
+                        </p>
+                        <a href="#faq" class="support-link">
+                            View Guide →
+                        </a>
+                    </div>
+
+                    <div class="support-card">
+                        <span class="support-icon">🔍</span>
+                        <h3 class="support-title">How AI Analysis Works</h3>
+                        <p class="support-desc">
+                            Understand how Linguistic Decoder uses AI to analyze conversations and what the insights mean.
+                        </p>
+                        <a href="#faq" class="support-link">
+                            Learn More →
+                        </a>
+                    </div>
+
+                    <div class="support-card">
+                        <span class="support-icon">🔐</span>
+                        <h3 class="support-title">Privacy & Data</h3>
+                        <p class="support-desc">
+                            Your conversations are stored locally on your device. Learn how we protect your privacy.
+                        </p>
+                        <a href="#faq" class="support-link">
+                            Privacy Details →
+                        </a>
+                    </div>
+
+                    <div class="support-card">
+                        <span class="support-icon">⚖️</span>
+                        <h3 class="support-title">Important Disclaimers</h3>
+                        <p class="support-desc">
+                            Linguistic Decoder is an AI analysis tool for informational purposes only. It is not medical, legal, or professional advice.
+                        </p>
+                        <a href="#disclaimers" class="support-link">
+                            Read Disclaimers →
+                        </a>
+                    </div>
+
+                    <div class="support-card">
+                        <span class="support-icon">📚</span>
+                        <h3 class="support-title">Communication Techniques</h3>
+                        <p class="support-desc">
+                            Access our educational library of proven communication strategies (Grey Rock, BIFF, etc.).
+                        </p>
+                        <a href="#faq" class="support-link">
+                            Explore Techniques →
+                        </a>
+                    </div>
+
+                    <div class="support-card">
+                        <span class="support-icon">💬</span>
+                        <h3 class="support-title">Contact Support</h3>
+                        <p class="support-desc">
+                            Have a question not covered here? Reach out to our support team directly.
+                        </p>
+                        <a href="mailto:support@digitalabcs.com.au" class="support-link">
+                            Email Support →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="faq-section" id="faq">
+                    <h2 class="faq-title">Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            <span>How do I use Linguistic Decoder?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            Using Linguistic Decoder is simple: Paste or type any conversation (text, email, chat), select the relationship type and age group for context, and the AI will analyze it instantly. You'll get insights into emotional states, communication goals, and suggestions for how to respond. You can test your response before sending and save analyses for future learning.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What types of conversations can I analyze?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            You can analyze any text-based conversation including: work emails, text messages, social media chats, family conversations, relationship discussions, and any other written communication. The app works best with conversations that have emotional or relational complexity where understanding hidden meanings is important.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is Linguistic Decoder a medical or mental health tool?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <strong>No. Linguistic Decoder is an educational AI analysis tool for informational purposes only.</strong> It is NOT a substitute for professional mental health services, therapy, counseling, or medical diagnosis. If you're experiencing mental health concerns, depression, anxiety, or any medical condition, please consult with a qualified mental health professional or medical doctor. Linguistic Decoder is designed to help you understand conversations better and improve communication skills, not to diagnose or treat mental health conditions.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can Linguistic Decoder provide legal or professional advice?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <strong>No.</strong> While Linguistic Decoder can help you understand conversations better, it is NOT a substitute for professional legal advice, business consulting, or professional guidance. For legal matters, employment issues, contracts, or other professional concerns, please consult with qualified professionals such as lawyers, accountants, or business advisors.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How accurate is the AI analysis?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            Linguistic Decoder uses advanced AI to analyze tone, emotion, and communication patterns. However, AI analysis is based on patterns and language analysis—it's not perfect and should be used as one perspective, not as absolute truth. The app is most accurate when given proper context about the relationship type and situation. Always use your own judgment and consider other perspectives.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is my conversation data safe and private?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            Yes. All conversation data is stored locally on your device—we do not store your conversations on our servers. Your data never leaves your phone or device. Linguistic Decoder does not create a history of your analyses or conversation data in the cloud. Your privacy is completely protected.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I use suggested responses directly?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            The suggested responses from Linguistic Decoder are meant to guide your thinking, not to be used word-for-word in every situation. The app provides diplomatic, assertive, and collaborative options to help you consider different approaches. Always use your own judgment, add your personal voice, and consider what feels authentic to you in the specific situation.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What if Linguistic Decoder misunderstands a conversation?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            AI is not perfect. Context matters greatly—if Linguistic Decoder seems to misunderstand, consider whether you've given it enough context about the relationship type, situation, and history. You can re-analyze with more context for better results. The app is a tool to support your thinking, not a replacement for your own understanding of the situation.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can this help me in workplace situations?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            Yes. Linguistic Decoder can help you understand work emails, colleague communication, and workplace dynamics. However, for serious workplace issues like harassment, discrimination, or legal concerns, you should consult with HR, an employment lawyer, or other professional resources. Linguistic Decoder is a tool for understanding communication, not for resolving serious workplace problems.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What are the communication techniques in the educational library?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            Linguistic Decoder includes proven communication techniques including: Grey Rock Method (maintaining emotional boundaries), BIFF Response Strategy (Brief, Informative, Friendly, Firm), "I" Statements (expressing yourself without blame), Active Listening, Boundary Setting, and Digital Safety. These are educational tools to help you improve communication skills.
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 2rem; border-radius: 8px; margin-top: 3rem;" id="disclaimers">
+                    <h3 style="color: #92400E; margin-bottom: 1rem; margin-top: 0;">⚠️ Important Disclaimers</h3>
+                    <div style="color: #78350F; line-height: 1.8; font-size: 0.95rem;">
+                        <p><strong>Educational Tool Only:</strong> Linguistic Decoder is an AI-powered analysis tool for educational and informational purposes only. It is not designed to provide medical, mental health, legal, or professional advice.</p>
+                        
+                        <p><strong>Not a Medical Tool:</strong> Linguistic Decoder is NOT a substitute for professional mental health services, therapy, counseling, or medical diagnosis. If you're experiencing mental health concerns, please consult with a qualified mental health professional or medical doctor.</p>
+                        
+                        <p><strong>Not a Legal Tool:</strong> Analysis provided by Linguistic Decoder should not be relied upon for legal advice. For legal matters, employment issues, or contracts, please consult with a qualified lawyer.</p>
+                        
+                        <p><strong>AI Limitations:</strong> Artificial intelligence has limitations. Analyses are based on language patterns and may not capture all nuances of human communication. Always use your own judgment and consider multiple perspectives.</p>
+                        
+                        <p><strong>Suggested Responses:</strong> Suggested responses are meant as guides, not as scripts. Personalize them to your situation and communication style.</p>
+                        
+                        <p><strong>Context Matters:</strong> Provide accurate context about relationships and situations for the most helpful analysis. Missing context can lead to less accurate insights.</p>
+                        
+                        <p><strong>Privacy:</strong> While your data is stored locally on your device, always be cautious about what conversations you share. Do not analyze conversations that contain sensitive information you're not comfortable with on your device.</p>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Have Questions About Linguistic Decoder?</h3>
+                    <p>Can't find the answer you're looking for? Our support team is here to help.</p>
+                    <a href="../contact.html" class="contact-link">Contact Us</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>DigitalABCs</h4>
+                    <p>Empowering Australian businesses through practical technology.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../services.html">Tools</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:support@digitalabcs.com.au">support@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #E5E7EB; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #9CA3AF;">
+                <p>&copy; 2024 DigitalABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.closest('.faq-item');
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
