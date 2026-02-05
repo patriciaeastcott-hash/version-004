@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
     <script>
@@ -23,8 +23,8 @@
     <style>
         :root {
             --brand-navy: #1E3A8A;
-            --brand-purple: #7C3AED;
-            --brand-green: #10B981;
+            --brand-purple: #5B21B6;
+            --brand-green: #065F46;
             --brand-orange: #F59E0B;
             --brand-light: #F3F4F6;
         }
@@ -69,7 +69,7 @@
 
         .login-subtitle {
             text-align: center;
-            color: #6B7280;
+            color: #4B5563;
             margin-bottom: 2rem;
             font-size: 0.95rem;
         }
@@ -124,7 +124,7 @@
             text-align: center;
             margin-top: 1.5rem;
             font-size: 0.9rem;
-            color: #6B7280;
+            color: #4B5563;
         }
 
         .login-footer a {
@@ -136,7 +136,7 @@
             display: flex;
             align-items: center;
             margin: 1.5rem 0;
-            color: #9CA3AF;
+            color: #4B5563;
             font-size: 0.85rem;
         }
 
@@ -177,7 +177,7 @@
         .login-error {
             background: #FEF2F2;
             border: 1px solid #FECACA;
-            color: #DC2626;
+            color: #991B1B;
             padding: 10px 14px;
             border-radius: 8px;
             font-size: 0.9rem;
@@ -239,7 +239,7 @@
         }
 
         .dashboard-section > p {
-            color: #6B7280;
+            color: #4B5563;
             margin-bottom: 1.5rem;
         }
 
@@ -293,7 +293,7 @@
 
         .status-coming {
             background: #FEF3C7;
-            color: #92400E;
+            color: #78350F;
         }
 
         .status-dev {
@@ -309,7 +309,7 @@
         }
 
         .card-desc {
-            color: #6B7280;
+            color: #4B5563;
             font-size: 0.9rem;
             line-height: 1.5;
             flex-grow: 1;
@@ -332,7 +332,7 @@
 
         .card-price span {
             font-weight: 400;
-            color: #9CA3AF;
+            color: #4B5563;
             font-size: 0.8rem;
         }
 
@@ -352,7 +352,7 @@
         }
 
         .action-purchase:hover {
-            background: #059669;
+            background: #064E3B;
             color: white;
             text-decoration: none;
         }
@@ -381,7 +381,7 @@
 
         .action-soon {
             background: #F3F4F6;
-            color: #9CA3AF;
+            color: #4B5563;
             cursor: default;
         }
 
@@ -399,7 +399,7 @@
             padding: 10px 20px;
             cursor: pointer;
             font-weight: 600;
-            color: #9CA3AF;
+            color: #4B5563;
             border-bottom: 2px solid transparent;
             margin-bottom: -2px;
             transition: all 0.2s;
@@ -451,7 +451,7 @@
             <a href="index.html" class="logo" aria-label="Digital ABCs Home">
                 <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
@@ -466,9 +466,10 @@
     </header>
 
     <main id="main-content">
+        <h1 class="sr-only">Client Portal</h1>
 
         <!-- LOGIN / REGISTER VIEW -->
-        <section class="portal-login-section" id="loginSection">
+        <section class="portal-login-section" id="loginSection" aria-label="Account access">
             <div class="login-container">
                 <div class="login-logo">
                     <img src="assets/logo.png" alt="Digital ABCs">
@@ -485,7 +486,7 @@
                     <h2 class="login-title">Welcome Back</h2>
                     <p class="login-subtitle">Sign in to access your services and apps</p>
 
-                    <div class="login-error" id="loginError">
+                    <div class="login-error" id="loginError" role="alert" aria-live="assertive">
                         Invalid email or password. Please try again.
                     </div>
 
@@ -511,7 +512,7 @@
                     <h2 class="login-title">Create Your Account</h2>
                     <p class="login-subtitle">Get access to all services, apps, and tools</p>
 
-                    <div class="login-error" id="registerError"></div>
+                    <div class="login-error" id="registerError" role="alert" aria-live="assertive"></div>
 
                     <form onsubmit="handleRegister(event)">
                         <div class="form-group">
@@ -751,7 +752,7 @@
                     <!-- SUPPORT -->
                     <div class="dashboard-section" style="text-align: center; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #E5E7EB;">
                         <h2 style="margin-bottom: 0.75rem;">Need Help?</h2>
-                        <p style="color: #6B7280; margin-bottom: 1.5rem;">Have a question about a service or app? Get in touch.</p>
+                        <p style="color: #4B5563; margin-bottom: 1.5rem;">Have a question about a service or app? Get in touch.</p>
                         <a href="contact.html" class="card-action action-contact" style="padding: 12px 30px; font-size: 1rem;">Contact Support</a>
                     </div>
 
@@ -794,7 +795,7 @@
                     </p>
                 </div>
             </div>
-            <div style="border-top: 1px solid #E5E7EB; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #9CA3AF;">
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
                 <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>

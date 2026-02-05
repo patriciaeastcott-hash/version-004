@@ -36,7 +36,7 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
@@ -145,7 +145,7 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
             <a href="index.html" class="logo" aria-label="DigitalABCs Home">
                 <img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
             </a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -238,7 +238,7 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
         .tally-float-btn {
             position: fixed; bottom: 20px; right: 20px; background-color: #ba38eb; color: #fff; border: none; border-radius: 50px; padding: 14px 22px; font-size: 16px; font-weight: 600; cursor: pointer; z-index: 9999; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 8px; transition: all 0.2s ease-in-out;
         }
-        .tally-float-btn:hover { background-color: #10B981; transform: translateY(-2px); }
+        .tally-float-btn:hover { background-color: #065F46; transform: translateY(-2px); }
         @media (max-width: 600px) { .tally-float-btn { padding: 12px 18px; font-size: 14px; bottom: 15px; right: 15px; } }
     </style>    
     <button class="tally-float-btn" data-tally-open="wkDaP1" data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true" data-tally-hide-title="false" data-tally-emoji-text="💡" data-tally-emoji-animation="tada"> Where are you in your AI journey?</button>

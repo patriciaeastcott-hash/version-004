@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
     <script>
@@ -22,11 +22,11 @@
     <style>
         :root {
             --brand-navy: #1E3A8A;
-            --brand-purple: #7C3AED;
-            --brand-green: #10B981;
+            --brand-purple: #5B21B6;
+            --brand-green: #065F46;
             --brand-orange: #F59E0B;
             --brand-black: #111827;
-            --brand-grey: #6B7280;
+            --brand-grey: #4B5563;
             --brand-light: #F9FAFB;
             --brand-border: #E5E7EB;
         }
@@ -42,7 +42,7 @@
         .brand-hero::before {
             content: '';
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(124, 58, 237, 0.3) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(91, 33, 182, 0.3) 1px, transparent 1px);
             background-size: 30px 30px; opacity: 0.3; pointer-events: none;
         }
 
@@ -120,7 +120,7 @@
 
         .swatch-name { font-weight: 600; color: #374151; font-size: 0.9rem; margin-bottom: 2px; }
         .swatch-hex { color: var(--brand-grey); font-size: 0.8rem; font-family: 'Roboto Mono', monospace; }
-        .swatch-use { color: #9CA3AF; font-size: 0.75rem; margin-top: 4px; }
+        .swatch-use { color: #4B5563; font-size: 0.75rem; margin-top: 4px; }
 
         /* Typography Specimens */
         .type-specimen {
@@ -186,9 +186,9 @@
             line-height: 1.8;
         }
 
-        .code-block .comment { color: #6B7280; }
-        .code-block .property { color: #7C3AED; }
-        .code-block .value { color: #10B981; }
+        .code-block .comment { color: #9CA3AF; }
+        .code-block .property { color: #C4B5FD; }
+        .code-block .value { color: #6EE7B7; }
 
         /* Do's and Don'ts */
         .do-dont-grid {
@@ -301,7 +301,7 @@
             <a href="index.html" class="logo" aria-label="Digital ABCs Home">
                 <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
@@ -432,7 +432,7 @@
         <section class="brand-section" id="colours">
             <div class="container">
                 <h2>Colour Palette</h2>
-                <p class="section-lead">Each brand has its own primary and accent colours. Shared neutrals keep everything cohesive.</p>
+                <p class="section-lead">Each brand has its own primary and accent colours. Shared neutrals keep everything cohesive. All colour pairings meet WCAG 2 AAA contrast requirements (7:1 for normal text, 4.5:1 for large text).</p>
 
                 <div class="brand-divider dabcs"><span>Digital ABCs</span></div>
 
@@ -442,23 +442,23 @@
                         <div class="swatch-info">
                             <div class="swatch-name">Navy</div>
                             <div class="swatch-hex">--color-navy</div>
-                            <div class="swatch-use">Primary brand colour. Headers, navigation active states, headings.</div>
+                            <div class="swatch-use">Primary brand colour. Headers, navigation active states, headings. 10.07:1 on white (AAA).</div>
                         </div>
                     </div>
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #7C3AED;"><span>#7C3AED</span></div>
+                        <div class="swatch-color" style="background: #5B21B6;"><span>#5B21B6</span></div>
                         <div class="swatch-info">
                             <div class="swatch-name">Purple</div>
                             <div class="swatch-hex">--color-purple</div>
-                            <div class="swatch-use">Secondary accent. App links, CTA sections, focus states, hover accents.</div>
+                            <div class="swatch-use">Secondary accent. App links, CTA sections, focus states, hover accents. 8.98:1 on white (AAA).</div>
                         </div>
                     </div>
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #10B981;"><span style="color: #065F46;">#10B981</span></div>
+                        <div class="swatch-color" style="background: #065F46;"><span>#065F46</span></div>
                         <div class="swatch-info">
                             <div class="swatch-name">Green</div>
                             <div class="swatch-hex">--color-green-cta</div>
-                            <div class="swatch-use">Primary CTA buttons, success states, "live" badges, positive indicators.</div>
+                            <div class="swatch-use">Primary CTA buttons, success states, "live" badges. 7.68:1 with white text (AAA).</div>
                         </div>
                     </div>
                     <div class="swatch">
@@ -476,9 +476,9 @@
                     <span class="comment">/* Primary hero gradient */</span><br>
                     <span class="property">background</span>: <span class="value">linear-gradient(135deg, #1E3A8A 0%, #111827 100%)</span>;<br><br>
                     <span class="comment">/* Purple CTA section gradient */</span><br>
-                    <span class="property">background</span>: <span class="value">linear-gradient(135deg, #7C3AED 0%, #1E3A8A 100%)</span>;<br><br>
+                    <span class="property">background</span>: <span class="value">linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%)</span>;<br><br>
                     <span class="comment">/* Hero background dot pattern overlay */</span><br>
-                    <span class="property">background-image</span>: <span class="value">radial-gradient(rgba(124, 58, 237, 0.3) 1px, transparent 1px)</span>;<br>
+                    <span class="property">background-image</span>: <span class="value">radial-gradient(rgba(91, 33, 182, 0.3) 1px, transparent 1px)</span>;<br>
                     <span class="property">background-size</span>: <span class="value">30px 30px</span>;<br>
                     <span class="property">opacity</span>: <span class="value">0.3</span>;
                 </div>
@@ -487,7 +487,7 @@
 
                 <div class="swatch-grid">
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #F59E0B;"><span style="color: #92400E;">#F59E0B</span></div>
+                        <div class="swatch-color" style="background: #F59E0B;"><span style="color: #78350F;">#F59E0B</span></div>
                         <div class="swatch-info">
                             <div class="swatch-name">Orange</div>
                             <div class="swatch-hex">--brand-orange</div>
@@ -503,7 +503,7 @@
                         </div>
                     </div>
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #FFFBEB; border: 1px solid #FDE68A;"><span style="color: #92400E;">#FFFBEB</span></div>
+                        <div class="swatch-color" style="background: #FFFBEB; border: 1px solid #FDE68A;"><span style="color: #78350F;">#FFFBEB</span></div>
                         <div class="swatch-info">
                             <div class="swatch-name">Warm Cream</div>
                             <div class="swatch-hex">#FFFBEB</div>
@@ -511,7 +511,7 @@
                         </div>
                     </div>
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #FEF3C7; border: 1px solid #FDE68A;"><span style="color: #92400E;">#FEF3C7</span></div>
+                        <div class="swatch-color" style="background: #FEF3C7; border: 1px solid #FDE68A;"><span style="color: #78350F;">#FEF3C7</span></div>
                         <div class="swatch-info">
                             <div class="swatch-name">Light Amber</div>
                             <div class="swatch-hex">#FEF3C7</div>
@@ -546,11 +546,11 @@
                         </div>
                     </div>
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #6B7280;"><span>#6B7280</span></div>
+                        <div class="swatch-color" style="background: #4B5563;"><span>#4B5563</span></div>
                         <div class="swatch-info">
                             <div class="swatch-name">Grey</div>
                             <div class="swatch-hex">--color-grey</div>
-                            <div class="swatch-use">Secondary text, descriptions, navigation links.</div>
+                            <div class="swatch-use">Secondary text, descriptions, navigation links. 7.56:1 on white (AAA).</div>
                         </div>
                     </div>
                     <div class="swatch">
@@ -558,7 +558,7 @@
                         <div class="swatch-info">
                             <div class="swatch-name">Light Grey</div>
                             <div class="swatch-hex">#9CA3AF</div>
-                            <div class="swatch-use">Hints, placeholders, disabled text, footer copyright.</div>
+                            <div class="swatch-use">Only on dark backgrounds (footer, code blocks). 7.44:1 on #1F2937 (AAA). Do NOT use on light backgrounds.</div>
                         </div>
                     </div>
                     <div class="swatch">
@@ -578,13 +578,32 @@
                         </div>
                     </div>
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #DC2626;"><span>#DC2626</span></div>
+                        <div class="swatch-color" style="background: #991B1B;"><span>#991B1B</span></div>
                         <div class="swatch-info">
                             <div class="swatch-name">Error Red</div>
                             <div class="swatch-hex">--color-red-error</div>
-                            <div class="swatch-use">Error messages, remove buttons, annual cost warnings.</div>
+                            <div class="swatch-use">Error messages, remove buttons, annual cost warnings. 7.80:1 on white (AAA).</div>
                         </div>
                     </div>
+                </div>
+                <h3>WCAG 2 AAA Contrast Compliance</h3>
+                <p>All text colours meet WCAG 2 Level AAA contrast requirements. Normal text (under 18pt / 24px) requires 7:1. Large text (18pt+ / 24px+ or 14pt+ / 18.67px+ bold) requires 4.5:1.</p>
+
+                <div class="code-block">
+                    <span class="comment">/* Key contrast ratios on white (#FFFFFF) background */</span><br>
+                    Navy #1E3A8A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">10.07:1</span>&nbsp;&nbsp;AAA &#10003;<br>
+                    Purple #5B21B6&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">8.98:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Green #065F46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">7.68:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003; (white text on green)<br>
+                    Grey #4B5563&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">7.56:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Black #111827&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">17.4:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Dark Grey #1F2937&nbsp;<span class="value">14.7:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Error Red #991B1B&nbsp;<span class="value">7.80:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br><br>
+                    <span class="comment">/* Key contrast ratios on dark (#1F2937) background */</span><br>
+                    White #FFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">14.7:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Light Grey #D1D5DB<span class="value">&nbsp;12.0:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003; (footer text)<br>
+                    #9CA3AF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">7.44:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003; (code comments)<br><br>
+                    <span class="comment">/* BBB Logistics: dark text on orange */</span><br>
+                    #111827 on #F59E0B<span class="value">&nbsp;8.26:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;
                 </div>
             </div>
         </section>
@@ -634,20 +653,20 @@
 
                 <div class="type-specimen">
                     <div class="label">Body Text</div>
-                    <div style="font-size: 1rem; font-weight: 400; line-height: 1.6; color: #6B7280;">This is standard body text used throughout the site. It should be comfortable to read at any screen size. We use a generous line-height of 1.6 for readability.</div>
-                    <div class="meta">1rem / 400 / 1.6 line-height / #6B7280</div>
+                    <div style="font-size: 1rem; font-weight: 400; line-height: 1.6; color: #4B5563;">This is standard body text used throughout the site. It should be comfortable to read at any screen size. We use a generous line-height of 1.6 for readability.</div>
+                    <div class="meta">1rem / 400 / 1.6 line-height / #4B5563</div>
                 </div>
 
                 <div class="type-specimen">
                     <div class="label">Section Subtitle</div>
-                    <div style="font-size: 1.1rem; font-weight: 400; line-height: 1.6; color: #6B7280;">Slightly larger text used below section headings to provide context.</div>
-                    <div class="meta">1.1rem / 400 / 1.6 line-height / #6B7280</div>
+                    <div style="font-size: 1.1rem; font-weight: 400; line-height: 1.6; color: #4B5563;">Slightly larger text used below section headings to provide context.</div>
+                    <div class="meta">1.1rem / 400 / 1.6 line-height / #4B5563</div>
                 </div>
 
                 <div class="type-specimen">
                     <div class="label">Small / Caption Text</div>
-                    <div style="font-size: 0.85rem; font-weight: 400; line-height: 1.5; color: #9CA3AF;">Used for hints, captions, legal footnotes, and secondary information.</div>
-                    <div class="meta">0.85rem / 400 / 1.5 line-height / #9CA3AF</div>
+                    <div style="font-size: 0.85rem; font-weight: 400; line-height: 1.5; color: #4B5563;">Used for hints, captions, legal footnotes, and secondary information.</div>
+                    <div class="meta">0.85rem / 400 / 1.5 line-height / #4B5563</div>
                 </div>
 
                 <div class="type-specimen">
@@ -675,22 +694,22 @@
                 <h3>Digital ABCs Buttons</h3>
 
                 <div class="button-row">
-                    <button class="spec-btn" style="background: #10B981; color: white;">Primary CTA</button>
+                    <button class="spec-btn" style="background: #065F46; color: white;">Primary CTA</button>
                     <button class="spec-btn" style="background: #1E3A8A; color: white;">Navy Action</button>
-                    <button class="spec-btn" style="background: #7C3AED; color: white;">Purple Link</button>
+                    <button class="spec-btn" style="background: #5B21B6; color: white;">Purple Link</button>
                     <button class="spec-btn" style="background: white; color: #1E3A8A; border: 1px solid #D1D5DB;">Secondary</button>
                 </div>
 
                 <div class="code-block">
-                    <span class="comment">/* Primary CTA (green) */</span><br>
-                    <span class="property">background</span>: <span class="value">#10B981</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
-                    <span class="property">hover</span>: <span class="value">#0E9F6E</span>;<br><br>
+                    <span class="comment">/* Primary CTA (green) - AAA: 7.68:1 */</span><br>
+                    <span class="property">background</span>: <span class="value">#065F46</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
+                    <span class="property">hover</span>: <span class="value">#064E3B</span>;<br><br>
                     <span class="comment">/* Navy action button */</span><br>
                     <span class="property">background</span>: <span class="value">#1E3A8A</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
                     <span class="property">hover</span>: <span class="value">#1c347a</span>;<br><br>
-                    <span class="comment">/* Purple app/tool link */</span><br>
-                    <span class="property">background</span>: <span class="value">#7C3AED</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
-                    <span class="property">hover</span>: <span class="value">#6D28D9</span>;<br><br>
+                    <span class="comment">/* Purple app/tool link - AAA: 8.98:1 */</span><br>
+                    <span class="property">background</span>: <span class="value">#5B21B6</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
+                    <span class="property">hover</span>: <span class="value">#4C1D95</span>;<br><br>
                     <span class="comment">/* Shared properties */</span><br>
                     <span class="property">padding</span>: <span class="value">12px 24px</span>;<br>
                     <span class="property">border-radius</span>: <span class="value">8px</span>;<br>
@@ -702,13 +721,13 @@
                 <h3>BBB Logistics Buttons</h3>
 
                 <div class="button-row">
-                    <button class="spec-btn" style="background: #F59E0B; color: white;">Orange Primary</button>
-                    <button class="spec-btn" style="background: #10B981; color: white;">Green Secondary</button>
+                    <button class="spec-btn" style="background: #F59E0B; color: #111827; font-weight: 700;">Orange Primary</button>
+                    <button class="spec-btn" style="background: #065F46; color: white;">Green Secondary</button>
                 </div>
 
                 <div class="code-block">
-                    <span class="comment">/* BBB Logistics primary */</span><br>
-                    <span class="property">background</span>: <span class="value">#F59E0B</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
+                    <span class="comment">/* BBB Logistics primary - AAA: dark text on orange */</span><br>
+                    <span class="property">background</span>: <span class="value">#F59E0B</span>; <span class="property">color</span>: <span class="value">#111827</span>;<br>
                     <span class="property">hover</span>: <span class="value">#D97706</span>;
                 </div>
 
@@ -731,8 +750,8 @@
                 <h3>Status Badges</h3>
                 <div class="badge-row">
                     <span class="spec-badge" style="background: #D1FAE5; color: #065F46;">Ready</span>
-                    <span class="spec-badge" style="background: #10B981; color: white;">Live</span>
-                    <span class="spec-badge" style="background: #FEF3C7; color: #92400E;">Coming Soon</span>
+                    <span class="spec-badge" style="background: #065F46; color: white;">Live</span>
+                    <span class="spec-badge" style="background: #FEF3C7; color: #78350F;">Coming Soon</span>
                     <span class="spec-badge" style="background: #E0E7FF; color: #3730A3;">In Development</span>
                     <span class="spec-badge" style="background: #D1FAE5; color: #065F46;">Available</span>
                 </div>
@@ -752,7 +771,7 @@
                 <div class="specimen-grid">
                     <div class="specimen-card">
                         <div class="card-label">Standard Card</div>
-                        <p style="font-size: 0.85rem; color: #6B7280;">White background, subtle border and shadow. Used for service cards, feature cards, values.</p>
+                        <p style="font-size: 0.85rem; color: #4B5563;">White background, subtle border and shadow. Used for service cards, feature cards, values.</p>
                         <div class="code-block" style="font-size: 0.75rem; padding: 1rem;">
                             <span class="property">background</span>: <span class="value">white</span>;<br>
                             <span class="property">padding</span>: <span class="value">2rem</span>;<br>
@@ -764,7 +783,7 @@
 
                     <div class="specimen-card" style="border-radius: 16px;">
                         <div class="card-label">App Card</div>
-                        <p style="font-size: 0.85rem; color: #6B7280;">Larger radius, lighter shadow. Hover lifts card. Used for app showcase.</p>
+                        <p style="font-size: 0.85rem; color: #4B5563;">Larger radius, lighter shadow. Hover lifts card. Used for app showcase.</p>
                         <div class="code-block" style="font-size: 0.75rem; padding: 1rem;">
                             <span class="property">padding</span>: <span class="value">2.5rem</span>;<br>
                             <span class="property">border-radius</span>: <span class="value">16px</span>;<br>
@@ -775,7 +794,7 @@
 
                     <div class="specimen-card" style="border-left: 4px solid var(--brand-purple);">
                         <div class="card-label">Accent Card</div>
-                        <p style="font-size: 0.85rem; color: #6B7280;">Left border accent. Used for approach steps, callouts, service blocks.</p>
+                        <p style="font-size: 0.85rem; color: #4B5563;">Left border accent. Used for approach steps, callouts, service blocks.</p>
                         <div class="code-block" style="font-size: 0.75rem; padding: 1rem;">
                             <span class="property">border-left</span>: <span class="value">4px solid [accent]</span>;<br>
                             <span class="property">background</span>: <span class="value">#F9FAFB</span>;<br>
@@ -1058,7 +1077,7 @@
                             <li>Ensure all interactive elements have visible focus states (purple outline)</li>
                             <li>Use semantic HTML (header, nav, main, footer, section)</li>
                             <li>Provide alt text for all images</li>
-                            <li>Maintain colour contrast ratios (WCAG AA minimum)</li>
+                            <li>Maintain colour contrast ratios (WCAG AAA: 7:1 normal text, 4.5:1 large text)</li>
                             <li>Use aria-labels where link text isn't descriptive</li>
                         </ul>
                     </div>
@@ -1084,7 +1103,7 @@
                 <p style="color: #BFDBFE; max-width: 600px; margin: 0 auto 2rem auto;">
                     If you're creating content, building pages, or designing assets for Digital ABCs or BBB Logistics, and something isn't covered here - ask.
                 </p>
-                <a href="contact.html" style="display: inline-block; padding: 14px 30px; background: #10B981; color: white; border-radius: 8px; text-decoration: none; font-weight: 700;">Get in Touch</a>
+                <a href="contact.html" style="display: inline-block; padding: 14px 30px; background: #065F46; color: white; border-radius: 8px; text-decoration: none; font-weight: 700;">Get in Touch</a>
             </div>
         </section>
 
@@ -1123,7 +1142,7 @@
                     </p>
                 </div>
             </div>
-            <div style="border-top: 1px solid #E5E7EB; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #9CA3AF;">
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
                 <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>

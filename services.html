@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
     <script>
@@ -22,8 +22,8 @@
     <style>
         :root {
             --brand-navy: #1E3A8A;
-            --brand-purple: #7C3AED;
-            --brand-green: #10B981;
+            --brand-purple: #5B21B6;
+            --brand-green: #065F46;
             --brand-green-hover: #059669;
             --brand-light: #F3F4F6;
         }
@@ -33,7 +33,7 @@
         .services-section { padding: 4rem 0; }
         .section-header { text-align: center; margin-bottom: 3rem; }
         .section-header h2 { font-size: 2rem; color: var(--brand-navy); margin-bottom: 0.5rem; }
-        .section-header p { color: #6B7280; max-width: 600px; margin: 0 auto; }
+        .section-header p { color: #4B5563; max-width: 600px; margin: 0 auto; }
 
         .services-grid {
             display: grid;
@@ -65,7 +65,7 @@
         .service-card.logistics::before {
             content: "BBB Logistics";
             position: absolute; top: 0; right: 0;
-            background: #F59E0B; color: white;
+            background: #F59E0B; color: #111827;
             font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
             border-bottom-left-radius: 12px; text-transform: uppercase;
         }
@@ -80,7 +80,7 @@
 
         .price-area { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #E5E7EB; }
         .price-now { font-size: 1.5rem; font-weight: 700; color: var(--brand-navy); }
-        .price-sub { font-size: 0.8rem; color: #6B7280; display: block; margin-top: 4px; }
+        .price-sub { font-size: 0.8rem; color: #4B5563; display: block; margin-top: 4px; }
 
         .btn-service {
             display: block; width: 100%; text-align: center; padding: 14px;
@@ -91,7 +91,7 @@
         .btn-primary:hover { background-color: var(--brand-green-hover); }
         .btn-secondary { background-color: var(--brand-navy); color: white; }
         .btn-secondary:hover { background-color: #1E3A8A; }
-        .btn-logistics { background-color: #F59E0B; color: white; }
+        .btn-logistics { background-color: #F59E0B; color: #111827; }
         .btn-logistics:hover { background-color: #D97706; }
 
         .cta-section {
@@ -107,7 +107,7 @@
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="logo"><img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html" class="active">Services</a></li>
