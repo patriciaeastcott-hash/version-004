@@ -121,10 +121,22 @@
             border-bottom-left-radius: 12px; text-transform: uppercase;
         }
 
-        .app-card.live::before {
-            content: "Live";
+        .app-card.coming::before {
+            content: "Coming Soon";
             position: absolute; top: 0; right: 0;
-            background: var(--brand-purple); color: white;
+            background: #FEF3C7; color: #78350F;
+            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
+            border-bottom-left-radius: 12px; text-transform: uppercase;
+        }
+
+        .app-card.coming {
+            border: 2px solid #FDE68A;
+        }
+
+        .app-card.available::before {
+            content: "Available";
+            position: absolute; top: 0; right: 0;
+            background: #D1FAE5; color: #065F46;
             font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
             border-bottom-left-radius: 12px; text-transform: uppercase;
         }
@@ -293,7 +305,7 @@
                         <a href="apps/decoder.html" class="app-link">Learn More</a>
                     </div>
 
-                    <div class="app-card dev">
+                    <div class="app-card coming">
                         <div>
                             <span class="app-icon">🛡️</span>
                             <h3 class="app-title">CompliancePulse</h3>
@@ -303,7 +315,7 @@
                                 Small businesses get blindsided by compliance issues and miss opportunities because they can't monitor everything. This does it automatically.
                             </div>
                         </div>
-                        <a href="apps/compliancepulse.html" class="app-link" style="background: #F59E0B;">Learn More</a>
+                        <a href="apps/compliancepulse.html" class="app-link">Learn More</a>
                     </div>
 
                     <div class="app-card dev">
@@ -346,7 +358,7 @@
 
                 <div class="apps-grid">
 
-                    <div class="app-card live">
+                    <div class="app-card available">
                         <div>
                             <span class="app-icon">✍️</span>
                             <h3 class="app-title">AI Prompt Builder</h3>
@@ -355,7 +367,7 @@
                         <a href="prompt_refinement.html" class="app-link">Use Now</a>
                     </div>
 
-                    <div class="app-card live">
+                    <div class="app-card available">
                         <div>
                             <span class="app-icon">🎨</span>
                             <h3 class="app-title">AI Image Generator</h3>
@@ -364,7 +376,7 @@
                         <a href="image_generator.html" class="app-link">Use Now</a>
                     </div>
 
-                    <div class="app-card live">
+                    <div class="app-card available">
                         <div>
                             <span class="app-icon">📈</span>
                             <h3 class="app-title">ROI Calculator</h3>
@@ -373,7 +385,7 @@
                         <a href="apps/roi-calculator.html" class="app-link">Use Now</a>
                     </div>
 
-                    <div class="app-card live">
+                    <div class="app-card available">
                         <div>
                             <span class="app-icon">⏱</span>
                             <h3 class="app-title">Process Timer</h3>
@@ -382,7 +394,7 @@
                         <a href="apps/process-timer.html" class="app-link">Use Now</a>
                     </div>
 
-                    <div class="app-card live">
+                    <div class="app-card available">
                         <div>
                             <span class="app-icon">📝</span>
                             <h3 class="app-title">Meeting Cost Calculator</h3>
@@ -455,6 +467,7 @@
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

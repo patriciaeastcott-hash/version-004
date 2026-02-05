@@ -21,7 +21,7 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
         // Optional: Remove the H2 from the content body so it doesn't appear twice
         // $content = str_replace($matches[0], '', $content); 
     } else {
-        $title = "DigitalABCs Insight";
+        $title = "Digital ABCs Insight";
     }
 
     // Extract Date from Filename (YYYYMMDD)
@@ -49,8 +49,8 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($title); ?> - DigitalABCs</title>
-    <meta name="description" content="Read the latest insights on AI, automation, and compliance from DigitalABCs.">
+    <title><?php echo htmlspecialchars($title); ?> - Digital ABCs</title>
+    <meta name="description" content="Read the latest insights on AI, automation, and compliance from Digital ABCs.">
     
     <link rel="canonical" href="https://digitalabcs.com.au/article.php?id=<?php echo htmlspecialchars($clean_name); ?>">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -101,7 +101,7 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
         }
 
         .article-content strong {
-            color: var(--color-purple, #7C3AED);
+            color: var(--color-purple, #5B21B6);
         }
 
         .breadcrumb {
@@ -110,7 +110,7 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
         }
         
         .breadcrumb a {
-            color: var(--color-purple, #7C3AED);
+            color: var(--color-purple, #5B21B6);
             text-decoration: none;
             font-weight: 500;
         }
@@ -142,15 +142,16 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="DigitalABCs Home">
-                <img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
                     <li><a href="insights.php" class="active">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
@@ -191,7 +192,7 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
             </div>
 
             <div class="section-divider"></div>
-            <div style="background: #f0f9ff; padding: 30px; border-radius: 8px; margin-top: 40px; border-left: 5px solid var(--color-purple, #7C3AED);">
+            <div style="background: #f0f9ff; padding: 30px; border-radius: 8px; margin-top: 40px; border-left: 5px solid var(--color-purple, #5B21B6);">
                 <h3 style="margin-top:0; color: var(--color-navy, #1E3A8A);">Overwhelmed by the chaos?</h3>
                 <p style="margin-bottom: 20px;">You don't have to navigate this alone. Let's audit your systems and find your stability.</p>
                 <a href="contact.html" class="btn-read-more">Book a Digital Systems Audit</a>
@@ -204,14 +205,15 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>DigitalABCs</h4>
-                    <p>Empowering Australian businesses through practical technology. Built on resilience, for resilience.</p>
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -221,26 +223,30 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 DigitalABCs. All rights reserved.</p>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
     
     <style>
         .tally-float-btn {
-            position: fixed; bottom: 20px; right: 20px; background-color: #ba38eb; color: #fff; border: none; border-radius: 50px; padding: 14px 22px; font-size: 16px; font-weight: 600; cursor: pointer; z-index: 9999; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 8px; transition: all 0.2s ease-in-out;
+            position: fixed; bottom: 20px; right: 20px; background-color: #5B21B6; color: #fff; border: none; border-radius: 50px; padding: 14px 22px; font-size: 16px; font-weight: 600; cursor: pointer; z-index: 9999; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 8px; transition: all 0.2s ease-in-out;
         }
         .tally-float-btn:hover { background-color: #065F46; transform: translateY(-2px); }
         @media (max-width: 600px) { .tally-float-btn { padding: 12px 18px; font-size: 14px; bottom: 15px; right: 15px; } }
-    </style>    
-    <button class="tally-float-btn" data-tally-open="wkDaP1" data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true" data-tally-hide-title="false" data-tally-emoji-text="💡" data-tally-emoji-animation="tada"> Where are you in your AI journey?</button>
+    </style>
+    <button class="tally-float-btn" data-tally-open="wkDaP1" data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true" data-tally-hide-title="false" data-tally-emoji-text="💡" data-tally-emoji-animation="tada">Got a workflow problem?</button>
 </body>
 </html>

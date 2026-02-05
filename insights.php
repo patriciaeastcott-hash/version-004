@@ -243,7 +243,8 @@
                 <hr class="section-divider">
                 <h2>From the Blog</h2>
                 <p>Foundational articles on workflow efficiency, automation, and building useful technology.</p>
-                </div>
+                <p style="color: #4B5563; font-style: italic; margin-top: 1rem;">Blog articles coming soon. Check back for in-depth guides and practical insights.</p>
+            </div>
         </section>
     </main>
     <footer class="site-footer">
@@ -268,14 +269,18 @@
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
                 <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
