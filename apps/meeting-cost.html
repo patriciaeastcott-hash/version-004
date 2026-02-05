@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cost Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate the true cost of your business meetings. See what meetings really cost your organisation in real dollar terms.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; --brand-orange: #F59E0B; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #F59E0B 0%, #1E3A8A 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #FEF3C7; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-orange);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .calculator-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 700px; margin: 0 auto;
+        }
+
+        .calc-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;
+        }
+
+        .calc-field label {
+            display: block; font-weight: 600; color: #374151;
+            margin-bottom: 0.4rem; font-size: 0.9rem;
+        }
+
+        .calc-field .hint {
+            display: block; color: #4B5563; font-size: 0.8rem;
+            margin-bottom: 0.4rem; font-weight: 400;
+        }
+
+        .calc-field input, .calc-field select {
+            width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px;
+            font-size: 1rem; font-family: 'Inter', sans-serif; box-sizing: border-box;
+        }
+
+        .calc-field input:focus, .calc-field select:focus {
+            outline: none; border-color: var(--brand-purple);
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+        }
+
+        .calc-btn {
+            width: 100%; padding: 14px; background: var(--brand-navy); color: white;
+            border: none; border-radius: 8px; font-size: 1rem; font-weight: 600;
+            cursor: pointer; transition: background 0.2s; font-family: 'Inter', sans-serif;
+        }
+        .calc-btn:hover { background: #1c347a; }
+
+        .result-card {
+            display: none; margin-top: 2rem; background: #FFFBEB; border: 2px solid var(--brand-orange);
+            border-radius: 12px; padding: 2rem;
+        }
+
+        .result-grid {
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;
+            margin: 1.5rem 0; text-align: center;
+        }
+
+        .result-item h4 { color: #4B5563; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.25rem; }
+        .result-item .value { font-size: 1.75rem; font-weight: 700; color: var(--brand-navy); }
+        .result-item .value.warn { color: #991B1B; }
+
+        .context-box {
+            background: white; border-radius: 8px; padding: 1.25rem;
+            margin-top: 1.5rem; border: 1px solid #FDE68A;
+        }
+
+        .context-box h4 { color: var(--brand-navy); margin-bottom: 0.5rem; }
+        .context-box p { color: #374151; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.5rem; }
+        .context-box .stat { font-weight: 700; color: var(--brand-orange); }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .calc-row { grid-template-columns: 1fr; }
+            .result-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Meeting Cost Calculator</h1>
+                <p>Find out what your meetings actually cost. Because "just a quick meeting" is never free.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="calculator-card">
+                    <h2 style="color: var(--brand-navy); margin-bottom: 0.5rem; text-align: center;">What Does This Meeting Cost?</h2>
+                    <p style="color: #4B5563; text-align: center; margin-bottom: 2rem;">Enter the meeting details to see the true cost in dollar terms.</p>
+
+                    <div class="calc-row">
+                        <div class="calc-field">
+                            <label>Number of attendees
+                                <span class="hint">Everyone in the meeting</span>
+                            </label>
+                            <input type="number" id="attendees" value="4" min="1" max="100">
+                        </div>
+                        <div class="calc-field">
+                            <label>Meeting length (minutes)
+                                <span class="hint">Include transition and setup time</span>
+                            </label>
+                            <input type="number" id="meetingLength" value="60" min="5" step="5">
+                        </div>
+                    </div>
+
+                    <div class="calc-row">
+                        <div class="calc-field">
+                            <label>Average hourly rate
+                                <span class="hint">Average across all attendees</span>
+                            </label>
+                            <input type="number" id="avgRate" value="55" min="1" step="1" placeholder="$">
+                        </div>
+                        <div class="calc-field">
+                            <label>How often?
+                                <span class="hint">How frequently does this meeting happen?</span>
+                            </label>
+                            <select id="frequency">
+                                <option value="1">One-off meeting</option>
+                                <option value="52">Weekly</option>
+                                <option value="26">Fortnightly</option>
+                                <option value="12" selected>Monthly</option>
+                                <option value="4">Quarterly</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calc-row">
+                        <div class="calc-field">
+                            <label>Prep time per person (minutes)
+                                <span class="hint">Reading docs, preparing slides, etc.</span>
+                            </label>
+                            <input type="number" id="prepTime" value="15" min="0" step="5">
+                        </div>
+                        <div class="calc-field">
+                            <label>Follow-up time per person (minutes)
+                                <span class="hint">Action items, notes, emails after</span>
+                            </label>
+                            <input type="number" id="followupTime" value="10" min="0" step="5">
+                        </div>
+                    </div>
+
+                    <button class="calc-btn" onclick="calculateMeetingCost()">Calculate Meeting Cost</button>
+
+                    <div class="result-card" id="resultCard">
+                        <h3 style="color: var(--brand-navy); text-align: center; margin-bottom: 0.5rem;">The Real Cost of This Meeting</h3>
+
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <h4>Cost Per Meeting</h4>
+                                <div class="value" id="costPerMeeting">$0</div>
+                            </div>
+                            <div class="result-item">
+                                <h4>Total Hours Consumed</h4>
+                                <div class="value" id="totalHours">0</div>
+                            </div>
+                            <div class="result-item">
+                                <h4>Annual Cost</h4>
+                                <div class="value warn" id="annualCost">$0</div>
+                            </div>
+                        </div>
+
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <h4>Meeting Time Cost</h4>
+                                <div class="value" id="meetingTimeCost">$0</div>
+                            </div>
+                            <div class="result-item">
+                                <h4>Prep Time Cost</h4>
+                                <div class="value" id="prepCost">$0</div>
+                            </div>
+                            <div class="result-item">
+                                <h4>Follow-up Cost</h4>
+                                <div class="value" id="followupCost">$0</div>
+                            </div>
+                        </div>
+
+                        <div class="context-box" id="contextBox"></div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: white; border-radius: 12px; border: 1px solid #E5E7EB;">
+                    <p style="color: #374151; margin-bottom: 1rem;">Could this meeting be an email? Let's talk about streamlining your workflows.</p>
+                    <a href="../contact.html" style="display: inline-block; padding: 12px 28px; background: var(--brand-purple); color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">Talk to Digital ABCs</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateMeetingCost() {
+            var attendees = parseInt(document.getElementById('attendees').value) || 1;
+            var meetingMinutes = parseInt(document.getElementById('meetingLength').value) || 60;
+            var avgRate = parseFloat(document.getElementById('avgRate').value) || 0;
+            var frequency = parseInt(document.getElementById('frequency').value) || 1;
+            var prepMinutes = parseInt(document.getElementById('prepTime').value) || 0;
+            var followupMinutes = parseInt(document.getElementById('followupTime').value) || 0;
+
+            var meetingHours = meetingMinutes / 60;
+            var prepHours = prepMinutes / 60;
+            var followupHours = followupMinutes / 60;
+
+            var meetTimeCost = attendees * meetingHours * avgRate;
+            var prepCost = attendees * prepHours * avgRate;
+            var followCost = attendees * followupHours * avgRate;
+
+            var totalCostPerMeeting = meetTimeCost + prepCost + followCost;
+            var totalPersonHours = attendees * (meetingHours + prepHours + followupHours);
+            var annualCost = totalCostPerMeeting * frequency;
+
+            document.getElementById('costPerMeeting').textContent = '$' + Math.round(totalCostPerMeeting).toLocaleString();
+            document.getElementById('totalHours').textContent = Math.round(totalPersonHours * 10) / 10 + ' hrs';
+            document.getElementById('annualCost').textContent = '$' + Math.round(annualCost).toLocaleString();
+            document.getElementById('meetingTimeCost').textContent = '$' + Math.round(meetTimeCost).toLocaleString();
+            document.getElementById('prepCost').textContent = '$' + Math.round(prepCost).toLocaleString();
+            document.getElementById('followupCost').textContent = '$' + Math.round(followCost).toLocaleString();
+
+            var annualHours = totalPersonHours * frequency;
+            var annualDays = Math.round(annualHours / 8 * 10) / 10;
+
+            var html = '<h4>What This Means</h4>';
+
+            if (frequency > 1) {
+                html += '<p>This meeting costs <span class="stat">$' + Math.round(totalCostPerMeeting).toLocaleString() + '</span> each time it runs. Over a year, that adds up to <span class="stat">$' + Math.round(annualCost).toLocaleString() + '</span> and <span class="stat">' + Math.round(annualHours) + ' person-hours</span> (' + annualDays + ' full working days).</p>';
+            } else {
+                html += '<p>This single meeting costs <span class="stat">$' + Math.round(totalCostPerMeeting).toLocaleString() + '</span> in total and consumes <span class="stat">' + (Math.round(totalPersonHours * 10) / 10) + ' person-hours</span>.</p>';
+            }
+
+            if (prepCost > meetTimeCost * 0.5) {
+                html += '<p>Prep time is over half the meeting cost. Consider sharing agendas further in advance or reducing prep requirements.</p>';
+            }
+
+            if (annualCost > 10000) {
+                html += '<p>At over $10k/year, this meeting is worth scrutinising. Could the outcome be achieved with a shorter meeting, fewer attendees, or a different format?</p>';
+            } else if (annualCost > 5000) {
+                html += '<p>Over $5k annually. Ask: does everyone need to be there? Could decisions be made asynchronously?</p>';
+            }
+
+            document.getElementById('contextBox').innerHTML = html;
+            document.getElementById('resultCard').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

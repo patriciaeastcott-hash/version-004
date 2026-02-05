@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
     <script>
@@ -12,10 +12,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Prompt Builder - DigitalABCs</title>
-    <meta name="description" content="Use the DigitalABCs Prompt Builder to turn your vague ideas into clear, powerful, and effective AI prompts.">
-    
-    <meta property="og:title" content="Prompt Builder - DigitalABCs">
+    <title>Prompt Builder - Digital ABCs</title>
+    <meta name="description" content="Use the Digital ABCs Prompt Builder to turn your vague ideas into clear, powerful, and effective AI prompts.">
+
+    <meta property="og:title" content="Prompt Builder - Digital ABCs">
     <meta property="og:description" content="A free tool to turn your ideas into clear, powerful AI prompts.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
@@ -164,7 +164,7 @@
         #analysis-placeholder svg {
             width: 3rem;
             height: 3rem;
-            color: #9CA3AF;
+            color: #4B5563;
             margin-bottom: 0.75rem;
         }
 
@@ -258,18 +258,18 @@
     
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="DigitalABCs Home">
-                <img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Tools & Services</a></li>
-                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a></li>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -311,7 +311,7 @@
                     </button>
                     <div id="resources-menu" class="resources-menu">
                         <ul>
-                            <li><a href="prompt_builder.html" class="active" aria-current="page">Prompt Builder</a></li>
+                            <li><a href="prompt_refinement.html" class="active" aria-current="page">Prompt Builder</a></li>
                         </ul>
                     </div>
                 </div>
@@ -398,7 +398,7 @@
                             <!-- Start Over Button -->
                             <div>
                                 <button id="reset-button"
-                                        class="w-full mt-4 p-3 bg-[#DC2626] text-white rounded-lg font-semibold shadow-sm hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                                        class="w-full mt-4 p-3 bg-[#991B1B] text-white rounded-lg font-semibold shadow-sm hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                                         aria-label="Start a new prompt refinement">
                                     Start Over
                                 </button>
@@ -426,14 +426,15 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>DigitalABCs</h4>
-                    <p>Empowering Australian businesses through practical technology. Built on resilience, for resilience.</p>
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -443,15 +444,19 @@
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 DigitalABCs. All rights reserved.</p>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -477,7 +482,7 @@
             transition: all 0.2s ease-in-out;
         }
         .tally-float-btn:hover {
-            background-color: #10B981;
+            background-color: #065F46;
             transform: translateY(-2px);
         }
         @media (max-width: 600px) {

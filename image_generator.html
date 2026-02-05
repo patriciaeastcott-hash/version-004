@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en-AU" class="h-full">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4JD4ZCN0G8');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Generator - Insights Resource</title>
+  <title>Image Generator | Digital ABCs</title>
+  <meta name="description" content="Generate images with AI using Google Imagen 3. A free utility tool from Digital ABCs.">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,11 +24,11 @@
     /* Digital ABCs Branding */
     :root {
       --navy: #1E3A8A;
-      --purple: #7C3AED;
+      --purple: #5B21B6;
       --light-blue: #60A5FA;
-      --grey: #6B7280;
-      --error-red: #DC2626;
-      --success-green: #10B981;
+      --grey: #4B5563;
+      --error-red: #991B1B;
+      --success-green: #065F46;
       --font-body: 'Inter', sans-serif;
       --font-tech: 'Roboto Mono', monospace;
     }
@@ -175,7 +185,7 @@
     }
 
     #generate-btn:hover {
-      background-color: #059669; /* Darker green (Tailwind green-700) */
+      background-color: #064E3B; /* Darker green (Tailwind green-700) */
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
     }
     
@@ -301,7 +311,10 @@
     
   </style>
 </head>
-<body class="h-full flex flex-col"> <header class="site-header">
+<body class="h-full flex flex-col">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
     <div class="header-container">
       <a href="index.html" class="logo">Digital ABCs</a>
       <nav class="main-nav" aria-label="Main navigation">
@@ -309,15 +322,16 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="apps.html">Apps We've Built</a></li>
-          <li><a href="insights.php" aria-current="page">Insights</a></li>
+          <li><a href="insights.php">Insights</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="portal.html" class="btn-login">Client Login</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     
     <div class="app-container">
       <h1>Image Generator</h1>
@@ -346,9 +360,10 @@
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-links">
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/accessibility-statement">Accessibility Statement</a>
-        <a href="/contact">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="ai_transparency.html">AI Transparency</a>
+        <a href="contact.html">Contact</a>
       </div>
       <p class="copyright">
         © 2025 Digital ABCs. All rights reserved.

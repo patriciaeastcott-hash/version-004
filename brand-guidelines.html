@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand &amp; Style Guidelines | Digital ABCs &amp; BBB Logistics</title>
+    <meta name="description" content="Brand and style guidelines for Digital ABCs and Beach to Bridge to Bush Logistics. Colours, typography, tone of voice, and visual identity.">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-purple: #5B21B6;
+            --brand-green: #065F46;
+            --brand-orange: #F59E0B;
+            --brand-black: #111827;
+            --brand-grey: #4B5563;
+            --brand-light: #F9FAFB;
+            --brand-border: #E5E7EB;
+        }
+
+        body { font-family: 'Inter', sans-serif; background: #F9FAFB; color: #1F2937; }
+
+        .brand-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            color: white; padding: 5rem 0; text-align: center;
+            position: relative; overflow: hidden;
+        }
+
+        .brand-hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(91, 33, 182, 0.3) 1px, transparent 1px);
+            background-size: 30px 30px; opacity: 0.3; pointer-events: none;
+        }
+
+        .brand-hero h1 { font-size: 3rem; margin-bottom: 0.75rem; position: relative; }
+        .brand-hero p { font-size: 1.2rem; color: #BFDBFE; max-width: 600px; margin: 0 auto; position: relative; }
+
+        .brand-nav {
+            background: white; border-bottom: 1px solid var(--brand-border);
+            padding: 1rem 0; position: sticky; top: 0; z-index: 50;
+        }
+
+        .brand-nav-inner {
+            display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
+        }
+
+        .brand-nav a {
+            color: var(--brand-grey); font-weight: 500; font-size: 0.9rem;
+            text-decoration: none; padding: 0.5rem 0;
+            border-bottom: 2px solid transparent; transition: all 0.2s;
+        }
+
+        .brand-nav a:hover { color: var(--brand-navy); border-bottom-color: var(--brand-navy); text-decoration: none; }
+
+        .brand-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--brand-border);
+        }
+
+        .brand-section:last-of-type { border-bottom: none; }
+
+        .brand-section h2 {
+            color: var(--brand-navy); font-size: 2rem; margin-bottom: 0.5rem;
+        }
+
+        .brand-section .section-lead {
+            color: var(--brand-grey); font-size: 1.1rem; margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        .brand-section h3 {
+            color: var(--brand-black); font-size: 1.25rem; margin-top: 2.5rem; margin-bottom: 1rem;
+            padding-bottom: 0.5rem; border-bottom: 1px solid var(--brand-border);
+        }
+
+        .brand-section h4 {
+            color: var(--brand-navy); font-size: 1rem; margin-top: 1.5rem; margin-bottom: 0.5rem;
+        }
+
+        .brand-section p, .brand-section li { line-height: 1.7; margin-bottom: 0.75rem; }
+        .brand-section ul { padding-left: 1.25rem; margin-bottom: 1.5rem; }
+
+        /* Colour Swatches */
+        .swatch-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.25rem; margin: 1.5rem 0;
+        }
+
+        .swatch {
+            border-radius: 12px; overflow: hidden; border: 1px solid var(--brand-border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .swatch-color {
+            height: 80px; display: flex; align-items: flex-end; padding: 8px 12px;
+        }
+
+        .swatch-color span {
+            font-size: 0.75rem; font-weight: 600; padding: 3px 8px; border-radius: 4px;
+            background: rgba(255,255,255,0.9); color: #374151;
+        }
+
+        .swatch-info {
+            padding: 12px; background: white;
+        }
+
+        .swatch-name { font-weight: 600; color: #374151; font-size: 0.9rem; margin-bottom: 2px; }
+        .swatch-hex { color: var(--brand-grey); font-size: 0.8rem; font-family: 'Roboto Mono', monospace; }
+        .swatch-use { color: #4B5563; font-size: 0.75rem; margin-top: 4px; }
+
+        /* Typography Specimens */
+        .type-specimen {
+            background: white; border: 1px solid var(--brand-border); border-radius: 12px;
+            padding: 2rem; margin-bottom: 1.25rem;
+        }
+
+        .type-specimen .label {
+            font-size: 0.75rem; font-weight: 600; color: var(--brand-purple);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;
+        }
+
+        .type-specimen .meta {
+            font-size: 0.8rem; color: var(--brand-grey); margin-top: 0.5rem;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Button Specimens */
+        .button-row {
+            display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+            margin: 1rem 0;
+        }
+
+        .spec-btn {
+            display: inline-block; padding: 12px 24px; border-radius: 8px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none;
+            font-family: 'Inter', sans-serif; border: none; cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        /* Card Specimens */
+        .specimen-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; margin: 1.5rem 0;
+        }
+
+        .specimen-card {
+            background: white; padding: 1.5rem; border-radius: 12px;
+            border: 1px solid var(--brand-border); box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .specimen-card .card-label {
+            font-size: 0.7rem; font-weight: 700; color: var(--brand-purple);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem;
+        }
+
+        /* Badge Specimens */
+        .badge-row {
+            display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0;
+        }
+
+        .spec-badge {
+            display: inline-block; padding: 5px 14px; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #1F2937; color: #E5E7EB; padding: 1.5rem;
+            border-radius: 8px; font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem; overflow-x: auto; margin: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .code-block .comment { color: #9CA3AF; }
+        .code-block .property { color: #C4B5FD; }
+        .code-block .value { color: #6EE7B7; }
+
+        /* Do's and Don'ts */
+        .do-dont-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;
+        }
+
+        .do-box, .dont-box {
+            padding: 1.5rem; border-radius: 12px;
+        }
+
+        .do-box {
+            background: #F0FDF4; border: 1px solid #BBF7D0;
+        }
+
+        .dont-box {
+            background: #FEF2F2; border: 1px solid #FECACA;
+        }
+
+        .do-box h4 { color: #065F46; margin-top: 0; }
+        .dont-box h4 { color: #991B1B; margin-top: 0; }
+        .do-box li, .dont-box li { font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+        /* Logo Specimens */
+        .logo-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem; margin: 1.5rem 0;
+        }
+
+        .logo-specimen {
+            padding: 2rem; border-radius: 12px; text-align: center;
+            border: 1px solid var(--brand-border); display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            min-height: 160px;
+        }
+
+        .logo-specimen img { max-width: 200px; height: auto; margin-bottom: 1rem; }
+        .logo-specimen .label { font-size: 0.8rem; color: var(--brand-grey); }
+
+        /* Spacing Specimens */
+        .spacing-row {
+            display: flex; align-items: center; gap: 1rem; margin: 0.75rem 0;
+        }
+
+        .spacing-bar {
+            height: 24px; background: var(--brand-purple); border-radius: 4px;
+            opacity: 0.15;
+        }
+
+        .spacing-label {
+            font-family: 'Roboto Mono', monospace; font-size: 0.8rem; color: var(--brand-grey);
+            min-width: 120px;
+        }
+
+        .spacing-value {
+            font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 600;
+            color: var(--brand-purple);
+        }
+
+        /* Tone examples */
+        .tone-example {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1rem 0;
+        }
+
+        .tone-card {
+            padding: 1.5rem; border-radius: 12px; border: 1px solid var(--brand-border);
+        }
+
+        .tone-card.good { background: #F0FDF4; border-color: #BBF7D0; }
+        .tone-card.bad { background: #FEF2F2; border-color: #FECACA; }
+        .tone-card .tone-label {
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 0.5rem;
+        }
+        .tone-card.good .tone-label { color: #065F46; }
+        .tone-card.bad .tone-label { color: #991B1B; }
+        .tone-card p { font-size: 0.9rem; margin-bottom: 0; color: #374151; font-style: italic; }
+
+        /* Divider */
+        .brand-divider {
+            display: flex; align-items: center; gap: 1rem; margin: 3rem 0 1rem 0;
+        }
+
+        .brand-divider span {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; white-space: nowrap;
+        }
+
+        .brand-divider::after {
+            content: ''; flex: 1; height: 2px;
+        }
+
+        .brand-divider.dabcs span { color: var(--brand-navy); }
+        .brand-divider.dabcs::after { background: var(--brand-navy); opacity: 0.15; }
+        .brand-divider.bbb span { color: var(--brand-orange); }
+        .brand-divider.bbb::after { background: var(--brand-orange); opacity: 0.3; }
+
+        @media (max-width: 768px) {
+            .brand-hero h1 { font-size: 2rem; }
+            .do-dont-grid, .tone-example { grid-template-columns: 1fr; }
+            .swatch-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="brand-hero">
+            <div class="container">
+                <h1>Brand &amp; Style Guidelines</h1>
+                <p>The visual identity, voice, and design standards for Digital ABCs and Beach to Bridge to Bush Logistics.</p>
+            </div>
+        </section>
+
+        <nav class="brand-nav">
+            <div class="container">
+                <div class="brand-nav-inner">
+                    <a href="#brand-overview">Overview</a>
+                    <a href="#logos">Logos</a>
+                    <a href="#colours">Colours</a>
+                    <a href="#typography">Typography</a>
+                    <a href="#buttons">Buttons</a>
+                    <a href="#cards">Cards &amp; Badges</a>
+                    <a href="#spacing">Spacing</a>
+                    <a href="#voice">Voice &amp; Tone</a>
+                    <a href="#dos-donts">Do's &amp; Don'ts</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ===== BRAND OVERVIEW ===== -->
+        <section class="brand-section" id="brand-overview">
+            <div class="container">
+                <h2>Brand Overview</h2>
+                <p class="section-lead">Two businesses, one owner, one mission: find what's broken and fix it. These guidelines keep both brands consistent while letting each one have its own identity.</p>
+
+                <div class="specimen-grid">
+                    <div class="specimen-card" style="border-left: 4px solid var(--brand-navy);">
+                        <div class="card-label">Digital ABCs</div>
+                        <h4 style="margin-top: 0;">App Development &amp; Tech Services</h4>
+                        <p style="color: #4B5563; font-size: 0.9rem;">We deep-dive into business workflows, find the bottlenecks, and build custom applications to eliminate them. We also offer general tech support and consulting.</p>
+                        <p style="font-size: 0.85rem; margin-bottom: 0;"><strong>Personality:</strong> Direct, practical, no-nonsense. Technical expertise without the jargon. Honest about what will and won't work.</p>
+                    </div>
+
+                    <div class="specimen-card" style="border-left: 4px solid var(--brand-orange);">
+                        <div class="card-label" style="color: var(--brand-orange);">BBB Logistics</div>
+                        <h4 style="margin-top: 0;">Beach to Bridge to Bush Logistics</h4>
+                        <p style="color: #4B5563; font-size: 0.9rem;">Flexible delivery services for local businesses. Single and multi-drop deliveries, seasonal support, returns handling. Transparent pricing, reliable service.</p>
+                        <p style="font-size: 0.85rem; margin-bottom: 0;"><strong>Personality:</strong> Warm, reliable, straightforward. A real person who loves driving, knows the roads, and gets your stuff where it needs to go.</p>
+                    </div>
+                </div>
+
+                <h3>Brand Relationship</h3>
+                <p>Digital ABCs is the parent brand. BBB Logistics operates as a separate service under the same business owner. They share a website but maintain distinct visual identities:</p>
+                <ul>
+                    <li><strong>Digital ABCs</strong> uses a cool palette (navy, purple, green) conveying professionalism and technical precision</li>
+                    <li><strong>BBB Logistics</strong> uses a warm palette (orange, amber, cream) conveying approachability and energy</li>
+                    <li>Both brands share the same typography (Inter), layout system, and component patterns</li>
+                    <li>Both maintain the same honest, direct tone of voice</li>
+                </ul>
+
+                <h3>Brand Values</h3>
+                <ul>
+                    <li><strong>Honesty first</strong> - Tell people what will work and what won't. No upselling, no spin.</li>
+                    <li><strong>Show, don't sell</strong> - Build useful free tools. Let the work speak for itself.</li>
+                    <li><strong>Keep it simple</strong> - If it needs a training course, it's failed. This applies to design too.</li>
+                    <li><strong>Respect people's time</strong> - Clear pricing, transparent processes, no hidden fees.</li>
+                    <li><strong>Real over polished</strong> - Authentic over corporate. Relatable over impressive.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== LOGOS ===== -->
+        <section class="brand-section" id="logos">
+            <div class="container">
+                <h2>Logos</h2>
+                <p class="section-lead">Logo files and usage rules for both brands.</p>
+
+                <h3>Primary Logos</h3>
+
+                <div class="logo-grid">
+                    <div class="logo-specimen" style="background: white;">
+                        <img src="assets/logo.png" alt="Digital ABCs Primary Logo">
+                        <span class="label">Primary Logo - Light Background</span>
+                    </div>
+                    <div class="logo-specimen" style="background: #1E3A8A;">
+                        <img src="assets/logo.png" alt="Digital ABCs Logo on Dark" style="filter: brightness(0) invert(1); opacity: 0.9;">
+                        <span class="label" style="color: #BFDBFE;">Primary Logo - Dark Background</span>
+                    </div>
+                </div>
+
+                <h3>Logo Sizing</h3>
+                <ul>
+                    <li><strong>Desktop header:</strong> 300px width, auto height</li>
+                    <li><strong>Mobile header:</strong> Max 50% of container width</li>
+                    <li><strong>Minimum size:</strong> 120px width (below this, text becomes illegible)</li>
+                    <li><strong>Favicon:</strong> Use <code>assets/favicon.ico</code></li>
+                </ul>
+
+                <h3>Logo Clear Space</h3>
+                <p>Maintain clear space around the logo equal to at least the height of the logo mark. No other elements, text, or graphics should intrude into this space.</p>
+
+                <h3>Available Logo Files</h3>
+                <div class="code-block">
+                    <span class="comment">/* Logo assets in /assets/ directory */</span><br>
+                    logo.png&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Primary site logo */</span><br>
+                    logo2.png&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Alternative logo */</span><br>
+                    DigitalABCsLogo.png&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Full branded Digital ABCs logo */</span><br>
+                    DABCAIApps.png&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* AI Apps division logo */</span><br>
+                    DABCConsultingLogo.png&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Consulting division logo */</span><br>
+                    DABCEducationLogo.png&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Education division logo */</span><br>
+                    favicon.ico&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Browser tab icon */</span><br>
+                    hero-banner.jpg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Hero section background */</span><br>
+                    profile.png&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Founder profile image */</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COLOURS ===== -->
+        <section class="brand-section" id="colours">
+            <div class="container">
+                <h2>Colour Palette</h2>
+                <p class="section-lead">Each brand has its own primary and accent colours. Shared neutrals keep everything cohesive. All colour pairings meet WCAG 2 AAA contrast requirements (7:1 for normal text, 4.5:1 for large text).</p>
+
+                <div class="brand-divider dabcs"><span>Digital ABCs</span></div>
+
+                <div class="swatch-grid">
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #1E3A8A;"><span>#1E3A8A</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Navy</div>
+                            <div class="swatch-hex">--color-navy</div>
+                            <div class="swatch-use">Primary brand colour. Headers, navigation active states, headings. 10.07:1 on white (AAA).</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #5B21B6;"><span>#5B21B6</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Purple</div>
+                            <div class="swatch-hex">--color-purple</div>
+                            <div class="swatch-use">Secondary accent. App links, CTA sections, focus states, hover accents. 8.98:1 on white (AAA).</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #065F46;"><span>#065F46</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Green</div>
+                            <div class="swatch-hex">--color-green-cta</div>
+                            <div class="swatch-use">Primary CTA buttons, success states, "live" badges. 7.68:1 with white text (AAA).</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #60A5FA;"><span style="color: #1E3A8A;">#60A5FA</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Light Blue</div>
+                            <div class="swatch-hex">--color-light-blue</div>
+                            <div class="swatch-use">Tertiary accent. Hero subtitle text, decorative highlights.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Digital ABCs Hero Gradients</h4>
+                <div class="code-block">
+                    <span class="comment">/* Primary hero gradient */</span><br>
+                    <span class="property">background</span>: <span class="value">linear-gradient(135deg, #1E3A8A 0%, #111827 100%)</span>;<br><br>
+                    <span class="comment">/* Purple CTA section gradient */</span><br>
+                    <span class="property">background</span>: <span class="value">linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%)</span>;<br><br>
+                    <span class="comment">/* Hero background dot pattern overlay */</span><br>
+                    <span class="property">background-image</span>: <span class="value">radial-gradient(rgba(91, 33, 182, 0.3) 1px, transparent 1px)</span>;<br>
+                    <span class="property">background-size</span>: <span class="value">30px 30px</span>;<br>
+                    <span class="property">opacity</span>: <span class="value">0.3</span>;
+                </div>
+
+                <div class="brand-divider bbb"><span>BBB Logistics</span></div>
+
+                <div class="swatch-grid">
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #F59E0B;"><span style="color: #78350F;">#F59E0B</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Orange</div>
+                            <div class="swatch-hex">--brand-orange</div>
+                            <div class="swatch-use">Primary BBB brand colour. Hero, buttons, input focus, card borders.</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #D97706;"><span>#D97706</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Dark Orange</div>
+                            <div class="swatch-hex">--brand-orange-dark</div>
+                            <div class="swatch-use">Hover states for BBB buttons. Gradient end-point.</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #FFFBEB; border: 1px solid #FDE68A;"><span style="color: #78350F;">#FFFBEB</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Warm Cream</div>
+                            <div class="swatch-hex">#FFFBEB</div>
+                            <div class="swatch-use">BBB page background. Replaces cool #F9FAFB. Pricing cards, callouts.</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #FEF3C7; border: 1px solid #FDE68A;"><span style="color: #78350F;">#FEF3C7</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Light Amber</div>
+                            <div class="swatch-hex">#FEF3C7</div>
+                            <div class="swatch-use">Hero subtitle text, "Coming Soon" badge backgrounds, result cards.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>BBB Logistics Hero Gradient</h4>
+                <div class="code-block">
+                    <span class="comment">/* BBB Logistics hero gradient */</span><br>
+                    <span class="property">background</span>: <span class="value">linear-gradient(135deg, #F59E0B 0%, #D97706 100%)</span>;
+                </div>
+
+                <div class="brand-divider dabcs"><span>Shared Neutrals</span></div>
+
+                <div class="swatch-grid">
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #111827;"><span>#111827</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Black</div>
+                            <div class="swatch-hex">--color-black</div>
+                            <div class="swatch-use">Headlines, footer background, darkest text.</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #1F2937;"><span>#1F2937</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Dark Grey</div>
+                            <div class="swatch-hex">#1F2937</div>
+                            <div class="swatch-use">Primary body text on light backgrounds.</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #4B5563;"><span>#4B5563</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Grey</div>
+                            <div class="swatch-hex">--color-grey</div>
+                            <div class="swatch-use">Secondary text, descriptions, navigation links. 7.56:1 on white (AAA).</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #9CA3AF;"><span style="color: #374151;">#9CA3AF</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Light Grey</div>
+                            <div class="swatch-hex">#9CA3AF</div>
+                            <div class="swatch-use">Only on dark backgrounds (footer, code blocks). 7.44:1 on #1F2937 (AAA). Do NOT use on light backgrounds.</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #E5E7EB; border: 1px solid #D1D5DB;"><span style="color: #374151;">#E5E7EB</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Border</div>
+                            <div class="swatch-hex">#E5E7EB</div>
+                            <div class="swatch-use">Card borders, dividers, section separators, table rows.</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #F9FAFB; border: 1px solid #E5E7EB;"><span style="color: #374151;">#F9FAFB</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Light Background</div>
+                            <div class="swatch-hex">--color-light-bg</div>
+                            <div class="swatch-use">Digital ABCs page backgrounds, alternating sections, input backgrounds.</div>
+                        </div>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #991B1B;"><span>#991B1B</span></div>
+                        <div class="swatch-info">
+                            <div class="swatch-name">Error Red</div>
+                            <div class="swatch-hex">--color-red-error</div>
+                            <div class="swatch-use">Error messages, remove buttons, annual cost warnings. 7.80:1 on white (AAA).</div>
+                        </div>
+                    </div>
+                </div>
+                <h3>WCAG 2 AAA Contrast Compliance</h3>
+                <p>All text colours meet WCAG 2 Level AAA contrast requirements. Normal text (under 18pt / 24px) requires 7:1. Large text (18pt+ / 24px+ or 14pt+ / 18.67px+ bold) requires 4.5:1.</p>
+
+                <div class="code-block">
+                    <span class="comment">/* Key contrast ratios on white (#FFFFFF) background */</span><br>
+                    Navy #1E3A8A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">10.07:1</span>&nbsp;&nbsp;AAA &#10003;<br>
+                    Purple #5B21B6&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">8.98:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Green #065F46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">7.68:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003; (white text on green)<br>
+                    Grey #4B5563&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">7.56:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Black #111827&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">17.4:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Dark Grey #1F2937&nbsp;<span class="value">14.7:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Error Red #991B1B&nbsp;<span class="value">7.80:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br><br>
+                    <span class="comment">/* Key contrast ratios on dark (#1F2937) background */</span><br>
+                    White #FFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">14.7:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;<br>
+                    Light Grey #D1D5DB<span class="value">&nbsp;12.0:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003; (footer text)<br>
+                    #9CA3AF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">7.44:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003; (code comments)<br><br>
+                    <span class="comment">/* BBB Logistics: dark text on orange */</span><br>
+                    #111827 on #F59E0B<span class="value">&nbsp;8.26:1</span>&nbsp;&nbsp;&nbsp;AAA &#10003;
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TYPOGRAPHY ===== -->
+        <section class="brand-section" id="typography">
+            <div class="container">
+                <h2>Typography</h2>
+                <p class="section-lead">Two font families. Inter for everything humans read, Roboto Mono for code and data.</p>
+
+                <h3>Font Families</h3>
+
+                <div class="code-block">
+                    <span class="comment">/* Primary font - all UI and body text */</span><br>
+                    <span class="property">font-family</span>: <span class="value">'Inter', sans-serif</span>;<br><br>
+                    <span class="comment">/* Monospace - code, data, timers, hex values */</span><br>
+                    <span class="property">font-family</span>: <span class="value">'Roboto Mono', monospace</span>;<br><br>
+                    <span class="comment">/* Google Fonts import */</span><br>
+                    fonts.googleapis.com/css2?family=<span class="value">Inter:wght@400;500;600;700</span>&amp;family=<span class="value">Roboto+Mono:wght@400;500</span>
+                </div>
+
+                <h3>Type Scale</h3>
+
+                <div class="type-specimen">
+                    <div class="label">H1 - Page Hero</div>
+                    <div style="font-size: 3rem; font-weight: 700; line-height: 1.2; color: #111827;">Your Workflow Has a Bottleneck</div>
+                    <div class="meta">3rem / 700 / 1.2 line-height / #111827</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="label">H1 - Standard Page</div>
+                    <div style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; color: #111827;">Page Title Here</div>
+                    <div class="meta">2.5rem / 700 / 1.2 line-height / #111827</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="label">H2 - Section Heading</div>
+                    <div style="font-size: 2rem; font-weight: 700; line-height: 1.2; color: #1E3A8A;">Section Heading</div>
+                    <div class="meta">2rem / 700 / 1.2 line-height / #1E3A8A (navy)</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="label">H3 - Card / Subsection Heading</div>
+                    <div style="font-size: 1.25rem; font-weight: 700; line-height: 1.2; color: #111827;">Card or Subsection Title</div>
+                    <div class="meta">1.25rem / 700 / 1.2 line-height / #111827</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="label">Body Text</div>
+                    <div style="font-size: 1rem; font-weight: 400; line-height: 1.6; color: #4B5563;">This is standard body text used throughout the site. It should be comfortable to read at any screen size. We use a generous line-height of 1.6 for readability.</div>
+                    <div class="meta">1rem / 400 / 1.6 line-height / #4B5563</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="label">Section Subtitle</div>
+                    <div style="font-size: 1.1rem; font-weight: 400; line-height: 1.6; color: #4B5563;">Slightly larger text used below section headings to provide context.</div>
+                    <div class="meta">1.1rem / 400 / 1.6 line-height / #4B5563</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="label">Small / Caption Text</div>
+                    <div style="font-size: 0.85rem; font-weight: 400; line-height: 1.5; color: #4B5563;">Used for hints, captions, legal footnotes, and secondary information.</div>
+                    <div class="meta">0.85rem / 400 / 1.5 line-height / #4B5563</div>
+                </div>
+
+                <div class="type-specimen">
+                    <div class="label">Monospace - Data / Code</div>
+                    <div style="font-family: 'Roboto Mono', monospace; font-size: 1rem; font-weight: 500; color: #1E3A8A;">$1,000 | 00:05:32 | #1E3A8A</div>
+                    <div class="meta">Roboto Mono / 1rem / 500 / Used for prices, timers, hex values, code</div>
+                </div>
+
+                <h3>Font Weights</h3>
+                <ul>
+                    <li><strong>400 (Regular)</strong> - Body text, descriptions, paragraphs</li>
+                    <li><strong>500 (Medium)</strong> - Navigation links, button text, secondary labels</li>
+                    <li><strong>600 (SemiBold)</strong> - Form labels, badge text, card labels</li>
+                    <li><strong>700 (Bold)</strong> - All headings, prices, CTAs, emphasis</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== BUTTONS ===== -->
+        <section class="brand-section" id="buttons">
+            <div class="container">
+                <h2>Buttons &amp; CTAs</h2>
+                <p class="section-lead">Consistent button styles across both brands. All buttons use 8px border-radius and 600-700 font-weight.</p>
+
+                <h3>Digital ABCs Buttons</h3>
+
+                <div class="button-row">
+                    <button class="spec-btn" style="background: #065F46; color: white;">Primary CTA</button>
+                    <button class="spec-btn" style="background: #1E3A8A; color: white;">Navy Action</button>
+                    <button class="spec-btn" style="background: #5B21B6; color: white;">Purple Link</button>
+                    <button class="spec-btn" style="background: white; color: #1E3A8A; border: 1px solid #D1D5DB;">Secondary</button>
+                </div>
+
+                <div class="code-block">
+                    <span class="comment">/* Primary CTA (green) - AAA: 7.68:1 */</span><br>
+                    <span class="property">background</span>: <span class="value">#065F46</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
+                    <span class="property">hover</span>: <span class="value">#064E3B</span>;<br><br>
+                    <span class="comment">/* Navy action button */</span><br>
+                    <span class="property">background</span>: <span class="value">#1E3A8A</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
+                    <span class="property">hover</span>: <span class="value">#1c347a</span>;<br><br>
+                    <span class="comment">/* Purple app/tool link - AAA: 8.98:1 */</span><br>
+                    <span class="property">background</span>: <span class="value">#5B21B6</span>; <span class="property">color</span>: <span class="value">white</span>;<br>
+                    <span class="property">hover</span>: <span class="value">#4C1D95</span>;<br><br>
+                    <span class="comment">/* Shared properties */</span><br>
+                    <span class="property">padding</span>: <span class="value">12px 24px</span>;<br>
+                    <span class="property">border-radius</span>: <span class="value">8px</span>;<br>
+                    <span class="property">font-weight</span>: <span class="value">600</span>;<br>
+                    <span class="property">transition</span>: <span class="value">all 0.2s</span>;<br>
+                    <span class="property">hover transform</span>: <span class="value">translateY(-2px)</span>;
+                </div>
+
+                <h3>BBB Logistics Buttons</h3>
+
+                <div class="button-row">
+                    <button class="spec-btn" style="background: #F59E0B; color: #111827; font-weight: 700;">Orange Primary</button>
+                    <button class="spec-btn" style="background: #065F46; color: white;">Green Secondary</button>
+                </div>
+
+                <div class="code-block">
+                    <span class="comment">/* BBB Logistics primary - AAA: dark text on orange */</span><br>
+                    <span class="property">background</span>: <span class="value">#F59E0B</span>; <span class="property">color</span>: <span class="value">#111827</span>;<br>
+                    <span class="property">hover</span>: <span class="value">#D97706</span>;
+                </div>
+
+                <h3>Button Sizing</h3>
+                <ul>
+                    <li><strong>Standard:</strong> <code>padding: 12px 24px</code> - Most inline buttons</li>
+                    <li><strong>Large:</strong> <code>padding: 14px 30px</code> - Hero CTAs, feature CTAs</li>
+                    <li><strong>Full Width:</strong> <code>width: 100%; padding: 14px</code> - Form submit buttons, login</li>
+                    <li><strong>Small:</strong> <code>padding: 8px 18px; font-size: 0.85rem</code> - Card footer actions</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== CARDS & BADGES ===== -->
+        <section class="brand-section" id="cards">
+            <div class="container">
+                <h2>Cards &amp; Badges</h2>
+                <p class="section-lead">Reusable card and badge patterns used across both brands.</p>
+
+                <h3>Status Badges</h3>
+                <div class="badge-row">
+                    <span class="spec-badge" style="background: #D1FAE5; color: #065F46;">Ready</span>
+                    <span class="spec-badge" style="background: #065F46; color: white;">Live</span>
+                    <span class="spec-badge" style="background: #FEF3C7; color: #78350F;">Coming Soon</span>
+                    <span class="spec-badge" style="background: #E0E7FF; color: #3730A3;">In Development</span>
+                    <span class="spec-badge" style="background: #D1FAE5; color: #065F46;">Available</span>
+                </div>
+
+                <div class="code-block">
+                    <span class="comment">/* Badge base styles */</span><br>
+                    <span class="property">padding</span>: <span class="value">5px 14px</span>;<br>
+                    <span class="property">border-radius</span>: <span class="value">50px</span>;<br>
+                    <span class="property">font-size</span>: <span class="value">0.75rem</span>;<br>
+                    <span class="property">font-weight</span>: <span class="value">700</span>;<br>
+                    <span class="property">text-transform</span>: <span class="value">uppercase</span>;<br>
+                    <span class="property">letter-spacing</span>: <span class="value">0.5px - 1px</span>;
+                </div>
+
+                <h3>Card Patterns</h3>
+
+                <div class="specimen-grid">
+                    <div class="specimen-card">
+                        <div class="card-label">Standard Card</div>
+                        <p style="font-size: 0.85rem; color: #4B5563;">White background, subtle border and shadow. Used for service cards, feature cards, values.</p>
+                        <div class="code-block" style="font-size: 0.75rem; padding: 1rem;">
+                            <span class="property">background</span>: <span class="value">white</span>;<br>
+                            <span class="property">padding</span>: <span class="value">2rem</span>;<br>
+                            <span class="property">border</span>: <span class="value">1px solid #E5E7EB</span>;<br>
+                            <span class="property">border-radius</span>: <span class="value">8px</span>;<br>
+                            <span class="property">box-shadow</span>: <span class="value">0 4px 6px -1px rgba(0,0,0,0.1)</span>;
+                        </div>
+                    </div>
+
+                    <div class="specimen-card" style="border-radius: 16px;">
+                        <div class="card-label">App Card</div>
+                        <p style="font-size: 0.85rem; color: #4B5563;">Larger radius, lighter shadow. Hover lifts card. Used for app showcase.</p>
+                        <div class="code-block" style="font-size: 0.75rem; padding: 1rem;">
+                            <span class="property">padding</span>: <span class="value">2.5rem</span>;<br>
+                            <span class="property">border-radius</span>: <span class="value">16px</span>;<br>
+                            <span class="property">box-shadow</span>: <span class="value">0 4px 6px -1px rgba(0,0,0,0.05)</span>;<br>
+                            <span class="property">hover</span>: <span class="value">translateY(-8px)</span>;
+                        </div>
+                    </div>
+
+                    <div class="specimen-card" style="border-left: 4px solid var(--brand-purple);">
+                        <div class="card-label">Accent Card</div>
+                        <p style="font-size: 0.85rem; color: #4B5563;">Left border accent. Used for approach steps, callouts, service blocks.</p>
+                        <div class="code-block" style="font-size: 0.75rem; padding: 1rem;">
+                            <span class="property">border-left</span>: <span class="value">4px solid [accent]</span>;<br>
+                            <span class="property">background</span>: <span class="value">#F9FAFB</span>;<br>
+                            <span class="property">padding</span>: <span class="value">1.5rem</span>;<br>
+                            <span class="property">border-radius</span>: <span class="value">8px</span>;
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Card Hover Behaviour</h3>
+                <ul>
+                    <li><strong>App cards:</strong> <code>translateY(-8px)</code> + enhanced shadow + purple border</li>
+                    <li><strong>Approach cards:</strong> <code>scale(1.02)</code> + purple border</li>
+                    <li><strong>Service cards:</strong> <code>translateY(-5px)</code> + enhanced shadow</li>
+                    <li><strong>Transition:</strong> Always <code>transition: all 0.2s - 0.3s ease</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== SPACING ===== -->
+        <section class="brand-section" id="spacing">
+            <div class="container">
+                <h2>Spacing &amp; Layout</h2>
+                <p class="section-lead">Consistent spacing creates visual rhythm. These values should be used throughout.</p>
+
+                <h3>Container</h3>
+                <div class="code-block">
+                    <span class="property">max-width</span>: <span class="value">1100px</span>;<br>
+                    <span class="property">margin</span>: <span class="value">0 auto</span>;<br>
+                    <span class="property">padding</span>: <span class="value">0 1rem</span>;
+                </div>
+
+                <h3>Section Spacing</h3>
+                <div class="spacing-row">
+                    <span class="spacing-label">Section padding</span>
+                    <div class="spacing-bar" style="width: 200px;"></div>
+                    <span class="spacing-value">4rem (64px)</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-label">Hero padding</span>
+                    <div class="spacing-bar" style="width: 280px;"></div>
+                    <span class="spacing-value">5-6rem (80-96px)</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-label">Section title gap</span>
+                    <div class="spacing-bar" style="width: 150px;"></div>
+                    <span class="spacing-value">3rem (48px)</span>
+                </div>
+
+                <h3>Component Spacing</h3>
+                <div class="spacing-row">
+                    <span class="spacing-label">Grid gap (std)</span>
+                    <div class="spacing-bar" style="width: 75px;"></div>
+                    <span class="spacing-value">1.5rem (24px)</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-label">Grid gap (large)</span>
+                    <div class="spacing-bar" style="width: 100px;"></div>
+                    <span class="spacing-value">2rem (32px)</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-label">Card padding</span>
+                    <div class="spacing-bar" style="width: 100px;"></div>
+                    <span class="spacing-value">2rem (32px)</span>
+                </div>
+                <div class="spacing-row">
+                    <span class="spacing-label">Card padding (app)</span>
+                    <div class="spacing-bar" style="width: 125px;"></div>
+                    <span class="spacing-value">2.5rem (40px)</span>
+                </div>
+
+                <h3>Grid Systems</h3>
+                <div class="code-block">
+                    <span class="comment">/* Standard grid - services, values */</span><br>
+                    <span class="property">grid-template-columns</span>: <span class="value">repeat(auto-fit, minmax(280px, 1fr))</span>;<br><br>
+                    <span class="comment">/* App grid */</span><br>
+                    <span class="property">grid-template-columns</span>: <span class="value">repeat(auto-fit, minmax(350px, 1fr))</span>;<br><br>
+                    <span class="comment">/* Footer grid */</span><br>
+                    <span class="property">grid-template-columns</span>: <span class="value">repeat(auto-fit, minmax(200px, 1fr))</span>;
+                </div>
+
+                <h3>Border Radius Scale</h3>
+                <ul>
+                    <li><strong>4px</strong> - Focus outlines, very small elements</li>
+                    <li><strong>6px</strong> - Small buttons (card actions)</li>
+                    <li><strong>8px</strong> - Standard: buttons, inputs, standard cards, dropdowns</li>
+                    <li><strong>12px</strong> - Feature cards, approach cards, result boxes</li>
+                    <li><strong>16px</strong> - App cards, portal cards</li>
+                    <li><strong>20px</strong> - Product showcase, calculator cards (hero-adjacent)</li>
+                    <li><strong>50px</strong> - Badges, pills</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== VOICE & TONE ===== -->
+        <section class="brand-section" id="voice">
+            <div class="container">
+                <h2>Voice &amp; Tone</h2>
+                <p class="section-lead">How both brands speak. The voice is consistent - honest, direct, practical. The warmth adjusts per brand.</p>
+
+                <h3>Brand Voice Principles</h3>
+                <ul>
+                    <li><strong>Talk like a real person.</strong> Not a brochure, not a LinkedIn post, not a press release. Write how you'd explain it to someone over coffee.</li>
+                    <li><strong>Be direct.</strong> Say what you mean. Don't hide behind jargon or corporate speak. "We build apps" not "We deliver bespoke digital transformation solutions."</li>
+                    <li><strong>Be honest.</strong> If something won't work, say so. If there's a downside, mention it. People trust honesty over polish.</li>
+                    <li><strong>Show empathy.</strong> We understand that running a business is hard, that systems break, that time is money. Speak to the frustration, then offer the solution.</li>
+                    <li><strong>No hard sell.</strong> State what we do, what it costs, and let people decide. Pressure tactics don't belong here.</li>
+                </ul>
+
+                <h3>Tone by Brand</h3>
+
+                <div class="specimen-grid">
+                    <div class="specimen-card" style="border-left: 4px solid var(--brand-navy);">
+                        <div class="card-label">Digital ABCs Tone</div>
+                        <ul style="font-size: 0.9rem; margin-bottom: 0;">
+                            <li>Professional but not corporate</li>
+                            <li>Technical confidence without arrogance</li>
+                            <li>Problem-focused: "Here's what's broken, here's how to fix it"</li>
+                            <li>Slight edge: "If it needs a training course, we've failed"</li>
+                            <li>Educational: Explain things, don't gatekeep knowledge</li>
+                        </ul>
+                    </div>
+
+                    <div class="specimen-card" style="border-left: 4px solid var(--brand-orange);">
+                        <div class="card-label" style="color: var(--brand-orange);">BBB Logistics Tone</div>
+                        <ul style="font-size: 0.9rem; margin-bottom: 0;">
+                            <li>Warmer and more personal</li>
+                            <li>Reliable and straightforward</li>
+                            <li>Practical: "Here's what it costs, here's what you get"</li>
+                            <li>Local feel: Built from the ground up, community-minded</li>
+                            <li>No-drama: Get the job done, keep it simple</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Writing Examples</h3>
+
+                <h4>Headlines</h4>
+                <div class="tone-example">
+                    <div class="tone-card good">
+                        <div class="tone-label">Use This</div>
+                        <p>"Your Workflow Has a Bottleneck. We Find It. We Fix It."</p>
+                    </div>
+                    <div class="tone-card bad">
+                        <div class="tone-label">Not This</div>
+                        <p>"Innovative Digital Transformation Solutions for the Modern Enterprise"</p>
+                    </div>
+                </div>
+
+                <h4>Service Descriptions</h4>
+                <div class="tone-example">
+                    <div class="tone-card good">
+                        <div class="tone-label">Use This</div>
+                        <p>"We ask questions. Lots of them. Then we give you a straight answer about what will work, what won't, and what it'll cost."</p>
+                    </div>
+                    <div class="tone-card bad">
+                        <div class="tone-label">Not This</div>
+                        <p>"Our team of experienced consultants leverage industry best practices to deliver optimal outcomes aligned with your strategic vision."</p>
+                    </div>
+                </div>
+
+                <h4>About / Personal</h4>
+                <div class="tone-example">
+                    <div class="tone-card good">
+                        <div class="tone-label">Use This</div>
+                        <p>"I started driving for an international cuisine franchise and found local businesses with a need for seasonal support. Another way I found opportunity in hard times."</p>
+                    </div>
+                    <div class="tone-card bad">
+                        <div class="tone-label">Not This</div>
+                        <p>"Our founder's entrepreneurial journey began with an innovative approach to identifying market gaps in the logistics sector."</p>
+                    </div>
+                </div>
+
+                <h4>Pricing</h4>
+                <div class="tone-example">
+                    <div class="tone-card good">
+                        <div class="tone-label">Use This</div>
+                        <p>"From $35. Flat rates up to 40km, per-km rates after that. No surprises."</p>
+                    </div>
+                    <div class="tone-card bad">
+                        <div class="tone-label">Not This</div>
+                        <p>"Contact us for a customised quote tailored to your unique requirements."</p>
+                    </div>
+                </div>
+
+                <h3>Words We Use / Words We Don't</h3>
+                <div class="do-dont-grid">
+                    <div class="do-box">
+                        <h4>Words We Use</h4>
+                        <ul>
+                            <li>Build, fix, solve, find</li>
+                            <li>Bottleneck, friction, waste</li>
+                            <li>Simple, clear, honest</li>
+                            <li>Your business, your workflow</li>
+                            <li>Straight answer, no BS</li>
+                            <li>Free tool, transparent pricing</li>
+                        </ul>
+                    </div>
+                    <div class="dont-box">
+                        <h4>Words We Avoid</h4>
+                        <ul>
+                            <li>Leverage, synergy, optimise</li>
+                            <li>Bespoke, holistic, paradigm</li>
+                            <li>Disruptive, cutting-edge, innovative</li>
+                            <li>Stakeholders, verticals, scalable</li>
+                            <li>Touch base, circle back, deep dive (ironic, yes)</li>
+                            <li>AI-powered (unless explaining actual AI use)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DO'S & DON'TS ===== -->
+        <section class="brand-section" id="dos-donts">
+            <div class="container">
+                <h2>Do's &amp; Don'ts</h2>
+                <p class="section-lead">Quick reference for keeping both brands consistent.</p>
+
+                <h3>Visual Design</h3>
+                <div class="do-dont-grid">
+                    <div class="do-box">
+                        <h4>Do</h4>
+                        <ul>
+                            <li>Use consistent border-radius (8px standard, 12-16px for cards)</li>
+                            <li>Maintain generous whitespace between sections (4rem+)</li>
+                            <li>Use the defined colour palette - no off-brand colours</li>
+                            <li>Keep BBB Logistics warm (orange/cream) and Digital ABCs cool (navy/purple)</li>
+                            <li>Use emoji icons for app cards (they're part of the brand's approachable feel)</li>
+                            <li>Ensure all interactive elements have hover transitions</li>
+                            <li>Use the dot-grid pattern for Digital ABCs hero sections</li>
+                        </ul>
+                    </div>
+                    <div class="dont-box">
+                        <h4>Don't</h4>
+                        <ul>
+                            <li>Mix BBB orange with Digital ABCs navy in the same component</li>
+                            <li>Use sharp corners (0 border-radius)</li>
+                            <li>Add heavy drop shadows - keep shadows subtle</li>
+                            <li>Use more than 2 accent colours in one section</li>
+                            <li>Place text directly on busy image backgrounds without overlay</li>
+                            <li>Use icon libraries - stick with emoji for consistency</li>
+                            <li>Add animations longer than 0.3s - keep transitions snappy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Content &amp; Copy</h3>
+                <div class="do-dont-grid">
+                    <div class="do-box">
+                        <h4>Do</h4>
+                        <ul>
+                            <li>Always show pricing upfront where possible</li>
+                            <li>Describe what the problem is before the solution</li>
+                            <li>Use Australian English (colour, organisation, analyse)</li>
+                            <li>Include real purchase/contact links on every app and service</li>
+                            <li>Keep CTAs action-oriented ("Get a Quote", "Use Now", "Learn More")</li>
+                            <li>Disclose AI usage transparently</li>
+                        </ul>
+                    </div>
+                    <div class="dont-box">
+                        <h4>Don't</h4>
+                        <ul>
+                            <li>Hide pricing behind "contact us" unless genuinely project-dependent</li>
+                            <li>Use stock photography - keep it real or use no images</li>
+                            <li>Overuse exclamation marks or ALL CAPS outside badges</li>
+                            <li>Promise results that can't be guaranteed</li>
+                            <li>Use "we" when "I" is more authentic (About page is personal)</li>
+                            <li>Add testimonials unless they're genuine and attributable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Accessibility</h3>
+                <div class="do-dont-grid">
+                    <div class="do-box">
+                        <h4>Do</h4>
+                        <ul>
+                            <li>Include skip-to-content link on every page</li>
+                            <li>Ensure all interactive elements have visible focus states (purple outline)</li>
+                            <li>Use semantic HTML (header, nav, main, footer, section)</li>
+                            <li>Provide alt text for all images</li>
+                            <li>Maintain colour contrast ratios (WCAG AAA: 7:1 normal text, 4.5:1 large text)</li>
+                            <li>Use aria-labels where link text isn't descriptive</li>
+                        </ul>
+                    </div>
+                    <div class="dont-box">
+                        <h4>Don't</h4>
+                        <ul>
+                            <li>Use colour alone to convey meaning (always pair with text/icons)</li>
+                            <li>Remove focus outlines without providing alternatives</li>
+                            <li>Use generic link text ("click here", "read more" without context)</li>
+                            <li>Auto-play any media</li>
+                            <li>Nest interactive elements inside other interactive elements</li>
+                            <li>Use text smaller than 0.75rem for any functional content</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER CTA -->
+        <section style="background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%); color: white; padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Questions About the Brand?</h2>
+                <p style="color: #BFDBFE; max-width: 600px; margin: 0 auto 2rem auto;">
+                    If you're creating content, building pages, or designing assets for Digital ABCs or BBB Logistics, and something isn't covered here - ask.
+                </p>
+                <a href="contact.html" style="display: inline-block; padding: 14px 30px; background: #065F46; color: white; border-radius: 8px; text-decoration: none; font-weight: 700;">Get in Touch</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

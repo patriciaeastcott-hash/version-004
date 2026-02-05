@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
@@ -119,7 +119,7 @@
             <a href="index.html" class="logo" aria-label="Digital ABCs Home">
                 <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
@@ -127,7 +127,7 @@
                     <li><a href="insights.php" class="active">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -243,7 +243,8 @@
                 <hr class="section-divider">
                 <h2>From the Blog</h2>
                 <p>Foundational articles on workflow efficiency, automation, and building useful technology.</p>
-                </div>
+                <p style="color: #4B5563; font-style: italic; margin-top: 1rem;">Blog articles coming soon. Check back for in-depth guides and practical insights.</p>
+            </div>
         </section>
     </main>
     <footer class="site-footer">
@@ -268,14 +269,18 @@
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
                 <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
@@ -283,9 +288,9 @@
 
     <style>
         .tally-float-btn {
-            position: fixed; bottom: 20px; right: 20px; background-color: #7C3AED; color: #fff; border: none; border-radius: 50px; padding: 14px 22px; font-size: 16px; font-weight: 600; cursor: pointer; z-index: 9999; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 8px; transition: all 0.2s ease-in-out;
+            position: fixed; bottom: 20px; right: 20px; background-color: #5B21B6; color: #fff; border: none; border-radius: 50px; padding: 14px 22px; font-size: 16px; font-weight: 600; cursor: pointer; z-index: 9999; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 8px; transition: all 0.2s ease-in-out;
         }
-        .tally-float-btn:hover { background-color: #10B981; transform: translateY(-2px); }
+        .tally-float-btn:hover { background-color: #065F46; transform: translateY(-2px); }
         @media (max-width: 600px) { .tally-float-btn { padding: 12px 18px; font-size: 14px; bottom: 15px; right: 15px; } }
     </style>
     <button class="tally-float-btn" data-tally-open="wkDaP1" data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true" data-tally-hide-title="false" data-tally-emoji-text="💡" data-tally-emoji-animation="tada">Got a workflow problem?</button>

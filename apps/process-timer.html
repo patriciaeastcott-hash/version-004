@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Timer | Digital ABCs</title>
+    <meta name="description" content="Time each step of your workflow to find where time is being wasted. Export reports to build a case for automation.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; --brand-orange: #F59E0B; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-purple);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .timer-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 800px; margin: 0 auto;
+        }
+
+        .process-name-input {
+            width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px;
+            font-size: 1.1rem; font-family: 'Inter', sans-serif; margin-bottom: 1.5rem;
+            box-sizing: border-box;
+        }
+        .process-name-input:focus {
+            outline: none; border-color: var(--brand-purple);
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+        }
+
+        .step-input-row {
+            display: flex; gap: 0.75rem; margin-bottom: 1rem; align-items: center;
+        }
+
+        .step-input-row input {
+            flex: 1; padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 8px;
+            font-size: 0.95rem; font-family: 'Inter', sans-serif;
+        }
+        .step-input-row input:focus {
+            outline: none; border-color: var(--brand-purple);
+        }
+
+        .add-step-btn {
+            padding: 10px 20px; background: var(--brand-purple); color: white; border: none;
+            border-radius: 8px; cursor: pointer; font-weight: 600; font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+        }
+        .add-step-btn:hover { background: #6D28D9; }
+
+        .steps-list { margin: 2rem 0; }
+
+        .step-row {
+            display: flex; align-items: center; padding: 1rem; background: #F9FAFB;
+            border: 1px solid #E5E7EB; border-radius: 8px; margin-bottom: 0.5rem;
+            gap: 1rem;
+        }
+
+        .step-number {
+            background: var(--brand-navy); color: white; width: 28px; height: 28px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: 700; flex-shrink: 0;
+        }
+
+        .step-name { flex: 1; font-weight: 500; color: #374151; }
+
+        .step-timer {
+            font-family: 'Roboto Mono', monospace; font-size: 1.1rem; font-weight: 600;
+            color: var(--brand-navy); min-width: 80px; text-align: right;
+        }
+
+        .step-timer.running { color: var(--brand-green); }
+        .step-timer.stopped { color: var(--brand-orange); }
+
+        .step-btn {
+            padding: 6px 14px; border: none; border-radius: 6px; cursor: pointer;
+            font-weight: 600; font-size: 0.8rem; font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .btn-start { background: var(--brand-green); color: white; }
+        .btn-start:hover { background: #064E3B; }
+        .btn-stop { background: var(--brand-orange); color: #111827; }
+        .btn-stop:hover { background: #D97706; }
+        .btn-remove { background: #FEE2E2; color: #991B1B; }
+        .btn-remove:hover { background: #FECACA; }
+
+        .summary-section {
+            display: none; margin-top: 2rem; padding: 2rem; background: #F0FDF4;
+            border: 2px solid var(--brand-green); border-radius: 12px;
+        }
+
+        .summary-total {
+            text-align: center; margin-bottom: 1.5rem;
+        }
+        .summary-total h3 { color: var(--brand-navy); margin-bottom: 0.25rem; }
+        .summary-total .total-time { font-size: 2.5rem; font-weight: 700; color: var(--brand-green); font-family: 'Roboto Mono', monospace; }
+
+        .summary-bar {
+            display: flex; height: 30px; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;
+        }
+
+        .bar-segment {
+            display: flex; align-items: center; justify-content: center; color: white;
+            font-size: 0.7rem; font-weight: 600; transition: width 0.3s;
+        }
+
+        .action-row {
+            display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.5rem;
+        }
+
+        .export-btn {
+            padding: 10px 20px; background: var(--brand-navy); color: white; border: none;
+            border-radius: 8px; cursor: pointer; font-weight: 600; font-family: 'Inter', sans-serif;
+        }
+        .export-btn:hover { background: #1c347a; }
+
+        .reset-btn {
+            padding: 10px 20px; background: white; color: #991B1B; border: 2px solid #991B1B;
+            border-radius: 8px; cursor: pointer; font-weight: 600; font-family: 'Inter', sans-serif;
+        }
+        .reset-btn:hover { background: #FEF2F2; }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .step-row { flex-wrap: wrap; }
+            .step-timer { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Process Timer</h1>
+                <p>Time each step of your workflow. Find where the time actually goes. Build a case for what to automate first.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="timer-card">
+                    <h2 style="color: var(--brand-navy); margin-bottom: 0.5rem; text-align: center;">Time Your Workflow</h2>
+                    <p style="color: #4B5563; text-align: center; margin-bottom: 2rem;">Add each step of your process, then time them as you work through it.</p>
+
+                    <input type="text" class="process-name-input" id="processName" placeholder="Name this process (e.g., 'Monthly invoicing', 'Client onboarding')">
+
+                    <div class="step-input-row">
+                        <input type="text" id="newStepName" placeholder="Add a step (e.g., 'Open spreadsheet', 'Enter data', 'Send email')">
+                        <button class="add-step-btn" onclick="addStep()">+ Add Step</button>
+                    </div>
+
+                    <div class="steps-list" id="stepsList"></div>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <button class="add-step-btn" onclick="showSummary()" style="background: var(--brand-navy);">Generate Summary</button>
+                    </div>
+
+                    <div class="summary-section" id="summarySection">
+                        <div class="summary-total">
+                            <h3>Total Process Time</h3>
+                            <div class="total-time" id="totalTime">00:00:00</div>
+                        </div>
+
+                        <div class="summary-bar" id="summaryBar"></div>
+
+                        <div id="summaryBreakdown"></div>
+
+                        <div class="action-row">
+                            <button class="export-btn" onclick="exportCSV()">Export as CSV</button>
+                            <button class="reset-btn" onclick="resetAll()">Reset All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var steps = [];
+        var colors = ['#5B21B6', '#1E3A8A', '#065F46', '#F59E0B', '#EC4899', '#06B6D4', '#8B5CF6', '#EF4444'];
+
+        function addStep() {
+            var nameInput = document.getElementById('newStepName');
+            var name = nameInput.value.trim();
+            if (!name) return;
+
+            steps.push({
+                name: name,
+                seconds: 0,
+                running: false,
+                interval: null
+            });
+
+            nameInput.value = '';
+            renderSteps();
+        }
+
+        document.getElementById('newStepName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addStep();
+        });
+
+        function renderSteps() {
+            var list = document.getElementById('stepsList');
+            list.innerHTML = '';
+
+            steps.forEach(function(step, i) {
+                var row = document.createElement('div');
+                row.className = 'step-row';
+                row.innerHTML =
+                    '<span class="step-number">' + (i + 1) + '</span>' +
+                    '<span class="step-name">' + escapeHtml(step.name) + '</span>' +
+                    '<span class="step-timer ' + (step.running ? 'running' : (step.seconds > 0 ? 'stopped' : '')) + '" id="timer-' + i + '">' + formatTime(step.seconds) + '</span>' +
+                    (step.running
+                        ? '<button class="step-btn btn-stop" onclick="stopStep(' + i + ')">Stop</button>'
+                        : '<button class="step-btn btn-start" onclick="startStep(' + i + ')">Start</button>'
+                    ) +
+                    '<button class="step-btn btn-remove" onclick="removeStep(' + i + ')">X</button>';
+                list.appendChild(row);
+            });
+        }
+
+        function startStep(index) {
+            // Stop any other running step
+            steps.forEach(function(s, i) {
+                if (s.running) stopStep(i);
+            });
+
+            steps[index].running = true;
+            steps[index].interval = setInterval(function() {
+                steps[index].seconds++;
+                var el = document.getElementById('timer-' + index);
+                if (el) {
+                    el.textContent = formatTime(steps[index].seconds);
+                    el.className = 'step-timer running';
+                }
+            }, 1000);
+            renderSteps();
+        }
+
+        function stopStep(index) {
+            steps[index].running = false;
+            if (steps[index].interval) {
+                clearInterval(steps[index].interval);
+                steps[index].interval = null;
+            }
+            renderSteps();
+        }
+
+        function removeStep(index) {
+            if (steps[index].interval) clearInterval(steps[index].interval);
+            steps.splice(index, 1);
+            renderSteps();
+        }
+
+        function formatTime(totalSeconds) {
+            var h = Math.floor(totalSeconds / 3600);
+            var m = Math.floor((totalSeconds % 3600) / 60);
+            var s = totalSeconds % 60;
+            return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        }
+
+        function showSummary() {
+            if (steps.length === 0) return;
+
+            // Stop all running
+            steps.forEach(function(s, i) {
+                if (s.running) stopStep(i);
+            });
+
+            var total = steps.reduce(function(sum, s) { return sum + s.seconds; }, 0);
+            document.getElementById('totalTime').textContent = formatTime(total);
+
+            // Build bar
+            var bar = document.getElementById('summaryBar');
+            bar.innerHTML = '';
+            steps.forEach(function(step, i) {
+                var pct = total > 0 ? ((step.seconds / total) * 100) : 0;
+                if (pct < 1) pct = 1;
+                var seg = document.createElement('div');
+                seg.className = 'bar-segment';
+                seg.style.width = pct + '%';
+                seg.style.backgroundColor = colors[i % colors.length];
+                seg.title = step.name + ': ' + formatTime(step.seconds);
+                if (pct > 8) seg.textContent = Math.round(pct) + '%';
+                bar.appendChild(seg);
+            });
+
+            // Build breakdown
+            var breakdown = document.getElementById('summaryBreakdown');
+            var html = '<table style="width:100%; border-collapse:collapse;">';
+            html += '<tr style="border-bottom:2px solid #D1FAE5;"><th style="text-align:left; padding:8px; color:#374151;">Step</th><th style="text-align:right; padding:8px; color:#374151;">Time</th><th style="text-align:right; padding:8px; color:#374151;">% of Total</th></tr>';
+
+            // Sort by time descending for insights
+            var sorted = steps.map(function(s, i) { return { name: s.name, seconds: s.seconds, index: i }; });
+            sorted.sort(function(a, b) { return b.seconds - a.seconds; });
+
+            sorted.forEach(function(step) {
+                var pct = total > 0 ? Math.round((step.seconds / total) * 100) : 0;
+                html += '<tr style="border-bottom:1px solid #E5E7EB;">';
+                html += '<td style="padding:8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + colors[step.index % colors.length] + ';margin-right:8px;"></span>' + escapeHtml(step.name) + '</td>';
+                html += '<td style="text-align:right; padding:8px; font-family:Roboto Mono,monospace; font-weight:600;">' + formatTime(step.seconds) + '</td>';
+                html += '<td style="text-align:right; padding:8px; font-weight:600;">' + pct + '%</td>';
+                html += '</tr>';
+            });
+            html += '</table>';
+
+            if (sorted.length > 0 && sorted[0].seconds > 0) {
+                html += '<p style="margin-top:1.5rem; color:#374151; padding:1rem; background:#FFFBEB; border-radius:8px; border-left:4px solid #F59E0B;">';
+                html += '<strong>Biggest time sink:</strong> "' + escapeHtml(sorted[0].name) + '" takes ' + Math.round((sorted[0].seconds / total) * 100) + '% of the total process time. This is where automation could have the biggest impact.';
+                html += '</p>';
+            }
+
+            breakdown.innerHTML = html;
+            document.getElementById('summarySection').style.display = 'block';
+        }
+
+        function exportCSV() {
+            var processName = document.getElementById('processName').value || 'Untitled Process';
+            var total = steps.reduce(function(sum, s) { return sum + s.seconds; }, 0);
+            var csv = 'Process:,' + processName + '\nStep,Time (seconds),Time (formatted),% of Total\n';
+
+            steps.forEach(function(step) {
+                var pct = total > 0 ? Math.round((step.seconds / total) * 100) : 0;
+                csv += '"' + step.name.replace(/"/g, '""') + '",' + step.seconds + ',' + formatTime(step.seconds) + ',' + pct + '%\n';
+            });
+            csv += '\nTotal,' + total + ',' + formatTime(total) + ',100%\n';
+
+            var blob = new Blob([csv], { type: 'text/csv' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = processName.replace(/[^a-z0-9]/gi, '_') + '_timer.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function resetAll() {
+            if (!confirm('Reset all steps and timers? This cannot be undone.')) return;
+            steps.forEach(function(s) { if (s.interval) clearInterval(s.interval); });
+            steps = [];
+            renderSteps();
+            document.getElementById('summarySection').style.display = 'none';
+            document.getElementById('processName').value = '';
+        }
+
+        function escapeHtml(str) {
+            var div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

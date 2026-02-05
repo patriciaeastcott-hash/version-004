@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBB Driver App | Digital ABCs</title>
+    <meta name="description" content="BBB Driver - Route management and delivery tracking app for BBB Logistics. Currently in development.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; --brand-orange: #F59E0B; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .app-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            color: white; padding: 6rem 0; text-align: center;
+        }
+        .app-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .app-hero p { font-size: 1.25rem; color: #BFDBFE; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+        .status-badge {
+            display: inline-block; background: var(--brand-orange); color: #111827;
+            padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: bold;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .content-section { padding: 4rem 0; }
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+        .feature-card {
+            background: white; padding: 2rem; border-radius: 12px;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .feature-card h3 { color: var(--brand-navy); margin-top: 0; margin-bottom: 0.75rem; }
+        .feature-card p { color: #4B5563; line-height: 1.6; }
+        .feature-card ul { color: #4B5563; margin-top: 1rem; padding-left: 1.25rem; }
+        .feature-card ul li { margin-bottom: 0.5rem; }
+
+        .problem-section {
+            background: white; padding: 4rem 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;
+        }
+
+        .roadmap-section { padding: 4rem 0; }
+
+        .roadmap-item {
+            display: flex; gap: 1.5rem; margin-bottom: 2rem; align-items: flex-start;
+        }
+
+        .roadmap-dot {
+            width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; color: white; font-size: 0.85rem;
+        }
+
+        .roadmap-content h3 { color: var(--brand-navy); margin-bottom: 0.25rem; }
+        .roadmap-content p { color: #4B5563; }
+
+        .waitlist-section {
+            background: linear-gradient(135deg, var(--brand-navy) 0%, #111827 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+
+        .waitlist-form {
+            max-width: 500px; margin: 2rem auto 0 auto; display: flex; gap: 0.75rem;
+        }
+
+        .waitlist-form input {
+            flex: 1; padding: 14px; border: none; border-radius: 8px;
+            font-size: 1rem; font-family: 'Inter', sans-serif;
+        }
+
+        .waitlist-form button {
+            padding: 14px 24px; background: var(--brand-green); color: white; border: none;
+            border-radius: 8px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+        .waitlist-form button:hover { background: #064E3B; }
+
+        @media (max-width: 768px) {
+            .app-hero h1 { font-size: 2rem; }
+            .waitlist-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="app-hero">
+            <div class="container">
+                <span class="status-badge">In Development</span>
+                <h1>BBB Driver</h1>
+                <p>Route management and delivery tracking built for BBB Logistics. Smarter routes, proof of delivery, and real-time updates - built by a driver, for drivers.</p>
+            </div>
+        </section>
+
+        <section class="problem-section">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2 style="color: var(--brand-navy); font-size: 2rem; margin-bottom: 1.5rem;">The Problem</h2>
+                    <p style="color: #4B5563; font-size: 1.1rem; line-height: 1.7;">
+                        Delivery drivers spend too much time on logistics that aren't driving. Manually planning routes, texting customers for updates, taking photos as proof of delivery, then doing paperwork at the end of the day. The actual driving is the easy part - everything around it is the bottleneck.
+                    </p>
+                    <p style="color: #4B5563; font-size: 1.1rem; line-height: 1.7; margin-top: 1rem;">
+                        Existing delivery apps are built for massive courier companies, not independent drivers and small logistics businesses. They're overcomplicated, expensive, and don't fit how we actually work.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: var(--brand-navy); font-size: 2rem; margin-bottom: 0.5rem;">What It Will Do</h2>
+                    <p style="color: #4B5563;">Simple tools for independent drivers and small delivery businesses.</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="feature-card">
+                        <h3>Route Optimisation</h3>
+                        <p>Import your delivery list and get the most efficient route. Handles multi-drop runs, time windows, and priority deliveries.</p>
+                        <ul>
+                            <li>Import deliveries from CSV or manual entry</li>
+                            <li>Optimised route calculation</li>
+                            <li>Turn-by-turn navigation integration</li>
+                            <li>Re-route on the fly for changes</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Proof of Delivery</h3>
+                        <p>Capture photo proof, signatures, and delivery notes directly in the app. No more end-of-day paperwork.</p>
+                        <ul>
+                            <li>Photo capture with timestamp and GPS</li>
+                            <li>Digital signature collection</li>
+                            <li>Delivery notes and condition reporting</li>
+                            <li>Automatic record keeping</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Customer Updates</h3>
+                        <p>Automatic delivery status updates for your customers. No more "where's my delivery?" phone calls.</p>
+                        <ul>
+                            <li>Automated SMS/email notifications</li>
+                            <li>ETA updates in real-time</li>
+                            <li>Delivery confirmation alerts</li>
+                            <li>Customer delivery tracking link</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Driver Dashboard</h3>
+                        <p>See your day at a glance. Earnings, kilometres, completed deliveries, and upcoming stops - all in one place.</p>
+                        <ul>
+                            <li>Daily earnings summary</li>
+                            <li>Kilometres and fuel tracking</li>
+                            <li>Delivery completion stats</li>
+                            <li>Weekly/monthly reports for tax time</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="roadmap-section" style="background: #F9FAFB;">
+            <div class="container" style="max-width: 700px;">
+                <h2 style="color: var(--brand-navy); text-align: center; margin-bottom: 2.5rem;">Development Roadmap</h2>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-dot" style="background: var(--brand-green);">1</div>
+                    <div class="roadmap-content">
+                        <h3>Core Route & Delivery Management</h3>
+                        <p>Basic route planning, delivery list management, and proof of delivery capture. Getting the fundamentals right.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-dot" style="background: var(--brand-purple);">2</div>
+                    <div class="roadmap-content">
+                        <h3>Customer Notifications</h3>
+                        <p>Automated delivery status updates via SMS and email. Real-time ETA tracking for customers.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-dot" style="background: var(--brand-orange);">3</div>
+                    <div class="roadmap-content">
+                        <h3>Reporting & Analytics</h3>
+                        <p>Earnings tracking, mileage logs, and exportable reports for BAS and tax time. Built for Australian sole traders.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-dot" style="background: var(--brand-navy);">4</div>
+                    <div class="roadmap-content">
+                        <h3>Business Integration</h3>
+                        <p>Connect with BBB Logistics booking system, invoicing tools, and customer management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="waitlist-section">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Interested in BBB Driver?</h2>
+                <p style="color: #BFDBFE; max-width: 600px; margin: 0 auto;">
+                    We're building this app because we use it ourselves. If you're an independent driver or small logistics business, get in touch to learn more.
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="mailto:info@digitalabcs.com.au?subject=BBB%20Driver%20App%20Interest" style="display: inline-block; padding: 14px 30px; background: var(--brand-green); color: white; border-radius: 8px; text-decoration: none; font-weight: 700;">
+                        Register Interest
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

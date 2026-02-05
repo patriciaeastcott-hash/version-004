@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
     <script>
@@ -25,7 +25,7 @@
             --brand-navy: #1E3A8A;
             --brand-orange: #F59E0B;
             --brand-orange-dark: #D97706;
-            --brand-green: #10B981;
+            --brand-green: #065F46;
             --brand-light: #F3F4F6;
         }
 
@@ -33,10 +33,10 @@
 
         .logistics-hero {
             background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-            color: white; padding: 6rem 0; text-align: center;
+            color: #111827; padding: 6rem 0; text-align: center;
         }
-        .logistics-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .logistics-hero p { font-size: 1.25rem; color: #FEF3C7; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+        .logistics-hero h1 { font-size: 3rem; margin-bottom: 1rem; color: #111827; }
+        .logistics-hero p { font-size: 1.25rem; color: #1F2937; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
         .calculator-section { padding: 4rem 0; }
 
@@ -62,10 +62,10 @@
         .form-group input:focus, .form-group select:focus {
             outline: none; border-color: var(--brand-orange);
         }
-        .form-group small { color: #6B7280; font-size: 0.85rem; margin-top: 0.25rem; display: block; }
+        .form-group small { color: #4B5563; font-size: 0.85rem; margin-top: 0.25rem; display: block; }
 
         .calculate-btn {
-            width: 100%; padding: 16px; background: var(--brand-orange); color: white;
+            width: 100%; padding: 16px; background: var(--brand-orange); color: #111827;
             border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700;
             cursor: pointer; transition: background 0.2s;
         }
@@ -116,7 +116,7 @@
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="logo"><img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
@@ -124,7 +124,7 @@
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a></li>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -165,7 +165,7 @@
 
                     <button class="calculate-btn" onclick="calculatePrice()">Calculate Price</button>
 
-                    <div class="result-box" id="result">
+                    <div class="result-box" id="result" aria-live="polite" role="status">
                         <div class="result-price" id="total-price">$0</div>
                         <div class="result-breakdown" id="breakdown"></div>
                     </div>
@@ -177,7 +177,7 @@
             <div class="container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 style="color: var(--brand-navy); font-size: 2rem; margin-bottom: 0.5rem;">How Pricing Works</h2>
-                    <p style="color: #6B7280;">Transparent rates based on distance. Tolls included.</p>
+                    <p style="color: #4B5563;">Transparent rates based on distance. Tolls included.</p>
                 </div>
 
                 <div class="pricing-grid">
@@ -272,7 +272,7 @@
             <div class="container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 style="color: var(--brand-navy); font-size: 2rem; margin-bottom: 0.5rem;">Pricing Examples</h2>
-                    <p style="color: #6B7280;">Based on fastest route via Google Maps.</p>
+                    <p style="color: #4B5563;">Based on fastest route via Google Maps.</p>
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
@@ -280,21 +280,21 @@
                         <h3 style="color: var(--brand-navy); margin-top: 0;">Single Drop - 9.3km</h3>
                         <p style="color: #4B5563; margin-bottom: 1rem;">Short local delivery within the flat rate zone.</p>
                         <div style="font-size: 1.5rem; font-weight: 700; color: var(--brand-orange);">$35</div>
-                        <small style="color: #6B7280;">Flat rate (0-20km)</small>
+                        <small style="color: #4B5563;">Flat rate (0-20km)</small>
                     </div>
 
                     <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--brand-orange);">
                         <h3 style="color: var(--brand-navy); margin-top: 0;">2 Drops - 39.3km</h3>
                         <p style="color: #4B5563; margin-bottom: 1rem;">Two-stop delivery within flat rate zone.</p>
                         <div style="font-size: 1.5rem; font-weight: 700; color: var(--brand-orange);">$71</div>
-                        <small style="color: #6B7280;">$55 (30-40km) + 2 drops × $8 = $71</small>
+                        <small style="color: #4B5563;">$55 (30-40km) + 2 drops × $8 = $71</small>
                     </div>
 
                     <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--brand-orange);">
                         <h3 style="color: var(--brand-navy); margin-top: 0;">3 Drops - 56.8km</h3>
                         <p style="color: #4B5563; margin-bottom: 1rem;">Multi-stop run beyond flat rate zone.</p>
                         <div style="font-size: 1.5rem; font-weight: 700; color: var(--brand-orange);">$147.60</div>
-                        <small style="color: #6B7280;">$10 + ($2 × 56.8km) + 3 × $8 = $147.60</small>
+                        <small style="color: #4B5563;">$10 + ($2 × 56.8km) + 3 × $8 = $147.60</small>
                     </div>
                 </div>
             </div>
@@ -306,7 +306,7 @@
                 <p style="color: #BFDBFE; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
                     Get in touch to arrange your delivery. I'll confirm availability and timing.
                 </p>
-                <a href="contact.html" style="background: var(--brand-orange); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                <a href="contact.html" style="background: var(--brand-orange); color: #111827; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
                     Contact for Booking
                 </a>
             </div>
@@ -336,14 +336,18 @@
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
                 <p>&copy; 2025 Digital ABCs / Beach to Bridge to Bush Logistics. All rights reserved.</p>
             </div>
         </div>
