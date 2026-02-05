@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal | Digital ABCs</title>
+    <meta name="description" content="Digital ABCs Client Portal - Access your services, apps, and account.">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-purple: #7C3AED;
+            --brand-green: #10B981;
+            --brand-orange: #F59E0B;
+            --brand-light: #F3F4F6;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        /* Login Section */
+        .portal-login-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E5E7EB;
+            max-width: 440px;
+            width: 100%;
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-logo img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .login-title {
+            text-align: center;
+            color: var(--brand-navy);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: #6B7280;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--brand-purple);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--brand-navy);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: 'Inter', sans-serif;
+            margin-top: 0.5rem;
+        }
+
+        .login-btn:hover { background: #1c347a; }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        .login-footer a {
+            color: var(--brand-purple);
+            font-weight: 500;
+        }
+
+        .login-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: #9CA3AF;
+            font-size: 0.85rem;
+        }
+
+        .login-divider::before,
+        .login-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #E5E7EB;
+        }
+
+        .login-divider::before { margin-right: 1rem; }
+        .login-divider::after { margin-left: 1rem; }
+
+        .register-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: white;
+            color: var(--brand-purple);
+            border: 2px solid var(--brand-purple);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .register-btn:hover {
+            background: var(--brand-purple);
+            color: white;
+            text-decoration: none;
+        }
+
+        .login-error {
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+            color: #DC2626;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        /* Dashboard Section */
+        .portal-dashboard { display: none; }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .dashboard-header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .dashboard-header h1 {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .dashboard-header p {
+            color: #BFDBFE;
+            margin-top: 0.25rem;
+        }
+
+        .logout-btn {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .logout-btn:hover { background: rgba(255,255,255,0.25); }
+
+        .dashboard-content { padding: 3rem 0; }
+
+        .dashboard-section {
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-section h2 {
+            color: var(--brand-navy);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-section > p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .catalog-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.75rem;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s;
+        }
+
+        .catalog-card:hover {
+            border-color: var(--brand-purple);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .card-status {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-ready {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .status-coming {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .status-dev {
+            background: #E0E7FF;
+            color: #3730A3;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            color: #6B7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid #F3F4F6;
+        }
+
+        .card-price {
+            font-weight: 700;
+            color: var(--brand-navy);
+            font-size: 1.1rem;
+        }
+
+        .card-price span {
+            font-weight: 400;
+            color: #9CA3AF;
+            font-size: 0.8rem;
+        }
+
+        .card-action {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .action-purchase {
+            background: var(--brand-green);
+            color: white;
+        }
+
+        .action-purchase:hover {
+            background: #059669;
+            color: white;
+            text-decoration: none;
+        }
+
+        .action-use {
+            background: var(--brand-purple);
+            color: white;
+        }
+
+        .action-use:hover {
+            background: #6D28D9;
+            color: white;
+            text-decoration: none;
+        }
+
+        .action-contact {
+            background: var(--brand-navy);
+            color: white;
+        }
+
+        .action-contact:hover {
+            background: #1c347a;
+            color: white;
+            text-decoration: none;
+        }
+
+        .action-soon {
+            background: #F3F4F6;
+            color: #9CA3AF;
+            cursor: default;
+        }
+
+        /* Register Form */
+        .register-section { display: none; }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #9CA3AF;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .tab.active {
+            color: var(--brand-navy);
+            border-bottom-color: var(--brand-navy);
+        }
+
+        .tab:hover {
+            color: var(--brand-navy);
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .dashboard-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: stretch;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="portal.html" class="btn-login active">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- LOGIN / REGISTER VIEW -->
+        <section class="portal-login-section" id="loginSection">
+            <div class="login-container">
+                <div class="login-logo">
+                    <img src="assets/logo.png" alt="Digital ABCs">
+                </div>
+
+                <!-- Tab Switcher -->
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('login')">Sign In</button>
+                    <button class="tab" onclick="showTab('register')">Create Account</button>
+                </div>
+
+                <!-- Login Form -->
+                <div id="loginForm">
+                    <h2 class="login-title">Welcome Back</h2>
+                    <p class="login-subtitle">Sign in to access your services and apps</p>
+
+                    <div class="login-error" id="loginError">
+                        Invalid email or password. Please try again.
+                    </div>
+
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Your password" required>
+                        </div>
+                        <button type="submit" class="login-btn">Sign In</button>
+                    </form>
+
+                    <div class="login-footer">
+                        <a href="mailto:info@digitalabcs.com.au?subject=Password%20Reset%20Request">Forgot your password?</a>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div id="registerForm" style="display: none;">
+                    <h2 class="login-title">Create Your Account</h2>
+                    <p class="login-subtitle">Get access to all services, apps, and tools</p>
+
+                    <div class="login-error" id="registerError"></div>
+
+                    <form onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label for="regName">Full Name</label>
+                            <input type="text" id="regName" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regBusiness">Business Name <span style="color:#9CA3AF; font-weight:400;">(optional)</span></label>
+                            <input type="text" id="regBusiness" placeholder="Your business name">
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email Address</label>
+                            <input type="email" id="regEmail" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Password</label>
+                            <input type="password" id="regPassword" placeholder="Create a password" required minlength="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="regPasswordConfirm">Confirm Password</label>
+                            <input type="password" id="regPasswordConfirm" placeholder="Confirm your password" required minlength="8">
+                        </div>
+                        <button type="submit" class="login-btn" style="background: var(--brand-purple);">Create Account</button>
+                    </form>
+
+                    <div class="login-footer">
+                        By creating an account you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD VIEW (shown after login) -->
+        <section class="portal-dashboard" id="dashboardSection">
+
+            <div class="dashboard-header">
+                <div class="container">
+                    <div class="dashboard-header-inner">
+                        <div>
+                            <h1 id="welcomeName">Welcome back</h1>
+                            <p>Your Digital ABCs client dashboard</p>
+                        </div>
+                        <button class="logout-btn" onclick="handleLogout()">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="container">
+
+                    <!-- SERVICES -->
+                    <div class="dashboard-section">
+                        <h2>Services</h2>
+                        <p>Professional services available for your business.</p>
+
+                        <div class="catalog-grid">
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#128295;</span>
+                                    <span class="card-status status-ready">Available</span>
+                                </div>
+                                <h3 class="card-title">Custom App Development</h3>
+                                <p class="card-desc">We deep-dive into your workflows, find the bottleneck, and build a custom application to eliminate it. Project-based pricing with no hidden fees.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">From $2,500 <span>/ project</span></span>
+                                    <a href="contact.html" class="card-action action-contact">Request Quote</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#128663;</span>
+                                    <span class="card-status status-ready">Available</span>
+                                </div>
+                                <h3 class="card-title">BBB Logistics</h3>
+                                <p class="card-desc">Flexible delivery services for local businesses. Single and multi-drop deliveries, seasonal support, and returns handling. Flat rates up to 40km.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">From $35 <span>/ delivery</span></span>
+                                    <a href="bbblogistics.html" class="card-action action-purchase">Get a Quote</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#128187;</span>
+                                    <span class="card-status status-ready">Available</span>
+                                </div>
+                                <h3 class="card-title">Tech Support &amp; Consulting</h3>
+                                <p class="card-desc">General tech support for small businesses. Software setup, troubleshooting, digital workflow audits, tool recommendations, and training.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">$150 <span>/ hour</span></span>
+                                    <a href="contact.html" class="card-action action-contact">Book a Session</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- MAIN APPS -->
+                    <div class="dashboard-section">
+                        <h2>Applications</h2>
+                        <p>Custom-built apps solving real workflow problems.</p>
+
+                        <div class="catalog-grid">
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#129504;</span>
+                                    <span class="card-status status-coming">Coming Soon</span>
+                                </div>
+                                <h3 class="card-title">Linguistic Decoder</h3>
+                                <p class="card-desc">AI-powered conversation analysis. Decode work emails, family texts, and relationship chats to understand what's really being said.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">TBA</span>
+                                    <a href="apps/decoder.html" class="card-action action-contact">Learn More</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#128737;&#65039;</span>
+                                    <span class="card-status status-coming">Coming Soon</span>
+                                </div>
+                                <h3 class="card-title">CompliancePulse</h3>
+                                <p class="card-desc">Compliance monitoring meets market intelligence. Scans for ISO/GDPR risks while watching government feeds for grants, tenders, and regulatory changes.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">$1,000 <span>/ lifetime</span></span>
+                                    <a href="apps/compliancepulse.html" class="card-action action-contact">Learn More</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#128202;</span>
+                                    <span class="card-status status-dev">In Development</span>
+                                </div>
+                                <h3 class="card-title">Smart Capture Finance</h3>
+                                <p class="card-desc">The "black box" recorder for financial workflows. Watches how you process invoices and payments to find where time and money are being lost.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">TBA</span>
+                                    <a href="apps/smartcapture.html" class="card-action action-contact">Join Waitlist</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#128664;</span>
+                                    <span class="card-status status-dev">In Development</span>
+                                </div>
+                                <h3 class="card-title">BBB Driver</h3>
+                                <p class="card-desc">Route management and delivery tracking app for BBB Logistics drivers. Optimised routes, proof of delivery, and real-time status updates.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">TBA</span>
+                                    <a href="apps/bbbdriver.html" class="card-action action-contact">Learn More</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- UTILITY TOOLS -->
+                    <div class="dashboard-section">
+                        <h2>Free Utility Tools</h2>
+                        <p>Handy tools built to help with everyday business tasks. Free to use.</p>
+
+                        <div class="catalog-grid">
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#9997;&#65039;</span>
+                                    <span class="card-status status-ready">Ready</span>
+                                </div>
+                                <h3 class="card-title">AI Prompt Builder</h3>
+                                <p class="card-desc">Turn vague ideas into clear, powerful AI prompts. Interactive refinement with an AI coach that asks the right questions.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">Free</span>
+                                    <a href="prompt_refinement.html" class="card-action action-use">Use Now</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#127912;</span>
+                                    <span class="card-status status-ready">Ready</span>
+                                </div>
+                                <h3 class="card-title">AI Image Generator</h3>
+                                <p class="card-desc">Generate images from text descriptions using Google Imagen 3. Create visuals for your business, marketing, or creative projects.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">Free</span>
+                                    <a href="image_generator.html" class="card-action action-use">Use Now</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#128200;</span>
+                                    <span class="card-status status-ready">Ready</span>
+                                </div>
+                                <h3 class="card-title">ROI Calculator</h3>
+                                <p class="card-desc">Calculate the return on investment for automating your workflows. See exactly how much time and money you could save.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">Free</span>
+                                    <a href="apps/roi-calculator.html" class="card-action action-use">Use Now</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#9201;</span>
+                                    <span class="card-status status-ready">Ready</span>
+                                </div>
+                                <h3 class="card-title">Process Timer</h3>
+                                <p class="card-desc">Time each step of your workflow to find exactly where time is being wasted. Export reports to build a case for automation.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">Free</span>
+                                    <a href="apps/process-timer.html" class="card-action action-use">Use Now</a>
+                                </div>
+                            </div>
+
+                            <div class="catalog-card">
+                                <div class="card-header">
+                                    <span class="card-icon">&#128221;</span>
+                                    <span class="card-status status-ready">Ready</span>
+                                </div>
+                                <h3 class="card-title">Meeting Cost Calculator</h3>
+                                <p class="card-desc">Calculate the true cost of your meetings based on attendees and hourly rates. See what meetings really cost your business.</p>
+                                <div class="card-footer">
+                                    <span class="card-price">Free</span>
+                                    <a href="apps/meeting-cost.html" class="card-action action-use">Use Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- SUPPORT -->
+                    <div class="dashboard-section" style="text-align: center; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #E5E7EB;">
+                        <h2 style="margin-bottom: 0.75rem;">Need Help?</h2>
+                        <p style="color: #6B7280; margin-bottom: 1.5rem;">Have a question about a service or app? Get in touch.</p>
+                        <a href="contact.html" class="card-action action-contact" style="padding: 12px 30px; font-size: 1rem;">Contact Support</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #E5E7EB; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #9CA3AF;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple client-side auth using localStorage
+        // This is a front-end prototype - connect to a real backend for production
+
+        function showTab(tab) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+
+            if (tab === 'login') {
+                document.getElementById('loginForm').style.display = 'block';
+                document.getElementById('registerForm').style.display = 'none';
+                tabs[0].classList.add('active');
+            } else {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('registerForm').style.display = 'block';
+                tabs[1].classList.add('active');
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            var email = document.getElementById('loginEmail').value;
+            var password = document.getElementById('loginPassword').value;
+
+            // Check against stored accounts
+            var accounts = JSON.parse(localStorage.getItem('dabcs_accounts') || '[]');
+            var found = accounts.find(function(a) { return a.email === email && a.password === password; });
+
+            if (found) {
+                localStorage.setItem('dabcs_session', JSON.stringify({
+                    name: found.name,
+                    email: found.email,
+                    business: found.business,
+                    loggedIn: true
+                }));
+                showDashboard(found.name);
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+                document.getElementById('loginError').textContent = 'Invalid email or password. Please try again.';
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            var name = document.getElementById('regName').value;
+            var business = document.getElementById('regBusiness').value;
+            var email = document.getElementById('regEmail').value;
+            var password = document.getElementById('regPassword').value;
+            var confirm = document.getElementById('regPasswordConfirm').value;
+
+            var errorEl = document.getElementById('registerError');
+
+            if (password !== confirm) {
+                errorEl.textContent = 'Passwords do not match.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            if (password.length < 8) {
+                errorEl.textContent = 'Password must be at least 8 characters.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            var accounts = JSON.parse(localStorage.getItem('dabcs_accounts') || '[]');
+
+            if (accounts.find(function(a) { return a.email === email; })) {
+                errorEl.textContent = 'An account with this email already exists.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            accounts.push({ name: name, email: email, password: password, business: business });
+            localStorage.setItem('dabcs_accounts', JSON.stringify(accounts));
+
+            localStorage.setItem('dabcs_session', JSON.stringify({
+                name: name,
+                email: email,
+                business: business,
+                loggedIn: true
+            }));
+
+            showDashboard(name);
+        }
+
+        function showDashboard(name) {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('dashboardSection').style.display = 'block';
+            document.getElementById('welcomeName').textContent = 'Welcome, ' + name.split(' ')[0];
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('dabcs_session');
+            document.getElementById('loginSection').style.display = 'flex';
+            document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginError').style.display = 'none';
+            showTab('login');
+        }
+
+        // Check for existing session on page load
+        (function() {
+            var session = JSON.parse(localStorage.getItem('dabcs_session') || 'null');
+            if (session && session.loggedIn) {
+                showDashboard(session.name);
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -127,7 +127,7 @@
                     <li><a href="insights.php" class="active">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>

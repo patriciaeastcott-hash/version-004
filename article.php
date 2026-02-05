@@ -152,7 +152,7 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
                     <li><a href="services.html">Services</a></li>
                     <li><a href="insights.php" class="active">Insights</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <a href="https://services.digitalabcs.com.au" target="_blank">Client Login</a>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>

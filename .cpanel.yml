@@ -15,6 +15,7 @@ deployment:
     - /bin/cp article.php $DEPLOYPATH
     - /bin/cp image_generator.html $DEPLOYPATH
     - /bin/cp prompt_refinement.html $DEPLOYPATH
+    - /bin/cp portal.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
     - /bin/cp htaccess $DEPLOYPATH/.htaccess
     - /bin/mkdir -p $DEPLOYPATH/assets
