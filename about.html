@@ -11,9 +11,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | DigitalABCs</title>
-    <meta name="description" content="Founded by a First Nations, Neurodivergent single mum. We build resilient, automated systems for Australian small businesses.">
-    
+    <title>About | Digital ABCs</title>
+    <meta name="description" content="Digital ABCs was founded by a First Nations, neurodivergent single mum who builds apps that solve real workflow problems. Also runs Beach to Bridge to Bush Logistics.">
+
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,6 @@
 
         body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #1F2937; }
 
-        /* HERO SECTION */
         .about-hero {
             background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
             color: white; padding: 6rem 0; text-align: center;
@@ -38,29 +37,37 @@
         .about-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
         .about-hero p { font-size: 1.25rem; color: #E0E7FF; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
-        /* STORY SECTION */
         .story-section { padding: 5rem 0; }
         .story-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
         }
         .story-content h2 { font-size: 2rem; color: var(--brand-navy); margin-bottom: 1.5rem; }
-        .story-content p { color: #4B5563; line-height: 1.7; margin-bottom: 1.5rem; font-size: 1.05rem; }
-        
+        .story-content p { color: #4B5563; line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem; }
+
         .story-image {
             background-color: #F3F4F6; border-radius: 20px; height: 100%; min-height: 400px;
             display: flex; align-items: center; justify-content: center; font-size: 5rem; color: #D1D5DB;
-            background-image: url('assets/profile.png'); 
+            background-image: url('assets/profile.png');
             background-size: cover; background-position: center;
         }
 
-        /* PHILOSOPHY SECTION */
-        .philosophy-section { background-color: #F9FAFB; padding: 5rem 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; }
-        .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .philo-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-left: 4px solid var(--brand-purple); }
-        .philo-card h3 { color: var(--brand-navy); margin-top: 0; }
+        .logistics-section {
+            background-color: #F0FDF4; padding: 4rem 0; border-top: 1px solid #BBF7D0; border-bottom: 1px solid #BBF7D0;
+        }
+        .logistics-card {
+            background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--brand-green);
+        }
+        .logistics-card h2 { color: var(--brand-navy); margin-bottom: 1rem; }
+        .logistics-card p { color: #4B5563; line-height: 1.7; margin-bottom: 1rem; }
 
-        /* VALUES SECTION */
-        .values-section { padding: 5rem 0; text-align: center; }
+        .reality-section { background-color: #F9FAFB; padding: 5rem 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; }
+        .reality-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .reality-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-left: 4px solid var(--brand-purple); }
+        .reality-card h3 { color: var(--brand-navy); margin-top: 0; margin-bottom: 1rem; }
+        .reality-card p { color: #4B5563; line-height: 1.6; }
+
+        .values-section { padding: 5rem 0; }
         .values-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 3rem; }
         .value-box { flex: 1; min-width: 280px; max-width: 350px; text-align: left; }
         .value-icon { font-size: 2rem; background: #ECFDF5; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: var(--brand-green); }
@@ -75,12 +82,12 @@
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo"><img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img"></a>
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Tools & Services</a></li>
-                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html" class="active">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -93,64 +100,77 @@
     <main>
         <section class="about-hero">
             <div class="container">
-                <h1>Technology Built on Resilience.</h1>
-                <p>We're not another faceless tech company. We're a small business, just like you, founded on a mission to make technology work for everyone.</p>
+                <h1>Two Businesses. One Mission.</h1>
+                <p>I build apps that fix workflow problems. I also drive deliveries. Both exist because I refuse to believe you have to sacrifice being present for your kids to put food on the table.</p>
             </div>
         </section>
 
         <section class="story-section">
             <div class="container">
                 <div class="story-grid">
-                    <div class="story-image">
-                        </div>
+                    <div class="story-image"></div>
                     <div class="story-content">
-                        <h2>Here's Our Real Story (No Corporate Speak)</h2>
+                        <h2>The Real Version</h2>
                         <p>
-                            I spent 10 years in hospitality watching small businesses work their arses off, and another in corporate finance auditing the systems that supposedly make businesses "efficient."
+                            I'm a single mum. First Nations. I've got bipolar, CPTSD, and ADHD. If you've ever dealt with Centrelink while trying to juggle mental health and parenting, you already know what that's like. It's exhausting, and the system isn't built for people like us.
                         </p>
                         <p>
-                            Here's what I learned: Big business loves complicated. They pay consultants millions to build systems that need other systems to explain them. Meanwhile, small business owners are drowning—not because they're not smart, but because they're juggling 47 different tools and still doing everything manually.
+                            I struggle with authority and being managed. Always have. Something about being told what to do when I can see a better way just doesn't sit right. That's probably why I ended up building my own things instead of fitting into someone else's box.
                         </p>
                         <p>
-                            Then COVID hit. Digital transformation became digital chaos. I watched brilliant founders—the kind of people who built something from nothing—paralyzed by the complexity of "going digital."
+                            Here's the thing about being neurodivergent: my brain sees patterns that other people miss. Where most people see "this is just how it's done," I see the waste. The bottlenecks. The stuff that makes you want to throw your computer out the window. That's what I build apps to fix.
                         </p>
                         <p>
-                            As a neurodivergent person, I've always seen patterns other people miss. My brain works differently, which means I don't think like a corporate tech guy. I think like someone who just needs the noise to stop and the work to happen automatically. And as a single mum, I understand scarcity—time, money, energy. There's no room for bloat.
-                        </p>
-                        <p>
-                            So I taught myself to code. Not because I wanted to be a programmer—I wanted to build the tools *I* would actually use. Practical. Honest. Local. Designed for people like us.
+                            I've been the person employers love to hire because I tick the diversity boxes. First Nations woman, single parent, registered on their disability counts. Makes their reports look great. Then they wonder why I don't thrive in their rigid systems, and suddenly I'm the problem. I got tired of being someone's token and decided to be my own boss instead.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="philosophy-section">
+        <section class="logistics-section">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="font-size: 2rem; color: var(--brand-navy);">We Actually Walk the Walk</h2>
-                    <p style="color: #6B7280; max-width: 600px; margin: 0 auto;">
-                        We don't just sell "set-it-and-forget-it" systems. Our entire business runs on them. We'd be bankrupt if we didn't.
+                <div class="logistics-card">
+                    <h2>Beach to Bridge to Bush Logistics</h2>
+                    <p>
+                        The other business happened by accident. I started driving for an international cuisine franchise because I needed flexible income that didn't require me to sit in an office pretending to be normal for 8 hours. Turns out, I love being on the road. The driving, the travel, the freedom of it.
+                    </p>
+                    <p>
+                        Along the way, I started noticing local businesses that needed delivery support - especially seasonal stuff. A restaurant that gets slammed during summer. A farm shop that needs extra runs during harvest. Small operators who can't justify a full-time driver but need someone reliable when it counts. So Beach to Bridge to Bush Logistics was born.
+                    </p>
+                    <p>
+                        Finding opportunity in the gaps is kind of my thing. When everything went sideways during the hard times, I looked at what I had - a car, time between school pickups, and a willingness to hustle - and turned it into something that works for both me and my clients.
+                    </p>
+                    <p style="margin-top: 2rem;">
+                        <a href="bbblogistics.html" class="btn btn-primary" style="padding: 12px 24px; text-decoration: none;">Learn About BBB Logistics</a>
                     </p>
                 </div>
+            </div>
+        </section>
 
-                <div class="philosophy-grid">
-                    <div class="philo-card">
-                        <h3>🤖 Our Team is (Mostly) Robots</h3>
-                        <p style="color: #4B5563;">
-                            Seriously. Our "staff" is a purpose-built team of automations and AI agents. They handle admin, follow-ups, and all the repetitive noise that drains hours from every day. Our humans do the creative, strategic work. The robots do the grind.
+        <section class="reality-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2rem; color: var(--brand-navy);">Why I Do This</h2>
+                </div>
+
+                <div class="reality-grid">
+                    <div class="reality-card">
+                        <h3>For My Kids</h3>
+                        <p>
+                            I want to show my children that you don't have to sacrifice the relationships with the people you love to provide for them. That there's a way to make a living that doesn't mean missing their school plays or being too burnt out to actually be present when you're home. I'm building proof that it's possible.
                         </p>
                     </div>
-                    <div class="philo-card" style="border-left-color: var(--brand-green);">
-                        <h3>🧠 Humans for the Real Work</h3>
-                        <p style="color: #4B5563;">
-                            Because the robots handle the boring stuff, our team can actually think. We focus on strategy, solving your unique problems, and building tools that don't suck. That's what you pay for—not our ability to shuffle paperwork.
+                    <div class="reality-card" style="border-left-color: var(--brand-green);">
+                        <h3>For People Like Me</h3>
+                        <p>
+                            The business world wasn't designed for neurodivergent people, or single parents, or anyone who doesn't fit the 9-to-5 mould. I build tools and services for the underdogs. For the people running small operations who just need things to work without the corporate price tag or the corporate bullshit.
                         </p>
                     </div>
-                    <div class="philo-card" style="border-left-color: #F59E0B;">
-                        <h3>🔒 Privacy Actually Matters</h3>
-                        <p style="color: #4B5563;">
-                            "Set-it-and-forget-it" doesn't mean we abandoned you. It means your data stays secure. We build with privacy as the foundation—GDPR compliant, Australian Privacy Act compliant, and everything encrypted locally. Your business is yours.
+                    <div class="reality-card" style="border-left-color: #F59E0B;">
+                        <h3>Because I See the Waste</h3>
+                        <p>
+                            Years in hospitality. Time in corporate finance. I've watched businesses hemorrhage money on processes that could be automated in an afternoon. I've seen people spend hours on tasks that shouldn't exist. My brain won't let me ignore it, so I build the solutions.
                         </p>
                     </div>
                 </div>
@@ -159,30 +179,32 @@
 
         <section class="values-section">
             <div class="container">
-                <h2 style="font-size: 2rem; color: var(--brand-navy);">What Actually Drives Us</h2>
-                
+                <div style="text-align: center;">
+                    <h2 style="font-size: 2rem; color: var(--brand-navy);">How I Work</h2>
+                </div>
+
                 <div class="values-container">
                     <div class="value-box">
-                        <div class="value-icon">💡</div>
-                        <h3 style="color: #1F2937;">No Corporate Bullshit</h3>
+                        <div class="value-icon">💬</div>
+                        <h3 style="color: #1F2937;">Plain English</h3>
                         <p style="color: #4B5563; line-height: 1.6;">
-                            We speak plainly. No jargon, no 47-slide decks, no "synergistic solutions." If it's complicated, we explain it simply. If it's simple, we don't pretend it's more complex to sound smart.
+                            No jargon. No 47-slide presentations. If I can't explain what I'm building in words that make sense to someone who's not technical, I haven't understood the problem well enough yet.
+                        </p>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="value-icon">🎯</div>
+                        <h3 style="color: #1F2937;">Practical Over Perfect</h3>
+                        <p style="color: #4B5563; line-height: 1.6;">
+                            I build things that work. Not elaborate systems that look impressive but take forever to implement. You need a solution that runs while you're busy running your actual business.
                         </p>
                     </div>
 
                     <div class="value-box">
                         <div class="value-icon">🤝</div>
-                        <h3 style="color: #1F2937;">We Champion Underdogs</h3>
+                        <h3 style="color: #1F2937;">Straight Up</h3>
                         <p style="color: #4B5563; line-height: 1.6;">
-                            Big tech ignores small business. We don't. If you're running a small business, you're marginalized, or you're trying to build something real with limited resources—we get it and we're building for you.
-                        </p>
-                    </div>
-
-                    <div class="value-box">
-                        <div class="value-icon">📈</div>
-                        <h3 style="color: #1F2937;">Results Over Bullshit</h3>
-                        <p style="color: #4B5563; line-height: 1.6;">
-                            Every tool we build is measured by one thing: Does it actually work? Does it save you time? Does it save you money? Does it give you back your life? If not, we're not done.
+                            I'll tell you if something won't work. I'll tell you if you don't need what you think you need. I'm not here to sell you stuff - I'm here to solve problems.
                         </p>
                     </div>
                 </div>
@@ -191,12 +213,12 @@
 
         <section style="background: var(--brand-navy); color: white; padding: 4rem 0; text-align: center;">
             <div class="container">
-                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to reclaim your time?</h2>
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Got a Workflow Problem?</h2>
                 <p style="color: #BFDBFE; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Join the waitlist for our tools or book a consultation to start your clarity journey.
+                    Whether you need an app built or a delivery run, I'm probably more relatable than you expect.
                 </p>
-                <a href="services.html" class="btn-login" style="background: var(--brand-green); border: none; padding: 15px 30px; font-size: 1.1rem; text-decoration: none; border-radius: 6px;">
-                    Explore Our Tools
+                <a href="contact.html" class="btn-login" style="background: var(--brand-green); border: none; padding: 15px 30px; font-size: 1.1rem; text-decoration: none; border-radius: 6px;">
+                    Let's Talk
                 </a>
             </div>
         </section>
@@ -207,13 +229,14 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>DigitalABCs</h4>
-                    <p>Empowering Australian businesses through practical technology. Built on resilience, for resilience.</p>
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="services.html">Tools</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -232,7 +255,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DigitalABCs. All rights reserved.</p>
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>

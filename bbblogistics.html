@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach to Bridge to Bush Logistics | BBB Logistics</title>
+    <meta name="description" content="Flexible delivery services for local businesses. Single and multi-drop deliveries with transparent pricing. Beach to Bridge to Bush Logistics.">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-orange: #F59E0B;
+            --brand-orange-dark: #D97706;
+            --brand-green: #10B981;
+            --brand-light: #F3F4F6;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: #FFFBEB; color: #1F2937; }
+
+        .logistics-hero {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: white; padding: 6rem 0; text-align: center;
+        }
+        .logistics-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .logistics-hero p { font-size: 1.25rem; color: #FEF3C7; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+        .calculator-section { padding: 4rem 0; }
+
+        .calculator-card {
+            background: white; border-radius: 20px; padding: 3rem;
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--brand-orange);
+            max-width: 600px; margin: 0 auto;
+        }
+
+        .calculator-card h2 {
+            color: var(--brand-navy); margin-bottom: 1.5rem; font-size: 1.75rem; text-align: center;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;
+        }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px 16px; border: 2px solid #E5E7EB; border-radius: 8px;
+            font-size: 1rem; transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none; border-color: var(--brand-orange);
+        }
+        .form-group small { color: #6B7280; font-size: 0.85rem; margin-top: 0.25rem; display: block; }
+
+        .calculate-btn {
+            width: 100%; padding: 16px; background: var(--brand-orange); color: white;
+            border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .calculate-btn:hover { background: var(--brand-orange-dark); }
+
+        .result-box {
+            margin-top: 2rem; padding: 2rem; background: #FEF3C7; border-radius: 12px;
+            text-align: center; display: none;
+        }
+        .result-box.show { display: block; }
+        .result-price { font-size: 3rem; font-weight: 700; color: var(--brand-navy); }
+        .result-breakdown { color: #4B5563; margin-top: 1rem; font-size: 0.95rem; line-height: 1.6; }
+
+        .pricing-info { padding: 4rem 0; background: white; }
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; max-width: 1000px; margin: 0 auto;
+        }
+        .pricing-card {
+            background: #FFFBEB; padding: 2rem; border-radius: 12px;
+            border: 1px solid #FDE68A;
+        }
+        .pricing-card h3 { color: var(--brand-navy); margin-top: 0; margin-bottom: 1rem; }
+        .pricing-card p { color: #4B5563; line-height: 1.6; margin-bottom: 0; }
+
+        .pricing-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .pricing-table th, .pricing-table td {
+            padding: 12px; text-align: left; border-bottom: 1px solid #FDE68A;
+        }
+        .pricing-table th { font-weight: 600; color: var(--brand-navy); }
+        .pricing-table td { color: #4B5563; }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--brand-navy) 0%, #111827 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .logistics-hero h1 { font-size: 2rem; }
+            .calculator-card { padding: 2rem; margin: 0 1rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://services.digitalabcs.com.au" target="_blank" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="logistics-hero">
+            <div class="container">
+                <h1>Beach to Bridge to Bush Logistics</h1>
+                <p>Flexible delivery services for local businesses. Seasonal support, overflow handling, or regular runs - straightforward pricing with no surprises.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-card">
+                    <h2>Delivery Price Calculator</h2>
+
+                    <div class="form-group">
+                        <label for="distance">Route Distance (km)</label>
+                        <input type="number" id="distance" min="1" max="500" placeholder="e.g. 25" step="0.1">
+                        <small>Total kilometres for the fastest route on Google Maps</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="drops">Number of Stops</label>
+                        <select id="drops">
+                            <option value="1">1 (Single Drop)</option>
+                            <option value="2">2 Drops</option>
+                            <option value="3">3 Drops</option>
+                            <option value="4">4 Drops</option>
+                            <option value="5">5 Drops</option>
+                            <option value="6">6+ Drops (Contact for quote)</option>
+                        </select>
+                        <small>Each additional stop after the first adds $8</small>
+                    </div>
+
+                    <button class="calculate-btn" onclick="calculatePrice()">Calculate Price</button>
+
+                    <div class="result-box" id="result">
+                        <div class="result-price" id="total-price">$0</div>
+                        <div class="result-breakdown" id="breakdown"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-info">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: var(--brand-navy); font-size: 2rem; margin-bottom: 0.5rem;">How Pricing Works</h2>
+                    <p style="color: #6B7280;">Transparent rates based on distance. Tolls included.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Flat Rates (Up to 40km)</h3>
+                        <p>Simple, predictable pricing for shorter runs. Easy budgeting for regular deliveries.</p>
+                        <table class="pricing-table">
+                            <tr>
+                                <th>Distance</th>
+                                <th>Rate</th>
+                            </tr>
+                            <tr>
+                                <td>0 - 20 km</td>
+                                <td><strong>$35</strong></td>
+                            </tr>
+                            <tr>
+                                <td>20 - 30 km</td>
+                                <td><strong>$45</strong></td>
+                            </tr>
+                            <tr>
+                                <td>30 - 40 km</td>
+                                <td><strong>$55</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Per-Kilometre Rates (41km+)</h3>
+                        <p>For longer runs, a transparent distance-based model.</p>
+                        <table class="pricing-table">
+                            <tr>
+                                <th>Component</th>
+                                <th>Rate</th>
+                            </tr>
+                            <tr>
+                                <td>Base Fee</td>
+                                <td><strong>$10</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Per Kilometre</td>
+                                <td><strong>$2/km</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Tolls</td>
+                                <td><strong>Included</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Multi-Drop Deliveries</h3>
+                        <p>Need to hit multiple locations on one run? Bundle orders for efficiency.</p>
+                        <table class="pricing-table">
+                            <tr>
+                                <th>Item</th>
+                                <th>Rate</th>
+                            </tr>
+                            <tr>
+                                <td>Base delivery</td>
+                                <td>Distance rate</td>
+                            </tr>
+                            <tr>
+                                <td>Each additional stop</td>
+                                <td><strong>+$8</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Returns & Damaged Goods</h3>
+                        <p>Return trips are priced as a normal delivery unless driver is at fault for damage.</p>
+                        <table class="pricing-table">
+                            <tr>
+                                <th>Scenario</th>
+                                <th>Rate</th>
+                            </tr>
+                            <tr>
+                                <td>Return delivery</td>
+                                <td>Standard rate</td>
+                            </tr>
+                            <tr>
+                                <td>Driver fault damage</td>
+                                <td>No charge</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: #FFFBEB; padding: 4rem 0; border-top: 1px solid #FDE68A;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: var(--brand-navy); font-size: 2rem; margin-bottom: 0.5rem;">Pricing Examples</h2>
+                    <p style="color: #6B7280;">Based on fastest route via Google Maps.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--brand-orange);">
+                        <h3 style="color: var(--brand-navy); margin-top: 0;">Single Drop - 9.3km</h3>
+                        <p style="color: #4B5563; margin-bottom: 1rem;">Short local delivery within the flat rate zone.</p>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--brand-orange);">$35</div>
+                        <small style="color: #6B7280;">Flat rate (0-20km)</small>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--brand-orange);">
+                        <h3 style="color: var(--brand-navy); margin-top: 0;">2 Drops - 39.3km</h3>
+                        <p style="color: #4B5563; margin-bottom: 1rem;">Two-stop delivery within flat rate zone.</p>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--brand-orange);">$71</div>
+                        <small style="color: #6B7280;">$55 (30-40km) + 2 drops × $8 = $71</small>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--brand-orange);">
+                        <h3 style="color: var(--brand-navy); margin-top: 0;">3 Drops - 56.8km</h3>
+                        <p style="color: #4B5563; margin-bottom: 1rem;">Multi-stop run beyond flat rate zone.</p>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--brand-orange);">$147.60</div>
+                        <small style="color: #6B7280;">$10 + ($2 × 56.8km) + 3 × $8 = $147.60</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to Book?</h2>
+                <p style="color: #BFDBFE; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Get in touch to arrange your delivery. I'll confirm availability and timing.
+                </p>
+                <a href="contact.html" style="background: var(--brand-orange); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                    Contact for Booking
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital ABCs / Beach to Bridge to Bush Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculatePrice() {
+            const distance = parseFloat(document.getElementById('distance').value);
+            const drops = parseInt(document.getElementById('drops').value);
+
+            if (!distance || distance <= 0) {
+                alert('Please enter a valid distance');
+                return;
+            }
+
+            if (drops >= 6) {
+                document.getElementById('result').classList.add('show');
+                document.getElementById('total-price').textContent = 'Contact for Quote';
+                document.getElementById('breakdown').textContent = 'For 6+ drops, please contact us for a custom quote.';
+                return;
+            }
+
+            let basePrice = 0;
+            let priceExplanation = '';
+
+            // Calculate base price based on distance
+            if (distance <= 20) {
+                basePrice = 35;
+                priceExplanation = 'Flat rate (0-20km): $35';
+            } else if (distance <= 30) {
+                basePrice = 45;
+                priceExplanation = 'Flat rate (20-30km): $45';
+            } else if (distance <= 40) {
+                basePrice = 55;
+                priceExplanation = 'Flat rate (30-40km): $55';
+            } else {
+                // Per-km rate for 41km+
+                basePrice = 10 + (distance * 2);
+                priceExplanation = `Base fee $10 + ($2 × ${distance}km) = $${basePrice.toFixed(2)}`;
+            }
+
+            // Calculate multi-drop fee
+            const additionalDrops = drops - 1;
+            const multiDropFee = additionalDrops * 8;
+
+            // Total
+            const total = basePrice + multiDropFee;
+
+            // Display result
+            document.getElementById('result').classList.add('show');
+            document.getElementById('total-price').textContent = '$' + total.toFixed(2);
+
+            let breakdown = priceExplanation;
+            if (additionalDrops > 0) {
+                breakdown += `<br>Multi-drop fee: ${drops} stops × $8 = $${multiDropFee}`;
+            }
+            breakdown += `<br><strong>Total: $${total.toFixed(2)}</strong>`;
+
+            document.getElementById('breakdown').innerHTML = breakdown;
+        }
+    </script>
+</body>
+</html>

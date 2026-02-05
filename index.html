@@ -10,24 +10,22 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigitalABCs | The Automation Lab</title>
-    <meta name="description" content="DigitalABCs builds secure, local-first AI tools for Australian businesses. Compliance, Financial Audits, and Market Insights on autopilot.">
-    
+    <title>Digital ABCs | Custom App Development for Workflow Bottlenecks</title>
+    <meta name="description" content="Digital ABCs builds custom applications that eliminate workflow bottlenecks. We deep-dive into your business processes to find what's slowing you down, then build the tech to fix it.">
+
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
+
     <style>
-        /* NEW STYLES FOR THE "COOL" LOOK */
         .hero-modern {
             background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
             color: white; padding: 6rem 0 4rem 0; text-align: center;
             position: relative; overflow: hidden;
         }
-        
-        /* A subtle "Grid" overlay for a tech feel */
+
         .hero-bg-grid {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: radial-gradient(rgba(124, 58, 237, 0.3) 1px, transparent 1px);
@@ -49,30 +47,42 @@
             display: inline-block; margin-bottom: 10px;
         }
 
-        .rnd-section {
+        .approach-section {
             background-color: #F9FAFB; padding: 4rem 0; border-top: 1px solid #E5E7EB;
         }
-        
-        .lab-card {
+
+        .approach-card {
+            background: white; padding: 2rem; border-radius: 12px; border: 1px solid #E5E7EB;
+            display: flex; flex-direction: column; gap: 15px; transition: transform 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .approach-card:hover { transform: scale(1.02); border-color: #7C3AED; }
+
+        .apps-section {
+            padding: 4rem 0;
+        }
+
+        .app-card {
             background: white; padding: 1.5rem; border-radius: 12px; border: 1px dashed #9CA3AF;
             display: flex; align-items: center; gap: 15px; transition: transform 0.2s;
         }
-        .lab-card:hover { transform: scale(1.02); border-color: #7C3AED; }
+        .app-card:hover { transform: scale(1.02); border-color: #7C3AED; }
+        .app-card.featured { border: 2px solid #10B981; border-style: solid; }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="DigitalABCs Home">
-                <img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="services.html">Tools & Services</a></li>
-                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -83,15 +93,15 @@
     </header>
 
     <main id="main-content">
-        
+
         <section class="hero-modern">
             <div class="hero-bg-grid"></div>
             <div class="container" style="position: relative; z-index: 2;">
-                <span style="color: #A78BFA; font-weight: bold; letter-spacing: 2px; font-size: 0.9rem;">THE AUTOMATION LAB</span>
-                <h1 style="font-size: 3rem; margin: 1rem 0;">Stop Renting Your Freedom.</h1>
+                <span style="color: #A78BFA; font-weight: bold; letter-spacing: 2px; font-size: 0.9rem;">APP DEVELOPMENT + PROCESS CONSULTING</span>
+                <h1 style="font-size: 3rem; margin: 1rem 0;">Your Workflow Has a Bottleneck.<br>We Find It. We Fix It.</h1>
                 <p class="subtitle" style="color: #E0E7FF; max-width: 700px; margin: 0 auto;">
-                    We don't just sell advice. We build the <strong>Asset Class Software</strong> that runs your business for you. 
-                    Secure. Local. Yours forever.
+                    Digital ABCs builds custom applications by first understanding what's actually slowing your business down.
+                    We deep-dive into your processes, identify the friction points, then build technology that removes them.
                 </p>
             </div>
         </section>
@@ -99,70 +109,113 @@
         <div class="container" style="padding-bottom: 4rem;">
             <div class="product-showcase">
                 <div style="flex: 1;">
-                    <span class="badge-live">Just Released</span>
-                    <h2 style="font-size: 2rem; color: #1E3A8A; margin: 0.5rem 0;">CompliancePulse Insights</h2>
+                    <span class="badge-live">Our Approach</span>
+                    <h2 style="font-size: 2rem; color: #1E3A8A; margin: 0.5rem 0;">Process First. Tech Second.</h2>
                     <p style="color: #4B5563; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                        The ultimate dual-engine for stability. It continuously monitors your business for <strong>ISO/GDPR risks</strong> 
-                        while scanning government feeds for <strong>new opportunities</strong>.
+                        Most tech companies want to sell you software. We want to understand your business first.
+                        Where are you losing time? Where's the manual work piling up? What tasks make you think "there has to be a better way"?
                     </p>
                     <ul style="color: #4B5563; margin-bottom: 2rem; padding-left: 20px;">
-                        <li style="margin-bottom:8px;">🛡️ <strong>Gap Analysis:</strong> Spot fines before they happen.</li>
-                        <li style="margin-bottom:8px;">🧠 <strong>Market Radar:</strong> AI that reads the news for you.</li>
-                        <li>🔒 <strong>Data Sovereignty:</strong> 100% Local. No cloud leaks.</li>
+                        <li style="margin-bottom:8px;"><strong>Deep Process Analysis:</strong> We map your workflows to find the real problems.</li>
+                        <li style="margin-bottom:8px;"><strong>Custom Solutions:</strong> We build apps tailored to how you actually work.</li>
+                        <li><strong>Practical Technology:</strong> No over-engineered nonsense. Just tools that work.</li>
                     </ul>
                     <a href="services.html" class="btn btn-primary" style="padding: 12px 30px; font-size: 1.1rem;">
-                        View Lifetime Deal ($1,000)
+                        See Our Services
                     </a>
                 </div>
                 <div style="flex: 1; text-align: center; background: #F3F4F6; padding: 2rem; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <div style="font-size: 5rem;">🛡️</div>
+                    <div style="font-size: 5rem;">🔍</div>
                 </div>
             </div>
         </div>
 
-        <section class="rnd-section">
+        <section class="approach-section">
             <div class="container">
                 <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem;">
                     <div>
-                        <h2 class="section-title" style="margin-bottom: 0.5rem;">Inside the Lab 🧪</h2>
-                        <p style="color: #6B7280;">What we are building next.</p>
+                        <h2 class="section-title" style="margin-bottom: 0.5rem;">How We Work</h2>
+                        <p style="color: #6B7280;">From bottleneck to breakthrough.</p>
                     </div>
-                    <a href="services.html" style="color: #7C3AED; font-weight: bold; text-decoration: none;">View All Tools →</a>
                 </div>
 
-                <div class="values-grid"> <div class="lab-card">
+                <div class="values-grid">
+                    <div class="approach-card">
+                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%; width: fit-content;">1</div>
+                        <div>
+                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Listen & Map</h3>
+                            <p style="font-size: 0.9rem; color: #6B7280; margin: 5px 0;">
+                                We sit down with you and map out your current processes. Not what you think happens - what actually happens. The messy bits, the workarounds, all of it.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="approach-card">
+                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%; width: fit-content;">2</div>
+                        <div>
+                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Find the Friction</h3>
+                            <p style="font-size: 0.9rem; color: #6B7280; margin: 5px 0;">
+                                We identify where time disappears. Where errors creep in. Where your team is doing repetitive work that technology should handle.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="approach-card">
+                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%; width: fit-content;">3</div>
+                        <div>
+                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Build the Solution</h3>
+                            <p style="font-size: 0.9rem; color: #6B7280; margin: 5px 0;">
+                                We design and build custom applications that solve your specific problems. Not generic software - tools built for how your business actually runs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="apps-section">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem;">
+                    <div>
+                        <h2 class="section-title" style="margin-bottom: 0.5rem;">Apps We've Built</h2>
+                        <p style="color: #6B7280;">Real solutions for real problems.</p>
+                    </div>
+                    <a href="apps.html" style="color: #7C3AED; font-weight: bold; text-decoration: none;">View All Apps &rarr;</a>
+                </div>
+
+                <div class="values-grid">
+                    <div class="app-card featured">
+                        <div style="font-size: 2rem; background: #ECFDF5; padding: 15px; border-radius: 50%;">🧠</div>
+                        <div>
+                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Linguistic Decoder</h3>
+                            <p style="font-size: 0.85rem; color: #6B7280; margin: 5px 0;">
+                                <span style="color: #10B981; font-weight: bold;">Coming to App Store</span><br>
+                                AI-powered conversation analysis. Understand what people really mean in texts, emails, and chats.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="app-card">
+                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%;">🛡️</div>
+                        <div>
+                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">CompliancePulse</h3>
+                            <p style="font-size: 0.85rem; color: #6B7280; margin: 5px 0;">
+                                <span style="color: #10B981; font-weight: bold;">Live</span><br>
+                                Compliance monitoring meets market intelligence. Spots risks and opportunities automatically.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="app-card">
                         <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%;">📊</div>
                         <div>
                             <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Smart Capture Finance</h3>
                             <p style="font-size: 0.85rem; color: #6B7280; margin: 5px 0;">
-                                <span style="color: #F59E0B; font-weight: bold;">● In Closed Beta</span><br>
-                                The "Black Box" recorder that calculates the cost of your manual invoicing.
+                                <span style="color: #F59E0B; font-weight: bold;">In Development</span><br>
+                                The "black box" for financial workflows. Records and analyses where your invoicing process loses time.
                             </p>
                         </div>
                     </div>
-
-                    <div class="lab-card">
-                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%;">🤖</div>
-                        <div>
-                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">The Insight Architect</h3>
-                            <p style="font-size: 0.85rem; color: #6B7280; margin: 5px 0;">
-                                <span style="color: #10B981; font-weight: bold;">● Live</span><br>
-                                Your AI research assistant. Filters government noise to find grants & laws.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="lab-card" style="opacity: 0.7;">
-                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%;">🔒</div>
-                        <div>
-                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Project: Ironclad</h3>
-                            <p style="font-size: 0.85rem; color: #6B7280; margin: 5px 0;">
-                                <span style="color: #6B7280; font-weight: bold;">● Concept Phase</span><br>
-                                Automated NDA & Contract Reviewer for micro-businesses.
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -170,12 +223,12 @@
        <section class="values-intro section-padding">
             <div class="container">
                 <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <h2 class="section-title">Technology That Sets You Free.</h2>
+                    <h2 class="section-title">Built by Someone Who Gets It.</h2>
                     <p class="section-subtitle">
-                        Founded by a <strong>First Nations, Neurodivergent single mum</strong> who knows the value of an hour. 
-                        We believe technology should be a silent partner that runs in the background—giving you time back, not taking it away.
+                        Digital ABCs was started by a First Nations, neurodivergent single mum who spent years watching businesses drown in inefficient processes.
+                        When you've had to make every hour count, you learn to spot waste. When your brain works differently, you see solutions others miss.
                     </p>
-                    <a href="about.html" class="btn btn-secondary" style="margin-top: 1rem;">Read Our Story</a>
+                    <a href="about.html" class="btn btn-secondary" style="margin-top: 1rem;">Read the Story</a>
                 </div>
             </div>
         </section>
@@ -186,13 +239,14 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>DigitalABCs</h4>
-                    <p>Empowering Australian businesses through practical technology.</p>
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="services.html">Tools</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -211,7 +265,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DigitalABCs. All rights reserved.</p>
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -227,9 +281,9 @@
         @media (max-width: 600px) { .tally-float-btn { padding: 12px 18px; font-size: 14px; bottom: 15px; right: 15px; } }
     </style>
     <button class="tally-float-btn" data-tally-open="wkDaP1"
-        data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true" 
-        data-tally-hide-title="false" data-tally-emoji-text="💡" 
-        data-tally-emoji-animation="tada"> Where are you in your AI journey?
+        data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true"
+        data-tally-hide-title="false" data-tally-emoji-text="💡"
+        data-tally-emoji-animation="tada">Got a workflow problem?
     </button>
     <script async src="https://tally.so/widgets/embed.js"></script>
 </body>

@@ -11,9 +11,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools & Services | DigitalABCs</title>
-    <meta name="description" content="Practical automation tools and compliance software for Australian businesses.">
-    
+    <title>Services | Digital ABCs</title>
+    <meta name="description" content="Custom app development, delivery logistics, and general tech support for small businesses. Services from Digital ABCs and Beach to Bridge to Bush Logistics.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -30,44 +30,49 @@
 
         body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
 
-        /* --- PRODUCT GRID --- */
-        .tools-section { padding: 4rem 0; }
+        .services-section { padding: 4rem 0; }
         .section-header { text-align: center; margin-bottom: 3rem; }
         .section-header h2 { font-size: 2rem; color: var(--brand-navy); margin-bottom: 0.5rem; }
         .section-header p { color: #6B7280; max-width: 600px; margin: 0 auto; }
 
-        .tools-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Slightly wider cards */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .tool-card {
-            background: white; border-radius: 16px; padding: 2rem;
+        .service-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
             border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease; position: relative; overflow: hidden;
             display: flex; flex-direction: column; justify-content: space-between;
         }
 
-        .tool-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
 
-        /* Special Card Styles */
-        .card-featured { border: 2px solid var(--brand-purple); }
-        .card-featured::before {
-            content: "🔥 Lifetime Pre-Order";
+        .service-card.featured { border: 2px solid var(--brand-green); }
+        .service-card.featured::before {
+            content: "Most Popular";
             position: absolute; top: 0; right: 0;
-            background: var(--brand-purple); color: white;
+            background: var(--brand-green); color: white;
             font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
             border-bottom-left-radius: 12px; text-transform: uppercase;
         }
 
-        .card-rnd { background: #F9FAFB; border: 1px dashed #9CA3AF; opacity: 0.9; }
-        
-        .tool-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-        .tool-title { font-size: 1.5rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.5rem; }
-        .tool-desc { color: #4B5563; line-height: 1.6; font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .service-card.logistics { border: 2px solid #F59E0B; }
+        .service-card.logistics::before {
+            content: "BBB Logistics";
+            position: absolute; top: 0; right: 0;
+            background: #F59E0B; color: white;
+            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
+            border-bottom-left-radius: 12px; text-transform: uppercase;
+        }
+
+        .service-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+        .service-title { font-size: 1.5rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.5rem; }
+        .service-desc { color: #4B5563; line-height: 1.6; font-size: 0.95rem; margin-bottom: 1.5rem; }
 
         .feature-list { list-style: none; padding: 0; margin-bottom: 1.5rem; }
         .feature-list li { margin-bottom: 8px; padding-left: 20px; position: relative; color: #4B5563; font-size: 0.9rem; }
@@ -75,65 +80,38 @@
 
         .price-area { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #E5E7EB; }
         .price-now { font-size: 1.5rem; font-weight: 700; color: var(--brand-navy); }
-        .price-strike { text-decoration: line-through; color: #9CA3AF; font-size: 0.9rem; margin-left: 8px; }
         .price-sub { font-size: 0.8rem; color: #6B7280; display: block; margin-top: 4px; }
 
-        .btn-tool {
+        .btn-service {
             display: block; width: 100%; text-align: center; padding: 14px;
             border-radius: 8px; font-weight: 700; text-decoration: none; margin-top: 1rem;
             transition: 0.2s;
         }
         .btn-primary { background-color: var(--brand-green); color: white; }
         .btn-primary:hover { background-color: var(--brand-green-hover); }
-        
-        .btn-disabled { background-color: #E5E7EB; color: #9CA3AF; cursor: not-allowed; }
+        .btn-secondary { background-color: var(--brand-navy); color: white; }
+        .btn-secondary:hover { background-color: #1E3A8A; }
+        .btn-logistics { background-color: #F59E0B; color: white; }
+        .btn-logistics:hover { background-color: #D97706; }
 
-        /* --- LEGACY SERVICES (Compact) --- */
-        .services-compact { margin-top: 4rem; padding-top: 4rem; border-top: 1px solid #E5E7EB; }
-        .service-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-        .service-chip {
-            background: white; padding: 1rem 1.5rem; border-radius: 50px;
-            border: 1px solid #E5E7EB; color: #4B5563; font-weight: 600; cursor: pointer;
-            transition: 0.2s; display: flex; align-items: center; gap: 10px;
+        .cta-section {
+            background: linear-gradient(135deg, var(--brand-navy) 0%, #111827 100%);
+            color: white; padding: 4rem 0; margin-top: 4rem; text-align: center;
         }
-        .service-chip:hover { border-color: var(--brand-navy); color: var(--brand-navy); background: #EFF6FF; }
-
-        /* Modals & Diagnostic CSS (Retained) */
-        .diagnostic-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(30, 58, 138, 0.95); display: none; justify-content: center; align-items: center; z-index: 10000; padding: 20px; backdrop-filter: blur(5px); }
-        .diagnostic-card { background: white; width: 100%; max-width: 600px; padding: 2.5rem; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); position: relative; border-top: 8px solid var(--brand-purple); }
-        .progress-container { width: 100%; background: #F3F4F6; height: 6px; border-radius: 10px; margin-bottom: 20px; }
-        .progress-fill { height: 100%; background: var(--brand-green); width: 0%; transition: width 0.3s; }
-        .diag-btn { width:100%; background: white; border: 2px solid #E5E7EB; color: #4B5563; padding: 16px; border-radius: 10px; margin-bottom:10px; text-align: left; cursor: pointer; transition:0.2s; }
-        .diag-btn:hover { border-color: var(--brand-purple); background: #F5F3FF; color: var(--brand-purple); }
-        .close-modal { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2rem; color: #9CA3AF; cursor: pointer; }
-        .float-trigger { position: fixed; bottom: 30px; right: 30px; background-color: var(--brand-purple); color: white; padding: 16px 28px; border-radius: 50px; font-weight: 600; box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.5); border: none; cursor: pointer; z-index: 9999; transition: transform 0.2s; }
-        .float-trigger:hover { transform: translateY(-3px); }
-        
-        /* Service Modal CSS */
-        .detail-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; justify-content: center; align-items: center; z-index: 11000; padding: 20px; backdrop-filter: blur(3px); }
-        .detail-card { background: white; width: 100%; max-width: 700px; padding: 3rem; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); position: relative; max-height: 90vh; overflow-y: auto; }
-        /* Add this to your existing CSS styles */
-        .card-instant { 
-        border: 2px solid var(--brand-green); 
-        }
-        .card-instant::before {
-            content: "⚡ Instant Access";
-            position: absolute; top: 0; right: 0;
-            background: var(--brand-green); color: white;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
-        }
+        .cta-section h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .cta-section p { color: #BFDBFE; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
     </style>
 </head>
 
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo"><img src="assets/logo.png" alt="DigitalABCs Logo" class="logo-img"></a>
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html" class="active">Tools & Services</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="apps.html">Apps We've Built</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -146,87 +124,86 @@
     <main id="main-content">
         <section class="hero" style="background: var(--brand-navy); color: white; padding: 5rem 0; text-align: center;">
             <div class="container">
-                <h1 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem;">Own Your Automation.</h1>
+                <h1 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem;">Services</h1>
                 <p style="color: #BFDBFE; max-width: 600px; margin: 0 auto; font-size: 1.2rem; line-height: 1.6;">
-                    We build the tools. You own the results. <br>
-                    Secure, local-first software to bring clarity to your business chaos.
+                    App development for workflow problems. Delivery logistics for local businesses.<br>
+                    Tech support for everything in between.
                 </p>
             </div>
         </section>
 
-        <section class="tools-section">
+        <section class="services-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>The Automation Lab</h2>
-                    <p>Proprietary software to protect and grow your business.</p>
+                    <h2>What I Offer</h2>
+                    <p>Three different services, one practical approach.</p>
                 </div>
 
-                <div class="tools-grid">
-                    
-                    <div class="tool-card card-featured">
+                <div class="services-grid">
+
+                    <div class="service-card featured">
                         <div>
-                            <span class="tool-icon">🛡️ + 🧠</span>
-                            <div class="tool-title">CompliancePulse Insights</div>
-                            <p class="tool-desc">
-                                The ultimate dual-engine for stability. It continuously monitors your compliance risks (ISO/GDPR) 
-                                <strong>AND</strong> scans government feeds for business opportunities. Protection meets Growth.
+                            <span class="service-icon">🔧</span>
+                            <div class="service-title">Custom App Development</div>
+                            <p class="service-desc">
+                                Got a workflow that's eating your time? A process that should be automated? I build custom applications that solve your specific problems - not generic software, but tools built for how your business actually runs.
                             </p>
                             <ul class="feature-list">
-                                <li><strong>Safety:</strong> ISO & GDPR Gap Analysis Risk Score</li>
-                                <li><strong>Growth:</strong> AI Government Feed & News Monitor</li>
-                                <li><strong>Privacy:</strong> 100% Local-Only Data Processing</li>
+                                <li>Deep-dive into your current workflows</li>
+                                <li>Identify bottlenecks and friction points</li>
+                                <li>Design and build custom solutions</li>
+                                <li>Train you and your team to use them</li>
+                                <li>Ongoing support as your needs change</li>
                             </ul>
                         </div>
                         <div class="price-area">
-                            <span class="price-now">$1,000</span>
-                            <span class="price-strike">$299/mo</span>
-                            <span class="price-sub">Pre-Order Price. Lifetime Access.</span>
-                            <a href="https://buy.stripe.com/dRm5kFcjgesk6MY1OU1B60c" class="btn-tool btn-primary">Secure Lifetime Deal</a>
-                            
-                        </div>
-                    </div>
-                    <div class="tool-card card-instant">
-                        <div>
-                            <span class="tool-icon">⚖️</span>
-                            <div class="tool-title">The Validator</div>
-                            <p class="tool-desc">
-                                Stop guessing. Bypass the "flooding" and validate your next product idea in 60 seconds using credible market data and AI.
-                            </p>
-                            <ul class="feature-list">
-                                <li><strong>Credible Data:</strong> Filters out clickbait/tabloids.</li>
-                                <li><strong>Market Heat:</strong> Real-time Google Trends analysis.</li>
-                                <li><strong>The Verdict:</strong> AI Consultant gives a "Go/No-Go".</li>
-                            </ul>
-                        </div>
-                        <div class="price-area">
-                            <span class="price-now">$9 AUD</span>
-                            <span class="price-sub">One-time Access Pass</span>
-                            
-                            <a href="https://buy.stripe.com/3cIbJ36YW1Fy9ZagJO1B60d" target="_blank" class="btn-tool btn-primary">
-                                Get Instant Access
-                            </a>
+                            <span class="price-now">From $2,500</span>
+                            <span class="price-sub">Project-based pricing. No hidden fees.</span>
+                            <a href="contact.html" class="btn-service btn-primary">Let's Talk About Your Problem</a>
                         </div>
                     </div>
 
-                    <div class="tool-card card-rnd">
+                    <div class="service-card logistics">
                         <div>
-                            <div style="display:flex; justify-content:space-between;">
-                                <span class="tool-icon" style="opacity:0.6;">📊</span>
-                                <span style="background:#E5E7EB; color:#4B5563; font-size:0.7rem; font-weight:bold; padding:4px 8px; border-radius:4px; height:fit-content;">IN R&D</span>
-                            </div>
-                            <div class="tool-title" style="color:#4B5563;">Smart Capture</div>
-                            <p class="tool-desc">
-                                The "Black Box" recorder for primary workflows. It watches how you work 
-                                to identify the exact cost of and where the bottlenecks are without 
-                                it stays with you where you want it.
+                            <span class="service-icon">🚗</span>
+                            <div class="service-title">BBB Logistics</div>
+                            <p class="service-desc">
+                                Beach to Bridge to Bush Logistics. Flexible delivery services for local businesses - especially those with seasonal needs or overflow requirements. Reliable, straightforward, no corporate nonsense.
                             </p>
-                            <p style="font-size:0.85rem; color:#6B7280; font-style:italic; margin-top: 1rem;">
-                                Currently in Closed Beta.
-                            </p>
+                            <ul class="feature-list">
+                                <li>Single and multi-drop deliveries</li>
+                                <li>Seasonal support when you're slammed</li>
+                                <li>Returns and damaged goods handling</li>
+                                <li>Flexible scheduling around your needs</li>
+                                <li>Transparent pricing - use the calculator</li>
+                            </ul>
                         </div>
-                        <div class="price-area" style="border-color: #E5E7EB;">
-                            <span class="price-now" style="color:#6B7280;">Coming Soon</span>
-                            <a href="mailto:waitlist@digitalabcs.com.au?subject=Smart Capture Waitlist" class="btn-tool btn-disabled">Join Waitlist</a>
+                        <div class="price-area">
+                            <span class="price-now">From $35</span>
+                            <span class="price-sub">Flat rates up to 40km. Per-km rates for longer runs.</span>
+                            <a href="bbblogistics.html" class="btn-service btn-logistics">Get a Quote</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <span class="service-icon">💻</span>
+                            <div class="service-title">Tech Support & Consulting</div>
+                            <p class="service-desc">
+                                Don't need a full custom app, but still need help with technology? General tech support for small businesses - software setup, troubleshooting, process audits, or just someone to answer "is this normal?" questions.
+                            </p>
+                            <ul class="feature-list">
+                                <li>Software setup and configuration</li>
+                                <li>System troubleshooting</li>
+                                <li>Digital workflow audits</li>
+                                <li>Tool recommendations (honest ones)</li>
+                                <li>Training and documentation</li>
+                            </ul>
+                        </div>
+                        <div class="price-area">
+                            <span class="price-now">$150/hour</span>
+                            <span class="price-sub">Or fixed-price for defined projects.</span>
+                            <a href="contact.html" class="btn-service btn-secondary">Book a Session</a>
                         </div>
                     </div>
 
@@ -234,184 +211,77 @@
             </div>
         </section>
 
-        <section class="services-compact">
+        <section style="background: #F9FAFB; padding: 4rem 0; border-top: 1px solid #E5E7EB;">
             <div class="container">
                 <div class="section-header">
-                    <h2 style="font-size: 1.5rem;">Strategic Consulting</h2>
-                    <p>Need a human expert? We still do that.</p>
+                    <h2>How I Work</h2>
+                    <p>Same approach, whether it's code or cargo.</p>
                 </div>
-                
-                <div class="service-row">
-                    <div class="service-chip" onclick="openServiceDetail('audit')">
-                        <span>🔎</span> Digital Systems Audit ($2,500)
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--brand-purple);">
+                        <h3 style="color: var(--brand-navy); margin-top: 0;">1. Understand the Problem</h3>
+                        <p style="color: #4B5563; line-height: 1.6; margin-bottom: 0;">I ask questions. Lots of them. I need to understand what you're actually dealing with before I can propose a solution.</p>
                     </div>
-                    <div class="service-chip" onclick="openServiceDetail('blueprint')">
-                        <span>🗺️</span> Stability Blueprint ($1,500)
+                    <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--brand-green);">
+                        <h3 style="color: var(--brand-navy); margin-top: 0;">2. Give You a Straight Answer</h3>
+                        <p style="color: #4B5563; line-height: 1.6; margin-bottom: 0;">I'll tell you what I think will work, what won't, and what it'll cost. No surprises later.</p>
                     </div>
-                    <div class="service-chip" onclick="openServiceDetail('support')">
-                        <span>📈</span> Stability Retainer ($2,500/qtr)
+                    <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid #F59E0B;">
+                        <h3 style="color: var(--brand-navy); margin-top: 0;">3. Do the Work</h3>
+                        <p style="color: #4B5563; line-height: 1.6; margin-bottom: 0;">Whether it's building an app or delivering your packages, I do what I said I'd do. Then I follow up to make sure it's working.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <button class="float-trigger" onclick="openDiagnostic()">
-            <span>⚡</span> Find My Stability Plan
-        </button>
+        <section class="cta-section">
+            <div class="container">
+                <h2>Not Sure What You Need?</h2>
+                <p>
+                    That's fine. Drop me a message explaining what's frustrating you, and I'll tell you whether I can help - and if not, I might know someone who can.
+                </p>
+                <a href="contact.html" style="background: var(--brand-green); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                    Get in Touch
+                </a>
+            </div>
+        </section>
 
     </main>
 
-    <div id="serviceDetailModal" class="detail-overlay">
-        <div class="detail-card">
-            <button class="close-modal" onclick="closeServiceDetail()">&times;</button>
-            <div id="detail-content"></div>
-        </div>
-    </div>
-
-    <div id="diagnosticModal" class="diagnostic-overlay">
-        <div class="diagnostic-card">
-            <button class="close-modal" onclick="closeDiagnostic()">&times;</button>
-            <div id="quiz-content">
-                <div class="progress-container"><div id="progress-fill" class="progress-fill"></div></div>
-                <h2 class="diag-title" style="color: var(--brand-navy);">Diagnostic Tool</h2>
-                <div id="question-container"></div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
+                </div>
             </div>
-            <div id="result-content" style="display:none; text-align:center;">
-                <span style="font-size:3rem;">✨</span>
-                <h2 style="color:var(--brand-navy); margin-bottom:10px;">Your Recommended Path</h2>
-                <h3 id="result-service" style="color:var(--brand-purple); font-size:1.5rem;"></h3>
-                <p id="result-desc" style="color:#4B5563; margin:15px 0;"></p>
-                <div id="result-price" style="font-size:1.25rem; font-weight:700; color:var(--brand-navy);"></div>
-                <a id="result-link" href="#" class="cta-green" style="display:block; margin-top:20px; color:white; padding:15px; border-radius:8px; text-decoration:none;">Get Started</a>
-                <button onclick="resetQuiz()" style="background:none; border:none; color:#9CA3AF; margin-top:10px; cursor:pointer;">Start Over</button>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
-    </div>
-
-    <script>
-        // --- 1. SERVICE DATA (For Consulting Chips) ---
-        const serviceData = {
-            audit: {
-                title: "Digital Systems Audit 🔎",
-                desc: "We don't just 'look around'. We use specialized capture tools to map every piece of data entering and leaving your business.",
-                deliverables: ["Data Flow Map", "Compliance Check (APP/GDPR)", "The 'Red-Flag' Report", "Vulnerability Assessment"],
-                example: "Real World Example: For a marketing agency, our audit discovered $12,000/year in unused SaaS subscriptions."
-            },
-            blueprint: {
-                title: "Stability Blueprint 🗺️",
-                desc: "A concrete, step-by-step technical specification for your next 12 months of automation.",
-                deliverables: ["2-Hour Strategy Workshop", "Phased Implementation Plan", "Tool Selection", "ROI Projection"],
-                example: "Real World Example: We designed a 'Phased Rollout' for a consultancy. Phase 1: Secure Email. Phase 2: Automate Invoicing."
-            },
-            support: {
-                title: "Stability Retainer 📈",
-                desc: "Technology breaks. We ensure your systems evolve with you.",
-                deliverables: ["Monthly Health Checks", "Priority Support", "Security Patching", "Quarterly Strategy Call"],
-                example: "Real World Example: A recent Xero API update broke a client's invoicing tool. We patched it before they woke up."
-            }
-        };
-
-        function openServiceDetail(id) {
-            const data = serviceData[id];
-            const modal = document.getElementById('serviceDetailModal');
-            const content = document.getElementById('detail-content');
-            
-            let listHtml = '<ul style="list-style: none; padding: 0; margin-top: 10px;">';
-            data.deliverables.forEach(item => { listHtml += `<li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="color:var(--brand-green); position:absolute; left:0;">✔</span> ${item}</li>`; });
-            listHtml += '</ul>';
-
-            content.innerHTML = `<div class="detail-header"><h2 class="detail-title">${data.title}</h2><p style="color:#4B5563;font-size:1.1rem;">${data.desc}</p></div><div class="section-title">Deliverables</div>${listHtml}<div class="example-box">${data.example}</div><div style="margin-top:2rem;text-align:center;"><a href="contact.html" class="cta-green" style="display:inline-block;color:white;text-decoration:none;padding:12px 30px;border-radius:6px;">Book Consultation</a></div>`;
-            modal.style.display = 'flex';
-        }
-
-        function closeServiceDetail() { document.getElementById('serviceDetailModal').style.display = 'none'; }
-
-        // --- 2. QUIZ LOGIC (Simplified for Merged Tool) ---
-        const STRIPE_LINKS = {
-            Compliance: "https://buy.stripe.com/YOUR_COMPLIANCE_LINK",
-            Capture: "mailto:waitlist@digitalabcs.com.au"
-        };
-
-        const questions = [
-            { q: "What is your primary goal?", options: [{text:"Automate Financial Data", type:"Capture"}, {text:"Risk & Market Insights", type:"Compliance"}, {text:"Reduce Manual Work", type:"Capture"}] },
-            { q: "How sensitive is your data?", options: [{text:"Very (Finance/Legal)", type:"Compliance"}, {text:"Standard Business Docs", type:"Capture"}] }
-        ];
-
-        let currentStep = 0;
-        let scores = {Compliance:0, Capture:0};
-
-        function openDiagnostic() { document.getElementById('diagnosticModal').style.display = 'flex'; resetQuiz(); }
-        function closeDiagnostic() { document.getElementById('diagnosticModal').style.display = 'none'; }
-        
-        function resetQuiz() { currentStep = 0; scores = {Compliance:0, Capture:0}; document.getElementById('quiz-content').style.display = 'block'; document.getElementById('result-content').style.display = 'none'; renderQuestion(); }
-
-        function renderQuestion() {
-            const q = questions[currentStep];
-            let html = `<p class="diag-question" style="font-size:1.2rem;margin-bottom:1rem;">${q.q}</p>`;
-            q.options.forEach((opt, idx) => { html += `<button class="diag-btn" onclick="submitAnswer('${opt.type}')">${opt.text}</button>`; });
-            document.getElementById('question-container').innerHTML = html;
-            document.getElementById('progress-fill').style.width = ((currentStep / questions.length) * 100) + '%';
-        }
-
-        function submitAnswer(type) {
-            scores[type]++;
-            currentStep++;
-            (currentStep < questions.length) ? renderQuestion() : showResult();
-        }
-
-        function showResult() {
-            let winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-            
-            let res = {};
-            if (winner === 'Compliance') res = {t:"CompliancePulse Insights", p:"$1,000 (Lifetime)", l:STRIPE_LINKS.Compliance, d:"Your all-in-one engine for Risk Management and Business Intelligence."};
-            else res = {t:"Smart Capture Finance", p:"Waitlist Only", l:STRIPE_LINKS.Capture, d:"The financial black box recorder you need."};
-
-            document.getElementById('quiz-content').style.display = 'none';
-            document.getElementById('result-content').style.display = 'block';
-            document.getElementById('result-service').innerText = res.t;
-            document.getElementById('result-desc').innerText = res.d;
-            document.getElementById('result-price').innerText = res.p;
-            document.getElementById('result-link').innerText = winner === 'Capture' ? "Join Waitlist" : "Pre-Order Deal";
-            document.getElementById('result-link').href = res.l;
-        }
-
-        window.onclick = function(e) {
-            if (e.target == document.getElementById('serviceDetailModal')) closeServiceDetail();
-            if (e.target == document.getElementById('diagnosticModal')) closeDiagnostic();
-        }
-    </script>
+    </footer>
 </body>
-<footer class="site-footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>DigitalABCs</h4>
-                <p>Empowering Australian businesses through practical technology. Built on resilience, for resilience.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigate</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Tools & Services</a></li>
-                    <li><a href="insights.php">Insights</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <p>info@digitalabcs.com.au<br>Toongabbie, NSW, Australia</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 DigitalABCs. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
 </html>
