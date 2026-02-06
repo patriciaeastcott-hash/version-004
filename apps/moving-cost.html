@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Cost Calculator | Digital ABCs</title>
+    <meta name="description" content="Estimate your moving costs based on distance, home size, and services needed.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; --moving-teal: #0D9488; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #CCFBF1; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--moving-teal); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
+        .form-section { margin-bottom: 2rem; }
+        .form-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 1.1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #E5E7EB; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--moving-teal); }
+        .services-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+        .service-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: #F9FAFB; border-radius: 8px; cursor: pointer; }
+        .service-item:hover { background: #F0FDFA; }
+        .service-item input { width: 18px; height: 18px; accent-color: var(--moving-teal); }
+        .service-item label { cursor: pointer; font-size: 0.95rem; }
+        .service-item .price { color: var(--moving-teal); font-weight: 600; font-size: 0.85rem; margin-left: auto; }
+        .results { background: #F0FDFA; border: 2px solid var(--moving-teal); border-radius: 12px; padding: 2rem; }
+        .result-main { text-align: center; margin-bottom: 1.5rem; }
+        .result-main .value { font-size: 3rem; font-weight: 700; color: var(--moving-teal); font-family: 'Roboto Mono', monospace; }
+        .result-main .label { color: #4B5563; }
+        .result-main .range { font-size: 1rem; color: #6B7280; margin-top: 0.5rem; }
+        .breakdown-list { margin-bottom: 1.5rem; }
+        .breakdown-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #99F6E4; }
+        .breakdown-item:last-child { border-bottom: none; font-weight: 700; padding-top: 1rem; border-top: 2px solid var(--moving-teal); }
+        .breakdown-item .label { color: #374151; }
+        .breakdown-item .amount { font-family: 'Roboto Mono', monospace; color: var(--moving-teal); }
+        .tips-section { background: white; border-radius: 8px; padding: 1rem; margin-top: 1rem; }
+        .tips-section h4 { color: var(--brand-navy); margin: 0 0 0.75rem 0; font-size: 0.95rem; }
+        .tips-section ul { margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: #4B5563; }
+        .tips-section li { margin-bottom: 0.5rem; }
+        .disclaimer { margin-top: 1rem; padding: 0.75rem; background: #FFFBEB; border-radius: 8px; font-size: 0.8rem; color: #92400E; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .form-grid, .services-list { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Moving Cost Calculator</h1><p>Estimate your moving costs based on home size, distance, and services.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="form-section">
+                <h3>Move Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Home Size</label>
+                        <select id="homeSize" onchange="calculate()">
+                            <option value="studio">Studio / 1 Bedroom</option>
+                            <option value="2bed" selected>2 Bedrooms</option>
+                            <option value="3bed">3 Bedrooms</option>
+                            <option value="4bed">4+ Bedrooms</option>
+                            <option value="house">Large House</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Distance (km)</label>
+                        <input type="number" id="distance" value="20" min="1" max="5000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Move Type</label>
+                        <select id="moveType" onchange="calculate()">
+                            <option value="local" selected>Local (same city)</option>
+                            <option value="interstate">Interstate</option>
+                            <option value="international">International</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Floor Level</label>
+                        <select id="floor" onchange="calculate()">
+                            <option value="ground">Ground floor</option>
+                            <option value="1" selected>1st floor</option>
+                            <option value="2">2nd floor</option>
+                            <option value="3+">3rd floor or higher</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3>Additional Services</h3>
+                <div class="services-list">
+                    <div class="service-item"><input type="checkbox" id="packing" onchange="calculate()"><label for="packing">Full packing service</label><span class="price">+$300-800</span></div>
+                    <div class="service-item"><input type="checkbox" id="unpacking" onchange="calculate()"><label for="unpacking">Unpacking service</label><span class="price">+$200-500</span></div>
+                    <div class="service-item"><input type="checkbox" id="supplies" onchange="calculate()"><label for="supplies">Packing supplies</label><span class="price">+$50-200</span></div>
+                    <div class="service-item"><input type="checkbox" id="storage" onchange="calculate()"><label for="storage">Temporary storage</label><span class="price">+$150/week</span></div>
+                    <div class="service-item"><input type="checkbox" id="piano" onchange="calculate()"><label for="piano">Piano/heavy items</label><span class="price">+$150-400</span></div>
+                    <div class="service-item"><input type="checkbox" id="insurance" onchange="calculate()"><label for="insurance">Moving insurance</label><span class="price">+$100-300</span></div>
+                </div>
+            </div>
+            <div class="results">
+                <div class="result-main">
+                    <div class="value" id="totalEstimate">$850</div>
+                    <div class="label">Estimated Moving Cost</div>
+                    <div class="range" id="costRange">Range: $680 - $1,020</div>
+                </div>
+                <div class="breakdown-list" id="breakdown"></div>
+                <div class="tips-section">
+                    <h4>Money-Saving Tips</h4>
+                    <ul>
+                        <li>Move mid-week or mid-month for lower rates</li>
+                        <li>Declutter before moving to reduce volume</li>
+                        <li>Get at least 3 quotes from different movers</li>
+                        <li>Pack your own boxes if you have time</li>
+                    </ul>
+                </div>
+                <div class="disclaimer">These are estimates only. Actual costs vary based on movers, timing, and specific requirements. Get quotes from professional movers for accurate pricing.</div>
+            </div>
+            <div class="pro-banner"><h3>Moving Checklist & Planner</h3><p>Complete moving timeline, task lists, and address change tracker.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var baseCosts = { studio: 400, '2bed': 600, '3bed': 900, '4bed': 1200, house: 1800 };
+        var floorExtra = { ground: 0, '1': 50, '2': 100, '3+': 150 };
+        var moveTypeMultiplier = { local: 1, interstate: 2.5, international: 5 };
+        var serviceCosts = {
+            packing: { min: 300, max: 800 },
+            unpacking: { min: 200, max: 500 },
+            supplies: { min: 50, max: 200 },
+            storage: { min: 150, max: 150 },
+            piano: { min: 150, max: 400 },
+            insurance: { min: 100, max: 300 }
+        };
+        function calculate() {
+            var homeSize = document.getElementById('homeSize').value;
+            var distance = parseInt(document.getElementById('distance').value) || 20;
+            var moveType = document.getElementById('moveType').value;
+            var floor = document.getElementById('floor').value;
+            var base = baseCosts[homeSize];
+            var distanceCost = Math.min(distance * 2, 500);
+            var floorCost = floorExtra[floor];
+            var multiplier = moveTypeMultiplier[moveType];
+            var services = [];
+            var serviceMin = 0, serviceMax = 0;
+            Object.keys(serviceCosts).forEach(function(key) {
+                if (document.getElementById(key).checked) {
+                    serviceMin += serviceCosts[key].min;
+                    serviceMax += serviceCosts[key].max;
+                    services.push({ name: key, min: serviceCosts[key].min, max: serviceCosts[key].max });
+                }
+            });
+            var baseTotal = (base + distanceCost + floorCost) * multiplier;
+            var totalMin = baseTotal + serviceMin;
+            var totalMax = baseTotal + serviceMax;
+            var totalAvg = Math.round((totalMin + totalMax) / 2);
+            document.getElementById('totalEstimate').textContent = '$' + totalAvg.toLocaleString();
+            document.getElementById('costRange').textContent = 'Range: $' + totalMin.toLocaleString() + ' - $' + totalMax.toLocaleString();
+            var breakdownHtml = '<div class="breakdown-item"><span class="label">Base moving cost (' + homeSize + ')</span><span class="amount">$' + Math.round(base * multiplier).toLocaleString() + '</span></div>';
+            breakdownHtml += '<div class="breakdown-item"><span class="label">Distance (' + distance + 'km)</span><span class="amount">$' + Math.round(distanceCost * multiplier).toLocaleString() + '</span></div>';
+            if (floorCost > 0) {
+                breakdownHtml += '<div class="breakdown-item"><span class="label">Floor access</span><span class="amount">$' + Math.round(floorCost * multiplier).toLocaleString() + '</span></div>';
+            }
+            services.forEach(function(s) {
+                var avg = Math.round((s.min + s.max) / 2);
+                breakdownHtml += '<div class="breakdown-item"><span class="label">' + s.name.charAt(0).toUpperCase() + s.name.slice(1) + '</span><span class="amount">$' + avg.toLocaleString() + '</span></div>';
+            });
+            breakdownHtml += '<div class="breakdown-item"><span class="label">Estimated Total</span><span class="amount">$' + totalAvg.toLocaleString() + '</span></div>';
+            document.getElementById('breakdown').innerHTML = breakdownHtml;
+        }
+        calculate();
+    </script>
+</body>
+</html>

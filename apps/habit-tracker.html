@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker | Digital ABCs</title>
+    <meta name="description" content="Track your daily habits and build streaks. Simple, visual habit tracking to help you build better routines.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #5B21B6 0%, #065F46 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-purple);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 800px; margin: 0 auto;
+        }
+
+        .add-habit-form {
+            display: flex; gap: 0.75rem; margin-bottom: 2rem;
+        }
+
+        .add-habit-form input {
+            flex: 1; padding: 12px; border: 2px solid #E5E7EB;
+            border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif;
+        }
+        .add-habit-form input:focus { outline: none; border-color: var(--brand-purple); }
+
+        .add-habit-form button {
+            padding: 12px 24px; background: var(--brand-green); color: white;
+            border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .add-habit-form button:hover { background: #064E3B; }
+
+        .week-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .week-nav button {
+            padding: 8px 16px; background: #F3F4F6; border: none;
+            border-radius: 6px; cursor: pointer; font-weight: 500;
+        }
+        .week-nav button:hover { background: #E5E7EB; }
+
+        .week-nav .current-week {
+            font-weight: 600; color: var(--brand-navy);
+        }
+
+        .habits-grid {
+            display: flex; flex-direction: column; gap: 0.75rem;
+        }
+
+        .habit-row {
+            display: grid; grid-template-columns: 1fr repeat(7, 44px) auto;
+            gap: 0.5rem; align-items: center; padding: 1rem;
+            background: #F9FAFB; border-radius: 12px;
+        }
+
+        .habit-name {
+            font-weight: 600; color: #374151;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .habit-name .streak {
+            background: #FEF3C7; color: #92400E; padding: 2px 8px;
+            border-radius: 12px; font-size: 0.75rem; font-weight: 700;
+        }
+
+        .day-cell {
+            width: 44px; height: 44px; border-radius: 8px;
+            border: 2px solid #E5E7EB; background: white;
+            cursor: pointer; display: flex; align-items: center;
+            justify-content: center; font-size: 0.75rem; color: #9CA3AF;
+            transition: all 0.2s;
+        }
+
+        .day-cell:hover { border-color: var(--brand-green); }
+        .day-cell.completed {
+            background: var(--brand-green); border-color: var(--brand-green);
+            color: white;
+        }
+        .day-cell.completed::after { content: '✓'; font-size: 1.25rem; }
+        .day-cell.today { border-color: var(--brand-purple); border-width: 3px; }
+
+        .delete-btn {
+            background: none; border: none; color: #9CA3AF;
+            cursor: pointer; font-size: 1.25rem; padding: 0.5rem;
+        }
+        .delete-btn:hover { color: #EF4444; }
+
+        .day-labels {
+            display: grid; grid-template-columns: 1fr repeat(7, 44px) auto;
+            gap: 0.5rem; padding: 0 1rem; margin-bottom: 0.5rem;
+        }
+
+        .day-labels span {
+            text-align: center; font-size: 0.75rem; color: #4B5563;
+            font-weight: 600;
+        }
+
+        .stats-row {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem; margin-top: 2rem; padding-top: 2rem;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .stat-card {
+            padding: 1rem; background: #EEF2FF; border-radius: 10px; text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 1.5rem; font-weight: 700; color: var(--brand-purple);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .stat-card .label { font-size: 0.8rem; color: #4B5563; margin-top: 0.25rem; }
+
+        .empty-state {
+            text-align: center; padding: 3rem; color: #4B5563;
+        }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .habit-row { grid-template-columns: 1fr; }
+            .day-labels { display: none; }
+            .habit-row .day-cell { width: 36px; height: 36px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Habit Tracker</h1>
+                <p>Build better habits with simple daily tracking. Watch your streaks grow and stay motivated.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="add-habit-form">
+                        <input type="text" id="habitInput" placeholder="Add a new habit (e.g., Exercise, Read, Meditate)">
+                        <button onclick="addHabit()">+ Add Habit</button>
+                    </div>
+
+                    <div class="week-nav">
+                        <button onclick="changeWeek(-1)">← Previous</button>
+                        <span class="current-week" id="weekLabel">This Week</span>
+                        <button onclick="changeWeek(1)">Next →</button>
+                    </div>
+
+                    <div class="day-labels" id="dayLabels"></div>
+
+                    <div class="habits-grid" id="habitsGrid">
+                        <div class="empty-state">
+                            <p>No habits yet. Add your first habit above!</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-row" id="statsRow">
+                        <div class="stat-card">
+                            <div class="value" id="totalHabits">0</div>
+                            <div class="label">Total Habits</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value" id="completedToday">0</div>
+                            <div class="label">Done Today</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value" id="longestStreak">0</div>
+                            <div class="label">Longest Streak</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value" id="weeklyRate">0%</div>
+                            <div class="label">This Week</div>
+                        </div>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Advanced Analytics & Reminders</h3>
+                        <p>Get notifications, detailed charts, and habit insights.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var habits = JSON.parse(localStorage.getItem('dabcs_habits') || '[]');
+        var weekOffset = 0;
+
+        function getWeekDates(offset) {
+            var today = new Date();
+            var start = new Date(today);
+            start.setDate(today.getDate() - today.getDay() + 1 + (offset * 7));
+
+            var dates = [];
+            for (var i = 0; i < 7; i++) {
+                var d = new Date(start);
+                d.setDate(start.getDate() + i);
+                dates.push(d.toISOString().split('T')[0]);
+            }
+            return dates;
+        }
+
+        function formatDateShort(dateStr) {
+            var d = new Date(dateStr);
+            return d.getDate();
+        }
+
+        function getDayName(dateStr) {
+            var d = new Date(dateStr);
+            return ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][d.getDay() === 0 ? 6 : d.getDay() - 1];
+        }
+
+        function changeWeek(delta) {
+            weekOffset += delta;
+            render();
+        }
+
+        function addHabit() {
+            var input = document.getElementById('habitInput');
+            var name = input.value.trim();
+            if (!name) return;
+
+            habits.push({ id: Date.now(), name: name, completions: [] });
+            saveAndRender();
+            input.value = '';
+        }
+
+        document.getElementById('habitInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addHabit();
+        });
+
+        function toggleCompletion(habitId, date) {
+            var habit = habits.find(function(h) { return h.id === habitId; });
+            if (!habit) return;
+
+            var idx = habit.completions.indexOf(date);
+            if (idx >= 0) {
+                habit.completions.splice(idx, 1);
+            } else {
+                habit.completions.push(date);
+            }
+
+            saveAndRender();
+        }
+
+        function deleteHabit(habitId) {
+            if (!confirm('Delete this habit?')) return;
+            habits = habits.filter(function(h) { return h.id !== habitId; });
+            saveAndRender();
+        }
+
+        function getStreak(habit) {
+            var sorted = habit.completions.slice().sort().reverse();
+            var streak = 0;
+            var today = new Date().toISOString().split('T')[0];
+            var checkDate = new Date(today);
+
+            for (var i = 0; i < 365; i++) {
+                var dateStr = checkDate.toISOString().split('T')[0];
+                if (sorted.indexOf(dateStr) >= 0) {
+                    streak++;
+                    checkDate.setDate(checkDate.getDate() - 1);
+                } else if (i === 0) {
+                    checkDate.setDate(checkDate.getDate() - 1);
+                } else {
+                    break;
+                }
+            }
+
+            return streak;
+        }
+
+        function saveAndRender() {
+            localStorage.setItem('dabcs_habits', JSON.stringify(habits));
+            render();
+        }
+
+        function render() {
+            var weekDates = getWeekDates(weekOffset);
+            var today = new Date().toISOString().split('T')[0];
+
+            // Week label
+            var startDate = new Date(weekDates[0]);
+            var endDate = new Date(weekDates[6]);
+            var label = weekOffset === 0 ? 'This Week' :
+                startDate.toLocaleDateString('en-AU', { month: 'short', day: 'numeric' }) +
+                ' - ' + endDate.toLocaleDateString('en-AU', { month: 'short', day: 'numeric' });
+            document.getElementById('weekLabel').textContent = label;
+
+            // Day labels
+            var dayLabelsHtml = '<span></span>';
+            weekDates.forEach(function(date) {
+                dayLabelsHtml += '<span>' + getDayName(date) + '<br>' + formatDateShort(date) + '</span>';
+            });
+            dayLabelsHtml += '<span></span>';
+            document.getElementById('dayLabels').innerHTML = dayLabelsHtml;
+
+            // Habits grid
+            var grid = document.getElementById('habitsGrid');
+
+            if (habits.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><p>No habits yet. Add your first habit above!</p></div>';
+            } else {
+                var html = '';
+                habits.forEach(function(habit) {
+                    var streak = getStreak(habit);
+                    html += '<div class="habit-row">';
+                    html += '<div class="habit-name">' + escapeHtml(habit.name);
+                    if (streak > 0) html += ' <span class="streak">🔥 ' + streak + '</span>';
+                    html += '</div>';
+
+                    weekDates.forEach(function(date) {
+                        var completed = habit.completions.indexOf(date) >= 0;
+                        var isToday = date === today;
+                        html += '<div class="day-cell' + (completed ? ' completed' : '') + (isToday ? ' today' : '') + '" onclick="toggleCompletion(' + habit.id + ', \'' + date + '\')"></div>';
+                    });
+
+                    html += '<button class="delete-btn" onclick="deleteHabit(' + habit.id + ')">×</button>';
+                    html += '</div>';
+                });
+                grid.innerHTML = html;
+            }
+
+            // Stats
+            var completedToday = habits.filter(function(h) { return h.completions.indexOf(today) >= 0; }).length;
+            var longestStreak = habits.reduce(function(max, h) { return Math.max(max, getStreak(h)); }, 0);
+            var weekCompletions = habits.reduce(function(sum, h) {
+                return sum + weekDates.filter(function(d) { return h.completions.indexOf(d) >= 0; }).length;
+            }, 0);
+            var weeklyRate = habits.length > 0 ? Math.round((weekCompletions / (habits.length * 7)) * 100) : 0;
+
+            document.getElementById('totalHabits').textContent = habits.length;
+            document.getElementById('completedToday').textContent = completedToday;
+            document.getElementById('longestStreak').textContent = longestStreak;
+            document.getElementById('weeklyRate').textContent = weeklyRate + '%';
+        }
+
+        function escapeHtml(str) {
+            var div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        render();
+    </script>
+</body>
+</html>

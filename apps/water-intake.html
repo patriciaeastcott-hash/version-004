@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Intake Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate your daily water intake needs. Track hydration based on weight, activity, and climate.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; --water-blue: #0EA5E9; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #0EA5E9 0%, #0369A1 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0F2FE; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--water-blue); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--water-blue); }
+        .calculate-btn { width: 100%; padding: 14px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; border: none; background: var(--water-blue); color: white; margin-bottom: 1.5rem; }
+        .calculate-btn:hover { background: #0284C7; }
+        .results { background: #F0F9FF; border: 2px solid var(--water-blue); border-radius: 12px; padding: 2rem; }
+        .water-visual { text-align: center; margin-bottom: 2rem; }
+        .water-bottle { width: 120px; height: 200px; background: #E0F2FE; border-radius: 10px 10px 30px 30px; margin: 0 auto; position: relative; overflow: hidden; border: 3px solid var(--water-blue); }
+        .water-fill { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, #0EA5E9 0%, #38BDF8 100%); transition: height 0.5s; }
+        .water-label { font-size: 2.5rem; font-weight: 700; color: var(--water-blue); font-family: 'Roboto Mono', monospace; margin-top: 1rem; }
+        .water-sublabel { color: #4B5563; font-size: 0.9rem; }
+        .breakdown-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+        .breakdown-item { text-align: center; padding: 1rem; background: white; border-radius: 8px; }
+        .breakdown-item .value { font-size: 1.25rem; font-weight: 700; color: var(--brand-navy); font-family: 'Roboto Mono', monospace; }
+        .breakdown-item .label { font-size: 0.8rem; color: #4B5563; }
+        .glasses-section { padding-top: 1.5rem; border-top: 1px solid #BAE6FD; }
+        .glasses-section h4 { color: var(--brand-navy); margin: 0 0 1rem 0; text-align: center; }
+        .glasses-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+        .glass { width: 40px; height: 50px; background: #E0F2FE; border: 2px solid #BAE6FD; border-radius: 0 0 8px 8px; cursor: pointer; position: relative; overflow: hidden; }
+        .glass.filled { background: linear-gradient(to top, #0EA5E9 0%, #38BDF8 100%); border-color: var(--water-blue); }
+        .glass .fill { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, #0EA5E9 0%, #38BDF8 100%); height: 0; }
+        .tracker-progress { margin-top: 1rem; text-align: center; }
+        .tracker-progress .bar { height: 20px; background: #E0F2FE; border-radius: 10px; overflow: hidden; margin-bottom: 0.5rem; }
+        .tracker-progress .bar-fill { height: 100%; background: linear-gradient(to right, #0EA5E9, #38BDF8); transition: width 0.3s; }
+        .tracker-progress .text { font-size: 0.9rem; color: #4B5563; }
+        .tips-section { margin-top: 1.5rem; padding: 1rem; background: #FFFBEB; border-radius: 8px; }
+        .tips-section h4 { color: #92400E; margin: 0 0 0.5rem 0; font-size: 0.9rem; }
+        .tips-section ul { margin: 0; padding-left: 1.25rem; color: #78350F; font-size: 0.85rem; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .form-grid, .breakdown-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Water Intake Calculator</h1><p>Calculate how much water you should drink daily based on your body and lifestyle.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="weight" value="70" min="30" max="200" oninput="calculate()">
+                </div>
+                <div class="form-group">
+                    <label>Activity Level</label>
+                    <select id="activity" onchange="calculate()">
+                        <option value="0">Sedentary</option>
+                        <option value="500" selected>Moderate Exercise</option>
+                        <option value="1000">Intense Exercise</option>
+                        <option value="1500">Athlete</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Climate</label>
+                    <select id="climate" onchange="calculate()">
+                        <option value="0">Temperate</option>
+                        <option value="500">Hot / Humid</option>
+                        <option value="250">Dry / Arid</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Other Factors</label>
+                    <select id="factors" onchange="calculate()">
+                        <option value="0">None</option>
+                        <option value="500">Pregnant</option>
+                        <option value="750">Breastfeeding</option>
+                        <option value="250">High Altitude</option>
+                    </select>
+                </div>
+            </div>
+            <div class="results">
+                <div class="water-visual">
+                    <div class="water-bottle"><div class="water-fill" id="waterFill" style="height:70%"></div></div>
+                    <div class="water-label" id="totalWater">2.8L</div>
+                    <div class="water-sublabel">Recommended Daily Intake</div>
+                </div>
+                <div class="breakdown-grid">
+                    <div class="breakdown-item"><div class="value" id="glasses">11</div><div class="label">Glasses (250ml)</div></div>
+                    <div class="breakdown-item"><div class="value" id="bottles">4</div><div class="label">Bottles (750ml)</div></div>
+                    <div class="breakdown-item"><div class="value" id="hourly">175ml</div><div class="label">Per Waking Hour</div></div>
+                </div>
+                <div class="glasses-section">
+                    <h4>Track Your Glasses Today</h4>
+                    <div class="glasses-grid" id="glassesGrid"></div>
+                    <div class="tracker-progress">
+                        <div class="bar"><div class="bar-fill" id="progressFill" style="width:0%"></div></div>
+                        <div class="text"><span id="consumed">0</span> of <span id="targetGlasses">11</span> glasses (<span id="percentComplete">0</span>%)</div>
+                    </div>
+                </div>
+                <div class="tips-section">
+                    <h4>Hydration Tips</h4>
+                    <ul>
+                        <li>Drink a glass of water first thing in the morning</li>
+                        <li>Set reminders every 1-2 hours during work</li>
+                        <li>Drink water before, during, and after exercise</li>
+                        <li>Replace sugary drinks with water for better health</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pro-banner"><h3>Hydration Tracking App</h3><p>Smart reminders, streak tracking, and health insights.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var glassesConsumed = 0;
+        var totalGlasses = 11;
+        function calculate() {
+            var weight = parseInt(document.getElementById('weight').value) || 70;
+            var activity = parseInt(document.getElementById('activity').value) || 0;
+            var climate = parseInt(document.getElementById('climate').value) || 0;
+            var factors = parseInt(document.getElementById('factors').value) || 0;
+            var baseWater = weight * 35;
+            var totalMl = baseWater + activity + climate + factors;
+            var liters = totalMl / 1000;
+            var glasses = Math.ceil(totalMl / 250);
+            var bottles = Math.ceil(totalMl / 750);
+            var hourly = Math.round(totalMl / 16);
+            document.getElementById('totalWater').textContent = liters.toFixed(1) + 'L';
+            document.getElementById('glasses').textContent = glasses;
+            document.getElementById('bottles').textContent = bottles;
+            document.getElementById('hourly').textContent = hourly + 'ml';
+            document.getElementById('targetGlasses').textContent = glasses;
+            var fillPercent = Math.min(100, (liters / 4) * 100);
+            document.getElementById('waterFill').style.height = fillPercent + '%';
+            totalGlasses = glasses;
+            renderGlasses();
+            updateProgress();
+        }
+        function renderGlasses() {
+            var html = '';
+            for (var i = 0; i < totalGlasses; i++) {
+                html += '<div class="glass' + (i < glassesConsumed ? ' filled' : '') + '" onclick="toggleGlass(' + i + ')"></div>';
+            }
+            document.getElementById('glassesGrid').innerHTML = html;
+        }
+        function toggleGlass(idx) {
+            if (idx < glassesConsumed) {
+                glassesConsumed = idx;
+            } else {
+                glassesConsumed = idx + 1;
+            }
+            renderGlasses();
+            updateProgress();
+        }
+        function updateProgress() {
+            var percent = Math.round((glassesConsumed / totalGlasses) * 100);
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('consumed').textContent = glassesConsumed;
+            document.getElementById('percentComplete').textContent = percent;
+        }
+        calculate();
+    </script>
+</body>
+</html>

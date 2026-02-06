@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate your exact age in years, months, days, and more. Find out how many days until your next birthday.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-navy);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 600px; margin: 0 auto;
+        }
+
+        .date-input-group {
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block; font-weight: 600; color: #374151;
+            margin-bottom: 0.5rem; font-size: 0.9rem;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%; padding: 12px; border: 1px solid #D1D5DB;
+            border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none; border-color: var(--brand-purple);
+        }
+
+        .calc-btn {
+            width: 100%; padding: 14px; background: var(--brand-navy); color: white;
+            border: none; border-radius: 8px; font-size: 1rem; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif;
+        }
+        .calc-btn:hover { background: #1c347a; }
+
+        .results {
+            margin-top: 2rem;
+        }
+
+        .main-result {
+            background: #F0FDF4; border: 2px solid var(--brand-green);
+            border-radius: 12px; padding: 2rem; text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .age-display {
+            display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+        }
+
+        .age-unit {
+            text-align: center;
+        }
+
+        .age-unit .number {
+            font-size: 3rem; font-weight: 700; color: var(--brand-navy);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .age-unit .label {
+            font-size: 0.9rem; color: #4B5563; text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .details-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+
+        .detail-card {
+            padding: 1.25rem; background: #F9FAFB; border-radius: 10px;
+            text-align: center;
+        }
+
+        .detail-card .value {
+            font-size: 1.5rem; font-weight: 700; color: var(--brand-purple);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .detail-card .label {
+            font-size: 0.8rem; color: #4B5563; margin-top: 0.25rem;
+        }
+
+        .birthday-countdown {
+            margin-top: 1.5rem; padding: 1.25rem; background: #FEF3C7;
+            border-radius: 10px; text-align: center; border: 1px solid #FDE68A;
+        }
+
+        .birthday-countdown .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .birthday-countdown .days {
+            font-size: 1.75rem; font-weight: 700; color: #92400E;
+        }
+        .birthday-countdown .text { color: #78350F; font-size: 0.9rem; }
+
+        .fun-facts {
+            margin-top: 1.5rem; padding: 1rem; background: #EEF2FF;
+            border-radius: 10px;
+        }
+
+        .fun-facts h4 {
+            color: var(--brand-purple); margin: 0 0 0.75rem 0;
+            font-size: 0.95rem;
+        }
+
+        .fun-facts ul {
+            margin: 0; padding-left: 1.25rem; color: #4B5563;
+            font-size: 0.9rem; line-height: 1.6;
+        }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .date-input-group { grid-template-columns: 1fr; }
+            .details-grid { grid-template-columns: 1fr; }
+            .age-display { gap: 1rem; }
+            .age-unit .number { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Age Calculator</h1>
+                <p>Find out your exact age down to the day, plus fun facts about your time on Earth.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="date-input-group">
+                        <div class="input-group">
+                            <label>Day</label>
+                            <input type="number" id="birthDay" min="1" max="31" value="15">
+                        </div>
+                        <div class="input-group">
+                            <label>Month</label>
+                            <select id="birthMonth">
+                                <option value="0">January</option>
+                                <option value="1">February</option>
+                                <option value="2">March</option>
+                                <option value="3">April</option>
+                                <option value="4">May</option>
+                                <option value="5" selected>June</option>
+                                <option value="6">July</option>
+                                <option value="7">August</option>
+                                <option value="8">September</option>
+                                <option value="9">October</option>
+                                <option value="10">November</option>
+                                <option value="11">December</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Year</label>
+                            <input type="number" id="birthYear" min="1900" max="2025" value="1990">
+                        </div>
+                    </div>
+
+                    <button class="calc-btn" onclick="calculate()">Calculate Age</button>
+
+                    <div class="results" id="results">
+                        <div class="main-result">
+                            <div class="age-display">
+                                <div class="age-unit">
+                                    <div class="number" id="years">35</div>
+                                    <div class="label">Years</div>
+                                </div>
+                                <div class="age-unit">
+                                    <div class="number" id="months">7</div>
+                                    <div class="label">Months</div>
+                                </div>
+                                <div class="age-unit">
+                                    <div class="number" id="days">22</div>
+                                    <div class="label">Days</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="details-grid">
+                            <div class="detail-card">
+                                <div class="value" id="totalMonths">427</div>
+                                <div class="label">Total Months</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="value" id="totalWeeks">1,857</div>
+                                <div class="label">Total Weeks</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="value" id="totalDays">13,002</div>
+                                <div class="label">Total Days</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="value" id="totalHours">312,048</div>
+                                <div class="label">Total Hours</div>
+                            </div>
+                        </div>
+
+                        <div class="birthday-countdown">
+                            <div class="icon">🎂</div>
+                            <div class="days" id="daysUntilBirthday">142</div>
+                            <div class="text">days until your next birthday</div>
+                        </div>
+
+                        <div class="fun-facts">
+                            <h4>Fun Facts About Your Age</h4>
+                            <ul id="funFacts">
+                                <li>You've experienced about 12,818 sunrises</li>
+                                <li>Your heart has beaten approximately 1.3 billion times</li>
+                                <li>You've taken roughly 274 million breaths</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Create Birthday Countdowns & Reminders</h3>
+                        <p>Never miss a birthday. Track ages for friends and family.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculate() {
+            var day = parseInt(document.getElementById('birthDay').value);
+            var month = parseInt(document.getElementById('birthMonth').value);
+            var year = parseInt(document.getElementById('birthYear').value);
+
+            var birthDate = new Date(year, month, day);
+            var today = new Date();
+
+            if (birthDate > today) {
+                alert('Birth date cannot be in the future');
+                return;
+            }
+
+            // Calculate exact age
+            var years = today.getFullYear() - birthDate.getFullYear();
+            var months = today.getMonth() - birthDate.getMonth();
+            var days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                var lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+
+            // Calculate totals
+            var totalDays = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24));
+            var totalWeeks = Math.floor(totalDays / 7);
+            var totalMonths = (years * 12) + months;
+            var totalHours = totalDays * 24;
+
+            document.getElementById('totalMonths').textContent = totalMonths.toLocaleString();
+            document.getElementById('totalWeeks').textContent = totalWeeks.toLocaleString();
+            document.getElementById('totalDays').textContent = totalDays.toLocaleString();
+            document.getElementById('totalHours').textContent = totalHours.toLocaleString();
+
+            // Days until next birthday
+            var nextBirthday = new Date(today.getFullYear(), month, day);
+            if (nextBirthday <= today) {
+                nextBirthday.setFullYear(today.getFullYear() + 1);
+            }
+            var daysUntil = Math.ceil((nextBirthday - today) / (1000 * 60 * 60 * 24));
+            document.getElementById('daysUntilBirthday').textContent = daysUntil;
+
+            // Fun facts
+            var heartbeats = Math.round(totalDays * 24 * 60 * 72);
+            var breaths = Math.round(totalDays * 24 * 60 * 15);
+            var funFacts = [
+                "You've experienced about " + totalDays.toLocaleString() + " sunrises",
+                "Your heart has beaten approximately " + (heartbeats / 1000000000).toFixed(1) + " billion times",
+                "You've taken roughly " + Math.round(breaths / 1000000) + " million breaths",
+                "You've slept for approximately " + Math.round(totalDays * 8 / 24 / 365) + " years total"
+            ];
+
+            var factsList = document.getElementById('funFacts');
+            factsList.innerHTML = funFacts.map(function(fact) {
+                return '<li>' + fact + '</li>';
+            }).join('');
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

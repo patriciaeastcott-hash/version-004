@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Goal Calculator | Digital ABCs</title>
+    <meta name="description" content="Plan how to reach your savings goals. Calculate monthly savings needed or time to reach your target.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #5B21B6 0%, #065F46 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-purple); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 600px; margin: 0 auto; }
+        .mode-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; justify-content: center; }
+        .mode-tab { padding: 10px 20px; border: 2px solid #E5E7EB; background: white; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        .mode-tab:hover { border-color: var(--brand-purple); }
+        .mode-tab.active { border-color: var(--brand-purple); background: #F5F3FF; color: var(--brand-purple); }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
+        .input-wrapper { display: flex; }
+        .input-wrapper span { padding: 12px; background: #F3F4F6; border: 1px solid #D1D5DB; font-weight: 600; }
+        .input-wrapper span:first-child { border-right: none; border-radius: 8px 0 0 8px; }
+        .input-wrapper span:last-child { border-left: none; border-radius: 0 8px 8px 0; }
+        .input-wrapper input { flex: 1; padding: 12px; border: 1px solid #D1D5DB; font-size: 1rem; }
+        .input-wrapper input:focus { outline: none; border-color: var(--brand-purple); }
+        .results { margin-top: 2rem; background: #F0FDF4; border: 2px solid var(--brand-green); border-radius: 12px; padding: 2rem; text-align: center; }
+        .result-main .value { font-size: 3rem; font-weight: 700; color: var(--brand-green); font-family: 'Roboto Mono', monospace; }
+        .result-main .label { color: #4B5563; margin-top: 0.25rem; }
+        .progress-bar { margin: 1.5rem 0; height: 24px; background: #E5E7EB; border-radius: 12px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--brand-green), var(--brand-purple)); transition: width 0.5s; }
+        .milestone-info { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+        .milestone-item { padding: 1rem; background: white; border-radius: 8px; }
+        .milestone-item .value { font-weight: 700; color: var(--brand-navy); font-family: 'Roboto Mono', monospace; }
+        .milestone-item .label { font-size: 0.8rem; color: #4B5563; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .milestone-info { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Savings Goal Calculator</h1><p>Plan your path to financial goals. Whether it's a house deposit, holiday, or emergency fund.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="mode-tabs">
+                <button class="mode-tab active" onclick="setMode('monthly')">Find Monthly Amount</button>
+                <button class="mode-tab" onclick="setMode('time')">Find Time Needed</button>
+            </div>
+            <div class="input-group"><label>Savings Goal</label><div class="input-wrapper"><span>$</span><input type="number" id="goal" value="50000" oninput="calculate()"></div></div>
+            <div class="input-group"><label>Current Savings</label><div class="input-wrapper"><span>$</span><input type="number" id="current" value="5000" oninput="calculate()"></div></div>
+            <div class="input-group" id="timeInput"><label>Time Frame</label><div class="input-wrapper"><input type="number" id="months" value="36" oninput="calculate()"><span>months</span></div></div>
+            <div class="input-group" id="amountInput" style="display:none;"><label>Monthly Savings</label><div class="input-wrapper"><span>$</span><input type="number" id="monthlySave" value="1000" oninput="calculate()"></div></div>
+            <div class="input-group"><label>Expected Interest Rate (optional)</label><div class="input-wrapper"><input type="number" id="rate" value="4" step="0.1" oninput="calculate()"><span>%</span></div></div>
+            <div class="results">
+                <div class="result-main"><div class="value" id="result">$1,250/mo</div><div class="label" id="resultLabel">Monthly Savings Needed</div></div>
+                <div class="progress-bar"><div class="progress-fill" id="progress" style="width:10%"></div></div>
+                <div class="milestone-info">
+                    <div class="milestone-item"><div class="value" id="remaining">$45,000</div><div class="label">Remaining</div></div>
+                    <div class="milestone-item"><div class="value" id="targetDate">Mar 2028</div><div class="label">Target Date</div></div>
+                </div>
+            </div>
+            <div class="pro-banner"><h3>Multiple Savings Goals</h3><p>Track several goals, get reminders, and see progress charts.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var mode = 'monthly';
+        function setMode(m) {
+            mode = m;
+            document.querySelectorAll('.mode-tab').forEach(function(t) { t.classList.remove('active'); });
+            event.target.classList.add('active');
+            document.getElementById('timeInput').style.display = m === 'monthly' ? 'block' : 'none';
+            document.getElementById('amountInput').style.display = m === 'time' ? 'block' : 'none';
+            calculate();
+        }
+        function calculate() {
+            var goal = parseFloat(document.getElementById('goal').value) || 0;
+            var current = parseFloat(document.getElementById('current').value) || 0;
+            var rate = (parseFloat(document.getElementById('rate').value) || 0) / 100 / 12;
+            var remaining = goal - current;
+            var progress = goal > 0 ? (current / goal * 100) : 0;
+            document.getElementById('remaining').textContent = '$' + remaining.toLocaleString('en-AU', {maximumFractionDigits: 0});
+            document.getElementById('progress').style.width = Math.min(progress, 100) + '%';
+            if (mode === 'monthly') {
+                var months = parseFloat(document.getElementById('months').value) || 1;
+                var monthly = rate > 0 ? remaining * rate / (Math.pow(1 + rate, months) - 1) : remaining / months;
+                document.getElementById('result').textContent = '$' + monthly.toLocaleString('en-AU', {maximumFractionDigits: 0}) + '/mo';
+                document.getElementById('resultLabel').textContent = 'Monthly Savings Needed';
+                var target = new Date();
+                target.setMonth(target.getMonth() + months);
+                document.getElementById('targetDate').textContent = target.toLocaleDateString('en-AU', { month: 'short', year: 'numeric' });
+            } else {
+                var monthly = parseFloat(document.getElementById('monthlySave').value) || 1;
+                var months = rate > 0 ? Math.log(1 + (remaining * rate / monthly)) / Math.log(1 + rate) : remaining / monthly;
+                months = Math.ceil(months);
+                var years = Math.floor(months / 12);
+                var mo = months % 12;
+                document.getElementById('result').textContent = years > 0 ? years + 'y ' + mo + 'mo' : mo + ' months';
+                document.getElementById('resultLabel').textContent = 'Time to Reach Goal';
+                var target = new Date();
+                target.setMonth(target.getMonth() + months);
+                document.getElementById('targetDate').textContent = target.toLocaleDateString('en-AU', { month: 'short', year: 'numeric' });
+            }
+        }
+        calculate();
+    </script>
+</body>
+</html>

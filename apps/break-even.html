@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break-Even Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate your break-even point. Know how many units you need to sell to cover your costs.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #065F46 0%, #1E3A8A 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #D1FAE5; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-green); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 600px; margin: 0 auto; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
+        .input-group .hint { font-size: 0.8rem; color: #6B7280; margin-bottom: 0.4rem; }
+        .input-wrapper { display: flex; }
+        .input-wrapper span { padding: 12px; background: #F3F4F6; border: 1px solid #D1D5DB; font-weight: 600; }
+        .input-wrapper span:first-child { border-right: none; border-radius: 8px 0 0 8px; }
+        .input-wrapper input { flex: 1; padding: 12px; border: 1px solid #D1D5DB; font-size: 1rem; border-radius: 0 8px 8px 0; }
+        .input-wrapper input:focus { outline: none; border-color: var(--brand-purple); }
+        .results { margin-top: 2rem; background: #F0FDF4; border: 2px solid var(--brand-green); border-radius: 12px; padding: 2rem; text-align: center; }
+        .result-main .value { font-size: 3rem; font-weight: 700; color: var(--brand-green); font-family: 'Roboto Mono', monospace; }
+        .result-main .label { color: #4B5563; margin-top: 0.25rem; }
+        .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .result-item { padding: 1rem; background: white; border-radius: 8px; }
+        .result-item .value { font-size: 1.25rem; font-weight: 700; color: var(--brand-navy); font-family: 'Roboto Mono', monospace; }
+        .result-item .label { font-size: 0.8rem; color: #4B5563; }
+        .chart-container { margin-top: 1.5rem; height: 200px; position: relative; }
+        .chart-line { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; }
+        .line-fixed { background: #EF4444; height: 2px; position: absolute; }
+        .line-total { background: #3B82F6; height: 2px; position: absolute; transform-origin: bottom left; }
+        .line-revenue { background: var(--brand-green); height: 2px; position: absolute; transform-origin: bottom left; }
+        .break-even-point { position: absolute; width: 12px; height: 12px; background: var(--brand-purple); border-radius: 50%; border: 2px solid white; }
+        .chart-legend { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.5rem; font-size: 0.8rem; }
+        .chart-legend span { display: flex; align-items: center; gap: 0.5rem; }
+        .chart-legend .dot { width: 10px; height: 10px; border-radius: 2px; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .result-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Break-Even Calculator</h1><p>Find out how many units you need to sell to cover all your costs and start making profit.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="input-group"><label>Fixed Costs</label><div class="hint">Rent, salaries, insurance - costs that don't change with sales</div><div class="input-wrapper"><span>$</span><input type="number" id="fixedCosts" value="10000" oninput="calculate()"></div></div>
+            <div class="input-group"><label>Selling Price Per Unit</label><div class="hint">The price you charge customers for one unit</div><div class="input-wrapper"><span>$</span><input type="number" id="sellingPrice" value="50" oninput="calculate()"></div></div>
+            <div class="input-group"><label>Variable Cost Per Unit</label><div class="hint">Cost to produce/acquire one unit (materials, labour)</div><div class="input-wrapper"><span>$</span><input type="number" id="variableCost" value="20" oninput="calculate()"></div></div>
+            <div class="results">
+                <div class="result-main"><div class="value" id="breakEvenUnits">334</div><div class="label">Units to Break Even</div></div>
+                <div class="result-grid">
+                    <div class="result-item"><div class="value" id="breakEvenRevenue">$16,700</div><div class="label">Break-Even Revenue</div></div>
+                    <div class="result-item"><div class="value" id="contributionMargin">$30</div><div class="label">Contribution Margin</div></div>
+                    <div class="result-item"><div class="value" id="marginPercent">60%</div><div class="label">Margin Percentage</div></div>
+                    <div class="result-item"><div class="value" id="profitAt500">$5,000</div><div class="label">Profit at 500 Units</div></div>
+                </div>
+            </div>
+            <div class="pro-banner"><h3>What-If Scenarios</h3><p>Compare pricing strategies and cost structures side by side.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        function calculate() {
+            var fixed = parseFloat(document.getElementById('fixedCosts').value) || 0;
+            var price = parseFloat(document.getElementById('sellingPrice').value) || 1;
+            var variable = parseFloat(document.getElementById('variableCost').value) || 0;
+            var contribution = price - variable;
+            var breakEvenUnits = contribution > 0 ? Math.ceil(fixed / contribution) : 0;
+            var breakEvenRevenue = breakEvenUnits * price;
+            var marginPercent = price > 0 ? (contribution / price * 100) : 0;
+            var profitAt500 = (500 * price) - (500 * variable) - fixed;
+            document.getElementById('breakEvenUnits').textContent = breakEvenUnits.toLocaleString();
+            document.getElementById('breakEvenRevenue').textContent = '$' + breakEvenRevenue.toLocaleString();
+            document.getElementById('contributionMargin').textContent = '$' + contribution.toFixed(2);
+            document.getElementById('marginPercent').textContent = marginPercent.toFixed(0) + '%';
+            document.getElementById('profitAt500').textContent = (profitAt500 >= 0 ? '$' : '-$') + Math.abs(profitAt500).toLocaleString();
+        }
+        calculate();
+    </script>
+</body>
+</html>

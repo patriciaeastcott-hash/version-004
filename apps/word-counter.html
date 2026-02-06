@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter | Digital ABCs</title>
+    <meta name="description" content="Count words, characters, sentences, and paragraphs. Track keyword density and analyze your text.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-navy);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 900px; margin: 0 auto;
+        }
+
+        .stats-bar {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem; margin-bottom: 1.5rem; padding: 1.5rem;
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-purple) 100%);
+            border-radius: 12px;
+        }
+
+        .stat-item { text-align: center; color: white; }
+        .stat-item .value {
+            font-size: 1.75rem; font-weight: 700; font-family: 'Roboto Mono', monospace;
+        }
+        .stat-item .label { font-size: 0.7rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .text-area {
+            width: 100%; min-height: 250px; padding: 1rem; border: 2px solid #E5E7EB;
+            border-radius: 12px; font-size: 1rem; font-family: 'Inter', sans-serif;
+            line-height: 1.7; resize: vertical; box-sizing: border-box;
+        }
+        .text-area:focus {
+            outline: none; border-color: var(--brand-purple);
+        }
+
+        .analysis-section {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;
+        }
+
+        .analysis-card {
+            padding: 1.5rem; background: #F9FAFB; border-radius: 12px;
+        }
+
+        .analysis-card h4 {
+            color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 0.95rem;
+        }
+
+        .keyword-list {
+            list-style: none; padding: 0; margin: 0;
+        }
+
+        .keyword-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.5rem 0; border-bottom: 1px solid #E5E7EB;
+        }
+        .keyword-item:last-child { border-bottom: none; }
+
+        .keyword-item .word { font-weight: 500; }
+        .keyword-item .count {
+            background: var(--brand-purple); color: white;
+            padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;
+        }
+
+        .density-bar {
+            height: 8px; background: #E5E7EB; border-radius: 4px;
+            overflow: hidden; margin-top: 0.25rem;
+        }
+        .density-fill {
+            height: 100%; background: var(--brand-green); transition: width 0.3s;
+        }
+
+        .limits-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .limit-item {
+            padding: 0.75rem; background: white; border-radius: 8px;
+            border: 1px solid #E5E7EB; text-align: center;
+        }
+        .limit-item .name { font-size: 0.75rem; color: #4B5563; }
+        .limit-item .chars { font-weight: 700; color: var(--brand-navy); font-size: 0.9rem; }
+
+        .pro-banner {
+            margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .analysis-section { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Word Counter</h1>
+                <p>Count words, characters, sentences, and more. Analyze keyword density and optimize your content.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <div class="value" id="wordCount">0</div>
+                            <div class="label">Words</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="value" id="charCount">0</div>
+                            <div class="label">Characters</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="value" id="charNoSpace">0</div>
+                            <div class="label">No Spaces</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="value" id="sentenceCount">0</div>
+                            <div class="label">Sentences</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="value" id="paragraphCount">0</div>
+                            <div class="label">Paragraphs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="value" id="readTime">0m</div>
+                            <div class="label">Read Time</div>
+                        </div>
+                    </div>
+
+                    <textarea class="text-area" id="textInput" placeholder="Start typing or paste your text here..." oninput="analyze()"></textarea>
+
+                    <div class="analysis-section">
+                        <div class="analysis-card">
+                            <h4>Top Keywords</h4>
+                            <ul class="keyword-list" id="keywordList">
+                                <li class="keyword-item"><span class="word">-</span><span class="count">0</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="analysis-card">
+                            <h4>Character Limits</h4>
+                            <div class="limits-grid">
+                                <div class="limit-item">
+                                    <div class="name">Twitter</div>
+                                    <div class="chars"><span id="twitterLeft">280</span> left</div>
+                                </div>
+                                <div class="limit-item">
+                                    <div class="name">Meta Title</div>
+                                    <div class="chars"><span id="metaTitle">60</span> left</div>
+                                </div>
+                                <div class="limit-item">
+                                    <div class="name">Meta Desc</div>
+                                    <div class="chars"><span id="metaDesc">160</span> left</div>
+                                </div>
+                                <div class="limit-item">
+                                    <div class="name">SMS</div>
+                                    <div class="chars"><span id="smsLeft">160</span> left</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Advanced Text Analysis</h3>
+                        <p>Readability scores, SEO analysis, and plagiarism checking.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var stopWords = ['the','a','an','and','or','but','in','on','at','to','for','of','with','by','from','as','is','was','are','were','been','be','have','has','had','do','does','did','will','would','could','should','may','might','can','this','that','these','those','i','you','he','she','it','we','they','what','which','who','whom','whose','where','when','why','how'];
+
+        function analyze() {
+            var text = document.getElementById('textInput').value;
+
+            // Word count
+            var words = text.trim().split(/\s+/).filter(function(w) { return w.length > 0; });
+            var wordCount = words.length;
+
+            // Character counts
+            var charCount = text.length;
+            var charNoSpace = text.replace(/\s/g, '').length;
+
+            // Sentence count
+            var sentences = text.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; });
+            var sentenceCount = sentences.length;
+
+            // Paragraph count
+            var paragraphs = text.split(/\n\s*\n/).filter(function(p) { return p.trim().length > 0; });
+            var paragraphCount = paragraphs.length || (text.trim() ? 1 : 0);
+
+            // Reading time
+            var readMinutes = Math.ceil(wordCount / 200);
+
+            // Update stats
+            document.getElementById('wordCount').textContent = wordCount;
+            document.getElementById('charCount').textContent = charCount;
+            document.getElementById('charNoSpace').textContent = charNoSpace;
+            document.getElementById('sentenceCount').textContent = sentenceCount;
+            document.getElementById('paragraphCount').textContent = paragraphCount;
+            document.getElementById('readTime').textContent = readMinutes + 'm';
+
+            // Character limits
+            document.getElementById('twitterLeft').textContent = Math.max(0, 280 - charCount);
+            document.getElementById('metaTitle').textContent = Math.max(0, 60 - charCount);
+            document.getElementById('metaDesc').textContent = Math.max(0, 160 - charCount);
+            document.getElementById('smsLeft').textContent = Math.max(0, 160 - charCount);
+
+            // Keyword analysis
+            var wordFreq = {};
+            words.forEach(function(word) {
+                var clean = word.toLowerCase().replace(/[^a-z]/g, '');
+                if (clean.length > 2 && stopWords.indexOf(clean) === -1) {
+                    wordFreq[clean] = (wordFreq[clean] || 0) + 1;
+                }
+            });
+
+            var sorted = Object.keys(wordFreq).sort(function(a, b) {
+                return wordFreq[b] - wordFreq[a];
+            }).slice(0, 5);
+
+            var keywordList = document.getElementById('keywordList');
+            if (sorted.length === 0) {
+                keywordList.innerHTML = '<li class="keyword-item"><span class="word">No keywords yet</span><span class="count">0</span></li>';
+            } else {
+                keywordList.innerHTML = sorted.map(function(word) {
+                    var density = ((wordFreq[word] / wordCount) * 100).toFixed(1);
+                    return '<li class="keyword-item"><span class="word">' + word + '</span><span class="count">' + wordFreq[word] + ' (' + density + '%)</span></li>';
+                }).join('');
+            }
+        }
+
+        analyze();
+    </script>
+</body>
+</html>

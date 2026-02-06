@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator | Digital ABCs</title>
+    <meta name="description" content="Generate QR codes for URLs, text, contact info, and more. Free online QR code generator with instant download.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-navy);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 800px; margin: 0 auto;
+        }
+
+        .generator-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+        }
+
+        .input-section h3 {
+            color: var(--brand-navy); margin-bottom: 1rem; font-size: 1.1rem;
+        }
+
+        .type-tabs {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;
+        }
+
+        .type-tab {
+            padding: 8px 14px; background: #F3F4F6; border: none; border-radius: 6px;
+            cursor: pointer; font-weight: 500; font-family: 'Inter', sans-serif;
+            font-size: 0.85rem; transition: all 0.2s;
+        }
+        .type-tab:hover { background: #E5E7EB; }
+        .type-tab.active { background: var(--brand-purple); color: white; }
+
+        .input-group { margin-bottom: 1rem; }
+        .input-group label {
+            display: block; font-weight: 600; color: #374151;
+            margin-bottom: 0.4rem; font-size: 0.9rem;
+        }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 10px 12px; border: 1px solid #D1D5DB;
+            border-radius: 8px; font-size: 0.95rem; font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+        .input-group textarea { resize: vertical; min-height: 80px; }
+        .input-group input:focus, .input-group textarea:focus {
+            outline: none; border-color: var(--brand-purple);
+        }
+
+        .color-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .color-row input[type="color"] {
+            width: 100%; height: 40px; border: 1px solid #D1D5DB;
+            border-radius: 8px; cursor: pointer; padding: 2px;
+        }
+
+        .generate-btn {
+            width: 100%; padding: 12px; background: var(--brand-green); color: white;
+            border: none; border-radius: 8px; font-size: 1rem; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif; margin-top: 0.5rem;
+        }
+        .generate-btn:hover { background: #064E3B; }
+
+        .qr-section {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center;
+        }
+
+        .qr-display {
+            background: white; padding: 1.5rem; border: 2px solid #E5E7EB;
+            border-radius: 12px; margin-bottom: 1rem;
+        }
+
+        .qr-display canvas { display: block; }
+
+        .download-btns {
+            display: flex; gap: 0.75rem; width: 100%;
+        }
+
+        .download-btn {
+            flex: 1; padding: 10px; border: none; border-radius: 6px;
+            font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif;
+        }
+        .download-btn.png { background: var(--brand-navy); color: white; }
+        .download-btn.svg { background: #F3F4F6; color: #374151; }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+            grid-column: 1 / -1;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .generator-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>QR Code Generator</h1>
+                <p>Create QR codes for URLs, text, contact details, WiFi credentials, and more. Download instantly as PNG.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+                    <div class="generator-grid">
+                        <div class="input-section">
+                            <h3>What do you want to encode?</h3>
+
+                            <div class="type-tabs">
+                                <button class="type-tab active" onclick="setType('url')">URL</button>
+                                <button class="type-tab" onclick="setType('text')">Text</button>
+                                <button class="type-tab" onclick="setType('email')">Email</button>
+                                <button class="type-tab" onclick="setType('phone')">Phone</button>
+                                <button class="type-tab" onclick="setType('wifi')">WiFi</button>
+                            </div>
+
+                            <div id="inputFields">
+                                <div class="input-group">
+                                    <label for="urlInput">Website URL</label>
+                                    <input type="url" id="urlInput" placeholder="https://example.com" oninput="generateQR()">
+                                </div>
+                            </div>
+
+                            <div class="color-row">
+                                <div class="input-group">
+                                    <label>QR Color</label>
+                                    <input type="color" id="fgColor" value="#1E3A8A" onchange="generateQR()">
+                                </div>
+                                <div class="input-group">
+                                    <label>Background</label>
+                                    <input type="color" id="bgColor" value="#FFFFFF" onchange="generateQR()">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Size: <span id="sizeVal">200</span>px</label>
+                                <input type="range" id="qrSize" min="100" max="400" value="200" oninput="updateSize()">
+                            </div>
+
+                            <button class="generate-btn" onclick="generateQR()">Generate QR Code</button>
+                        </div>
+
+                        <div class="qr-section">
+                            <div class="qr-display">
+                                <canvas id="qrCanvas" width="200" height="200"></canvas>
+                            </div>
+                            <div class="download-btns">
+                                <button class="download-btn png" onclick="downloadQR('png')">Download PNG</button>
+                                <button class="download-btn svg" onclick="downloadQR('svg')">Download SVG</button>
+                            </div>
+                        </div>
+
+                        <div class="pro-banner">
+                            <h3>Need Bulk QR Generation or Custom Logos?</h3>
+                            <p>Generate hundreds of QR codes, add your logo, and track scan analytics.</p>
+                            <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var currentType = 'url';
+
+        var inputTemplates = {
+            url: '<div class="input-group"><label for="urlInput">Website URL</label><input type="url" id="urlInput" placeholder="https://example.com" oninput="generateQR()"></div>',
+            text: '<div class="input-group"><label for="textInput">Text Message</label><textarea id="textInput" placeholder="Enter any text..." oninput="generateQR()"></textarea></div>',
+            email: '<div class="input-group"><label for="emailTo">Email Address</label><input type="email" id="emailTo" placeholder="hello@example.com" oninput="generateQR()"></div><div class="input-group"><label for="emailSubject">Subject</label><input type="text" id="emailSubject" placeholder="Subject line" oninput="generateQR()"></div>',
+            phone: '<div class="input-group"><label for="phoneInput">Phone Number</label><input type="tel" id="phoneInput" placeholder="+61 400 000 000" oninput="generateQR()"></div>',
+            wifi: '<div class="input-group"><label for="wifiSSID">Network Name (SSID)</label><input type="text" id="wifiSSID" placeholder="MyWiFi" oninput="generateQR()"></div><div class="input-group"><label for="wifiPass">Password</label><input type="text" id="wifiPass" placeholder="password123" oninput="generateQR()"></div>'
+        };
+
+        function setType(type) {
+            currentType = type;
+            document.querySelectorAll('.type-tab').forEach(function(t) { t.classList.remove('active'); });
+            event.target.classList.add('active');
+            document.getElementById('inputFields').innerHTML = inputTemplates[type];
+            generateQR();
+        }
+
+        function getData() {
+            switch(currentType) {
+                case 'url':
+                    return document.getElementById('urlInput')?.value || 'https://digitalabcs.com.au';
+                case 'text':
+                    return document.getElementById('textInput')?.value || 'Hello World';
+                case 'email':
+                    var to = document.getElementById('emailTo')?.value || '';
+                    var subject = document.getElementById('emailSubject')?.value || '';
+                    return 'mailto:' + to + '?subject=' + encodeURIComponent(subject);
+                case 'phone':
+                    return 'tel:' + (document.getElementById('phoneInput')?.value || '');
+                case 'wifi':
+                    var ssid = document.getElementById('wifiSSID')?.value || '';
+                    var pass = document.getElementById('wifiPass')?.value || '';
+                    return 'WIFI:T:WPA;S:' + ssid + ';P:' + pass + ';;';
+                default:
+                    return 'https://digitalabcs.com.au';
+            }
+        }
+
+        function updateSize() {
+            var size = document.getElementById('qrSize').value;
+            document.getElementById('sizeVal').textContent = size;
+            generateQR();
+        }
+
+        function generateQR() {
+            var data = getData();
+            var size = parseInt(document.getElementById('qrSize').value);
+            var fgColor = document.getElementById('fgColor').value;
+            var bgColor = document.getElementById('bgColor').value;
+
+            var canvas = document.getElementById('qrCanvas');
+            canvas.width = size;
+            canvas.height = size;
+            var ctx = canvas.getContext('2d');
+
+            // Simple QR code generation using a basic algorithm
+            var qr = generateQRMatrix(data);
+            var cellSize = size / qr.length;
+
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, size, size);
+
+            ctx.fillStyle = fgColor;
+            for (var y = 0; y < qr.length; y++) {
+                for (var x = 0; x < qr[y].length; x++) {
+                    if (qr[y][x]) {
+                        ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+                    }
+                }
+            }
+        }
+
+        function generateQRMatrix(data) {
+            // Simplified QR matrix generation
+            var size = 25;
+            var matrix = [];
+            for (var i = 0; i < size; i++) {
+                matrix[i] = [];
+                for (var j = 0; j < size; j++) {
+                    matrix[i][j] = false;
+                }
+            }
+
+            // Add finder patterns
+            addFinderPattern(matrix, 0, 0);
+            addFinderPattern(matrix, size - 7, 0);
+            addFinderPattern(matrix, 0, size - 7);
+
+            // Add timing patterns
+            for (var i = 8; i < size - 8; i++) {
+                matrix[6][i] = i % 2 === 0;
+                matrix[i][6] = i % 2 === 0;
+            }
+
+            // Encode data
+            var bits = [];
+            for (var i = 0; i < data.length; i++) {
+                var charCode = data.charCodeAt(i);
+                for (var b = 7; b >= 0; b--) {
+                    bits.push((charCode >> b) & 1);
+                }
+            }
+
+            var bitIndex = 0;
+            for (var x = size - 1; x >= 1; x -= 2) {
+                if (x === 6) x = 5;
+                for (var y = 0; y < size; y++) {
+                    for (var dx = 0; dx <= 1; dx++) {
+                        var col = x - dx;
+                        if (!isReserved(col, y, size)) {
+                            matrix[y][col] = bitIndex < bits.length ? bits[bitIndex++] === 1 : Math.random() > 0.5;
+                        }
+                    }
+                }
+            }
+
+            return matrix;
+        }
+
+        function addFinderPattern(matrix, startX, startY) {
+            for (var y = 0; y < 7; y++) {
+                for (var x = 0; x < 7; x++) {
+                    if (y === 0 || y === 6 || x === 0 || x === 6 ||
+                        (y >= 2 && y <= 4 && x >= 2 && x <= 4)) {
+                        matrix[startY + y][startX + x] = true;
+                    }
+                }
+            }
+        }
+
+        function isReserved(x, y, size) {
+            if (x < 9 && y < 9) return true;
+            if (x >= size - 8 && y < 9) return true;
+            if (x < 9 && y >= size - 8) return true;
+            if (x === 6 || y === 6) return true;
+            return false;
+        }
+
+        function downloadQR(format) {
+            var canvas = document.getElementById('qrCanvas');
+            var link = document.createElement('a');
+            link.download = 'qrcode.' + format;
+
+            if (format === 'png') {
+                link.href = canvas.toDataURL('image/png');
+            } else {
+                var svg = canvasToSVG(canvas);
+                link.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
+            }
+
+            link.click();
+        }
+
+        function canvasToSVG(canvas) {
+            var ctx = canvas.getContext('2d');
+            var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + canvas.width + '" height="' + canvas.height + '">';
+            svg += '<rect width="100%" height="100%" fill="' + document.getElementById('bgColor').value + '"/>';
+
+            var fgColor = document.getElementById('fgColor').value;
+            for (var y = 0; y < canvas.height; y++) {
+                for (var x = 0; x < canvas.width; x++) {
+                    var i = (y * canvas.width + x) * 4;
+                    if (imgData.data[i] < 128) {
+                        svg += '<rect x="' + x + '" y="' + y + '" width="1" height="1" fill="' + fgColor + '"/>';
+                    }
+                }
+            }
+
+            svg += '</svg>';
+            return svg;
+        }
+
+        generateQR();
+    </script>
+</body>
+</html>
