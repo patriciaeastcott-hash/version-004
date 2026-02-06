@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Shadow Generator | Digital ABCs</title>
+    <meta name="description" content="Create beautiful CSS box shadows visually. Multiple layers, inset shadows, and live preview.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-purple); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 800px; margin: 0 auto; }
+        .preview-area { background: #E5E7EB; border-radius: 12px; padding: 3rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; min-height: 200px; }
+        .preview-box { width: 150px; height: 150px; background: white; border-radius: 8px; transition: box-shadow 0.2s; }
+        .controls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .control-group { margin-bottom: 1rem; }
+        .control-group label { display: flex; justify-content: space-between; font-weight: 600; color: #374151; margin-bottom: 0.4rem; font-size: 0.9rem; }
+        .control-group label span { font-weight: 400; color: #6B7280; font-family: 'Roboto Mono', monospace; }
+        .control-group input[type="range"] { width: 100%; height: 8px; border-radius: 4px; cursor: pointer; accent-color: var(--brand-purple); }
+        .color-row { display: flex; gap: 0.75rem; align-items: center; }
+        .color-row input[type="color"] { width: 50px; height: 36px; border: none; border-radius: 6px; cursor: pointer; padding: 0; }
+        .color-row input[type="text"] { flex: 1; padding: 8px; border: 1px solid #D1D5DB; border-radius: 6px; font-family: 'Roboto Mono', monospace; }
+        .checkbox-row { display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; }
+        .checkbox-row input { width: 18px; height: 18px; }
+        .layers-section { border-top: 2px solid #E5E7EB; padding-top: 1.5rem; margin-top: 1.5rem; }
+        .layers-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .layers-section h3 button { padding: 6px 12px; background: var(--brand-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+        .layer-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: #F9FAFB; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; }
+        .layer-item.active { background: #EDE9FE; border: 2px solid var(--brand-purple); }
+        .layer-item .preview { width: 30px; height: 30px; background: white; border-radius: 4px; margin-right: 0.75rem; }
+        .layer-item .name { flex: 1; font-weight: 500; }
+        .layer-item button { padding: 4px 8px; background: #EF4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75rem; }
+        .layer-item button:disabled { opacity: 0.3; cursor: not-allowed; }
+        .output-section { margin-top: 1.5rem; }
+        .output-section label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
+        .code-output { background: #1F2937; color: #E5E7EB; padding: 1rem; border-radius: 8px; font-family: 'Roboto Mono', monospace; font-size: 0.85rem; position: relative; word-break: break-all; }
+        .code-output button { position: absolute; top: 0.5rem; right: 0.5rem; padding: 6px 12px; background: var(--brand-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+        .presets-section { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; }
+        .presets-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 1rem; }
+        .presets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+        .preset { background: #E5E7EB; padding: 1.5rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .preset:hover { background: #D1D5DB; }
+        .preset .box { width: 40px; height: 40px; background: white; border-radius: 4px; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .controls-grid { grid-template-columns: 1fr; } .presets-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>CSS Box Shadow Generator</h1><p>Create stunning CSS box shadows with multiple layers and live preview.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="preview-area">
+                <div class="preview-box" id="previewBox"></div>
+            </div>
+            <div class="controls-grid">
+                <div>
+                    <div class="control-group">
+                        <label>Horizontal Offset <span id="hOffsetVal">0px</span></label>
+                        <input type="range" id="hOffset" min="-100" max="100" value="0" oninput="updateShadow()">
+                    </div>
+                    <div class="control-group">
+                        <label>Vertical Offset <span id="vOffsetVal">4px</span></label>
+                        <input type="range" id="vOffset" min="-100" max="100" value="4" oninput="updateShadow()">
+                    </div>
+                    <div class="control-group">
+                        <label>Blur Radius <span id="blurVal">8px</span></label>
+                        <input type="range" id="blur" min="0" max="100" value="8" oninput="updateShadow()">
+                    </div>
+                </div>
+                <div>
+                    <div class="control-group">
+                        <label>Spread Radius <span id="spreadVal">0px</span></label>
+                        <input type="range" id="spread" min="-50" max="50" value="0" oninput="updateShadow()">
+                    </div>
+                    <div class="control-group">
+                        <label>Opacity <span id="opacityVal">20%</span></label>
+                        <input type="range" id="opacity" min="0" max="100" value="20" oninput="updateShadow()">
+                    </div>
+                    <div class="control-group">
+                        <label>Shadow Color</label>
+                        <div class="color-row">
+                            <input type="color" id="shadowColor" value="#000000" oninput="updateShadow()">
+                            <input type="text" id="shadowColorText" value="#000000" oninput="updateShadow()">
+                        </div>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="inset" onchange="updateShadow()">
+                        <label for="inset">Inset Shadow</label>
+                    </div>
+                </div>
+            </div>
+            <div class="layers-section">
+                <h3>Shadow Layers <button onclick="addLayer()">+ Add Layer</button></h3>
+                <div id="layersList"></div>
+            </div>
+            <div class="output-section">
+                <label>CSS Code</label>
+                <div class="code-output">
+                    <code id="cssCode">box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);</code>
+                    <button onclick="copyCode()">Copy</button>
+                </div>
+            </div>
+            <div class="presets-section">
+                <h3>Preset Shadows</h3>
+                <div class="presets-grid" id="presetsGrid"></div>
+            </div>
+            <div class="pro-banner"><h3>Advanced Shadow Tools</h3><p>Text shadows, drop shadows, and neumorphism generator.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var layers = [
+            { hOffset: 0, vOffset: 4, blur: 8, spread: 0, color: '#000000', opacity: 20, inset: false }
+        ];
+        var activeLayer = 0;
+        var presets = [
+            [{ hOffset: 0, vOffset: 2, blur: 4, spread: 0, color: '#000000', opacity: 10, inset: false }],
+            [{ hOffset: 0, vOffset: 4, blur: 6, spread: -1, color: '#000000', opacity: 10, inset: false }, { hOffset: 0, vOffset: 2, blur: 4, spread: -1, color: '#000000', opacity: 6, inset: false }],
+            [{ hOffset: 0, vOffset: 10, blur: 15, spread: -3, color: '#000000', opacity: 10, inset: false }, { hOffset: 0, vOffset: 4, blur: 6, spread: -2, color: '#000000', opacity: 5, inset: false }],
+            [{ hOffset: 0, vOffset: 25, blur: 50, spread: -12, color: '#000000', opacity: 25, inset: false }],
+            [{ hOffset: 0, vOffset: 0, blur: 0, spread: 1, color: '#E5E7EB', opacity: 100, inset: false }],
+            [{ hOffset: 5, vOffset: 5, blur: 10, spread: 0, color: '#000000', opacity: 10, inset: true }, { hOffset: -5, vOffset: -5, blur: 10, spread: 0, color: '#FFFFFF', opacity: 50, inset: true }],
+            [{ hOffset: 0, vOffset: 0, blur: 0, spread: 3, color: '#5B21B6', opacity: 100, inset: false }, { hOffset: 0, vOffset: 0, blur: 10, spread: 0, color: '#5B21B6', opacity: 50, inset: false }],
+            [{ hOffset: 10, vOffset: 10, blur: 0, spread: 0, color: '#1E3A8A', opacity: 100, inset: false }]
+        ];
+        function hexToRgba(hex, opacity) {
+            hex = hex.replace('#', '');
+            var r = parseInt(hex.substr(0, 2), 16);
+            var g = parseInt(hex.substr(2, 2), 16);
+            var b = parseInt(hex.substr(4, 2), 16);
+            return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + (opacity / 100) + ')';
+        }
+        function loadLayer(idx) {
+            var layer = layers[idx];
+            document.getElementById('hOffset').value = layer.hOffset;
+            document.getElementById('vOffset').value = layer.vOffset;
+            document.getElementById('blur').value = layer.blur;
+            document.getElementById('spread').value = layer.spread;
+            document.getElementById('shadowColor').value = layer.color;
+            document.getElementById('shadowColorText').value = layer.color;
+            document.getElementById('opacity').value = layer.opacity;
+            document.getElementById('inset').checked = layer.inset;
+            activeLayer = idx;
+            renderLayers();
+            updateDisplay();
+        }
+        function updateShadow() {
+            var layer = layers[activeLayer];
+            layer.hOffset = parseInt(document.getElementById('hOffset').value);
+            layer.vOffset = parseInt(document.getElementById('vOffset').value);
+            layer.blur = parseInt(document.getElementById('blur').value);
+            layer.spread = parseInt(document.getElementById('spread').value);
+            layer.color = document.getElementById('shadowColor').value;
+            layer.opacity = parseInt(document.getElementById('opacity').value);
+            layer.inset = document.getElementById('inset').checked;
+            document.getElementById('shadowColorText').value = layer.color;
+            updateDisplay();
+            renderLayers();
+        }
+        function updateDisplay() {
+            document.getElementById('hOffsetVal').textContent = layers[activeLayer].hOffset + 'px';
+            document.getElementById('vOffsetVal').textContent = layers[activeLayer].vOffset + 'px';
+            document.getElementById('blurVal').textContent = layers[activeLayer].blur + 'px';
+            document.getElementById('spreadVal').textContent = layers[activeLayer].spread + 'px';
+            document.getElementById('opacityVal').textContent = layers[activeLayer].opacity + '%';
+            var shadowStr = layers.map(function(l) {
+                return (l.inset ? 'inset ' : '') + l.hOffset + 'px ' + l.vOffset + 'px ' + l.blur + 'px ' + l.spread + 'px ' + hexToRgba(l.color, l.opacity);
+            }).join(', ');
+            document.getElementById('previewBox').style.boxShadow = shadowStr;
+            document.getElementById('cssCode').textContent = 'box-shadow: ' + shadowStr + ';';
+        }
+        function renderLayers() {
+            var html = layers.map(function(l, idx) {
+                var shadowStr = (l.inset ? 'inset ' : '') + l.hOffset + 'px ' + l.vOffset + 'px ' + l.blur + 'px ' + l.spread + 'px ' + hexToRgba(l.color, l.opacity);
+                return '<div class="layer-item' + (idx === activeLayer ? ' active' : '') + '" onclick="loadLayer(' + idx + ')">' +
+                    '<div class="preview" style="box-shadow: ' + shadowStr + '"></div>' +
+                    '<span class="name">Layer ' + (idx + 1) + '</span>' +
+                    '<button onclick="event.stopPropagation(); removeLayer(' + idx + ')" ' + (layers.length <= 1 ? 'disabled' : '') + '>×</button>' +
+                    '</div>';
+            }).join('');
+            document.getElementById('layersList').innerHTML = html;
+        }
+        function addLayer() {
+            layers.push({ hOffset: 0, vOffset: 4, blur: 8, spread: 0, color: '#000000', opacity: 20, inset: false });
+            loadLayer(layers.length - 1);
+        }
+        function removeLayer(idx) {
+            if (layers.length > 1) {
+                layers.splice(idx, 1);
+                if (activeLayer >= layers.length) activeLayer = layers.length - 1;
+                loadLayer(activeLayer);
+            }
+        }
+        function loadPreset(idx) {
+            layers = JSON.parse(JSON.stringify(presets[idx]));
+            loadLayer(0);
+        }
+        function copyCode() {
+            var code = document.getElementById('cssCode').textContent;
+            navigator.clipboard.writeText(code);
+            var btn = document.querySelector('.code-output button');
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+        }
+        function initPresets() {
+            var html = presets.map(function(p, idx) {
+                var shadowStr = p.map(function(l) {
+                    return (l.inset ? 'inset ' : '') + l.hOffset + 'px ' + l.vOffset + 'px ' + l.blur + 'px ' + l.spread + 'px ' + hexToRgba(l.color, l.opacity);
+                }).join(', ');
+                return '<div class="preset" onclick="loadPreset(' + idx + ')"><div class="box" style="box-shadow: ' + shadowStr + '"></div></div>';
+            }).join('');
+            document.getElementById('presetsGrid').innerHTML = html;
+        }
+        loadLayer(0);
+        initPresets();
+    </script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer | Digital ABCs</title>
+    <meta name="description" content="Create countdowns to any date or event. Track days, hours, minutes, and seconds until your important moments.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-purple);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 650px; margin: 0 auto;
+        }
+
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label {
+            display: block; font-weight: 600; color: #374151;
+            margin-bottom: 0.5rem; font-size: 0.95rem;
+        }
+        .input-group input {
+            width: 100%; padding: 12px; border: 1px solid #D1D5DB;
+            border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+        .input-group input:focus {
+            outline: none; border-color: var(--brand-purple);
+        }
+
+        .datetime-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+
+        .countdown-display {
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-purple) 100%);
+            border-radius: 16px; padding: 2.5rem; text-align: center; margin: 2rem 0;
+        }
+
+        .event-name {
+            color: #E0E7FF; font-size: 1rem; margin-bottom: 1.5rem;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        .countdown-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+        }
+
+        .countdown-unit {
+            background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem 1rem;
+        }
+
+        .countdown-unit .number {
+            font-size: 3rem; font-weight: 700; color: white;
+            font-family: 'Roboto Mono', monospace; line-height: 1;
+        }
+
+        .countdown-unit .label {
+            color: #E0E7FF; font-size: 0.8rem; margin-top: 0.5rem;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .quick-events {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;
+        }
+
+        .quick-btn {
+            padding: 8px 14px; background: #F3F4F6; border: none;
+            border-radius: 6px; cursor: pointer; font-weight: 500;
+            font-family: 'Inter', sans-serif; font-size: 0.85rem;
+        }
+        .quick-btn:hover { background: #E5E7EB; }
+
+        .share-section {
+            margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #E5E7EB;
+        }
+
+        .share-btn {
+            padding: 10px 20px; background: var(--brand-green); color: white;
+            border: none; border-radius: 8px; cursor: pointer; font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+        .share-btn:hover { background: #064E3B; }
+
+        .share-link {
+            margin-top: 1rem; padding: 0.75rem; background: #F9FAFB;
+            border-radius: 8px; font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem; word-break: break-all;
+        }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+            .countdown-unit .number { font-size: 2rem; }
+            .datetime-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Countdown Timer</h1>
+                <p>Count down the days, hours, minutes, and seconds to your next big event.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="quick-events">
+                        <button class="quick-btn" onclick="setQuickEvent('New Year', 'YEAR-01-01')">New Year</button>
+                        <button class="quick-btn" onclick="setQuickEvent('Christmas', 'YEAR-12-25')">Christmas</button>
+                        <button class="quick-btn" onclick="setQuickEvent('Valentine\\'s Day', 'YEAR-02-14')">Valentine's</button>
+                        <button class="quick-btn" onclick="setQuickEvent('Easter', 'YEAR-04-20')">Easter</button>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Event Name</label>
+                        <input type="text" id="eventName" value="My Event" oninput="updateCountdown()">
+                    </div>
+
+                    <div class="datetime-row">
+                        <div class="input-group">
+                            <label>Date</label>
+                            <input type="date" id="eventDate" oninput="updateCountdown()">
+                        </div>
+                        <div class="input-group">
+                            <label>Time (optional)</label>
+                            <input type="time" id="eventTime" value="00:00" oninput="updateCountdown()">
+                        </div>
+                    </div>
+
+                    <div class="countdown-display">
+                        <div class="event-name" id="displayEventName">My Event</div>
+                        <div class="countdown-grid">
+                            <div class="countdown-unit">
+                                <div class="number" id="countDays">000</div>
+                                <div class="label">Days</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="number" id="countHours">00</div>
+                                <div class="label">Hours</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="number" id="countMinutes">00</div>
+                                <div class="label">Minutes</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="number" id="countSeconds">00</div>
+                                <div class="label">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="share-section">
+                        <button class="share-btn" onclick="shareCountdown()">Copy Share Link</button>
+                        <div class="share-link" id="shareLink" style="display: none;"></div>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Create Beautiful Countdown Pages</h3>
+                        <p>Custom themes, email notifications, and embeddable widgets.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var targetDate = null;
+        var countdownInterval = null;
+
+        function init() {
+            // Set default date to 30 days from now
+            var future = new Date();
+            future.setDate(future.getDate() + 30);
+            document.getElementById('eventDate').value = future.toISOString().split('T')[0];
+
+            // Check URL params for shared countdown
+            var params = new URLSearchParams(window.location.search);
+            if (params.has('name') && params.has('date')) {
+                document.getElementById('eventName').value = decodeURIComponent(params.get('name'));
+                document.getElementById('eventDate').value = params.get('date');
+                if (params.has('time')) {
+                    document.getElementById('eventTime').value = params.get('time');
+                }
+            }
+
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        function setQuickEvent(name, dateTemplate) {
+            var today = new Date();
+            var year = today.getFullYear();
+            var dateStr = dateTemplate.replace('YEAR', year);
+
+            var eventDate = new Date(dateStr);
+            if (eventDate < today) {
+                eventDate.setFullYear(year + 1);
+                dateStr = dateTemplate.replace('YEAR', year + 1);
+            }
+
+            document.getElementById('eventName').value = name;
+            document.getElementById('eventDate').value = dateStr;
+            document.getElementById('eventTime').value = '00:00';
+            updateCountdown();
+        }
+
+        function updateCountdown() {
+            var name = document.getElementById('eventName').value || 'My Event';
+            var dateStr = document.getElementById('eventDate').value;
+            var timeStr = document.getElementById('eventTime').value || '00:00';
+
+            document.getElementById('displayEventName').textContent = name;
+
+            if (!dateStr) {
+                setCountdownValues(0, 0, 0, 0);
+                return;
+            }
+
+            targetDate = new Date(dateStr + 'T' + timeStr);
+            var now = new Date();
+            var diff = targetDate - now;
+
+            if (diff <= 0) {
+                setCountdownValues(0, 0, 0, 0);
+                document.getElementById('displayEventName').textContent = name + ' - Event Started!';
+                return;
+            }
+
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            setCountdownValues(days, hours, minutes, seconds);
+        }
+
+        function setCountdownValues(days, hours, minutes, seconds) {
+            document.getElementById('countDays').textContent = String(days).padStart(3, '0');
+            document.getElementById('countHours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('countMinutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('countSeconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        function shareCountdown() {
+            var name = encodeURIComponent(document.getElementById('eventName').value);
+            var date = document.getElementById('eventDate').value;
+            var time = document.getElementById('eventTime').value;
+
+            var url = window.location.origin + window.location.pathname + '?name=' + name + '&date=' + date;
+            if (time && time !== '00:00') url += '&time=' + time;
+
+            navigator.clipboard.writeText(url).then(function() {
+                var linkEl = document.getElementById('shareLink');
+                linkEl.textContent = 'Link copied: ' + url;
+                linkEl.style.display = 'block';
+            });
+        }
+
+        init();
+    </script>
+</body>
+</html>

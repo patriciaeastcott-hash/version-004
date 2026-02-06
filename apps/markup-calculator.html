@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markup Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate markup percentage, selling price, and profit margins. Essential tool for pricing your products.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #065F46 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #D1FAE5; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-navy);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 600px; margin: 0 auto;
+        }
+
+        .mode-tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem; justify-content: center;
+        }
+
+        .mode-tab {
+            padding: 10px 20px; border: 2px solid #E5E7EB; background: white;
+            border-radius: 8px; font-weight: 500; cursor: pointer;
+            font-family: 'Inter', sans-serif; transition: all 0.2s; font-size: 0.9rem;
+        }
+        .mode-tab:hover { border-color: var(--brand-purple); }
+        .mode-tab.active { border-color: var(--brand-purple); background: #F5F3FF; color: var(--brand-purple); }
+
+        .input-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block; font-weight: 600; color: #374151;
+            margin-bottom: 0.5rem; font-size: 0.9rem;
+        }
+
+        .input-wrapper {
+            display: flex; align-items: center;
+        }
+
+        .input-wrapper span {
+            padding: 12px; background: #F3F4F6; border: 1px solid #D1D5DB;
+            font-weight: 600; color: #374151;
+        }
+        .input-wrapper span:first-child { border-right: none; border-radius: 8px 0 0 8px; }
+        .input-wrapper span:last-child { border-left: none; border-radius: 0 8px 8px 0; }
+
+        .input-wrapper input {
+            flex: 1; padding: 12px; border: 1px solid #D1D5DB;
+            font-size: 1rem; font-family: 'Roboto Mono', monospace;
+        }
+        .input-wrapper input:only-child { border-radius: 8px; }
+        .input-wrapper input:first-child { border-radius: 8px 0 0 8px; }
+        .input-wrapper input:focus { outline: none; border-color: var(--brand-purple); z-index: 1; }
+
+        .results {
+            margin-top: 1.5rem; background: #F0FDF4; border: 2px solid var(--brand-green);
+            border-radius: 12px; padding: 1.5rem;
+        }
+
+        .result-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+
+        .result-item {
+            padding: 1rem; background: white; border-radius: 8px; text-align: center;
+        }
+
+        .result-item .value {
+            font-size: 1.5rem; font-weight: 700; color: var(--brand-navy);
+            font-family: 'Roboto Mono', monospace;
+        }
+        .result-item .value.green { color: var(--brand-green); }
+
+        .result-item .label {
+            font-size: 0.8rem; color: #4B5563; margin-top: 0.25rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .formula-box {
+            margin-top: 1rem; padding: 1rem; background: #EEF2FF;
+            border-radius: 8px; text-align: center;
+        }
+
+        .formula-box .formula {
+            font-family: 'Roboto Mono', monospace; color: var(--brand-purple);
+            font-size: 0.9rem;
+        }
+
+        .info-note {
+            margin-top: 1.5rem; padding: 1rem; background: #FFFBEB;
+            border-radius: 8px; font-size: 0.85rem; color: #92400E;
+            border-left: 4px solid #F59E0B;
+        }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .input-row { grid-template-columns: 1fr; }
+            .result-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Markup Calculator</h1>
+                <p>Calculate markup, margin, and selling price. Know your numbers before you set your prices.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="mode-tabs">
+                        <button class="mode-tab active" onclick="setMode('markup')">Calculate Markup</button>
+                        <button class="mode-tab" onclick="setMode('price')">Find Selling Price</button>
+                        <button class="mode-tab" onclick="setMode('cost')">Find Cost</button>
+                    </div>
+
+                    <div id="markupMode">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Cost Price</label>
+                                <div class="input-wrapper">
+                                    <span>$</span>
+                                    <input type="number" id="m_cost" value="50" step="0.01" oninput="calcMarkup()">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Selling Price</label>
+                                <div class="input-wrapper">
+                                    <span>$</span>
+                                    <input type="number" id="m_selling" value="75" step="0.01" oninput="calcMarkup()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="priceMode" style="display: none;">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Cost Price</label>
+                                <div class="input-wrapper">
+                                    <span>$</span>
+                                    <input type="number" id="p_cost" value="50" step="0.01" oninput="calcPrice()">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Desired Markup</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="p_markup" value="50" step="1" oninput="calcPrice()">
+                                    <span>%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="costMode" style="display: none;">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Selling Price</label>
+                                <div class="input-wrapper">
+                                    <span>$</span>
+                                    <input type="number" id="c_selling" value="75" step="0.01" oninput="calcCost()">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Markup Percentage</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="c_markup" value="50" step="1" oninput="calcCost()">
+                                    <span>%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results">
+                        <div class="result-grid" id="resultGrid">
+                            <div class="result-item">
+                                <div class="value green" id="r_markup">50%</div>
+                                <div class="label">Markup</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="value" id="r_margin">33.3%</div>
+                                <div class="label">Profit Margin</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="value green" id="r_profit">$25.00</div>
+                                <div class="label">Profit</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="value" id="r_selling">$75.00</div>
+                                <div class="label">Selling Price</div>
+                            </div>
+                        </div>
+
+                        <div class="formula-box">
+                            <div class="formula" id="formula">Markup = ((75 - 50) / 50) × 100 = 50%</div>
+                        </div>
+                    </div>
+
+                    <div class="info-note">
+                        <strong>Markup vs Margin:</strong> Markup is based on cost (profit ÷ cost). Margin is based on selling price (profit ÷ selling price). A 50% markup equals a 33.3% margin.
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Build Complete Pricing Models</h3>
+                        <p>Factor in overhead, labour, and multiple product lines.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var currentMode = 'markup';
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-tab').forEach(function(tab) { tab.classList.remove('active'); });
+            event.target.classList.add('active');
+
+            document.getElementById('markupMode').style.display = mode === 'markup' ? 'block' : 'none';
+            document.getElementById('priceMode').style.display = mode === 'price' ? 'block' : 'none';
+            document.getElementById('costMode').style.display = mode === 'cost' ? 'block' : 'none';
+
+            if (mode === 'markup') calcMarkup();
+            else if (mode === 'price') calcPrice();
+            else calcCost();
+        }
+
+        function updateResults(cost, selling, markup, margin, profit) {
+            document.getElementById('r_markup').textContent = markup.toFixed(1) + '%';
+            document.getElementById('r_margin').textContent = margin.toFixed(1) + '%';
+            document.getElementById('r_profit').textContent = '$' + profit.toFixed(2);
+            document.getElementById('r_selling').textContent = '$' + selling.toFixed(2);
+        }
+
+        function calcMarkup() {
+            var cost = parseFloat(document.getElementById('m_cost').value) || 0;
+            var selling = parseFloat(document.getElementById('m_selling').value) || 0;
+
+            var profit = selling - cost;
+            var markup = cost > 0 ? (profit / cost) * 100 : 0;
+            var margin = selling > 0 ? (profit / selling) * 100 : 0;
+
+            updateResults(cost, selling, markup, margin, profit);
+            document.getElementById('formula').textContent =
+                'Markup = ((' + selling + ' - ' + cost + ') / ' + cost + ') × 100 = ' + markup.toFixed(1) + '%';
+        }
+
+        function calcPrice() {
+            var cost = parseFloat(document.getElementById('p_cost').value) || 0;
+            var markup = parseFloat(document.getElementById('p_markup').value) || 0;
+
+            var selling = cost * (1 + markup / 100);
+            var profit = selling - cost;
+            var margin = selling > 0 ? (profit / selling) * 100 : 0;
+
+            updateResults(cost, selling, markup, margin, profit);
+            document.getElementById('formula').textContent =
+                'Selling Price = ' + cost + ' × (1 + ' + markup + '%) = $' + selling.toFixed(2);
+        }
+
+        function calcCost() {
+            var selling = parseFloat(document.getElementById('c_selling').value) || 0;
+            var markup = parseFloat(document.getElementById('c_markup').value) || 0;
+
+            var cost = selling / (1 + markup / 100);
+            var profit = selling - cost;
+            var margin = selling > 0 ? (profit / selling) * 100 : 0;
+
+            updateResults(cost, selling, markup, margin, profit);
+            document.getElementById('formula').textContent =
+                'Cost = ' + selling + ' / (1 + ' + markup + '%) = $' + cost.toFixed(2);
+        }
+
+        calcMarkup();
+    </script>
+</body>
+</html>

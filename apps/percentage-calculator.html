@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate percentages easily. Find percentage of a number, percentage change, and more. Free online percentage calculator.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-purple);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .calc-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+        }
+
+        .calc-card {
+            background: white; border-radius: 16px; padding: 1.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .calc-card h3 {
+            color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 1rem;
+            padding-bottom: 0.75rem; border-bottom: 1px solid #E5E7EB;
+        }
+
+        .calc-form {
+            display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+            margin-bottom: 1rem; font-size: 1rem; color: #374151;
+        }
+
+        .calc-form input {
+            width: 80px; padding: 8px 10px; border: 1px solid #D1D5DB;
+            border-radius: 6px; font-size: 1rem; text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .calc-form input:focus {
+            outline: none; border-color: var(--brand-purple);
+        }
+
+        .result-box {
+            background: #F0FDF4; border: 2px solid var(--brand-green);
+            border-radius: 8px; padding: 1rem; text-align: center;
+        }
+
+        .result-box .answer {
+            font-size: 1.5rem; font-weight: 700; color: var(--brand-green);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .result-box .formula {
+            font-size: 0.8rem; color: #4B5563; margin-top: 0.25rem;
+        }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+            grid-column: 1 / -1;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Percentage Calculator</h1>
+                <p>All the percentage calculations you need in one place. Quick, easy, and accurate.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="calc-grid">
+
+                    <div class="calc-card">
+                        <h3>What is X% of Y?</h3>
+                        <div class="calc-form">
+                            What is <input type="number" id="p1_percent" value="25" oninput="calc1()"> % of <input type="number" id="p1_number" value="200" oninput="calc1()"> ?
+                        </div>
+                        <div class="result-box">
+                            <div class="answer" id="result1">50</div>
+                            <div class="formula" id="formula1">25% × 200 = 50</div>
+                        </div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>X is what percent of Y?</h3>
+                        <div class="calc-form">
+                            <input type="number" id="p2_part" value="50" oninput="calc2()"> is what % of <input type="number" id="p2_whole" value="200" oninput="calc2()"> ?
+                        </div>
+                        <div class="result-box">
+                            <div class="answer" id="result2">25%</div>
+                            <div class="formula" id="formula2">50 ÷ 200 × 100 = 25%</div>
+                        </div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Percentage Change</h3>
+                        <div class="calc-form">
+                            From <input type="number" id="p3_from" value="100" oninput="calc3()"> to <input type="number" id="p3_to" value="125" oninput="calc3()">
+                        </div>
+                        <div class="result-box">
+                            <div class="answer" id="result3">+25%</div>
+                            <div class="formula" id="formula3">(125 - 100) ÷ 100 × 100</div>
+                        </div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Increase by Percentage</h3>
+                        <div class="calc-form">
+                            <input type="number" id="p4_number" value="100" oninput="calc4()"> + <input type="number" id="p4_percent" value="15" oninput="calc4()"> %
+                        </div>
+                        <div class="result-box">
+                            <div class="answer" id="result4">115</div>
+                            <div class="formula" id="formula4">100 + (100 × 15%)</div>
+                        </div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Decrease by Percentage</h3>
+                        <div class="calc-form">
+                            <input type="number" id="p5_number" value="100" oninput="calc5()"> − <input type="number" id="p5_percent" value="20" oninput="calc5()"> %
+                        </div>
+                        <div class="result-box">
+                            <div class="answer" id="result5">80</div>
+                            <div class="formula" id="formula5">100 - (100 × 20%)</div>
+                        </div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Percentage Difference</h3>
+                        <div class="calc-form">
+                            Difference between <input type="number" id="p6_a" value="50" oninput="calc6()"> and <input type="number" id="p6_b" value="75" oninput="calc6()">
+                        </div>
+                        <div class="result-box">
+                            <div class="answer" id="result6">40%</div>
+                            <div class="formula" id="formula6">|50 - 75| ÷ ((50 + 75) / 2) × 100</div>
+                        </div>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Need Advanced Financial Calculations?</h3>
+                        <p>Compound interest, tax calculations, margin analysis and more.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function round(n) {
+            return Math.round(n * 10000) / 10000;
+        }
+
+        function calc1() {
+            var p = parseFloat(document.getElementById('p1_percent').value) || 0;
+            var n = parseFloat(document.getElementById('p1_number').value) || 0;
+            var result = round((p / 100) * n);
+            document.getElementById('result1').textContent = result;
+            document.getElementById('formula1').textContent = p + '% × ' + n + ' = ' + result;
+        }
+
+        function calc2() {
+            var part = parseFloat(document.getElementById('p2_part').value) || 0;
+            var whole = parseFloat(document.getElementById('p2_whole').value) || 1;
+            var result = round((part / whole) * 100);
+            document.getElementById('result2').textContent = result + '%';
+            document.getElementById('formula2').textContent = part + ' ÷ ' + whole + ' × 100 = ' + result + '%';
+        }
+
+        function calc3() {
+            var from = parseFloat(document.getElementById('p3_from').value) || 1;
+            var to = parseFloat(document.getElementById('p3_to').value) || 0;
+            var result = round(((to - from) / Math.abs(from)) * 100);
+            var sign = result >= 0 ? '+' : '';
+            document.getElementById('result3').textContent = sign + result + '%';
+            document.getElementById('formula3').textContent = '(' + to + ' - ' + from + ') ÷ ' + Math.abs(from) + ' × 100';
+        }
+
+        function calc4() {
+            var n = parseFloat(document.getElementById('p4_number').value) || 0;
+            var p = parseFloat(document.getElementById('p4_percent').value) || 0;
+            var result = round(n + (n * p / 100));
+            document.getElementById('result4').textContent = result;
+            document.getElementById('formula4').textContent = n + ' + (' + n + ' × ' + p + '%)';
+        }
+
+        function calc5() {
+            var n = parseFloat(document.getElementById('p5_number').value) || 0;
+            var p = parseFloat(document.getElementById('p5_percent').value) || 0;
+            var result = round(n - (n * p / 100));
+            document.getElementById('result5').textContent = result;
+            document.getElementById('formula5').textContent = n + ' - (' + n + ' × ' + p + '%)';
+        }
+
+        function calc6() {
+            var a = parseFloat(document.getElementById('p6_a').value) || 0;
+            var b = parseFloat(document.getElementById('p6_b').value) || 0;
+            var avg = (a + b) / 2;
+            var result = avg !== 0 ? round((Math.abs(a - b) / avg) * 100) : 0;
+            document.getElementById('result6').textContent = result + '%';
+            document.getElementById('formula6').textContent = '|' + a + ' - ' + b + '| ÷ ((' + a + ' + ' + b + ') / 2) × 100';
+        }
+
+        calc1(); calc2(); calc3(); calc4(); calc5(); calc6();
+    </script>
+</body>
+</html>

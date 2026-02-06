@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate your monthly mortgage payments, total interest, and amortization schedule.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #065F46 0%, #1E3A8A 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #D1FAE5; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-green); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); max-width: 700px; margin: 0 auto; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .input-group { margin-bottom: 0; }
+        .input-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.4rem; font-size: 0.9rem; }
+        .input-wrapper { display: flex; }
+        .input-wrapper span { padding: 12px; background: #F3F4F6; border: 1px solid #D1D5DB; font-weight: 600; }
+        .input-wrapper span:first-child { border-right: none; border-radius: 8px 0 0 8px; }
+        .input-wrapper span:last-child { border-left: none; border-radius: 0 8px 8px 0; }
+        .input-wrapper input { flex: 1; padding: 12px; border: 1px solid #D1D5DB; font-size: 1rem; font-family: 'Roboto Mono', monospace; }
+        .input-wrapper input:focus { outline: none; border-color: var(--brand-purple); z-index: 1; }
+        .results { margin-top: 2rem; background: #F0FDF4; border: 2px solid var(--brand-green); border-radius: 12px; padding: 2rem; }
+        .result-main { text-align: center; margin-bottom: 1.5rem; }
+        .result-main .value { font-size: 3rem; font-weight: 700; color: var(--brand-green); font-family: 'Roboto Mono', monospace; }
+        .result-main .label { color: #4B5563; font-size: 0.9rem; }
+        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .result-item { text-align: center; padding: 1rem; background: white; border-radius: 8px; }
+        .result-item .value { font-size: 1.25rem; font-weight: 700; color: var(--brand-navy); font-family: 'Roboto Mono', monospace; }
+        .result-item .label { font-size: 0.8rem; color: #4B5563; margin-top: 0.25rem; }
+        .chart-container { margin-top: 1.5rem; height: 200px; display: flex; align-items: flex-end; gap: 4px; }
+        .bar { flex: 1; background: linear-gradient(to top, var(--brand-green) 0%, var(--brand-navy) 100%); border-radius: 4px 4px 0 0; transition: height 0.3s; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .input-row, .result-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo" aria-label="Digital ABCs Home"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav" aria-label="Main navigation"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Mortgage Calculator</h1><p>Calculate your monthly repayments, total interest, and see how extra payments can save you money.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="input-row">
+                <div class="input-group"><label>Loan Amount</label><div class="input-wrapper"><span>$</span><input type="number" id="loanAmount" value="500000" oninput="calculate()"></div></div>
+                <div class="input-group"><label>Interest Rate (Annual)</label><div class="input-wrapper"><input type="number" id="interestRate" value="6.5" step="0.1" oninput="calculate()"><span>%</span></div></div>
+            </div>
+            <div class="input-row">
+                <div class="input-group"><label>Loan Term</label><div class="input-wrapper"><input type="number" id="loanTerm" value="30" oninput="calculate()"><span>years</span></div></div>
+                <div class="input-group"><label>Extra Monthly Payment</label><div class="input-wrapper"><span>$</span><input type="number" id="extraPayment" value="0" oninput="calculate()"></div></div>
+            </div>
+            <div class="results">
+                <div class="result-main"><div class="value" id="monthlyPayment">$3,160</div><div class="label">Monthly Payment</div></div>
+                <div class="result-grid">
+                    <div class="result-item"><div class="value" id="totalPayment">$1.14M</div><div class="label">Total Payment</div></div>
+                    <div class="result-item"><div class="value" id="totalInterest">$637K</div><div class="label">Total Interest</div></div>
+                    <div class="result-item"><div class="value" id="payoffDate">2055</div><div class="label">Payoff Year</div></div>
+                </div>
+                <div class="chart-container" id="chart"></div>
+            </div>
+            <div class="pro-banner"><h3>Compare Loan Scenarios</h3><p>Side-by-side comparison, refinancing analysis, and PDF reports.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        function calculate() {
+            var P = parseFloat(document.getElementById('loanAmount').value) || 0;
+            var annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            var years = parseFloat(document.getElementById('loanTerm').value) || 1;
+            var extra = parseFloat(document.getElementById('extraPayment').value) || 0;
+            var r = annualRate / 100 / 12;
+            var n = years * 12;
+            var M = r > 0 ? P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) : P / n;
+            var totalWithExtra = 0, months = 0, balance = P;
+            while (balance > 0 && months < n * 2) {
+                var interest = balance * r;
+                var principal = Math.min(M + extra - interest, balance);
+                balance -= principal;
+                totalWithExtra += M + extra;
+                months++;
+                if (balance < 0) balance = 0;
+            }
+            var totalInterest = totalWithExtra - P;
+            var payoffYear = new Date().getFullYear() + Math.ceil(months / 12);
+            document.getElementById('monthlyPayment').textContent = '$' + M.toLocaleString('en-AU', {maximumFractionDigits: 0});
+            document.getElementById('totalPayment').textContent = '$' + (totalWithExtra > 1000000 ? (totalWithExtra/1000000).toFixed(2) + 'M' : (totalWithExtra/1000).toFixed(0) + 'K');
+            document.getElementById('totalInterest').textContent = '$' + (totalInterest > 1000000 ? (totalInterest/1000000).toFixed(2) + 'M' : (totalInterest/1000).toFixed(0) + 'K');
+            document.getElementById('payoffDate').textContent = payoffYear;
+            var chart = document.getElementById('chart');
+            var bars = '';
+            for (var i = 0; i < Math.min(years, 30); i++) {
+                var yearBalance = P * Math.pow(1 + r, (i+1) * 12) - M * ((Math.pow(1 + r, (i+1) * 12) - 1) / r);
+                var height = Math.max(5, (yearBalance / P) * 180);
+                bars += '<div class="bar" style="height:' + height + 'px" title="Year ' + (i+1) + '"></div>';
+            }
+            chart.innerHTML = bars;
+        }
+        calculate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Prioritizer | Digital ABCs</title>
+    <meta name="description" content="Prioritize tasks using the Eisenhower Matrix. Sort by urgency and importance to focus on what matters.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-navy);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 1000px; margin: 0 auto;
+        }
+
+        .add-task-form {
+            display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap;
+        }
+
+        .add-task-form input {
+            flex: 1; min-width: 200px; padding: 12px; border: 2px solid #E5E7EB;
+            border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif;
+        }
+        .add-task-form input:focus { outline: none; border-color: var(--brand-purple); }
+
+        .add-task-form select {
+            padding: 12px; border: 2px solid #E5E7EB;
+            border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif;
+        }
+
+        .add-task-form button {
+            padding: 12px 24px; background: var(--brand-green); color: white;
+            border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .add-task-form button:hover { background: #064E3B; }
+
+        .matrix-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+
+        .quadrant {
+            padding: 1.5rem; border-radius: 12px; min-height: 200px;
+        }
+
+        .quadrant h3 {
+            margin: 0 0 0.5rem 0; font-size: 1rem; display: flex;
+            align-items: center; gap: 0.5rem;
+        }
+
+        .quadrant .desc {
+            font-size: 0.8rem; color: #4B5563; margin-bottom: 1rem;
+        }
+
+        .q1 { background: #FEE2E2; }
+        .q1 h3 { color: #991B1B; }
+        .q2 { background: #DBEAFE; }
+        .q2 h3 { color: #1E40AF; }
+        .q3 { background: #FEF3C7; }
+        .q3 h3 { color: #92400E; }
+        .q4 { background: #F3F4F6; }
+        .q4 h3 { color: #374151; }
+
+        .task-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+        .task-item {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.75rem; background: white; border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .task-item input[type="checkbox"] {
+            width: 20px; height: 20px; cursor: pointer;
+        }
+
+        .task-item .text { flex: 1; }
+        .task-item .text.done { text-decoration: line-through; color: #9CA3AF; }
+
+        .task-item .delete-btn {
+            background: none; border: none; color: #9CA3AF;
+            cursor: pointer; font-size: 1.1rem; padding: 0.25rem;
+        }
+        .task-item .delete-btn:hover { color: #EF4444; }
+
+        .empty-quadrant {
+            color: #9CA3AF; font-style: italic; font-size: 0.9rem;
+            text-align: center; padding: 2rem;
+        }
+
+        .axis-labels {
+            display: grid; grid-template-columns: auto 1fr 1fr; gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .axis-labels .y-label {
+            writing-mode: vertical-rl; text-orientation: mixed;
+            transform: rotate(180deg); font-weight: 600; color: #4B5563;
+            font-size: 0.85rem;
+        }
+
+        .axis-labels .x-label {
+            text-align: center; font-weight: 600; color: #4B5563;
+            font-size: 0.85rem;
+        }
+
+        .clear-btn {
+            margin-top: 1.5rem; padding: 10px 20px; background: #F3F4F6;
+            border: none; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif;
+            color: #4B5563;
+        }
+        .clear-btn:hover { background: #E5E7EB; }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .matrix-grid { grid-template-columns: 1fr; }
+            .axis-labels { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Task Prioritizer</h1>
+                <p>Use the Eisenhower Matrix to prioritize tasks by urgency and importance. Focus on what matters most.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="add-task-form">
+                        <input type="text" id="taskInput" placeholder="Enter a task...">
+                        <select id="urgentSelect">
+                            <option value="1">Urgent</option>
+                            <option value="0">Not Urgent</option>
+                        </select>
+                        <select id="importantSelect">
+                            <option value="1">Important</option>
+                            <option value="0">Not Important</option>
+                        </select>
+                        <button onclick="addTask()">+ Add Task</button>
+                    </div>
+
+                    <div class="axis-labels">
+                        <span class="y-label">IMPORTANCE ↑</span>
+                        <span class="x-label">URGENT</span>
+                        <span class="x-label">NOT URGENT</span>
+                    </div>
+
+                    <div class="matrix-grid">
+                        <div class="quadrant q1">
+                            <h3>🔥 Do First</h3>
+                            <p class="desc">Urgent & Important - Crisis, deadlines</p>
+                            <div class="task-list" id="q1-tasks"></div>
+                        </div>
+                        <div class="quadrant q2">
+                            <h3>📅 Schedule</h3>
+                            <p class="desc">Not Urgent & Important - Planning, growth</p>
+                            <div class="task-list" id="q2-tasks"></div>
+                        </div>
+                        <div class="quadrant q3">
+                            <h3>👥 Delegate</h3>
+                            <p class="desc">Urgent & Not Important - Interruptions</p>
+                            <div class="task-list" id="q3-tasks"></div>
+                        </div>
+                        <div class="quadrant q4">
+                            <h3>🗑️ Eliminate</h3>
+                            <p class="desc">Not Urgent & Not Important - Time wasters</p>
+                            <div class="task-list" id="q4-tasks"></div>
+                        </div>
+                    </div>
+
+                    <button class="clear-btn" onclick="clearCompleted()">Clear Completed Tasks</button>
+
+                    <div class="pro-banner">
+                        <h3>Project Management & Team Sync</h3>
+                        <p>Share priorities with your team, set deadlines, and track progress.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var tasks = JSON.parse(localStorage.getItem('dabcs_priority_tasks') || '[]');
+
+        function getQuadrant(task) {
+            if (task.urgent && task.important) return 'q1';
+            if (!task.urgent && task.important) return 'q2';
+            if (task.urgent && !task.important) return 'q3';
+            return 'q4';
+        }
+
+        function addTask() {
+            var input = document.getElementById('taskInput');
+            var text = input.value.trim();
+            if (!text) return;
+
+            var urgent = document.getElementById('urgentSelect').value === '1';
+            var important = document.getElementById('importantSelect').value === '1';
+
+            tasks.push({
+                id: Date.now(),
+                text: text,
+                urgent: urgent,
+                important: important,
+                done: false
+            });
+
+            input.value = '';
+            saveAndRender();
+        }
+
+        document.getElementById('taskInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addTask();
+        });
+
+        function toggleTask(id) {
+            var task = tasks.find(function(t) { return t.id === id; });
+            if (task) task.done = !task.done;
+            saveAndRender();
+        }
+
+        function deleteTask(id) {
+            tasks = tasks.filter(function(t) { return t.id !== id; });
+            saveAndRender();
+        }
+
+        function clearCompleted() {
+            tasks = tasks.filter(function(t) { return !t.done; });
+            saveAndRender();
+        }
+
+        function saveAndRender() {
+            localStorage.setItem('dabcs_priority_tasks', JSON.stringify(tasks));
+            render();
+        }
+
+        function render() {
+            var quadrants = { q1: [], q2: [], q3: [], q4: [] };
+
+            tasks.forEach(function(task) {
+                quadrants[getQuadrant(task)].push(task);
+            });
+
+            ['q1', 'q2', 'q3', 'q4'].forEach(function(q) {
+                var container = document.getElementById(q + '-tasks');
+                if (quadrants[q].length === 0) {
+                    container.innerHTML = '<div class="empty-quadrant">No tasks</div>';
+                } else {
+                    container.innerHTML = quadrants[q].map(function(task) {
+                        return '<div class="task-item">' +
+                            '<input type="checkbox" ' + (task.done ? 'checked' : '') + ' onchange="toggleTask(' + task.id + ')">' +
+                            '<span class="text' + (task.done ? ' done' : '') + '">' + escapeHtml(task.text) + '</span>' +
+                            '<button class="delete-btn" onclick="deleteTask(' + task.id + ')">×</button>' +
+                            '</div>';
+                    }).join('');
+                }
+            });
+        }
+
+        function escapeHtml(str) {
+            var div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        render();
+    </script>
+</body>
+</html>

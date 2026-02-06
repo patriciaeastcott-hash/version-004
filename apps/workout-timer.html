@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Interval Timer | Digital ABCs</title>
+    <meta name="description" content="HIIT and interval training timer. Set work and rest periods for effective workouts.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; --workout-red: #DC2626; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #FECACA; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--workout-red); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 500px; margin: 0 auto; }
+        .timer-display { text-align: center; padding: 2rem; margin-bottom: 1.5rem; border-radius: 16px; transition: background 0.3s; }
+        .timer-display.work { background: linear-gradient(135deg, #DC2626, #EF4444); }
+        .timer-display.rest { background: linear-gradient(135deg, #059669, #10B981); }
+        .timer-display.ready { background: linear-gradient(135deg, #6B7280, #9CA3AF); }
+        .timer-time { font-size: 5rem; font-weight: 700; color: white; font-family: 'Roboto Mono', monospace; line-height: 1; }
+        .timer-phase { font-size: 1.5rem; color: rgba(255,255,255,0.9); margin-top: 0.5rem; font-weight: 600; }
+        .timer-round { font-size: 1rem; color: rgba(255,255,255,0.8); margin-top: 0.25rem; }
+        .controls { display: flex; gap: 0.75rem; margin-bottom: 2rem; }
+        .controls button { flex: 1; padding: 16px; font-size: 1.1rem; font-weight: 700; border-radius: 10px; cursor: pointer; border: none; }
+        .btn-start { background: var(--brand-green); color: white; }
+        .btn-start:hover { background: #064E3B; }
+        .btn-pause { background: #F59E0B; color: white; }
+        .btn-pause:hover { background: #D97706; }
+        .btn-reset { background: #6B7280; color: white; }
+        .btn-reset:hover { background: #4B5563; }
+        .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .setting-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.4rem; font-size: 0.9rem; }
+        .setting-group input { width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 1rem; text-align: center; font-family: 'Roboto Mono', monospace; box-sizing: border-box; }
+        .setting-group input:focus { outline: none; border-color: var(--workout-red); }
+        .presets { margin-bottom: 1.5rem; }
+        .presets label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
+        .preset-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .preset-btns button { padding: 8px 14px; background: #F3F4F6; border: 1px solid #D1D5DB; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+        .preset-btns button:hover { background: #FEE2E2; border-color: var(--workout-red); }
+        .progress-section { margin-bottom: 1.5rem; }
+        .progress-bar { height: 8px; background: #E5E7EB; border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--workout-red); transition: width 0.1s linear; }
+        .stats { display: flex; justify-content: space-around; padding: 1rem; background: #F9FAFB; border-radius: 8px; }
+        .stat { text-align: center; }
+        .stat .value { font-size: 1.25rem; font-weight: 700; color: var(--brand-navy); font-family: 'Roboto Mono', monospace; }
+        .stat .label { font-size: 0.8rem; color: #6B7280; }
+        .sound-toggle { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem; font-size: 0.9rem; color: #6B7280; }
+        .sound-toggle input { width: 18px; height: 18px; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .timer-time { font-size: 4rem; } .settings-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Workout Interval Timer</h1><p>HIIT and interval training timer for effective workouts.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="timer-display ready" id="timerDisplay">
+                <div class="timer-time" id="timerTime">0:30</div>
+                <div class="timer-phase" id="timerPhase">Ready</div>
+                <div class="timer-round" id="timerRound">Round 1 of 8</div>
+            </div>
+            <div class="progress-section">
+                <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+            </div>
+            <div class="controls">
+                <button class="btn-start" id="startBtn" onclick="toggleTimer()">Start</button>
+                <button class="btn-reset" onclick="resetTimer()">Reset</button>
+            </div>
+            <div class="presets">
+                <label>Presets</label>
+                <div class="preset-btns">
+                    <button onclick="loadPreset(30, 10, 8)">Tabata</button>
+                    <button onclick="loadPreset(45, 15, 6)">HIIT</button>
+                    <button onclick="loadPreset(60, 30, 5)">Endurance</button>
+                    <button onclick="loadPreset(20, 10, 10)">Quick</button>
+                </div>
+            </div>
+            <div class="settings-grid">
+                <div class="setting-group">
+                    <label>Work (seconds)</label>
+                    <input type="number" id="workTime" value="30" min="5" max="300" onchange="updateSettings()">
+                </div>
+                <div class="setting-group">
+                    <label>Rest (seconds)</label>
+                    <input type="number" id="restTime" value="10" min="5" max="120" onchange="updateSettings()">
+                </div>
+                <div class="setting-group">
+                    <label>Rounds</label>
+                    <input type="number" id="rounds" value="8" min="1" max="50" onchange="updateSettings()">
+                </div>
+                <div class="setting-group">
+                    <label>Prepare (seconds)</label>
+                    <input type="number" id="prepareTime" value="5" min="0" max="30" onchange="updateSettings()">
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat"><div class="value" id="totalTime">5:20</div><div class="label">Total Time</div></div>
+                <div class="stat"><div class="value" id="elapsed">0:00</div><div class="label">Elapsed</div></div>
+                <div class="stat"><div class="value" id="calories">~64</div><div class="label">Est. Calories</div></div>
+            </div>
+            <div class="sound-toggle">
+                <input type="checkbox" id="soundEnabled" checked>
+                <label for="soundEnabled">Sound alerts</label>
+            </div>
+            <div class="pro-banner"><h3>Custom Workout Programs</h3><p>Save workouts, track progress, and sync with fitness apps.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var settings = { work: 30, rest: 10, rounds: 8, prepare: 5 };
+        var state = { running: false, phase: 'ready', currentRound: 1, timeLeft: 0, totalElapsed: 0 };
+        var interval = null;
+        var audioCtx = null;
+        function beep(freq, duration) {
+            if (!document.getElementById('soundEnabled').checked) return;
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            var osc = audioCtx.createOscillator();
+            var gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.frequency.value = freq;
+            osc.type = 'sine';
+            gain.gain.value = 0.3;
+            osc.start();
+            setTimeout(function() { osc.stop(); }, duration);
+        }
+        function formatTime(seconds) {
+            var m = Math.floor(seconds / 60);
+            var s = seconds % 60;
+            return m + ':' + s.toString().padStart(2, '0');
+        }
+        function updateDisplay() {
+            document.getElementById('timerTime').textContent = formatTime(state.timeLeft);
+            var phaseText = state.phase === 'work' ? 'Work!' : state.phase === 'rest' ? 'Rest' : state.phase === 'prepare' ? 'Get Ready' : 'Ready';
+            document.getElementById('timerPhase').textContent = phaseText;
+            document.getElementById('timerRound').textContent = 'Round ' + state.currentRound + ' of ' + settings.rounds;
+            var display = document.getElementById('timerDisplay');
+            display.className = 'timer-display ' + state.phase;
+            document.getElementById('elapsed').textContent = formatTime(state.totalElapsed);
+            var totalTime = getTotalTime();
+            var progress = totalTime > 0 ? (state.totalElapsed / totalTime) * 100 : 0;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        function getTotalTime() {
+            return settings.prepare + (settings.work + settings.rest) * settings.rounds - settings.rest;
+        }
+        function updateSettings() {
+            settings.work = parseInt(document.getElementById('workTime').value) || 30;
+            settings.rest = parseInt(document.getElementById('restTime').value) || 10;
+            settings.rounds = parseInt(document.getElementById('rounds').value) || 8;
+            settings.prepare = parseInt(document.getElementById('prepareTime').value) || 5;
+            var total = getTotalTime();
+            document.getElementById('totalTime').textContent = formatTime(total);
+            document.getElementById('calories').textContent = '~' + Math.round(total * 0.2);
+            resetTimer();
+        }
+        function loadPreset(work, rest, rounds) {
+            document.getElementById('workTime').value = work;
+            document.getElementById('restTime').value = rest;
+            document.getElementById('rounds').value = rounds;
+            updateSettings();
+        }
+        function toggleTimer() {
+            if (state.running) {
+                pauseTimer();
+            } else {
+                startTimer();
+            }
+        }
+        function startTimer() {
+            state.running = true;
+            document.getElementById('startBtn').textContent = 'Pause';
+            document.getElementById('startBtn').className = 'btn-pause';
+            if (state.phase === 'ready') {
+                state.phase = settings.prepare > 0 ? 'prepare' : 'work';
+                state.timeLeft = settings.prepare > 0 ? settings.prepare : settings.work;
+            }
+            interval = setInterval(tick, 1000);
+        }
+        function pauseTimer() {
+            state.running = false;
+            document.getElementById('startBtn').textContent = 'Resume';
+            document.getElementById('startBtn').className = 'btn-start';
+            clearInterval(interval);
+        }
+        function resetTimer() {
+            state.running = false;
+            state.phase = 'ready';
+            state.currentRound = 1;
+            state.timeLeft = settings.work;
+            state.totalElapsed = 0;
+            clearInterval(interval);
+            document.getElementById('startBtn').textContent = 'Start';
+            document.getElementById('startBtn').className = 'btn-start';
+            updateDisplay();
+        }
+        function tick() {
+            state.timeLeft--;
+            state.totalElapsed++;
+            if (state.timeLeft <= 3 && state.timeLeft > 0) beep(800, 100);
+            if (state.timeLeft <= 0) {
+                if (state.phase === 'prepare') {
+                    beep(1200, 300);
+                    state.phase = 'work';
+                    state.timeLeft = settings.work;
+                } else if (state.phase === 'work') {
+                    beep(600, 300);
+                    if (state.currentRound >= settings.rounds) {
+                        finishWorkout();
+                        return;
+                    }
+                    state.phase = 'rest';
+                    state.timeLeft = settings.rest;
+                } else if (state.phase === 'rest') {
+                    beep(1200, 300);
+                    state.currentRound++;
+                    state.phase = 'work';
+                    state.timeLeft = settings.work;
+                }
+            }
+            updateDisplay();
+        }
+        function finishWorkout() {
+            state.running = false;
+            state.phase = 'ready';
+            clearInterval(interval);
+            beep(1000, 500);
+            setTimeout(function() { beep(1200, 500); }, 600);
+            document.getElementById('timerPhase').textContent = 'Complete!';
+            document.getElementById('startBtn').textContent = 'Start';
+            document.getElementById('startBtn').className = 'btn-start';
+        }
+        updateSettings();
+    </script>
+</body>
+</html>

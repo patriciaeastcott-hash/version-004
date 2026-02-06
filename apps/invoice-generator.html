@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator | Digital ABCs</title>
+    <meta name="description" content="Create professional invoices instantly. Add items, calculate totals, and download as PDF.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-navy); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .invoice-container { max-width: 800px; margin: 0 auto; }
+        .invoice-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .invoice-header { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .section-title { font-weight: 700; color: var(--brand-navy); margin-bottom: 0.75rem; font-size: 0.9rem; }
+        .input-group { margin-bottom: 0.75rem; }
+        .input-group input, .input-group textarea { width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box; }
+        .input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--brand-purple); }
+        .invoice-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .items-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .items-table th { text-align: left; padding: 0.75rem; background: #F3F4F6; font-size: 0.85rem; color: #374151; }
+        .items-table td { padding: 0.5rem; border-bottom: 1px solid #E5E7EB; }
+        .items-table input { width: 100%; padding: 8px; border: 1px solid #D1D5DB; border-radius: 4px; }
+        .items-table .qty, .items-table .price { width: 80px; text-align: right; }
+        .items-table .total { text-align: right; font-weight: 600; font-family: 'Roboto Mono', monospace; }
+        .items-table .remove-btn { background: none; border: none; color: #EF4444; cursor: pointer; font-size: 1.2rem; }
+        .add-item-btn { padding: 10px 20px; background: #F3F4F6; border: 2px dashed #D1D5DB; border-radius: 8px; cursor: pointer; width: 100%; font-family: 'Inter', sans-serif; }
+        .add-item-btn:hover { border-color: var(--brand-purple); }
+        .totals-section { margin-left: auto; width: 250px; margin-top: 1rem; }
+        .total-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #E5E7EB; }
+        .total-row.grand { font-weight: 700; font-size: 1.25rem; color: var(--brand-green); border-bottom: none; padding-top: 1rem; }
+        .actions { display: flex; gap: 1rem; margin-top: 2rem; }
+        .btn { padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
+        .btn-primary { background: var(--brand-green); color: white; }
+        .btn-secondary { background: #F3F4F6; color: #374151; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .invoice-header, .invoice-row { grid-template-columns: 1fr; } .totals-section { width: 100%; } }
+        @media print { .site-header, .site-footer, .tool-hero, .actions, .pro-banner, .add-item-btn, .remove-btn { display: none !important; } .invoice-card { box-shadow: none; border: none; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Invoice Generator</h1><p>Create professional invoices in seconds. Add line items and print or download.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="invoice-container"><div class="invoice-card">
+            <div class="invoice-header">
+                <div><div class="section-title">FROM</div><div class="input-group"><input type="text" id="fromName" placeholder="Your Business Name"></div><div class="input-group"><textarea id="fromAddress" rows="2" placeholder="Your Address"></textarea></div><div class="input-group"><input type="email" id="fromEmail" placeholder="your@email.com"></div></div>
+                <div><div class="section-title">BILL TO</div><div class="input-group"><input type="text" id="toName" placeholder="Client Name"></div><div class="input-group"><textarea id="toAddress" rows="2" placeholder="Client Address"></textarea></div><div class="input-group"><input type="email" id="toEmail" placeholder="client@email.com"></div></div>
+            </div>
+            <div class="invoice-row">
+                <div class="input-group"><label class="section-title">Invoice #</label><input type="text" id="invoiceNum" value="INV-001"></div>
+                <div class="input-group"><label class="section-title">Date</label><input type="date" id="invoiceDate"></div>
+            </div>
+            <table class="items-table">
+                <thead><tr><th>Description</th><th style="width:80px">Qty</th><th style="width:100px">Price</th><th style="width:100px">Total</th><th style="width:40px"></th></tr></thead>
+                <tbody id="itemsBody"></tbody>
+            </table>
+            <button class="add-item-btn" onclick="addItem()">+ Add Line Item</button>
+            <div class="totals-section">
+                <div class="total-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+                <div class="total-row"><span>GST (10%)</span><span id="gst">$0.00</span></div>
+                <div class="total-row grand"><span>Total</span><span id="grandTotal">$0.00</span></div>
+            </div>
+            <div class="actions"><button class="btn btn-primary" onclick="window.print()">Print / Save PDF</button><button class="btn btn-secondary" onclick="clearInvoice()">Clear</button></div>
+        </div>
+        <div class="pro-banner"><h3>Save & Track Invoices</h3><p>Client database, payment tracking, and recurring invoices.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var items = [];
+        document.getElementById('invoiceDate').value = new Date().toISOString().split('T')[0];
+        function addItem() { items.push({ desc: '', qty: 1, price: 0 }); render(); }
+        function removeItem(i) { items.splice(i, 1); render(); }
+        function updateItem(i, field, value) { items[i][field] = field === 'desc' ? value : parseFloat(value) || 0; render(); }
+        function render() {
+            var body = document.getElementById('itemsBody');
+            var html = '';
+            var subtotal = 0;
+            items.forEach(function(item, i) {
+                var total = item.qty * item.price;
+                subtotal += total;
+                html += '<tr><td><input type="text" value="' + (item.desc || '') + '" placeholder="Item description" onchange="updateItem(' + i + ',\'desc\',this.value)"></td>';
+                html += '<td><input type="number" class="qty" value="' + item.qty + '" min="1" onchange="updateItem(' + i + ',\'qty\',this.value)"></td>';
+                html += '<td><input type="number" class="price" value="' + item.price + '" step="0.01" onchange="updateItem(' + i + ',\'price\',this.value)"></td>';
+                html += '<td class="total">$' + total.toFixed(2) + '</td>';
+                html += '<td><button class="remove-btn" onclick="removeItem(' + i + ')">×</button></td></tr>';
+            });
+            body.innerHTML = html;
+            var gst = subtotal * 0.1;
+            document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
+            document.getElementById('gst').textContent = '$' + gst.toFixed(2);
+            document.getElementById('grandTotal').textContent = '$' + (subtotal + gst).toFixed(2);
+        }
+        function clearInvoice() { items = []; render(); }
+        addItem();
+    </script>
+</body>
+</html>

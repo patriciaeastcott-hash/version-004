@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encoder & Decoder | Digital ABCs</title>
+    <meta name="description" content="Encode and decode Base64 text and files. Convert text to Base64 and back instantly.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-navy); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 800px; margin: 0 auto; }
+        .mode-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .mode-tabs button { flex: 1; padding: 12px; border: 2px solid #E5E7EB; background: white; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+        .mode-tabs button:hover { background: #F9FAFB; }
+        .mode-tabs button.active { border-color: var(--brand-purple); background: #EDE9FE; color: var(--brand-purple); }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
+        .input-group textarea { width: 100%; min-height: 150px; padding: 1rem; font-family: 'Roboto Mono', monospace; font-size: 0.9rem; border: 1px solid #D1D5DB; border-radius: 8px; resize: vertical; box-sizing: border-box; }
+        .input-group textarea:focus { outline: none; border-color: var(--brand-purple); }
+        .action-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .action-row button { flex: 1; padding: 14px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; border: none; }
+        .btn-encode { background: var(--brand-green); color: white; }
+        .btn-encode:hover { background: #064E3B; }
+        .btn-decode { background: var(--brand-purple); color: white; }
+        .btn-decode:hover { background: #6D28D9; }
+        .output-area { background: #1F2937; color: #E5E7EB; }
+        .toolbar { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+        .toolbar button { padding: 6px 12px; border: 1px solid #D1D5DB; background: white; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+        .toolbar button:hover { background: #F3F4F6; }
+        .file-drop { border: 2px dashed #D1D5DB; border-radius: 8px; padding: 2rem; text-align: center; margin-bottom: 1.5rem; cursor: pointer; transition: all 0.2s; }
+        .file-drop:hover, .file-drop.dragover { border-color: var(--brand-purple); background: #F5F3FF; }
+        .file-drop input { display: none; }
+        .stats { display: flex; gap: 2rem; justify-content: center; padding: 1rem; background: #F3F4F6; border-radius: 8px; margin-bottom: 1.5rem; }
+        .stats .stat { text-align: center; }
+        .stats .value { font-size: 1.25rem; font-weight: 700; color: var(--brand-navy); font-family: 'Roboto Mono', monospace; }
+        .stats .label { font-size: 0.8rem; color: #6B7280; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .action-row { flex-direction: column; } .stats { flex-direction: column; gap: 1rem; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Base64 Encoder & Decoder</h1><p>Convert text and files to Base64 encoding and decode Base64 strings instantly.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="mode-tabs">
+                <button class="active" onclick="setMode('text')">Text Mode</button>
+                <button onclick="setMode('file')">File Mode</button>
+            </div>
+            <div id="textMode">
+                <div class="input-group">
+                    <label>Input Text</label>
+                    <textarea id="inputText" placeholder="Enter text to encode or Base64 string to decode..."></textarea>
+                </div>
+                <div class="action-row">
+                    <button class="btn-encode" onclick="encodeText()">Encode to Base64</button>
+                    <button class="btn-decode" onclick="decodeText()">Decode from Base64</button>
+                </div>
+            </div>
+            <div id="fileMode" style="display:none;">
+                <div class="file-drop" id="fileDrop" onclick="document.getElementById('fileInput').click()">
+                    <input type="file" id="fileInput" onchange="handleFile(this.files[0])">
+                    <p style="margin:0;font-weight:500;">Drop a file here or click to select</p>
+                    <p style="margin:0.5rem 0 0;color:#6B7280;font-size:0.9rem;">Supports images, documents, and other files</p>
+                </div>
+                <div id="fileInfo" style="display:none;margin-bottom:1rem;padding:1rem;background:#F0FDF4;border-radius:8px;">
+                    <strong id="fileName"></strong> <span id="fileSize" style="color:#6B7280;"></span>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat"><div class="value" id="inputLength">0</div><div class="label">Input Length</div></div>
+                <div class="stat"><div class="value" id="outputLength">0</div><div class="label">Output Length</div></div>
+                <div class="stat"><div class="value" id="ratio">0%</div><div class="label">Size Change</div></div>
+            </div>
+            <div class="input-group">
+                <div class="toolbar">
+                    <button onclick="copyOutput()">Copy</button>
+                    <button onclick="downloadOutput()">Download</button>
+                    <button onclick="clearAll()">Clear</button>
+                </div>
+                <label>Output</label>
+                <textarea id="outputText" class="output-area" readonly placeholder="Result will appear here..."></textarea>
+            </div>
+            <div class="pro-banner"><h3>Advanced Encoding Tools</h3><p>URL encoding, HTML entities, and batch file processing.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var currentMode = 'text';
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-tabs button').forEach(function(btn) { btn.classList.remove('active'); });
+            event.target.classList.add('active');
+            document.getElementById('textMode').style.display = mode === 'text' ? 'block' : 'none';
+            document.getElementById('fileMode').style.display = mode === 'file' ? 'block' : 'none';
+            clearAll();
+        }
+        function encodeText() {
+            var input = document.getElementById('inputText').value;
+            try {
+                var encoded = btoa(unescape(encodeURIComponent(input)));
+                document.getElementById('outputText').value = encoded;
+                updateStats(input.length, encoded.length);
+            } catch (e) { alert('Error encoding: ' + e.message); }
+        }
+        function decodeText() {
+            var input = document.getElementById('inputText').value;
+            try {
+                var decoded = decodeURIComponent(escape(atob(input)));
+                document.getElementById('outputText').value = decoded;
+                updateStats(input.length, decoded.length);
+            } catch (e) { alert('Error decoding: Invalid Base64 string'); }
+        }
+        function handleFile(file) {
+            if (!file) return;
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('fileSize').textContent = '(' + formatBytes(file.size) + ')';
+            document.getElementById('fileInfo').style.display = 'block';
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var base64 = e.target.result.split(',')[1];
+                document.getElementById('outputText').value = base64;
+                updateStats(file.size, base64.length);
+            };
+            reader.readAsDataURL(file);
+        }
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / 1048576).toFixed(1) + ' MB';
+        }
+        function updateStats(inputLen, outputLen) {
+            document.getElementById('inputLength').textContent = inputLen.toLocaleString();
+            document.getElementById('outputLength').textContent = outputLen.toLocaleString();
+            var ratio = inputLen > 0 ? ((outputLen - inputLen) / inputLen * 100) : 0;
+            document.getElementById('ratio').textContent = (ratio > 0 ? '+' : '') + ratio.toFixed(1) + '%';
+        }
+        function copyOutput() {
+            var output = document.getElementById('outputText');
+            output.select();
+            document.execCommand('copy');
+            event.target.textContent = 'Copied!';
+            setTimeout(function() { event.target.textContent = 'Copy'; }, 1500);
+        }
+        function downloadOutput() {
+            var output = document.getElementById('outputText').value;
+            if (!output) return;
+            var blob = new Blob([output], {type: 'text/plain'});
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'base64_output.txt';
+            a.click();
+        }
+        function clearAll() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('outputText').value = '';
+            document.getElementById('fileInfo').style.display = 'none';
+            updateStats(0, 0);
+        }
+        var drop = document.getElementById('fileDrop');
+        drop.addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('dragover'); });
+        drop.addEventListener('dragleave', function() { this.classList.remove('dragover'); });
+        drop.addEventListener('drop', function(e) { e.preventDefault(); this.classList.remove('dragover'); handleFile(e.dataTransfer.files[0]); });
+    </script>
+</body>
+</html>

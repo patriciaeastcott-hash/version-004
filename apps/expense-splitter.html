@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Splitter | Digital ABCs</title>
+    <meta name="description" content="Split group expenses fairly. Track who paid what and who owes whom. Perfect for trips, dinners, and shared costs.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #5B21B6 0%, #065F46 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-purple); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
+        .section-title { font-weight: 700; color: var(--brand-navy); margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .add-btn { padding: 6px 14px; background: var(--brand-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+        .add-btn:hover { background: #064E3B; }
+        .person-row, .expense-row { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; padding: 0.75rem; background: #F9FAFB; border-radius: 8px; }
+        .person-row input, .expense-row input, .expense-row select { padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem; }
+        .person-row input { flex: 1; }
+        .expense-row input[type="text"] { flex: 2; }
+        .expense-row input[type="number"] { width: 100px; }
+        .expense-row select { flex: 1; }
+        .remove-btn { background: none; border: none; color: #EF4444; cursor: pointer; font-size: 1.2rem; padding: 0.25rem; }
+        .results { margin-top: 2rem; background: #F0FDF4; border: 2px solid var(--brand-green); border-radius: 12px; padding: 1.5rem; }
+        .results h3 { color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 1.1rem; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+        .summary-item { padding: 1rem; background: white; border-radius: 8px; text-align: center; }
+        .summary-item .value { font-size: 1.25rem; font-weight: 700; color: var(--brand-navy); font-family: 'Roboto Mono', monospace; }
+        .summary-item .label { font-size: 0.8rem; color: #4B5563; }
+        .settlement-list { margin-top: 1rem; }
+        .settlement-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem; background: white; border-radius: 8px; margin-bottom: 0.5rem; }
+        .settlement-item .from { font-weight: 600; color: #EF4444; }
+        .settlement-item .to { font-weight: 600; color: var(--brand-green); }
+        .settlement-item .amount { font-weight: 700; font-family: 'Roboto Mono', monospace; margin-left: auto; }
+        .arrow { color: #9CA3AF; }
+        .balance-list { margin-top: 1rem; }
+        .balance-item { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #D1FAE5; }
+        .balance-item .name { font-weight: 500; }
+        .balance-item .amount { font-family: 'Roboto Mono', monospace; font-weight: 600; }
+        .balance-item .amount.positive { color: var(--brand-green); }
+        .balance-item .amount.negative { color: #EF4444; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .expense-row { flex-wrap: wrap; } .expense-row input, .expense-row select { min-width: 100px; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Expense Splitter</h1><p>Split bills fairly among friends. Track who paid and calculate who owes whom.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="section-title"><span>People</span><button class="add-btn" onclick="addPerson()">+ Add Person</button></div>
+            <div id="peopleList"></div>
+            <div class="section-title" style="margin-top:2rem;"><span>Expenses</span><button class="add-btn" onclick="addExpense()">+ Add Expense</button></div>
+            <div id="expensesList"></div>
+            <div class="results" id="results" style="display:none;">
+                <h3>Summary</h3>
+                <div class="summary-grid">
+                    <div class="summary-item"><div class="value" id="totalExpenses">$0</div><div class="label">Total Expenses</div></div>
+                    <div class="summary-item"><div class="value" id="perPerson">$0</div><div class="label">Per Person</div></div>
+                </div>
+                <h4 style="color:#374151;margin:1rem 0 0.5rem;">Balances</h4>
+                <div class="balance-list" id="balanceList"></div>
+                <h4 style="color:#374151;margin:1.5rem 0 0.5rem;">Settlements</h4>
+                <div class="settlement-list" id="settlementList"></div>
+            </div>
+            <div class="pro-banner"><h3>Group Expense Tracking</h3><p>Save groups, sync with friends, and send payment reminders.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var people = ['Alice', 'Bob'];
+        var expenses = [{ desc: 'Dinner', amount: 120, paidBy: 'Alice' }];
+        function addPerson() { people.push('Person ' + (people.length + 1)); render(); }
+        function removePerson(i) { if (people.length > 2) { people.splice(i, 1); render(); } }
+        function updatePerson(i, name) { people[i] = name; render(); }
+        function addExpense() { expenses.push({ desc: '', amount: 0, paidBy: people[0] }); render(); }
+        function removeExpense(i) { expenses.splice(i, 1); render(); }
+        function updateExpense(i, field, value) { expenses[i][field] = field === 'amount' ? parseFloat(value) || 0 : value; render(); }
+        function render() {
+            var pList = document.getElementById('peopleList');
+            pList.innerHTML = people.map(function(p, i) {
+                return '<div class="person-row"><input type="text" value="' + p + '" onchange="updatePerson(' + i + ', this.value)" placeholder="Name"><button class="remove-btn" onclick="removePerson(' + i + ')" ' + (people.length <= 2 ? 'disabled style="opacity:0.3"' : '') + '>×</button></div>';
+            }).join('');
+            var eList = document.getElementById('expensesList');
+            var options = people.map(function(p) { return '<option value="' + p + '">' + p + '</option>'; }).join('');
+            eList.innerHTML = expenses.map(function(e, i) {
+                var selectedOptions = people.map(function(p) { return '<option value="' + p + '"' + (p === e.paidBy ? ' selected' : '') + '>' + p + '</option>'; }).join('');
+                return '<div class="expense-row"><input type="text" value="' + (e.desc || '') + '" placeholder="Description" onchange="updateExpense(' + i + ', \'desc\', this.value)"><input type="number" value="' + e.amount + '" placeholder="Amount" onchange="updateExpense(' + i + ', \'amount\', this.value)"><select onchange="updateExpense(' + i + ', \'paidBy\', this.value)">' + selectedOptions + '</select><button class="remove-btn" onclick="removeExpense(' + i + ')">×</button></div>';
+            }).join('');
+            calculate();
+        }
+        function calculate() {
+            var total = expenses.reduce(function(sum, e) { return sum + e.amount; }, 0);
+            var perPerson = total / people.length;
+            var balances = {};
+            people.forEach(function(p) { balances[p] = 0; });
+            expenses.forEach(function(e) {
+                if (balances[e.paidBy] !== undefined) {
+                    balances[e.paidBy] += e.amount;
+                }
+            });
+            people.forEach(function(p) { balances[p] -= perPerson; });
+            document.getElementById('totalExpenses').textContent = '$' + total.toFixed(2);
+            document.getElementById('perPerson').textContent = '$' + perPerson.toFixed(2);
+            var balanceHtml = '';
+            people.forEach(function(p) {
+                var cls = balances[p] >= 0 ? 'positive' : 'negative';
+                var sign = balances[p] >= 0 ? '+' : '';
+                balanceHtml += '<div class="balance-item"><span class="name">' + p + '</span><span class="amount ' + cls + '">' + sign + '$' + balances[p].toFixed(2) + '</span></div>';
+            });
+            document.getElementById('balanceList').innerHTML = balanceHtml;
+            var debtors = people.filter(function(p) { return balances[p] < 0; }).map(function(p) { return { name: p, amount: -balances[p] }; });
+            var creditors = people.filter(function(p) { return balances[p] > 0; }).map(function(p) { return { name: p, amount: balances[p] }; });
+            var settlements = [];
+            debtors.forEach(function(d) {
+                while (d.amount > 0.01 && creditors.length > 0) {
+                    var c = creditors[0];
+                    var payment = Math.min(d.amount, c.amount);
+                    if (payment > 0.01) {
+                        settlements.push({ from: d.name, to: c.name, amount: payment });
+                    }
+                    d.amount -= payment;
+                    c.amount -= payment;
+                    if (c.amount < 0.01) creditors.shift();
+                }
+            });
+            var settlementHtml = settlements.length > 0 ? settlements.map(function(s) {
+                return '<div class="settlement-item"><span class="from">' + s.from + '</span><span class="arrow">→</span><span class="to">' + s.to + '</span><span class="amount">$' + s.amount.toFixed(2) + '</span></div>';
+            }).join('') : '<div style="text-align:center;color:#4B5563;padding:1rem;">All settled!</div>';
+            document.getElementById('settlementList').innerHTML = settlementHtml;
+            document.getElementById('results').style.display = expenses.length > 0 ? 'block' : 'none';
+        }
+        render();
+    </script>
+</body>
+</html>

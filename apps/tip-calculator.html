@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate tips and split bills easily. Customizable tip percentages and equal or custom bill splitting.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #065F46 0%, #1E3A8A 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #D1FAE5; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-green);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 500px; margin: 0 auto;
+        }
+
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label {
+            display: block; font-weight: 600; color: #374151;
+            margin-bottom: 0.5rem; font-size: 0.95rem;
+        }
+
+        .currency-input {
+            display: flex; align-items: center; gap: 0;
+        }
+
+        .currency-input span {
+            padding: 12px 14px; background: #F3F4F6; border: 1px solid #D1D5DB;
+            border-right: none; border-radius: 8px 0 0 8px; font-weight: 600;
+            color: #374151;
+        }
+
+        .currency-input input {
+            flex: 1; padding: 12px; border: 1px solid #D1D5DB;
+            border-radius: 0 8px 8px 0; font-size: 1.1rem;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .currency-input input:focus {
+            outline: none; border-color: var(--brand-purple);
+            box-shadow: 0 0 0 3px rgba(91,33,182,0.1);
+        }
+
+        .tip-buttons {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tip-btn {
+            padding: 12px; border: 2px solid #E5E7EB; background: white;
+            border-radius: 8px; font-weight: 600; cursor: pointer;
+            font-family: 'Inter', sans-serif; transition: all 0.2s;
+        }
+        .tip-btn:hover { border-color: var(--brand-purple); }
+        .tip-btn.active { border-color: var(--brand-purple); background: #F5F3FF; color: var(--brand-purple); }
+
+        .custom-tip {
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .custom-tip input {
+            width: 80px; padding: 10px; border: 1px solid #D1D5DB;
+            border-radius: 6px; text-align: center; font-family: 'Roboto Mono', monospace;
+        }
+
+        .people-control {
+            display: flex; align-items: center; gap: 1rem;
+        }
+
+        .people-btn {
+            width: 44px; height: 44px; border: 2px solid #E5E7EB;
+            background: white; border-radius: 50%; font-size: 1.5rem;
+            cursor: pointer; font-weight: 600; color: var(--brand-navy);
+        }
+        .people-btn:hover { border-color: var(--brand-purple); background: #F5F3FF; }
+
+        .people-count {
+            font-size: 1.5rem; font-weight: 700; color: var(--brand-navy);
+            min-width: 40px; text-align: center;
+        }
+
+        .results {
+            margin-top: 2rem; padding: 1.5rem; background: #F0FDF4;
+            border: 2px solid var(--brand-green); border-radius: 12px;
+        }
+
+        .result-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.75rem 0; border-bottom: 1px solid #D1FAE5;
+        }
+        .result-row:last-child { border-bottom: none; }
+
+        .result-row .label { color: #374151; font-weight: 500; }
+        .result-row .value {
+            font-size: 1.25rem; font-weight: 700; color: var(--brand-green);
+            font-family: 'Roboto Mono', monospace;
+        }
+        .result-row.total .value { font-size: 1.5rem; }
+        .result-row.per-person { background: #DCFCE7; margin: 0 -1.5rem; padding: 1rem 1.5rem; }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .tip-buttons { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Tip Calculator</h1>
+                <p>Calculate tips and split bills fairly. Never awkwardly fumble with the maths again.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="input-group">
+                        <label>Bill Amount</label>
+                        <div class="currency-input">
+                            <span>$</span>
+                            <input type="number" id="billAmount" value="85.00" step="0.01" oninput="calculate()">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Tip Percentage</label>
+                        <div class="tip-buttons">
+                            <button class="tip-btn" onclick="setTip(10)">10%</button>
+                            <button class="tip-btn" onclick="setTip(15)">15%</button>
+                            <button class="tip-btn active" onclick="setTip(18)">18%</button>
+                            <button class="tip-btn" onclick="setTip(20)">20%</button>
+                        </div>
+                        <div class="custom-tip">
+                            <span>Custom:</span>
+                            <input type="number" id="customTip" value="18" min="0" max="100" oninput="setCustomTip()">
+                            <span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Number of People</label>
+                        <div class="people-control">
+                            <button class="people-btn" onclick="changePeople(-1)">−</button>
+                            <span class="people-count" id="peopleCount">2</span>
+                            <button class="people-btn" onclick="changePeople(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="results">
+                        <div class="result-row">
+                            <span class="label">Tip Amount</span>
+                            <span class="value" id="tipAmount">$15.30</span>
+                        </div>
+                        <div class="result-row total">
+                            <span class="label">Total</span>
+                            <span class="value" id="totalAmount">$100.30</span>
+                        </div>
+                        <div class="result-row per-person">
+                            <span class="label">Per Person</span>
+                            <span class="value" id="perPerson">$50.15</span>
+                        </div>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Need to Split Unevenly?</h3>
+                        <p>Custom splits, itemized bills, and expense tracking.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var tipPercent = 18;
+        var people = 2;
+
+        function setTip(percent) {
+            tipPercent = percent;
+            document.getElementById('customTip').value = percent;
+            document.querySelectorAll('.tip-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+                if (btn.textContent === percent + '%') btn.classList.add('active');
+            });
+            calculate();
+        }
+
+        function setCustomTip() {
+            tipPercent = parseFloat(document.getElementById('customTip').value) || 0;
+            document.querySelectorAll('.tip-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            calculate();
+        }
+
+        function changePeople(delta) {
+            people = Math.max(1, people + delta);
+            document.getElementById('peopleCount').textContent = people;
+            calculate();
+        }
+
+        function calculate() {
+            var bill = parseFloat(document.getElementById('billAmount').value) || 0;
+            var tip = bill * (tipPercent / 100);
+            var total = bill + tip;
+            var perPerson = total / people;
+
+            document.getElementById('tipAmount').textContent = '$' + tip.toFixed(2);
+            document.getElementById('totalAmount').textContent = '$' + total.toFixed(2);
+            document.getElementById('perPerson').textContent = '$' + perPerson.toFixed(2);
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

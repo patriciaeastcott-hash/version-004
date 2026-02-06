@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Budget Planner | Digital ABCs</title>
+    <meta name="description" content="Plan your event budget. Track expenses for weddings, parties, conferences, and special occasions.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #8B5CF6 0%, #5B21B6 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #DDD6FE; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-purple); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 800px; margin: 0 auto; }
+        .budget-header { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; padding: 1.5rem; background: #F5F3FF; border-radius: 12px; }
+        .budget-input label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
+        .budget-input input, .budget-input select { width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
+        .budget-input input:focus { outline: none; border-color: var(--brand-purple); }
+        .budget-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .summary-item { text-align: center; padding: 1.25rem; background: #F9FAFB; border-radius: 10px; }
+        .summary-item .value { font-size: 1.5rem; font-weight: 700; font-family: 'Roboto Mono', monospace; }
+        .summary-item .value.total { color: var(--brand-purple); }
+        .summary-item .value.spent { color: #EF4444; }
+        .summary-item .value.remaining { color: var(--brand-green); }
+        .summary-item .label { font-size: 0.8rem; color: #6B7280; margin-top: 0.25rem; }
+        .progress-bar { height: 20px; background: #E5E7EB; border-radius: 10px; overflow: hidden; margin-bottom: 1.5rem; }
+        .progress-fill { height: 100%; border-radius: 10px; transition: width 0.3s; }
+        .progress-fill.under { background: linear-gradient(to right, var(--brand-green), #34D399); }
+        .progress-fill.warning { background: linear-gradient(to right, #F59E0B, #FBBF24); }
+        .progress-fill.over { background: linear-gradient(to right, #EF4444, #F87171); }
+        .categories-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; display: flex; justify-content: space-between; align-items: center; }
+        .categories-section h3 button { padding: 6px 14px; background: var(--brand-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+        .category-card { background: #F9FAFB; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; }
+        .category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; cursor: pointer; }
+        .category-header .name { font-weight: 600; color: #374151; display: flex; align-items: center; gap: 0.5rem; }
+        .category-header .amount { font-weight: 700; color: var(--brand-purple); font-family: 'Roboto Mono', monospace; }
+        .category-items { display: none; padding-top: 0.75rem; border-top: 1px solid #E5E7EB; }
+        .category-card.expanded .category-items { display: block; }
+        .item-row { display: grid; grid-template-columns: 1fr 120px auto; gap: 0.5rem; margin-bottom: 0.5rem; align-items: center; }
+        .item-row input { padding: 8px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.9rem; }
+        .item-row input:focus { outline: none; border-color: var(--brand-purple); }
+        .item-row button { padding: 8px 12px; background: #EF4444; color: white; border: none; border-radius: 6px; cursor: pointer; }
+        .add-item-btn { padding: 6px 12px; background: white; border: 1px dashed #D1D5DB; border-radius: 6px; cursor: pointer; font-size: 0.85rem; color: #6B7280; width: 100%; margin-top: 0.5rem; }
+        .add-item-btn:hover { background: #F3F4F6; border-color: var(--brand-purple); color: var(--brand-purple); }
+        .chart-section { margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #E5E7EB; }
+        .chart-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; }
+        .chart-bar { display: flex; height: 40px; border-radius: 8px; overflow: hidden; margin-bottom: 0.5rem; }
+        .chart-segment { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; color: white; min-width: 40px; }
+        .chart-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; }
+        .legend-item { display: flex; align-items: center; gap: 0.5rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .budget-header, .budget-summary { grid-template-columns: 1fr; } .item-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Event Budget Planner</h1><p>Plan and track your event expenses to stay on budget.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="budget-header">
+                <div class="budget-input">
+                    <label>Event Type</label>
+                    <select id="eventType" onchange="loadTemplate()">
+                        <option value="custom">Custom Event</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="birthday">Birthday Party</option>
+                        <option value="corporate">Corporate Event</option>
+                    </select>
+                </div>
+                <div class="budget-input">
+                    <label>Total Budget</label>
+                    <input type="number" id="totalBudget" value="10000" oninput="updateSummary()">
+                </div>
+            </div>
+            <div class="budget-summary">
+                <div class="summary-item"><div class="value total" id="totalBudgetDisplay">$10,000</div><div class="label">Total Budget</div></div>
+                <div class="summary-item"><div class="value spent" id="totalSpent">$0</div><div class="label">Total Spent</div></div>
+                <div class="summary-item"><div class="value remaining" id="remaining">$10,000</div><div class="label">Remaining</div></div>
+            </div>
+            <div class="progress-bar"><div class="progress-fill under" id="budgetProgress" style="width:0%"></div></div>
+            <div class="categories-section">
+                <h3>Budget Categories <button onclick="addCategory()">+ Add Category</button></h3>
+                <div id="categoriesList"></div>
+            </div>
+            <div class="chart-section">
+                <h3>Spending Breakdown</h3>
+                <div class="chart-bar" id="chartBar"></div>
+                <div class="chart-legend" id="chartLegend"></div>
+            </div>
+            <div class="pro-banner"><h3>Full Event Planning</h3><p>Vendor management, timeline, guest lists, and RSVP tracking.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var categories = [
+            { name: '🎪 Venue', items: [{ name: 'Venue rental', amount: 0 }], color: '#8B5CF6' },
+            { name: '🍽️ Catering', items: [{ name: 'Food & drinks', amount: 0 }], color: '#EC4899' },
+            { name: '🎵 Entertainment', items: [{ name: 'Music/DJ', amount: 0 }], color: '#3B82F6' },
+            { name: '🌸 Decorations', items: [{ name: 'Flowers & decor', amount: 0 }], color: '#10B981' }
+        ];
+        var templates = {
+            wedding: [
+                { name: '🎪 Venue', items: [{ name: 'Ceremony venue', amount: 0 }, { name: 'Reception venue', amount: 0 }], color: '#8B5CF6' },
+                { name: '🍽️ Catering', items: [{ name: 'Dinner', amount: 0 }, { name: 'Cake', amount: 0 }, { name: 'Bar', amount: 0 }], color: '#EC4899' },
+                { name: '📸 Photography', items: [{ name: 'Photographer', amount: 0 }, { name: 'Videographer', amount: 0 }], color: '#F59E0B' },
+                { name: '💐 Flowers', items: [{ name: 'Bridal bouquet', amount: 0 }, { name: 'Centerpieces', amount: 0 }], color: '#10B981' },
+                { name: '👗 Attire', items: [{ name: 'Wedding dress', amount: 0 }, { name: 'Suit', amount: 0 }], color: '#3B82F6' },
+                { name: '🎵 Music', items: [{ name: 'DJ/Band', amount: 0 }], color: '#EF4444' }
+            ],
+            birthday: [
+                { name: '🎪 Venue', items: [{ name: 'Party venue', amount: 0 }], color: '#8B5CF6' },
+                { name: '🎂 Food', items: [{ name: 'Cake', amount: 0 }, { name: 'Food & snacks', amount: 0 }, { name: 'Drinks', amount: 0 }], color: '#EC4899' },
+                { name: '🎈 Decorations', items: [{ name: 'Balloons', amount: 0 }, { name: 'Banners', amount: 0 }], color: '#10B981' },
+                { name: '🎁 Party Supplies', items: [{ name: 'Plates & cups', amount: 0 }, { name: 'Party favors', amount: 0 }], color: '#3B82F6' }
+            ],
+            corporate: [
+                { name: '🎪 Venue', items: [{ name: 'Conference room', amount: 0 }, { name: 'AV equipment', amount: 0 }], color: '#8B5CF6' },
+                { name: '🍽️ Catering', items: [{ name: 'Lunch', amount: 0 }, { name: 'Coffee break', amount: 0 }], color: '#EC4899' },
+                { name: '📋 Materials', items: [{ name: 'Printing', amount: 0 }, { name: 'Name badges', amount: 0 }], color: '#3B82F6' },
+                { name: '🎤 Speakers', items: [{ name: 'Guest speakers', amount: 0 }], color: '#10B981' }
+            ],
+            custom: categories
+        };
+        function loadTemplate() {
+            var type = document.getElementById('eventType').value;
+            categories = JSON.parse(JSON.stringify(templates[type] || templates.custom));
+            render();
+        }
+        function render() {
+            var html = categories.map(function(cat, catIdx) {
+                var catTotal = cat.items.reduce(function(sum, item) { return sum + (item.amount || 0); }, 0);
+                var itemsHtml = cat.items.map(function(item, itemIdx) {
+                    return '<div class="item-row">' +
+                        '<input type="text" value="' + item.name + '" onchange="updateItem(' + catIdx + ',' + itemIdx + ',\'name\',this.value)">' +
+                        '<input type="number" value="' + (item.amount || '') + '" placeholder="$0" onchange="updateItem(' + catIdx + ',' + itemIdx + ',\'amount\',this.value)">' +
+                        '<button onclick="removeItem(' + catIdx + ',' + itemIdx + ')">×</button>' +
+                        '</div>';
+                }).join('');
+                return '<div class="category-card" onclick="toggleCategory(event,' + catIdx + ')">' +
+                    '<div class="category-header">' +
+                    '<span class="name"><span style="width:12px;height:12px;background:' + cat.color + ';border-radius:3px;display:inline-block;"></span>' + cat.name + '</span>' +
+                    '<span class="amount">$' + catTotal.toLocaleString() + '</span>' +
+                    '</div>' +
+                    '<div class="category-items" onclick="event.stopPropagation()">' + itemsHtml +
+                    '<button class="add-item-btn" onclick="addItem(' + catIdx + ')">+ Add Item</button>' +
+                    '</div></div>';
+            }).join('');
+            document.getElementById('categoriesList').innerHTML = html;
+            updateSummary();
+        }
+        function toggleCategory(e, idx) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') return;
+            var cards = document.querySelectorAll('.category-card');
+            cards[idx].classList.toggle('expanded');
+        }
+        function updateItem(catIdx, itemIdx, field, value) {
+            categories[catIdx].items[itemIdx][field] = field === 'amount' ? parseFloat(value) || 0 : value;
+            render();
+        }
+        function addItem(catIdx) {
+            categories[catIdx].items.push({ name: '', amount: 0 });
+            render();
+            document.querySelectorAll('.category-card')[catIdx].classList.add('expanded');
+        }
+        function removeItem(catIdx, itemIdx) {
+            categories[catIdx].items.splice(itemIdx, 1);
+            render();
+        }
+        function addCategory() {
+            var colors = ['#8B5CF6', '#EC4899', '#3B82F6', '#10B981', '#F59E0B', '#EF4444'];
+            categories.push({ name: '📦 New Category', items: [{ name: 'Item', amount: 0 }], color: colors[categories.length % colors.length] });
+            render();
+        }
+        function updateSummary() {
+            var budget = parseFloat(document.getElementById('totalBudget').value) || 0;
+            var spent = categories.reduce(function(sum, cat) {
+                return sum + cat.items.reduce(function(s, item) { return s + (item.amount || 0); }, 0);
+            }, 0);
+            var remaining = budget - spent;
+            var percent = budget > 0 ? (spent / budget) * 100 : 0;
+            document.getElementById('totalBudgetDisplay').textContent = '$' + budget.toLocaleString();
+            document.getElementById('totalSpent').textContent = '$' + spent.toLocaleString();
+            document.getElementById('remaining').textContent = (remaining >= 0 ? '$' : '-$') + Math.abs(remaining).toLocaleString();
+            document.getElementById('remaining').style.color = remaining >= 0 ? '#065F46' : '#EF4444';
+            var progressEl = document.getElementById('budgetProgress');
+            progressEl.style.width = Math.min(100, percent) + '%';
+            progressEl.className = 'progress-fill ' + (percent <= 80 ? 'under' : percent <= 100 ? 'warning' : 'over');
+            updateChart(spent);
+        }
+        function updateChart(total) {
+            if (total === 0) {
+                document.getElementById('chartBar').innerHTML = '<div style="width:100%;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:#6B7280;">No expenses yet</div>';
+                document.getElementById('chartLegend').innerHTML = '';
+                return;
+            }
+            var barHtml = '', legendHtml = '';
+            categories.forEach(function(cat) {
+                var catTotal = cat.items.reduce(function(sum, item) { return sum + (item.amount || 0); }, 0);
+                if (catTotal > 0) {
+                    var percent = (catTotal / total) * 100;
+                    barHtml += '<div class="chart-segment" style="width:' + percent + '%;background:' + cat.color + '">' + (percent > 10 ? Math.round(percent) + '%' : '') + '</div>';
+                    legendHtml += '<div class="legend-item"><span class="legend-dot" style="background:' + cat.color + '"></span>' + cat.name + ' ($' + catTotal.toLocaleString() + ')</div>';
+                }
+            });
+            document.getElementById('chartBar').innerHTML = barHtml;
+            document.getElementById('chartLegend').innerHTML = legendHtml;
+        }
+        render();
+    </script>
+</body>
+</html>

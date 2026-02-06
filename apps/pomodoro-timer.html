@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer | Digital ABCs</title>
+    <meta name="description" content="Boost productivity with the Pomodoro Technique. Customizable work and break intervals with audio alerts.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #FEE2E2; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: #DC2626;
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 450px; margin: 0 auto; text-align: center;
+        }
+
+        .mode-tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem; justify-content: center;
+        }
+
+        .mode-tab {
+            padding: 10px 20px; border: 2px solid #E5E7EB; background: white;
+            border-radius: 8px; font-weight: 600; cursor: pointer;
+            font-family: 'Inter', sans-serif; transition: all 0.2s;
+        }
+        .mode-tab:hover { border-color: #EF4444; }
+        .mode-tab.active { border-color: #EF4444; background: #FEF2F2; color: #DC2626; }
+        .mode-tab.work.active { border-color: #EF4444; background: #FEF2F2; color: #DC2626; }
+        .mode-tab.break.active { border-color: var(--brand-green); background: #F0FDF4; color: var(--brand-green); }
+
+        .timer-display {
+            font-size: 6rem; font-weight: 700; font-family: 'Roboto Mono', monospace;
+            margin: 2rem 0; line-height: 1;
+        }
+        .timer-display.work { color: #DC2626; }
+        .timer-display.break { color: var(--brand-green); }
+
+        .timer-label {
+            font-size: 1.25rem; color: #4B5563; margin-bottom: 2rem;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        .controls {
+            display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;
+        }
+
+        .ctrl-btn {
+            padding: 14px 32px; border: none; border-radius: 8px;
+            font-size: 1rem; font-weight: 600; cursor: pointer;
+            font-family: 'Inter', sans-serif; transition: all 0.2s;
+        }
+
+        .ctrl-btn.start { background: var(--brand-green); color: white; }
+        .ctrl-btn.start:hover { background: #064E3B; }
+        .ctrl-btn.pause { background: #F59E0B; color: #111827; }
+        .ctrl-btn.pause:hover { background: #D97706; }
+        .ctrl-btn.reset { background: #F3F4F6; color: #374151; }
+        .ctrl-btn.reset:hover { background: #E5E7EB; }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item {
+            padding: 1rem; background: #F9FAFB; border-radius: 8px;
+        }
+        .stat-item .value {
+            font-size: 1.5rem; font-weight: 700; color: var(--brand-navy);
+            font-family: 'Roboto Mono', monospace;
+        }
+        .stat-item .label { font-size: 0.75rem; color: #4B5563; margin-top: 0.25rem; }
+
+        .settings-toggle {
+            color: var(--brand-purple); cursor: pointer; font-weight: 500;
+            margin-bottom: 1rem; display: inline-block;
+        }
+
+        .settings-panel {
+            display: none; padding: 1.5rem; background: #F9FAFB;
+            border-radius: 12px; text-align: left; margin-bottom: 1.5rem;
+        }
+        .settings-panel.show { display: block; }
+
+        .setting-row {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1rem;
+        }
+        .setting-row:last-child { margin-bottom: 0; }
+        .setting-row label { font-weight: 500; color: #374151; }
+        .setting-row input {
+            width: 80px; padding: 8px; border: 1px solid #D1D5DB;
+            border-radius: 6px; text-align: center; font-family: 'Roboto Mono', monospace;
+        }
+
+        .pro-banner {
+            margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .timer-display { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Pomodoro Timer</h1>
+                <p>Work in focused bursts with regular breaks. The proven technique for sustained productivity.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="mode-tabs">
+                        <button class="mode-tab work active" onclick="setMode('work')">Work</button>
+                        <button class="mode-tab break" onclick="setMode('shortBreak')">Short Break</button>
+                        <button class="mode-tab break" onclick="setMode('longBreak')">Long Break</button>
+                    </div>
+
+                    <div class="timer-display work" id="timerDisplay">25:00</div>
+                    <div class="timer-label" id="timerLabel">Focus Time</div>
+
+                    <div class="controls">
+                        <button class="ctrl-btn start" id="startBtn" onclick="toggleTimer()">Start</button>
+                        <button class="ctrl-btn reset" onclick="resetTimer()">Reset</button>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="value" id="pomodorosCompleted">0</div>
+                            <div class="label">Pomodoros</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="value" id="totalFocusTime">0m</div>
+                            <div class="label">Focus Time</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="value" id="totalBreakTime">0m</div>
+                            <div class="label">Break Time</div>
+                        </div>
+                    </div>
+
+                    <div class="settings-toggle" onclick="toggleSettings()">⚙️ Settings</div>
+
+                    <div class="settings-panel" id="settingsPanel">
+                        <div class="setting-row">
+                            <label>Work Duration (min)</label>
+                            <input type="number" id="workDuration" value="25" min="1" max="90" onchange="updateSettings()">
+                        </div>
+                        <div class="setting-row">
+                            <label>Short Break (min)</label>
+                            <input type="number" id="shortBreakDuration" value="5" min="1" max="30" onchange="updateSettings()">
+                        </div>
+                        <div class="setting-row">
+                            <label>Long Break (min)</label>
+                            <input type="number" id="longBreakDuration" value="15" min="1" max="60" onchange="updateSettings()">
+                        </div>
+                        <div class="setting-row">
+                            <label>Long Break After</label>
+                            <input type="number" id="longBreakInterval" value="4" min="2" max="10" onchange="updateSettings()">
+                        </div>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Track Productivity Trends</h3>
+                        <p>Detailed analytics, task tagging, and progress reports.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var settings = {
+            work: 25, shortBreak: 5, longBreak: 15, longBreakInterval: 4
+        };
+
+        var state = {
+            mode: 'work',
+            timeLeft: settings.work * 60,
+            isRunning: false,
+            interval: null,
+            pomodorosCompleted: 0,
+            totalFocusSeconds: 0,
+            totalBreakSeconds: 0
+        };
+
+        function formatTime(seconds) {
+            var m = Math.floor(seconds / 60);
+            var s = seconds % 60;
+            return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        }
+
+        function updateDisplay() {
+            document.getElementById('timerDisplay').textContent = formatTime(state.timeLeft);
+            document.title = formatTime(state.timeLeft) + ' - Pomodoro Timer';
+        }
+
+        function setMode(mode) {
+            if (state.isRunning) toggleTimer();
+
+            state.mode = mode;
+            document.querySelectorAll('.mode-tab').forEach(function(t) { t.classList.remove('active'); });
+
+            var display = document.getElementById('timerDisplay');
+            var label = document.getElementById('timerLabel');
+
+            if (mode === 'work') {
+                state.timeLeft = settings.work * 60;
+                display.className = 'timer-display work';
+                label.textContent = 'Focus Time';
+                document.querySelectorAll('.mode-tab')[0].classList.add('active');
+            } else if (mode === 'shortBreak') {
+                state.timeLeft = settings.shortBreak * 60;
+                display.className = 'timer-display break';
+                label.textContent = 'Short Break';
+                document.querySelectorAll('.mode-tab')[1].classList.add('active');
+            } else {
+                state.timeLeft = settings.longBreak * 60;
+                display.className = 'timer-display break';
+                label.textContent = 'Long Break';
+                document.querySelectorAll('.mode-tab')[2].classList.add('active');
+            }
+
+            updateDisplay();
+        }
+
+        function toggleTimer() {
+            var btn = document.getElementById('startBtn');
+
+            if (state.isRunning) {
+                clearInterval(state.interval);
+                state.isRunning = false;
+                btn.textContent = 'Start';
+                btn.className = 'ctrl-btn start';
+            } else {
+                state.isRunning = true;
+                btn.textContent = 'Pause';
+                btn.className = 'ctrl-btn pause';
+
+                state.interval = setInterval(function() {
+                    state.timeLeft--;
+
+                    if (state.mode === 'work') {
+                        state.totalFocusSeconds++;
+                    } else {
+                        state.totalBreakSeconds++;
+                    }
+
+                    updateDisplay();
+                    updateStats();
+
+                    if (state.timeLeft <= 0) {
+                        clearInterval(state.interval);
+                        state.isRunning = false;
+                        btn.textContent = 'Start';
+                        btn.className = 'ctrl-btn start';
+
+                        playSound();
+
+                        if (state.mode === 'work') {
+                            state.pomodorosCompleted++;
+                            updateStats();
+
+                            if (state.pomodorosCompleted % settings.longBreakInterval === 0) {
+                                setMode('longBreak');
+                            } else {
+                                setMode('shortBreak');
+                            }
+                        } else {
+                            setMode('work');
+                        }
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            if (state.isRunning) toggleTimer();
+            setMode(state.mode);
+        }
+
+        function updateStats() {
+            document.getElementById('pomodorosCompleted').textContent = state.pomodorosCompleted;
+            document.getElementById('totalFocusTime').textContent = Math.floor(state.totalFocusSeconds / 60) + 'm';
+            document.getElementById('totalBreakTime').textContent = Math.floor(state.totalBreakSeconds / 60) + 'm';
+        }
+
+        function toggleSettings() {
+            document.getElementById('settingsPanel').classList.toggle('show');
+        }
+
+        function updateSettings() {
+            settings.work = parseInt(document.getElementById('workDuration').value) || 25;
+            settings.shortBreak = parseInt(document.getElementById('shortBreakDuration').value) || 5;
+            settings.longBreak = parseInt(document.getElementById('longBreakDuration').value) || 15;
+            settings.longBreakInterval = parseInt(document.getElementById('longBreakInterval').value) || 4;
+
+            if (!state.isRunning) {
+                setMode(state.mode);
+            }
+        }
+
+        function playSound() {
+            try {
+                var ctx = new (window.AudioContext || window.webkitAudioContext)();
+                var osc = ctx.createOscillator();
+                var gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.frequency.value = 800;
+                gain.gain.value = 0.3;
+                osc.start();
+                setTimeout(function() { osc.stop(); }, 200);
+            } catch(e) {}
+        }
+
+        updateDisplay();
+    </script>
+</body>
+</html>

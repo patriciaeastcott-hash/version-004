@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Converter (HEX, RGB, HSL) | Digital ABCs</title>
+    <meta name="description" content="Convert colors between HEX, RGB, and HSL formats. Pick colors and see all format values instantly.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 50%, #3B82F6 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-purple); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
+        .color-preview { height: 120px; border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 600; transition: background-color 0.2s; }
+        .picker-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; justify-content: center; }
+        .color-picker { width: 80px; height: 80px; border: none; border-radius: 12px; cursor: pointer; padding: 0; }
+        .picker-label { font-size: 0.9rem; color: #6B7280; }
+        .format-grid { display: grid; gap: 1rem; }
+        .format-item { display: grid; grid-template-columns: 80px 1fr auto; gap: 0.75rem; align-items: center; padding: 1rem; background: #F9FAFB; border-radius: 8px; }
+        .format-item label { font-weight: 600; color: #374151; }
+        .format-item input { padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-family: 'Roboto Mono', monospace; font-size: 0.95rem; }
+        .format-item input:focus { outline: none; border-color: var(--brand-purple); }
+        .format-item button { padding: 10px 16px; background: var(--brand-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+        .format-item button:hover { background: #064E3B; }
+        .sliders-section { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; }
+        .sliders-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 1rem; }
+        .slider-group { margin-bottom: 1rem; }
+        .slider-group label { display: flex; justify-content: space-between; margin-bottom: 0.25rem; font-size: 0.9rem; }
+        .slider-group input[type="range"] { width: 100%; height: 8px; border-radius: 4px; cursor: pointer; }
+        .slider-r { accent-color: #EF4444; }
+        .slider-g { accent-color: #22C55E; }
+        .slider-b { accent-color: #3B82F6; }
+        .palette-section { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; }
+        .palette-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 1rem; }
+        .palette-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
+        .palette-color { aspect-ratio: 1; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: transform 0.1s, border-color 0.1s; }
+        .palette-color:hover { transform: scale(1.1); border-color: #374151; }
+        .harmony-section { margin-top: 1.5rem; }
+        .harmony-section h4 { color: #374151; margin: 0 0 0.75rem 0; font-size: 0.9rem; }
+        .harmony-row { display: flex; gap: 0.5rem; }
+        .harmony-color { flex: 1; height: 50px; border-radius: 6px; cursor: pointer; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 4px; font-size: 0.7rem; font-family: 'Roboto Mono', monospace; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .format-item { grid-template-columns: 1fr; } .palette-grid { grid-template-columns: repeat(5, 1fr); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Color Converter</h1><p>Convert colors between HEX, RGB, and HSL formats instantly.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="color-preview" id="colorPreview" style="background:#5B21B6;color:white;">#5B21B6</div>
+            <div class="picker-row">
+                <div style="text-align:center;">
+                    <input type="color" class="color-picker" id="colorPicker" value="#5B21B6" oninput="updateFromPicker()">
+                    <div class="picker-label">Color Picker</div>
+                </div>
+            </div>
+            <div class="format-grid">
+                <div class="format-item">
+                    <label>HEX</label>
+                    <input type="text" id="hexInput" value="#5B21B6" oninput="updateFromHex()">
+                    <button onclick="copyValue('hexInput')">Copy</button>
+                </div>
+                <div class="format-item">
+                    <label>RGB</label>
+                    <input type="text" id="rgbInput" value="rgb(91, 33, 182)" oninput="updateFromRgb()">
+                    <button onclick="copyValue('rgbInput')">Copy</button>
+                </div>
+                <div class="format-item">
+                    <label>HSL</label>
+                    <input type="text" id="hslInput" value="hsl(263, 69%, 42%)" oninput="updateFromHsl()">
+                    <button onclick="copyValue('hslInput')">Copy</button>
+                </div>
+            </div>
+            <div class="sliders-section">
+                <h3>RGB Sliders</h3>
+                <div class="slider-group">
+                    <label><span>Red</span><span id="rValue">91</span></label>
+                    <input type="range" class="slider-r" id="sliderR" min="0" max="255" value="91" oninput="updateFromSliders()">
+                </div>
+                <div class="slider-group">
+                    <label><span>Green</span><span id="gValue">33</span></label>
+                    <input type="range" class="slider-g" id="sliderG" min="0" max="255" value="33" oninput="updateFromSliders()">
+                </div>
+                <div class="slider-group">
+                    <label><span>Blue</span><span id="bValue">182</span></label>
+                    <input type="range" class="slider-b" id="sliderB" min="0" max="255" value="182" oninput="updateFromSliders()">
+                </div>
+            </div>
+            <div class="harmony-section">
+                <h4>Color Harmonies</h4>
+                <div class="harmony-row" id="harmonyRow"></div>
+            </div>
+            <div class="palette-section">
+                <h3>Quick Palette</h3>
+                <div class="palette-grid" id="paletteGrid"></div>
+            </div>
+            <div class="pro-banner"><h3>Advanced Color Tools</h3><p>Palette generation, contrast checker, and color blindness simulation.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var currentColor = { r: 91, g: 33, b: 182 };
+        function hexToRgb(hex) {
+            hex = hex.replace('#', '');
+            if (hex.length === 3) hex = hex.split('').map(function(c) { return c + c; }).join('');
+            return { r: parseInt(hex.substr(0, 2), 16), g: parseInt(hex.substr(2, 2), 16), b: parseInt(hex.substr(4, 2), 16) };
+        }
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(function(x) { return x.toString(16).padStart(2, '0'); }).join('').toUpperCase();
+        }
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            var max = Math.max(r, g, b), min = Math.min(r, g, b);
+            var h, s, l = (max + min) / 2;
+            if (max === min) { h = s = 0; }
+            else {
+                var d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+                    case g: h = ((b - r) / d + 2) / 6; break;
+                    case b: h = ((r - g) / d + 4) / 6; break;
+                }
+            }
+            return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+        }
+        function hslToRgb(h, s, l) {
+            h /= 360; s /= 100; l /= 100;
+            var r, g, b;
+            if (s === 0) { r = g = b = l; }
+            else {
+                function hue2rgb(p, q, t) {
+                    if (t < 0) t += 1; if (t > 1) t -= 1;
+                    if (t < 1/6) return p + (q - p) * 6 * t;
+                    if (t < 1/2) return q;
+                    if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                    return p;
+                }
+                var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                var p = 2 * l - q;
+                r = hue2rgb(p, q, h + 1/3);
+                g = hue2rgb(p, q, h);
+                b = hue2rgb(p, q, h - 1/3);
+            }
+            return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
+        }
+        function getLuminance(r, g, b) { return (0.299 * r + 0.587 * g + 0.114 * b) / 255; }
+        function updateUI() {
+            var hex = rgbToHex(currentColor.r, currentColor.g, currentColor.b);
+            var hsl = rgbToHsl(currentColor.r, currentColor.g, currentColor.b);
+            document.getElementById('colorPicker').value = hex;
+            document.getElementById('hexInput').value = hex;
+            document.getElementById('rgbInput').value = 'rgb(' + currentColor.r + ', ' + currentColor.g + ', ' + currentColor.b + ')';
+            document.getElementById('hslInput').value = 'hsl(' + hsl.h + ', ' + hsl.s + '%, ' + hsl.l + '%)';
+            document.getElementById('sliderR').value = currentColor.r;
+            document.getElementById('sliderG').value = currentColor.g;
+            document.getElementById('sliderB').value = currentColor.b;
+            document.getElementById('rValue').textContent = currentColor.r;
+            document.getElementById('gValue').textContent = currentColor.g;
+            document.getElementById('bValue').textContent = currentColor.b;
+            var preview = document.getElementById('colorPreview');
+            preview.style.backgroundColor = hex;
+            preview.style.color = getLuminance(currentColor.r, currentColor.g, currentColor.b) > 0.5 ? '#000' : '#fff';
+            preview.textContent = hex;
+            updateHarmonies(hsl);
+        }
+        function updateHarmonies(hsl) {
+            var harmonies = [
+                { h: hsl.h, s: hsl.s, l: hsl.l },
+                { h: (hsl.h + 30) % 360, s: hsl.s, l: hsl.l },
+                { h: (hsl.h + 180) % 360, s: hsl.s, l: hsl.l },
+                { h: (hsl.h + 210) % 360, s: hsl.s, l: hsl.l },
+                { h: (hsl.h + 330) % 360, s: hsl.s, l: hsl.l }
+            ];
+            var html = harmonies.map(function(h) {
+                var rgb = hslToRgb(h.h, h.s, h.l);
+                var hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+                var textColor = getLuminance(rgb.r, rgb.g, rgb.b) > 0.5 ? '#000' : '#fff';
+                return '<div class="harmony-color" style="background:' + hex + ';color:' + textColor + '" onclick="setColor(\'' + hex + '\')">' + hex + '</div>';
+            }).join('');
+            document.getElementById('harmonyRow').innerHTML = html;
+        }
+        function updateFromPicker() { var hex = document.getElementById('colorPicker').value; currentColor = hexToRgb(hex); updateUI(); }
+        function updateFromHex() {
+            var hex = document.getElementById('hexInput').value;
+            if (/^#?[0-9A-Fa-f]{6}$/.test(hex) || /^#?[0-9A-Fa-f]{3}$/.test(hex)) {
+                currentColor = hexToRgb(hex); updateUI();
+            }
+        }
+        function updateFromRgb() {
+            var match = document.getElementById('rgbInput').value.match(/(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+            if (match) {
+                currentColor = { r: parseInt(match[1]), g: parseInt(match[2]), b: parseInt(match[3]) };
+                updateUI();
+            }
+        }
+        function updateFromHsl() {
+            var match = document.getElementById('hslInput').value.match(/(\d+)\s*,\s*(\d+)%?\s*,\s*(\d+)%?/);
+            if (match) {
+                currentColor = hslToRgb(parseInt(match[1]), parseInt(match[2]), parseInt(match[3]));
+                updateUI();
+            }
+        }
+        function updateFromSliders() {
+            currentColor = { r: parseInt(document.getElementById('sliderR').value), g: parseInt(document.getElementById('sliderG').value), b: parseInt(document.getElementById('sliderB').value) };
+            updateUI();
+        }
+        function setColor(hex) { currentColor = hexToRgb(hex); updateUI(); }
+        function copyValue(id) {
+            var input = document.getElementById(id);
+            input.select();
+            document.execCommand('copy');
+            var btn = input.parentElement.querySelector('button');
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+        }
+        function initPalette() {
+            var colors = ['#EF4444', '#F97316', '#F59E0B', '#EAB308', '#84CC16', '#22C55E', '#10B981', '#14B8A6', '#06B6D4', '#0EA5E9', '#3B82F6', '#6366F1', '#8B5CF6', '#A855F7', '#D946EF', '#EC4899', '#F43F5E', '#1F2937', '#6B7280', '#FFFFFF'];
+            var html = colors.map(function(c) {
+                return '<div class="palette-color" style="background:' + c + '" onclick="setColor(\'' + c + '\')"></div>';
+            }).join('');
+            document.getElementById('paletteGrid').innerHTML = html;
+        }
+        initPalette();
+        updateUI();
+    </script>
+</body>
+</html>

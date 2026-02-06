@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator | Digital ABCs</title>
+    <meta name="description" content="Calculate how your investments grow with compound interest. See the power of compounding over time.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #1E3A8A 0%, #065F46 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #D1FAE5; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-navy); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
+        .input-wrapper { display: flex; }
+        .input-wrapper span { padding: 12px; background: #F3F4F6; border: 1px solid #D1D5DB; font-weight: 600; }
+        .input-wrapper span:first-child { border-right: none; border-radius: 8px 0 0 8px; }
+        .input-wrapper span:last-child { border-left: none; border-radius: 0 8px 8px 0; }
+        .input-wrapper input, .input-wrapper select { flex: 1; padding: 12px; border: 1px solid #D1D5DB; font-size: 1rem; }
+        .input-wrapper input:focus, .input-wrapper select:focus { outline: none; border-color: var(--brand-purple); }
+        .results { margin-top: 2rem; background: #F0FDF4; border: 2px solid var(--brand-green); border-radius: 12px; padding: 2rem; text-align: center; }
+        .result-main .value { font-size: 3rem; font-weight: 700; color: var(--brand-green); font-family: 'Roboto Mono', monospace; }
+        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .result-item { padding: 1rem; background: white; border-radius: 8px; }
+        .result-item .value { font-size: 1.25rem; font-weight: 700; color: var(--brand-navy); font-family: 'Roboto Mono', monospace; }
+        .result-item .label { font-size: 0.8rem; color: #4B5563; }
+        .chart-container { margin-top: 1.5rem; height: 200px; display: flex; align-items: flex-end; gap: 2px; padding: 0 10px; }
+        .bar-group { flex: 1; display: flex; flex-direction: column; }
+        .bar-principal { background: #1E3A8A; }
+        .bar-interest { background: #10B981; }
+        .bar-contrib { background: #F59E0B; }
+        .chart-legend { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; font-size: 0.8rem; }
+        .chart-legend span { display: flex; align-items: center; gap: 0.5rem; }
+        .chart-legend .dot { width: 12px; height: 12px; border-radius: 2px; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .input-row, .result-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Compound Interest Calculator</h1><p>See how your money grows over time with the power of compound interest.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="input-row">
+                <div class="input-group"><label>Initial Investment</label><div class="input-wrapper"><span>$</span><input type="number" id="principal" value="10000" oninput="calculate()"></div></div>
+                <div class="input-group"><label>Monthly Contribution</label><div class="input-wrapper"><span>$</span><input type="number" id="monthly" value="500" oninput="calculate()"></div></div>
+            </div>
+            <div class="input-row">
+                <div class="input-group"><label>Annual Interest Rate</label><div class="input-wrapper"><input type="number" id="rate" value="7" step="0.1" oninput="calculate()"><span>%</span></div></div>
+                <div class="input-group"><label>Time Period</label><div class="input-wrapper"><input type="number" id="years" value="20" oninput="calculate()"><span>years</span></div></div>
+            </div>
+            <div class="input-group"><label>Compound Frequency</label><select id="frequency" onchange="calculate()" style="width:100%;padding:12px;border:1px solid #D1D5DB;border-radius:8px;"><option value="12">Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option><option value="365">Daily</option></select></div>
+            <div class="results">
+                <div class="result-main"><div class="value" id="futureValue">$282,370</div><div class="label">Future Value</div></div>
+                <div class="result-grid">
+                    <div class="result-item"><div class="value" id="totalContrib">$130,000</div><div class="label">Total Contributions</div></div>
+                    <div class="result-item"><div class="value" id="totalInterest">$152,370</div><div class="label">Total Interest</div></div>
+                    <div class="result-item"><div class="value" id="interestRatio">117%</div><div class="label">Interest Earned %</div></div>
+                </div>
+                <div class="chart-container" id="chart"></div>
+                <div class="chart-legend"><span><div class="dot" style="background:#1E3A8A"></div>Principal</span><span><div class="dot" style="background:#F59E0B"></div>Contributions</span><span><div class="dot" style="background:#10B981"></div>Interest</span></div>
+            </div>
+            <div class="pro-banner"><h3>Investment Portfolio Tracker</h3><p>Track multiple investments, compare scenarios, and export reports.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        function calculate() {
+            var P = parseFloat(document.getElementById('principal').value) || 0;
+            var PMT = parseFloat(document.getElementById('monthly').value) || 0;
+            var r = (parseFloat(document.getElementById('rate').value) || 0) / 100;
+            var t = parseFloat(document.getElementById('years').value) || 1;
+            var n = parseInt(document.getElementById('frequency').value);
+            var FV = P * Math.pow(1 + r/n, n*t);
+            if (PMT > 0 && r > 0) { FV += PMT * ((Math.pow(1 + r/12, 12*t) - 1) / (r/12)); }
+            else if (PMT > 0) { FV += PMT * 12 * t; }
+            var totalContrib = P + (PMT * 12 * t);
+            var totalInterest = FV - totalContrib;
+            var interestRatio = totalContrib > 0 ? (totalInterest / totalContrib * 100) : 0;
+            document.getElementById('futureValue').textContent = '$' + FV.toLocaleString('en-AU', {maximumFractionDigits: 0});
+            document.getElementById('totalContrib').textContent = '$' + totalContrib.toLocaleString('en-AU', {maximumFractionDigits: 0});
+            document.getElementById('totalInterest').textContent = '$' + totalInterest.toLocaleString('en-AU', {maximumFractionDigits: 0});
+            document.getElementById('interestRatio').textContent = interestRatio.toFixed(0) + '%';
+            var chart = document.getElementById('chart');
+            var bars = '';
+            for (var y = 1; y <= t && y <= 30; y++) {
+                var yFV = P * Math.pow(1 + r/n, n*y);
+                if (PMT > 0 && r > 0) { yFV += PMT * ((Math.pow(1 + r/12, 12*y) - 1) / (r/12)); }
+                else if (PMT > 0) { yFV += PMT * 12 * y; }
+                var yContrib = P + (PMT * 12 * y);
+                var yInt = yFV - yContrib;
+                var maxH = 180, scale = FV > 0 ? maxH / FV : 1;
+                bars += '<div class="bar-group"><div class="bar-interest" style="height:' + (yInt * scale) + 'px"></div><div class="bar-contrib" style="height:' + ((yContrib - P) * scale) + 'px"></div><div class="bar-principal" style="height:' + (P * scale) + 'px"></div></div>';
+            }
+            chart.innerHTML = bars;
+        }
+        calculate();
+    </script>
+</body>
+</html>

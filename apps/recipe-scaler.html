@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Scaler | Digital ABCs</title>
+    <meta name="description" content="Scale recipe ingredients up or down. Convert serving sizes easily for any number of guests.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; --recipe-orange: #EA580C; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #FED7AA; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--recipe-orange); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
+        .servings-section { display: flex; gap: 2rem; align-items: center; justify-content: center; margin-bottom: 2rem; padding: 1.5rem; background: #FFF7ED; border-radius: 12px; }
+        .serving-group { text-align: center; }
+        .serving-group label { display: block; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
+        .serving-input { display: flex; align-items: center; gap: 0.5rem; }
+        .serving-input button { width: 36px; height: 36px; border: 1px solid #D1D5DB; background: white; border-radius: 6px; cursor: pointer; font-size: 1.25rem; font-weight: 600; }
+        .serving-input button:hover { background: #F3F4F6; }
+        .serving-input input { width: 60px; padding: 8px; font-size: 1.25rem; font-family: 'Roboto Mono', monospace; text-align: center; border: 2px solid #D1D5DB; border-radius: 6px; }
+        .serving-input input:focus { outline: none; border-color: var(--recipe-orange); }
+        .arrow { font-size: 2rem; color: var(--recipe-orange); }
+        .multiplier { background: var(--recipe-orange); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 1.1rem; }
+        .ingredients-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; display: flex; justify-content: space-between; align-items: center; }
+        .ingredients-section h3 button { padding: 6px 12px; background: var(--brand-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+        .ingredient-row { display: grid; grid-template-columns: 80px 100px 1fr auto; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; padding: 0.75rem; background: #F9FAFB; border-radius: 8px; }
+        .ingredient-row input { padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem; }
+        .ingredient-row input:focus { outline: none; border-color: var(--recipe-orange); }
+        .ingredient-row select { padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem; }
+        .ingredient-row .remove-btn { padding: 8px 12px; background: #EF4444; color: white; border: none; border-radius: 6px; cursor: pointer; }
+        .ingredient-row .remove-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .scaled-results { margin-top: 2rem; background: #FFF7ED; border: 2px solid var(--recipe-orange); border-radius: 12px; padding: 1.5rem; }
+        .scaled-results h3 { color: var(--recipe-orange); margin: 0 0 1rem 0; }
+        .scaled-list { list-style: none; padding: 0; margin: 0; }
+        .scaled-list li { display: flex; justify-content: space-between; padding: 0.75rem; background: white; border-radius: 6px; margin-bottom: 0.5rem; }
+        .scaled-list li .amount { font-weight: 700; font-family: 'Roboto Mono', monospace; color: var(--recipe-orange); }
+        .scaled-list li .ingredient { color: #374151; }
+        .toolbar { display: flex; gap: 0.5rem; margin-top: 1rem; }
+        .toolbar button { flex: 1; padding: 10px; border: 1px solid #D1D5DB; background: white; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; }
+        .toolbar button:hover { background: #F3F4F6; }
+        .quick-scale { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .quick-scale button { padding: 8px 16px; border: 1px solid #D1D5DB; background: white; border-radius: 20px; cursor: pointer; font-size: 0.85rem; }
+        .quick-scale button:hover { background: #FFF7ED; border-color: var(--recipe-orange); }
+        .quick-scale button.active { background: var(--recipe-orange); color: white; border-color: var(--recipe-orange); }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .servings-section { flex-direction: column; gap: 1rem; } .ingredient-row { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Recipe Scaler</h1><p>Scale your recipes up or down for any number of servings.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="servings-section">
+                <div class="serving-group">
+                    <label>Original Servings</label>
+                    <div class="serving-input">
+                        <button onclick="adjustServing('original', -1)">−</button>
+                        <input type="number" id="originalServings" value="4" min="1" onchange="updateScale()">
+                        <button onclick="adjustServing('original', 1)">+</button>
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="serving-group">
+                    <label>New Servings</label>
+                    <div class="serving-input">
+                        <button onclick="adjustServing('new', -1)">−</button>
+                        <input type="number" id="newServings" value="6" min="1" onchange="updateScale()">
+                        <button onclick="adjustServing('new', 1)">+</button>
+                    </div>
+                </div>
+                <div class="multiplier" id="multiplier">×1.5</div>
+            </div>
+            <div class="quick-scale">
+                <button onclick="quickScale(0.5)">½×</button>
+                <button onclick="quickScale(1)">1×</button>
+                <button class="active" onclick="quickScale(1.5)">1.5×</button>
+                <button onclick="quickScale(2)">2×</button>
+                <button onclick="quickScale(3)">3×</button>
+                <button onclick="quickScale(4)">4×</button>
+            </div>
+            <div class="ingredients-section">
+                <h3>Ingredients <button onclick="addIngredient()">+ Add Ingredient</button></h3>
+                <div id="ingredientsList"></div>
+            </div>
+            <div class="scaled-results">
+                <h3>Scaled Ingredients</h3>
+                <ul class="scaled-list" id="scaledList"></ul>
+                <div class="toolbar">
+                    <button onclick="copyScaled()">Copy to Clipboard</button>
+                    <button onclick="printScaled()">Print</button>
+                    <button onclick="clearAll()">Clear All</button>
+                </div>
+            </div>
+            <div class="pro-banner"><h3>Recipe Management</h3><p>Save recipes, nutritional info, and shopping list generator.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var ingredients = [
+            { amount: 2, unit: 'cups', name: 'flour' },
+            { amount: 1, unit: 'cup', name: 'sugar' },
+            { amount: 3, unit: 'whole', name: 'eggs' },
+            { amount: 0.5, unit: 'cup', name: 'butter, softened' }
+        ];
+        var units = ['cups', 'cup', 'tbsp', 'tsp', 'oz', 'g', 'kg', 'ml', 'L', 'whole', 'pinch', 'lb'];
+        function adjustServing(type, delta) {
+            var input = document.getElementById(type === 'original' ? 'originalServings' : 'newServings');
+            var val = parseInt(input.value) + delta;
+            if (val >= 1) { input.value = val; updateScale(); }
+        }
+        function updateScale() {
+            var original = parseInt(document.getElementById('originalServings').value) || 4;
+            var newServ = parseInt(document.getElementById('newServings').value) || 4;
+            var multiplier = newServ / original;
+            document.getElementById('multiplier').textContent = '×' + multiplier.toFixed(2).replace(/\.?0+$/, '');
+            document.querySelectorAll('.quick-scale button').forEach(function(btn) { btn.classList.remove('active'); });
+            renderScaled();
+        }
+        function quickScale(mult) {
+            var original = parseInt(document.getElementById('originalServings').value) || 4;
+            document.getElementById('newServings').value = Math.round(original * mult);
+            document.querySelectorAll('.quick-scale button').forEach(function(btn) { btn.classList.remove('active'); });
+            event.target.classList.add('active');
+            updateScale();
+        }
+        function renderIngredients() {
+            var html = ingredients.map(function(ing, idx) {
+                var unitOptions = units.map(function(u) { return '<option value="' + u + '"' + (u === ing.unit ? ' selected' : '') + '>' + u + '</option>'; }).join('');
+                return '<div class="ingredient-row">' +
+                    '<input type="number" step="0.01" value="' + ing.amount + '" onchange="updateIngredient(' + idx + ', \'amount\', this.value)">' +
+                    '<select onchange="updateIngredient(' + idx + ', \'unit\', this.value)">' + unitOptions + '</select>' +
+                    '<input type="text" value="' + ing.name + '" placeholder="Ingredient name" onchange="updateIngredient(' + idx + ', \'name\', this.value)">' +
+                    '<button class="remove-btn" onclick="removeIngredient(' + idx + ')" ' + (ingredients.length <= 1 ? 'disabled' : '') + '>×</button>' +
+                    '</div>';
+            }).join('');
+            document.getElementById('ingredientsList').innerHTML = html;
+            renderScaled();
+        }
+        function updateIngredient(idx, field, value) {
+            ingredients[idx][field] = field === 'amount' ? parseFloat(value) || 0 : value;
+            renderScaled();
+        }
+        function addIngredient() {
+            ingredients.push({ amount: 1, unit: 'cups', name: '' });
+            renderIngredients();
+        }
+        function removeIngredient(idx) {
+            if (ingredients.length > 1) {
+                ingredients.splice(idx, 1);
+                renderIngredients();
+            }
+        }
+        function formatAmount(num) {
+            if (num === 0) return '0';
+            var fractions = { 0.25: '¼', 0.33: '⅓', 0.5: '½', 0.67: '⅔', 0.75: '¾' };
+            var whole = Math.floor(num);
+            var frac = num - whole;
+            var fracStr = '';
+            for (var key in fractions) {
+                if (Math.abs(frac - parseFloat(key)) < 0.05) {
+                    fracStr = fractions[key];
+                    break;
+                }
+            }
+            if (whole === 0 && fracStr) return fracStr;
+            if (fracStr) return whole + ' ' + fracStr;
+            return num % 1 === 0 ? num.toString() : num.toFixed(2).replace(/\.?0+$/, '');
+        }
+        function renderScaled() {
+            var original = parseInt(document.getElementById('originalServings').value) || 4;
+            var newServ = parseInt(document.getElementById('newServings').value) || 4;
+            var multiplier = newServ / original;
+            var html = ingredients.filter(function(ing) { return ing.name; }).map(function(ing) {
+                var scaled = ing.amount * multiplier;
+                return '<li><span class="amount">' + formatAmount(scaled) + ' ' + ing.unit + '</span><span class="ingredient">' + ing.name + '</span></li>';
+            }).join('');
+            document.getElementById('scaledList').innerHTML = html || '<li style="color:#6B7280;text-align:center;">Add ingredients above</li>';
+        }
+        function copyScaled() {
+            var original = parseInt(document.getElementById('originalServings').value) || 4;
+            var newServ = parseInt(document.getElementById('newServings').value) || 4;
+            var multiplier = newServ / original;
+            var text = ingredients.filter(function(ing) { return ing.name; }).map(function(ing) {
+                var scaled = ing.amount * multiplier;
+                return formatAmount(scaled) + ' ' + ing.unit + ' ' + ing.name;
+            }).join('\n');
+            navigator.clipboard.writeText(text);
+            event.target.textContent = 'Copied!';
+            setTimeout(function() { event.target.textContent = 'Copy to Clipboard'; }, 1500);
+        }
+        function printScaled() { window.print(); }
+        function clearAll() {
+            ingredients = [{ amount: 1, unit: 'cups', name: '' }];
+            renderIngredients();
+        }
+        renderIngredients();
+    </script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Time Estimator | Digital ABCs</title>
+    <meta name="description" content="Estimate how long it takes to read any text. Perfect for bloggers, writers, and content creators.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-purple);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 800px; margin: 0 auto;
+        }
+
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label {
+            display: block; font-weight: 600; color: #374151;
+            margin-bottom: 0.5rem; font-size: 0.95rem;
+        }
+
+        .input-group textarea {
+            width: 100%; padding: 1rem; border: 1px solid #D1D5DB;
+            border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif;
+            box-sizing: border-box; min-height: 200px; resize: vertical;
+            line-height: 1.6;
+        }
+
+        .input-group textarea:focus {
+            outline: none; border-color: var(--brand-purple);
+        }
+
+        .speed-control {
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .speed-control label { font-weight: 600; color: #374151; }
+
+        .speed-presets {
+            display: flex; gap: 0.5rem;
+        }
+
+        .speed-btn {
+            padding: 8px 14px; border: 2px solid #E5E7EB; background: white;
+            border-radius: 6px; cursor: pointer; font-weight: 500;
+            font-family: 'Inter', sans-serif; font-size: 0.85rem;
+        }
+        .speed-btn:hover { border-color: var(--brand-purple); }
+        .speed-btn.active { border-color: var(--brand-purple); background: #F5F3FF; color: var(--brand-purple); }
+
+        .custom-speed {
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .custom-speed input {
+            width: 70px; padding: 8px; border: 1px solid #D1D5DB;
+            border-radius: 6px; text-align: center; font-family: 'Roboto Mono', monospace;
+        }
+
+        .results-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem; margin-bottom: 1.5rem;
+        }
+
+        .result-card {
+            padding: 1.25rem; background: #F9FAFB; border-radius: 12px;
+            text-align: center;
+        }
+
+        .result-card.highlight {
+            background: #F0FDF4; border: 2px solid var(--brand-green);
+        }
+
+        .result-card .value {
+            font-size: 1.75rem; font-weight: 700; color: var(--brand-navy);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .result-card.highlight .value { color: var(--brand-green); }
+
+        .result-card .label {
+            font-size: 0.8rem; color: #4B5563; margin-top: 0.25rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .speaking-times {
+            padding: 1.5rem; background: #EEF2FF; border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .speaking-times h4 {
+            color: var(--brand-purple); margin: 0 0 1rem 0; font-size: 0.95rem;
+        }
+
+        .speaking-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .speaking-item {
+            display: flex; justify-content: space-between; padding: 0.5rem 0;
+            border-bottom: 1px solid #C7D2FE;
+        }
+        .speaking-item:last-child { border-bottom: none; }
+        .speaking-item .type { color: #4B5563; }
+        .speaking-item .time { font-weight: 600; color: var(--brand-purple); }
+
+        .pro-banner {
+            margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .speed-control { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Reading Time Estimator</h1>
+                <p>Find out how long your content takes to read. Perfect for blog posts, articles, and presentations.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="input-group">
+                        <label>Paste your text here</label>
+                        <textarea id="textInput" placeholder="Paste or type your content here..." oninput="analyze()">The average adult reads at a pace of about 200-250 words per minute. This varies based on the complexity of the text, the reader's familiarity with the subject matter, and their reading experience.
+
+Technical or academic content is typically read more slowly, at around 100-150 words per minute, while light fiction or familiar content might be read at 300+ words per minute.
+
+When creating content for the web, it's important to consider reading time. Studies show that most users prefer articles that take 7 minutes or less to read. Anything longer should be broken into sections or serialized.
+
+This tool helps you estimate reading time so you can optimize your content for your audience.</textarea>
+                    </div>
+
+                    <div class="speed-control">
+                        <label>Reading Speed:</label>
+                        <div class="speed-presets">
+                            <button class="speed-btn" onclick="setSpeed(150)">Slow (150)</button>
+                            <button class="speed-btn active" onclick="setSpeed(200)">Average (200)</button>
+                            <button class="speed-btn" onclick="setSpeed(250)">Fast (250)</button>
+                        </div>
+                        <div class="custom-speed">
+                            <input type="number" id="customSpeed" value="200" min="50" max="500" oninput="analyze()">
+                            <span>WPM</span>
+                        </div>
+                    </div>
+
+                    <div class="results-grid">
+                        <div class="result-card highlight">
+                            <div class="value" id="readTime">0:30</div>
+                            <div class="label">Reading Time</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="value" id="wordCount">0</div>
+                            <div class="label">Words</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="value" id="charCount">0</div>
+                            <div class="label">Characters</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="value" id="sentenceCount">0</div>
+                            <div class="label">Sentences</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="value" id="paragraphCount">0</div>
+                            <div class="label">Paragraphs</div>
+                        </div>
+                    </div>
+
+                    <div class="speaking-times">
+                        <h4>Speaking Time (if read aloud)</h4>
+                        <div class="speaking-grid">
+                            <div class="speaking-item">
+                                <span class="type">Slow (100 wpm)</span>
+                                <span class="time" id="speakSlow">0:00</span>
+                            </div>
+                            <div class="speaking-item">
+                                <span class="type">Average (130 wpm)</span>
+                                <span class="time" id="speakAvg">0:00</span>
+                            </div>
+                            <div class="speaking-item">
+                                <span class="type">Fast (160 wpm)</span>
+                                <span class="time" id="speakFast">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Analyze Multiple Documents</h3>
+                        <p>Batch analysis, readability scores, and content optimization tips.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var readingSpeed = 200;
+
+        function setSpeed(wpm) {
+            readingSpeed = wpm;
+            document.getElementById('customSpeed').value = wpm;
+            document.querySelectorAll('.speed-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(wpm)) btn.classList.add('active');
+            });
+            analyze();
+        }
+
+        function formatTime(minutes) {
+            var mins = Math.floor(minutes);
+            var secs = Math.round((minutes - mins) * 60);
+            if (mins === 0 && secs === 0) secs = 1;
+            return mins + ':' + String(secs).padStart(2, '0');
+        }
+
+        function analyze() {
+            var text = document.getElementById('textInput').value;
+            readingSpeed = parseInt(document.getElementById('customSpeed').value) || 200;
+
+            // Word count
+            var words = text.trim().split(/\s+/).filter(function(w) { return w.length > 0; });
+            var wordCount = words.length;
+
+            // Character count (no spaces)
+            var charCount = text.replace(/\s/g, '').length;
+
+            // Sentence count
+            var sentences = text.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; });
+            var sentenceCount = sentences.length;
+
+            // Paragraph count
+            var paragraphs = text.split(/\n\s*\n/).filter(function(p) { return p.trim().length > 0; });
+            var paragraphCount = paragraphs.length || (text.trim() ? 1 : 0);
+
+            // Reading time
+            var readMinutes = wordCount / readingSpeed;
+
+            // Speaking times
+            var speakSlow = wordCount / 100;
+            var speakAvg = wordCount / 130;
+            var speakFast = wordCount / 160;
+
+            // Update display
+            document.getElementById('readTime').textContent = formatTime(readMinutes);
+            document.getElementById('wordCount').textContent = wordCount.toLocaleString();
+            document.getElementById('charCount').textContent = charCount.toLocaleString();
+            document.getElementById('sentenceCount').textContent = sentenceCount;
+            document.getElementById('paragraphCount').textContent = paragraphCount;
+
+            document.getElementById('speakSlow').textContent = formatTime(speakSlow);
+            document.getElementById('speakAvg').textContent = formatTime(speakAvg);
+            document.getElementById('speakFast').textContent = formatTime(speakFast);
+        }
+
+        analyze();
+    </script>
+</body>
+</html>

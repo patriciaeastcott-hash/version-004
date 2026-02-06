@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Maker | Digital ABCs</title>
+    <meta name="description" content="Make decisions easily with our random picker, weighted choice, and pros/cons analyzer tools.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #C7D2FE; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: #4F46E5; padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 600px; margin: 0 auto; }
+        .mode-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .mode-tabs button { flex: 1; padding: 12px; border: 2px solid #E5E7EB; background: white; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+        .mode-tabs button:hover { background: #EEF2FF; }
+        .mode-tabs button.active { border-color: #4F46E5; background: #EEF2FF; color: #4F46E5; }
+        .options-section { margin-bottom: 1.5rem; }
+        .options-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; font-size: 1rem; }
+        .option-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+        .option-row input { flex: 1; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem; }
+        .option-row input:focus { outline: none; border-color: #4F46E5; }
+        .option-row button { padding: 10px 14px; background: #EF4444; color: white; border: none; border-radius: 6px; cursor: pointer; }
+        .option-row button:disabled { opacity: 0.3; cursor: not-allowed; }
+        .add-btn { padding: 10px; background: #F3F4F6; border: 1px dashed #D1D5DB; border-radius: 6px; cursor: pointer; width: 100%; font-size: 0.9rem; color: #6B7280; }
+        .add-btn:hover { background: #EEF2FF; border-color: #4F46E5; color: #4F46E5; }
+        .decide-btn { width: 100%; padding: 16px; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer; border: none; background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: white; margin-bottom: 1.5rem; }
+        .decide-btn:hover { transform: scale(1.02); }
+        .result-area { text-align: center; padding: 2rem; background: #EEF2FF; border-radius: 12px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .result-area .emoji { font-size: 3rem; margin-bottom: 0.5rem; }
+        .result-area .result { font-size: 2rem; font-weight: 700; color: #4F46E5; }
+        .result-area .hint { color: #6B7280; font-size: 0.9rem; margin-top: 0.5rem; }
+        .wheel-container { position: relative; width: 280px; height: 280px; margin: 0 auto 1.5rem; }
+        .wheel { width: 100%; height: 100%; border-radius: 50%; border: 4px solid #4F46E5; position: relative; overflow: hidden; transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99); }
+        .wheel-segment { position: absolute; width: 50%; height: 50%; left: 50%; top: 50%; transform-origin: 0% 0%; display: flex; align-items: center; justify-content: flex-start; padding-left: 20px; box-sizing: border-box; font-weight: 600; font-size: 0.8rem; color: white; }
+        .wheel-pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 25px solid #4F46E5; z-index: 10; }
+        .history-section { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; }
+        .history-section h4 { color: var(--brand-navy); margin: 0 0 0.75rem 0; font-size: 0.95rem; display: flex; justify-content: space-between; }
+        .history-section h4 button { padding: 4px 10px; background: #F3F4F6; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+        .history-list { max-height: 150px; overflow-y: auto; }
+        .history-item { display: flex; justify-content: space-between; padding: 0.5rem; background: #F9FAFB; border-radius: 6px; margin-bottom: 0.25rem; font-size: 0.85rem; }
+        .history-item .choice { font-weight: 600; color: #4F46E5; }
+        .history-item .time { color: #6B7280; }
+        .yesno-btns { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .yesno-btns button { flex: 1; padding: 2rem; font-size: 1.5rem; font-weight: 700; border-radius: 12px; cursor: pointer; border: 3px solid transparent; transition: all 0.2s; }
+        .yesno-btns .yes-btn { background: #D1FAE5; color: var(--brand-green); }
+        .yesno-btns .yes-btn:hover, .yesno-btns .yes-btn.selected { background: var(--brand-green); color: white; border-color: var(--brand-green); }
+        .yesno-btns .no-btn { background: #FEE2E2; color: #DC2626; }
+        .yesno-btns .no-btn:hover, .yesno-btns .no-btn.selected { background: #DC2626; color: white; border-color: #DC2626; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .wheel-container { width: 240px; height: 240px; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Decision Maker</h1><p>Let randomness help when you can't decide. Fair, fun, and final!</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="mode-tabs">
+                <button class="active" onclick="setMode('list')">Random Pick</button>
+                <button onclick="setMode('yesno')">Yes or No</button>
+                <button onclick="setMode('wheel')">Spin Wheel</button>
+            </div>
+            <div id="listMode">
+                <div class="options-section">
+                    <h3>Enter Your Options</h3>
+                    <div id="optionsList"></div>
+                    <button class="add-btn" onclick="addOption()">+ Add Another Option</button>
+                </div>
+                <button class="decide-btn" onclick="decide()">🎲 Make a Decision!</button>
+                <div class="result-area" id="resultArea">
+                    <div class="emoji">🤔</div>
+                    <div class="hint">Enter options above and click decide</div>
+                </div>
+            </div>
+            <div id="yesnoMode" style="display:none;">
+                <div style="text-align:center;margin-bottom:1.5rem;">
+                    <p style="color:#6B7280;font-size:1.1rem;">Ask your question, then click below for an answer</p>
+                </div>
+                <div class="yesno-btns">
+                    <button class="yes-btn" onclick="yesNoDecide()">Yes</button>
+                    <button class="no-btn" onclick="yesNoDecide()">No</button>
+                </div>
+                <button class="decide-btn" onclick="yesNoDecide()">🔮 Get Answer</button>
+                <div class="result-area" id="yesnoResult">
+                    <div class="emoji">🔮</div>
+                    <div class="hint">Click to reveal your answer</div>
+                </div>
+            </div>
+            <div id="wheelMode" style="display:none;">
+                <div class="options-section">
+                    <h3>Wheel Options</h3>
+                    <div id="wheelOptionsList"></div>
+                    <button class="add-btn" onclick="addWheelOption()">+ Add Option</button>
+                </div>
+                <div class="wheel-container">
+                    <div class="wheel-pointer"></div>
+                    <div class="wheel" id="wheel"></div>
+                </div>
+                <button class="decide-btn" onclick="spinWheel()">🎡 Spin the Wheel!</button>
+                <div class="result-area" id="wheelResult">
+                    <div class="emoji">🎰</div>
+                    <div class="hint">Add options and spin!</div>
+                </div>
+            </div>
+            <div class="history-section">
+                <h4>Decision History <button onclick="clearHistory()">Clear</button></h4>
+                <div class="history-list" id="historyList"></div>
+            </div>
+            <div class="pro-banner"><h3>Advanced Decision Tools</h3><p>Weighted choices, tournament brackets, and pros/cons analyzer.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var currentMode = 'list';
+        var options = ['Option 1', 'Option 2', 'Option 3'];
+        var wheelOptions = ['Pizza', 'Sushi', 'Tacos', 'Burger'];
+        var history = [];
+        var colors = ['#6366F1', '#EC4899', '#10B981', '#F59E0B', '#3B82F6', '#8B5CF6', '#EF4444', '#14B8A6'];
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-tabs button').forEach(function(btn) { btn.classList.remove('active'); });
+            event.target.classList.add('active');
+            document.getElementById('listMode').style.display = mode === 'list' ? 'block' : 'none';
+            document.getElementById('yesnoMode').style.display = mode === 'yesno' ? 'block' : 'none';
+            document.getElementById('wheelMode').style.display = mode === 'wheel' ? 'block' : 'none';
+            if (mode === 'wheel') renderWheel();
+        }
+        function renderOptions() {
+            var html = options.map(function(opt, idx) {
+                return '<div class="option-row">' +
+                    '<input type="text" value="' + opt + '" onchange="updateOption(' + idx + ', this.value)" placeholder="Option ' + (idx + 1) + '">' +
+                    '<button onclick="removeOption(' + idx + ')" ' + (options.length <= 2 ? 'disabled' : '') + '>×</button>' +
+                    '</div>';
+            }).join('');
+            document.getElementById('optionsList').innerHTML = html;
+        }
+        function updateOption(idx, value) { options[idx] = value; }
+        function addOption() { options.push('Option ' + (options.length + 1)); renderOptions(); }
+        function removeOption(idx) { if (options.length > 2) { options.splice(idx, 1); renderOptions(); } }
+        function decide() {
+            var validOptions = options.filter(function(o) { return o.trim(); });
+            if (validOptions.length < 2) { alert('Please enter at least 2 options'); return; }
+            var chosen = validOptions[Math.floor(Math.random() * validOptions.length)];
+            document.getElementById('resultArea').innerHTML = '<div class="emoji">🎉</div><div class="result">' + chosen + '</div><div class="hint">The universe has spoken!</div>';
+            addToHistory(chosen);
+        }
+        function yesNoDecide() {
+            var answers = ['Yes!', 'No!', 'Definitely Yes!', 'Absolutely Not!', 'Go for it!', 'Better not...', 'Yes, 100%!', 'Nope!'];
+            var emojis = { 'Yes!': '✅', 'No!': '❌', 'Definitely Yes!': '💯', 'Absolutely Not!': '🚫', 'Go for it!': '🚀', 'Better not...': '😬', 'Yes, 100%!': '🙌', 'Nope!': '👎' };
+            var chosen = answers[Math.floor(Math.random() * answers.length)];
+            document.querySelectorAll('.yesno-btns button').forEach(function(btn) { btn.classList.remove('selected'); });
+            if (chosen.includes('Yes') || chosen.includes('Go')) document.querySelector('.yes-btn').classList.add('selected');
+            else document.querySelector('.no-btn').classList.add('selected');
+            document.getElementById('yesnoResult').innerHTML = '<div class="emoji">' + emojis[chosen] + '</div><div class="result">' + chosen + '</div>';
+            addToHistory(chosen);
+        }
+        function renderWheelOptions() {
+            var html = wheelOptions.map(function(opt, idx) {
+                return '<div class="option-row">' +
+                    '<input type="text" value="' + opt + '" onchange="updateWheelOption(' + idx + ', this.value)">' +
+                    '<button onclick="removeWheelOption(' + idx + ')" ' + (wheelOptions.length <= 2 ? 'disabled' : '') + '>×</button>' +
+                    '</div>';
+            }).join('');
+            document.getElementById('wheelOptionsList').innerHTML = html;
+        }
+        function updateWheelOption(idx, value) { wheelOptions[idx] = value; renderWheel(); }
+        function addWheelOption() { wheelOptions.push('Option ' + (wheelOptions.length + 1)); renderWheelOptions(); renderWheel(); }
+        function removeWheelOption(idx) { if (wheelOptions.length > 2) { wheelOptions.splice(idx, 1); renderWheelOptions(); renderWheel(); } }
+        function renderWheel() {
+            var wheel = document.getElementById('wheel');
+            var n = wheelOptions.length;
+            var angle = 360 / n;
+            var html = wheelOptions.map(function(opt, idx) {
+                var rotation = angle * idx - 90 - angle / 2;
+                var skew = 90 - angle;
+                return '<div class="wheel-segment" style="transform: rotate(' + rotation + 'deg) skewY(' + skew + 'deg); background: ' + colors[idx % colors.length] + ';">' +
+                    '<span style="transform: skewY(' + (-skew) + 'deg) rotate(' + (angle / 2) + 'deg);">' + opt.substring(0, 10) + '</span></div>';
+            }).join('');
+            wheel.innerHTML = html;
+        }
+        var isSpinning = false;
+        function spinWheel() {
+            if (isSpinning) return;
+            isSpinning = true;
+            var wheel = document.getElementById('wheel');
+            var n = wheelOptions.length;
+            var spins = 5 + Math.random() * 5;
+            var winningIdx = Math.floor(Math.random() * n);
+            var angle = 360 / n;
+            var finalRotation = spins * 360 + (360 - winningIdx * angle - angle / 2);
+            wheel.style.transform = 'rotate(' + finalRotation + 'deg)';
+            setTimeout(function() {
+                var chosen = wheelOptions[winningIdx];
+                document.getElementById('wheelResult').innerHTML = '<div class="emoji">🎊</div><div class="result">' + chosen + '</div>';
+                addToHistory(chosen);
+                isSpinning = false;
+            }, 4000);
+        }
+        function addToHistory(choice) {
+            var now = new Date();
+            var time = now.toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' });
+            history.unshift({ choice: choice, time: time });
+            if (history.length > 10) history.pop();
+            renderHistory();
+        }
+        function renderHistory() {
+            if (history.length === 0) {
+                document.getElementById('historyList').innerHTML = '<div style="color:#6B7280;text-align:center;padding:1rem;font-size:0.9rem;">No decisions yet</div>';
+                return;
+            }
+            var html = history.map(function(h) {
+                return '<div class="history-item"><span class="choice">' + h.choice + '</span><span class="time">' + h.time + '</span></div>';
+            }).join('');
+            document.getElementById('historyList').innerHTML = html;
+        }
+        function clearHistory() { history = []; renderHistory(); }
+        renderOptions();
+        renderWheelOptions();
+        renderHistory();
+    </script>
+</body>
+</html>

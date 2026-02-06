@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test | Digital ABCs</title>
+    <meta name="description" content="Test your typing speed and accuracy. Get your WPM score and track improvement over time.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+
+        .tool-hero {
+            background: linear-gradient(135deg, #065F46 0%, #1E3A8A 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #D1FAE5; max-width: 600px; margin: 0 auto; }
+
+        .status-badge {
+            display: inline-block; background: white; color: var(--brand-green);
+            padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+            margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .tool-section { padding: 3rem 0; }
+
+        .tool-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            max-width: 800px; margin: 0 auto;
+        }
+
+        .duration-tabs {
+            display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem;
+        }
+
+        .duration-tab {
+            padding: 10px 20px; border: 2px solid #E5E7EB; background: white;
+            border-radius: 8px; font-weight: 600; cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .duration-tab:hover { border-color: var(--brand-green); }
+        .duration-tab.active { border-color: var(--brand-green); background: #F0FDF4; color: var(--brand-green); }
+
+        .timer-display {
+            text-align: center; margin-bottom: 1.5rem;
+        }
+        .timer-display .time {
+            font-size: 3rem; font-weight: 700; color: var(--brand-navy);
+            font-family: 'Roboto Mono', monospace;
+        }
+        .timer-display .label { color: #4B5563; font-size: 0.9rem; }
+
+        .text-display {
+            padding: 2rem; background: #F9FAFB; border-radius: 12px;
+            font-size: 1.25rem; line-height: 2; margin-bottom: 1.5rem;
+            font-family: 'Roboto Mono', monospace; min-height: 150px;
+        }
+
+        .text-display .char { transition: color 0.1s; }
+        .text-display .char.correct { color: var(--brand-green); }
+        .text-display .char.incorrect { color: #EF4444; text-decoration: underline; }
+        .text-display .char.current { background: #FEF3C7; border-bottom: 2px solid var(--brand-navy); }
+
+        .type-input {
+            width: 100%; padding: 1rem; border: 2px solid #D1D5DB;
+            border-radius: 12px; font-size: 1.25rem; font-family: 'Roboto Mono', monospace;
+            box-sizing: border-box;
+        }
+        .type-input:focus { outline: none; border-color: var(--brand-green); }
+        .type-input:disabled { background: #F3F4F6; }
+
+        .results {
+            display: none; margin-top: 2rem; padding: 2rem;
+            background: #F0FDF4; border: 2px solid var(--brand-green);
+            border-radius: 12px; text-align: center;
+        }
+
+        .results h3 { color: var(--brand-navy); margin: 0 0 1.5rem 0; }
+
+        .results-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+        }
+
+        .result-item .value {
+            font-size: 2.5rem; font-weight: 700; color: var(--brand-green);
+            font-family: 'Roboto Mono', monospace;
+        }
+        .result-item .label {
+            font-size: 0.85rem; color: #4B5563; text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .restart-btn {
+            margin-top: 1.5rem; padding: 12px 30px; background: var(--brand-navy);
+            color: white; border: none; border-radius: 8px; font-size: 1rem;
+            font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif;
+        }
+        .restart-btn:hover { background: #1c347a; }
+
+        .start-prompt {
+            text-align: center; padding: 2rem; color: #4B5563;
+        }
+
+        .pro-banner {
+            margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 12px; text-align: center; color: white;
+        }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .pro-banner p { margin: 0 0 1rem 0; font-size: 0.9rem; opacity: 0.9; }
+        .pro-banner a {
+            display: inline-block; padding: 10px 24px; background: white;
+            color: var(--brand-navy); border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-hero h1 { font-size: 2rem; }
+            .text-display { font-size: 1rem; padding: 1rem; }
+            .type-input { font-size: 1rem; }
+            .results-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="tool-hero">
+            <div class="container">
+                <span class="status-badge">Free Tool</span>
+                <h1>Typing Speed Test</h1>
+                <p>Measure your typing speed in words per minute (WPM). Improve your accuracy and speed.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-card">
+
+                    <div class="duration-tabs">
+                        <button class="duration-tab" onclick="setDuration(30)">30 sec</button>
+                        <button class="duration-tab active" onclick="setDuration(60)">1 min</button>
+                        <button class="duration-tab" onclick="setDuration(120)">2 min</button>
+                    </div>
+
+                    <div class="timer-display">
+                        <div class="time" id="timer">1:00</div>
+                        <div class="label">Time Remaining</div>
+                    </div>
+
+                    <div class="text-display" id="textDisplay"></div>
+
+                    <input type="text" class="type-input" id="typeInput" placeholder="Start typing here..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+
+                    <div class="results" id="results">
+                        <h3>Your Results</h3>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="value" id="wpmResult">0</div>
+                                <div class="label">WPM</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="value" id="accuracyResult">0%</div>
+                                <div class="label">Accuracy</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="value" id="charsResult">0</div>
+                                <div class="label">Characters</div>
+                            </div>
+                        </div>
+                        <button class="restart-btn" onclick="restart()">Try Again</button>
+                    </div>
+
+                    <div class="pro-banner">
+                        <h3>Track Your Progress</h3>
+                        <p>Save results, view improvement charts, and compete on leaderboards.</p>
+                        <a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms of Service</a></li>
+                        <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var texts = [
+            "The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump! The five boxing wizards jump quickly.",
+            "Technology has transformed the way we work and communicate. From smartphones to cloud computing, digital tools have become essential in our daily lives.",
+            "Success is not final, failure is not fatal. It is the courage to continue that counts. The only way to do great work is to love what you do.",
+            "Climate change presents one of the greatest challenges of our time. Scientists around the world are working to develop sustainable solutions for future generations.",
+            "Effective communication is the foundation of strong relationships. Whether in business or personal life, clear and honest dialogue builds trust and understanding."
+        ];
+
+        var duration = 60;
+        var timeLeft = 60;
+        var timer = null;
+        var started = false;
+        var currentText = '';
+        var currentIndex = 0;
+        var correctChars = 0;
+        var totalChars = 0;
+
+        function setDuration(seconds) {
+            duration = seconds;
+            timeLeft = seconds;
+            document.querySelectorAll('.duration-tab').forEach(function(tab) {
+                tab.classList.remove('active');
+                if (tab.textContent.includes(seconds === 30 ? '30' : seconds === 60 ? '1 min' : '2 min')) {
+                    tab.classList.add('active');
+                }
+            });
+            restart();
+        }
+
+        function formatTime(seconds) {
+            var m = Math.floor(seconds / 60);
+            var s = seconds % 60;
+            return m + ':' + String(s).padStart(2, '0');
+        }
+
+        function selectText() {
+            currentText = texts[Math.floor(Math.random() * texts.length)];
+            if (duration >= 120) {
+                currentText += ' ' + texts[Math.floor(Math.random() * texts.length)];
+            }
+        }
+
+        function renderText() {
+            var display = document.getElementById('textDisplay');
+            var html = '';
+
+            for (var i = 0; i < currentText.length; i++) {
+                var cls = '';
+                if (i < currentIndex) {
+                    cls = document.getElementById('typeInput').value[i] === currentText[i] ? 'correct' : 'incorrect';
+                } else if (i === currentIndex) {
+                    cls = 'current';
+                }
+                html += '<span class="char ' + cls + '">' + currentText[i] + '</span>';
+            }
+
+            display.innerHTML = html;
+        }
+
+        function startTest() {
+            if (started) return;
+            started = true;
+
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').textContent = formatTime(timeLeft);
+
+                if (timeLeft <= 0) {
+                    endTest();
+                }
+            }, 1000);
+        }
+
+        function endTest() {
+            clearInterval(timer);
+            document.getElementById('typeInput').disabled = true;
+
+            var typed = document.getElementById('typeInput').value;
+            totalChars = typed.length;
+            correctChars = 0;
+
+            for (var i = 0; i < typed.length; i++) {
+                if (typed[i] === currentText[i]) correctChars++;
+            }
+
+            var minutes = (duration - timeLeft) / 60 || duration / 60;
+            var wpm = Math.round((correctChars / 5) / minutes);
+            var accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
+
+            document.getElementById('wpmResult').textContent = wpm;
+            document.getElementById('accuracyResult').textContent = accuracy + '%';
+            document.getElementById('charsResult').textContent = correctChars + '/' + totalChars;
+
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function restart() {
+            clearInterval(timer);
+            started = false;
+            timeLeft = duration;
+            currentIndex = 0;
+            correctChars = 0;
+            totalChars = 0;
+
+            document.getElementById('timer').textContent = formatTime(duration);
+            document.getElementById('typeInput').value = '';
+            document.getElementById('typeInput').disabled = false;
+            document.getElementById('results').style.display = 'none';
+
+            selectText();
+            renderText();
+            document.getElementById('typeInput').focus();
+        }
+
+        document.getElementById('typeInput').addEventListener('input', function(e) {
+            if (!started) startTest();
+
+            currentIndex = e.target.value.length;
+            renderText();
+
+            if (currentIndex >= currentText.length) {
+                endTest();
+            }
+        });
+
+        restart();
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4JD4ZCN0G8');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UUID Generator | Digital ABCs</title>
+    <meta name="description" content="Generate random UUIDs (v4) and ULIDs. Bulk generate unique identifiers for databases and applications.">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root { --brand-navy: #1E3A8A; --brand-purple: #5B21B6; --brand-green: #065F46; }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tool-hero { background: linear-gradient(135deg, #5B21B6 0%, #065F46 100%); color: white; padding: 4rem 0; text-align: center; }
+        .tool-hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .tool-hero p { font-size: 1.15rem; color: #E0E7FF; max-width: 600px; margin: 0 auto; }
+        .status-badge { display: inline-block; background: white; color: var(--brand-purple); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .tool-section { padding: 3rem 0; }
+        .tool-card { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #E5E7EB; max-width: 700px; margin: 0 auto; }
+        .uuid-display { background: #1F2937; border-radius: 12px; padding: 2rem; text-align: center; margin-bottom: 1.5rem; }
+        .uuid-display .uuid { font-family: 'Roboto Mono', monospace; font-size: 1.5rem; color: #10B981; word-break: break-all; margin-bottom: 1rem; }
+        .uuid-display .label { color: #9CA3AF; font-size: 0.85rem; }
+        .action-buttons { display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .action-buttons button { padding: 12px 24px; font-size: 0.95rem; font-weight: 600; border-radius: 8px; cursor: pointer; border: none; }
+        .btn-generate { background: var(--brand-purple); color: white; }
+        .btn-generate:hover { background: #6D28D9; }
+        .btn-copy { background: var(--brand-green); color: white; }
+        .btn-copy:hover { background: #064E3B; }
+        .btn-secondary { background: #E5E7EB; color: #374151; }
+        .btn-secondary:hover { background: #D1D5DB; }
+        .options-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; align-items: center; justify-content: center; }
+        .option-group { display: flex; align-items: center; gap: 0.5rem; }
+        .option-group label { font-weight: 500; color: #374151; }
+        .option-group select, .option-group input { padding: 8px 12px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.9rem; }
+        .format-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; justify-content: center; }
+        .format-tabs button { padding: 10px 20px; border: 2px solid #E5E7EB; background: white; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .format-tabs button:hover { background: #F9FAFB; }
+        .format-tabs button.active { border-color: var(--brand-purple); background: #EDE9FE; color: var(--brand-purple); }
+        .bulk-section { border-top: 2px solid #E5E7EB; padding-top: 2rem; margin-top: 2rem; }
+        .bulk-section h3 { color: var(--brand-navy); margin: 0 0 1rem 0; text-align: center; }
+        .bulk-results { background: #F9FAFB; border-radius: 8px; padding: 1rem; max-height: 300px; overflow-y: auto; }
+        .bulk-results .uuid-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem; border-bottom: 1px solid #E5E7EB; font-family: 'Roboto Mono', monospace; font-size: 0.85rem; }
+        .bulk-results .uuid-item:last-child { border-bottom: none; }
+        .bulk-results .uuid-item button { padding: 4px 10px; font-size: 0.75rem; background: var(--brand-green); color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .toolbar { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+        .toolbar button { padding: 8px 16px; border: 1px solid #D1D5DB; background: white; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+        .toolbar button:hover { background: #F3F4F6; }
+        .pro-banner { margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%); border-radius: 12px; text-align: center; color: white; }
+        .pro-banner h3 { margin: 0 0 0.5rem 0; }
+        .pro-banner p { margin: 0 0 1rem 0; opacity: 0.9; }
+        .pro-banner a { display: inline-block; padding: 10px 24px; background: white; color: var(--brand-navy); border-radius: 6px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 2rem; } .uuid-display .uuid { font-size: 1rem; } .action-buttons { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img"></a><nav class="main-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../apps.html" class="active">Apps We've Built</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../portal.html" class="btn-login">Client Login</a></li></ul></nav></div></header>
+    <main id="main-content">
+        <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>UUID Generator</h1><p>Generate random UUIDs (v4) and ULIDs for databases, APIs, and applications.</p></div></section>
+        <section class="tool-section"><div class="container"><div class="tool-card">
+            <div class="format-tabs">
+                <button class="active" onclick="setFormat('uuid')">UUID v4</button>
+                <button onclick="setFormat('ulid')">ULID</button>
+                <button onclick="setFormat('short')">Short ID</button>
+            </div>
+            <div class="uuid-display">
+                <div class="uuid" id="currentUuid">550e8400-e29b-41d4-a716-446655440000</div>
+                <div class="label" id="formatLabel">UUID v4 (RFC 4122)</div>
+            </div>
+            <div class="options-row">
+                <div class="option-group">
+                    <label>Case:</label>
+                    <select id="caseOption" onchange="regenerate()">
+                        <option value="lower">lowercase</option>
+                        <option value="upper">UPPERCASE</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Hyphens:</label>
+                    <select id="hyphenOption" onchange="regenerate()">
+                        <option value="yes">With hyphens</option>
+                        <option value="no">Without hyphens</option>
+                    </select>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn-generate" onclick="regenerate()">Generate New</button>
+                <button class="btn-copy" onclick="copyUuid()">Copy to Clipboard</button>
+            </div>
+            <div class="bulk-section">
+                <h3>Bulk Generate</h3>
+                <div class="options-row">
+                    <div class="option-group">
+                        <label>Count:</label>
+                        <input type="number" id="bulkCount" value="10" min="1" max="100" style="width:70px;">
+                    </div>
+                    <button class="btn-generate" onclick="bulkGenerate()">Generate Bulk</button>
+                </div>
+                <div class="bulk-results" id="bulkResults" style="display:none;"></div>
+                <div class="toolbar" id="bulkToolbar" style="display:none;">
+                    <button onclick="copyAll()">Copy All</button>
+                    <button onclick="downloadAll()">Download TXT</button>
+                    <button onclick="downloadCSV()">Download CSV</button>
+                </div>
+            </div>
+            <div class="pro-banner"><h3>UUID Management</h3><p>Namespace UUIDs (v3/v5), validation, and API integration.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
+        </div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Digital ABCs</h4><p>Finding workflow bottlenecks and building the apps that fix them.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="../services.html">Services</a></li><li><a href="../apps.html">Apps</a></li><li><a href="../about.html">About</a></li><li><a href="../insights.php">Insights</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../terms.html">Terms of Service</a></li><li><a href="../ai_transparency.html">AI Transparency</a></li></ul></div><div class="footer-col"><h4>Connect</h4><p><a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>Toongabbie, NSW, Australia</p></div></div><div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;"><p>&copy; 2025 Digital ABCs. All rights reserved.</p></div></div></footer>
+    <script>
+        var currentFormat = 'uuid';
+        var bulkUuids = [];
+        function setFormat(format) {
+            currentFormat = format;
+            document.querySelectorAll('.format-tabs button').forEach(function(btn) { btn.classList.remove('active'); });
+            event.target.classList.add('active');
+            var labels = { uuid: 'UUID v4 (RFC 4122)', ulid: 'ULID (Universally Unique Lexicographically Sortable)', short: 'Short ID (URL-safe)' };
+            document.getElementById('formatLabel').textContent = labels[format];
+            regenerate();
+        }
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+        function generateULID() {
+            var ENCODING = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
+            var now = Date.now();
+            var timeStr = '';
+            for (var i = 0; i < 10; i++) { timeStr = ENCODING[now % 32] + timeStr; now = Math.floor(now / 32); }
+            var randomStr = '';
+            for (var j = 0; j < 16; j++) { randomStr += ENCODING[Math.floor(Math.random() * 32)]; }
+            return timeStr + randomStr;
+        }
+        function generateShortId() {
+            var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var id = '';
+            for (var i = 0; i < 12; i++) { id += chars.charAt(Math.floor(Math.random() * chars.length)); }
+            return id;
+        }
+        function generate() {
+            var id;
+            if (currentFormat === 'uuid') id = generateUUID();
+            else if (currentFormat === 'ulid') id = generateULID();
+            else id = generateShortId();
+            var caseOpt = document.getElementById('caseOption').value;
+            var hyphenOpt = document.getElementById('hyphenOption').value;
+            if (hyphenOpt === 'no' && currentFormat === 'uuid') id = id.replace(/-/g, '');
+            if (caseOpt === 'upper') id = id.toUpperCase();
+            else id = id.toLowerCase();
+            return id;
+        }
+        function regenerate() {
+            document.getElementById('currentUuid').textContent = generate();
+        }
+        function copyUuid() {
+            var uuid = document.getElementById('currentUuid').textContent;
+            navigator.clipboard.writeText(uuid);
+            event.target.textContent = 'Copied!';
+            setTimeout(function() { event.target.textContent = 'Copy to Clipboard'; }, 1500);
+        }
+        function bulkGenerate() {
+            var count = parseInt(document.getElementById('bulkCount').value) || 10;
+            count = Math.min(Math.max(count, 1), 100);
+            bulkUuids = [];
+            for (var i = 0; i < count; i++) { bulkUuids.push(generate()); }
+            var html = bulkUuids.map(function(uuid, idx) {
+                return '<div class="uuid-item"><span>' + uuid + '</span><button onclick="copySingle(' + idx + ')">Copy</button></div>';
+            }).join('');
+            document.getElementById('bulkResults').innerHTML = html;
+            document.getElementById('bulkResults').style.display = 'block';
+            document.getElementById('bulkToolbar').style.display = 'flex';
+        }
+        function copySingle(idx) {
+            navigator.clipboard.writeText(bulkUuids[idx]);
+        }
+        function copyAll() {
+            navigator.clipboard.writeText(bulkUuids.join('\n'));
+            event.target.textContent = 'Copied!';
+            setTimeout(function() { event.target.textContent = 'Copy All'; }, 1500);
+        }
+        function downloadAll() {
+            var blob = new Blob([bulkUuids.join('\n')], {type: 'text/plain'});
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'uuids.txt';
+            a.click();
+        }
+        function downloadCSV() {
+            var csv = 'id\n' + bulkUuids.join('\n');
+            var blob = new Blob([csv], {type: 'text/csv'});
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'uuids.csv';
+            a.click();
+        }
+        regenerate();
+    </script>
+</body>
+</html>
