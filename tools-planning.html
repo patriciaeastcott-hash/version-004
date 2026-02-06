@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning & Decision Tools | Digital ABCs</title>
+    <meta name="description" content="Free planning and decision-making tools. Event budgets, random pickers, moving calculators and more. No sign-up required.">
+    <meta property="og:title" content="Planning & Decision Tools | Digital ABCs">
+    <meta property="og:description" content="Free planning and decision-making tools for life's big choices.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+    <link rel="canonical" href="https://digitalabcs.com.au/tools-planning">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-purple: #5B21B6;
+            --brand-green: #065F46;
+            --brand-light: #F3F4F6;
+            --accent: #DC2626;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tools-hero {
+            background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tools-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .tools-hero p { font-size: 1.1rem; color: #FECACA; max-width: 600px; margin: 0 auto; }
+        .breadcrumb { padding: 1rem 0; background: white; border-bottom: 1px solid #E5E7EB; }
+        .breadcrumb a { color: var(--brand-purple); text-decoration: none; }
+        .breadcrumb span { color: #6B7280; }
+        .tools-section { padding: 3rem 0; }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .tool-card {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            border: 1px solid #E5E7EB; transition: all 0.2s ease;
+            display: flex; flex-direction: column;
+        }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--accent); }
+        .tool-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .tool-title { font-size: 1.1rem; font-weight: 600; color: var(--brand-navy); margin-bottom: 0.5rem; }
+        .tool-desc { color: #6B7280; font-size: 0.9rem; line-height: 1.5; flex-grow: 1; margin-bottom: 1rem; }
+        .tool-link {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 10px 20px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 0.9rem; text-align: center; transition: background 0.2s;
+        }
+        .tool-link:hover { background: #B91C1C; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--brand-purple); text-decoration: none; font-weight: 500; margin-bottom: 2rem; }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .tools-hero h1 { font-size: 1.75rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="apps.html">Apps</a> <span>&rsaquo; Planning & Decision Tools</span>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <section class="tools-hero">
+            <div class="container">
+                <h1>Planning & Decision Tools</h1>
+                <p>Free tools for planning events, making decisions, and life's big moments.</p>
+            </div>
+        </section>
+
+        <section class="tools-section">
+            <div class="container">
+                <a href="apps.html" class="back-link">&larr; Back to All Tools</a>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <span class="tool-icon">🎉</span>
+                        <h3 class="tool-title">Event Budget Planner</h3>
+                        <p class="tool-desc">Plan event budgets by category with tracking.</p>
+                        <a href="apps/event-budget.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🎲</span>
+                        <h3 class="tool-title">Decision Maker</h3>
+                        <p class="tool-desc">Random picker, yes/no, and spin wheel for decisions.</p>
+                        <a href="apps/decision-maker.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🚚</span>
+                        <h3 class="tool-title">Moving Cost Calculator</h3>
+                        <p class="tool-desc">Estimate moving costs based on distance and services.</p>
+                        <a href="apps/moving-cost.html" class="tool-link">Use Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

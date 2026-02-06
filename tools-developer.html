@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Tools | Digital ABCs</title>
+    <meta name="description" content="Free developer tools. JSON formatter, Base64 encoder, hash generator, regex tester, color converters and more. No sign-up required.">
+    <meta property="og:title" content="Developer Tools | Digital ABCs">
+    <meta property="og:description" content="Free developer tools for coding, formatting, encoding and generating.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+    <link rel="canonical" href="https://digitalabcs.com.au/tools-developer">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-purple: #5B21B6;
+            --brand-green: #065F46;
+            --brand-light: #F3F4F6;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tools-hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tools-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .tools-hero p { font-size: 1.1rem; color: #BFDBFE; max-width: 600px; margin: 0 auto; }
+        .breadcrumb { padding: 1rem 0; background: white; border-bottom: 1px solid #E5E7EB; }
+        .breadcrumb a { color: var(--brand-purple); text-decoration: none; }
+        .breadcrumb span { color: #6B7280; }
+        .tools-section { padding: 3rem 0; }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .tool-card {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            border: 1px solid #E5E7EB; transition: all 0.2s ease;
+            display: flex; flex-direction: column;
+        }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--brand-navy); }
+        .tool-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .tool-title { font-size: 1.1rem; font-weight: 600; color: var(--brand-navy); margin-bottom: 0.5rem; }
+        .tool-desc { color: #6B7280; font-size: 0.9rem; line-height: 1.5; flex-grow: 1; margin-bottom: 1rem; }
+        .tool-link {
+            display: inline-block; background: var(--brand-navy); color: white;
+            padding: 10px 20px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 0.9rem; text-align: center; transition: background 0.2s;
+        }
+        .tool-link:hover { background: #1E40AF; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--brand-purple); text-decoration: none; font-weight: 500; margin-bottom: 2rem; }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .tools-hero h1 { font-size: 1.75rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="apps.html">Apps</a> <span>&rsaquo; Developer Tools</span>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <section class="tools-hero">
+            <div class="container">
+                <h1>Developer Tools</h1>
+                <p>Free tools for developers. Format, encode, generate, and test without leaving your browser.</p>
+            </div>
+        </section>
+
+        <section class="tools-section">
+            <div class="container">
+                <a href="apps.html" class="back-link">&larr; Back to All Tools</a>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <span class="tool-icon">🔐</span>
+                        <h3 class="tool-title">Password Generator</h3>
+                        <p class="tool-desc">Generate secure passwords with customizable options.</p>
+                        <a href="apps/password-generator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">{ }</span>
+                        <h3 class="tool-title">JSON Formatter</h3>
+                        <p class="tool-desc">Format, validate, and beautify JSON with syntax highlighting.</p>
+                        <a href="apps/json-formatter.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🔤</span>
+                        <h3 class="tool-title">Base64 Encoder</h3>
+                        <p class="tool-desc">Encode and decode text and files to Base64.</p>
+                        <a href="apps/base64-encoder.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">#️⃣</span>
+                        <h3 class="tool-title">Hash Generator</h3>
+                        <p class="tool-desc">Generate MD5, SHA-1, SHA-256, SHA-512 hashes.</p>
+                        <a href="apps/hash-generator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🆔</span>
+                        <h3 class="tool-title">UUID Generator</h3>
+                        <p class="tool-desc">Generate UUIDs, ULIDs, and short IDs in bulk.</p>
+                        <a href="apps/uuid-generator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🔍</span>
+                        <h3 class="tool-title">Regex Tester</h3>
+                        <p class="tool-desc">Test regular expressions with live matching and highlighting.</p>
+                        <a href="apps/regex-tester.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">📄</span>
+                        <h3 class="tool-title">Lorem Ipsum Generator</h3>
+                        <p class="tool-desc">Generate placeholder text in various styles and formats.</p>
+                        <a href="apps/lorem-ipsum.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🎨</span>
+                        <h3 class="tool-title">Color Converter</h3>
+                        <p class="tool-desc">Convert between HEX, RGB, HSL with color harmonies.</p>
+                        <a href="apps/color-converter.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🌈</span>
+                        <h3 class="tool-title">Gradient Generator</h3>
+                        <p class="tool-desc">Create CSS linear, radial, and conic gradients.</p>
+                        <a href="apps/gradient-generator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🔲</span>
+                        <h3 class="tool-title">Box Shadow Generator</h3>
+                        <p class="tool-desc">Design CSS box shadows with multiple layers visually.</p>
+                        <a href="apps/box-shadow.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🏷️</span>
+                        <h3 class="tool-title">Meta Tag Generator</h3>
+                        <p class="tool-desc">Generate SEO meta tags with social media previews.</p>
+                        <a href="apps/meta-tag-generator.html" class="tool-link">Use Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
