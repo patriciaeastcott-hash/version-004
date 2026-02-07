@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance & Money Tools | Digital ABCs</title>
+    <meta name="description" content="Free financial calculators and money tools. Loan, mortgage, tax, currency converters and more. No sign-up required.">
+    <meta property="og:title" content="Finance & Money Tools | Digital ABCs">
+    <meta property="og:description" content="Free financial calculators and money tools for budgeting, loans, taxes and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+    <link rel="canonical" href="https://digitalabcs.com.au/tools-finance">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-purple: #5B21B6;
+            --brand-green: #065F46;
+            --brand-light: #F3F4F6;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tools-hero {
+            background: linear-gradient(135deg, #065F46 0%, #1E3A8A 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tools-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .tools-hero p { font-size: 1.1rem; color: #D1FAE5; max-width: 600px; margin: 0 auto; }
+        .breadcrumb { padding: 1rem 0; background: white; border-bottom: 1px solid #E5E7EB; }
+        .breadcrumb a { color: var(--brand-purple); text-decoration: none; }
+        .breadcrumb span { color: #6B7280; }
+        .tools-section { padding: 3rem 0; }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .tool-card {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            border: 1px solid #E5E7EB; transition: all 0.2s ease;
+            display: flex; flex-direction: column;
+        }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--brand-green); }
+        .tool-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .tool-title { font-size: 1.1rem; font-weight: 600; color: var(--brand-navy); margin-bottom: 0.5rem; }
+        .tool-desc { color: #6B7280; font-size: 0.9rem; line-height: 1.5; flex-grow: 1; margin-bottom: 1rem; }
+        .tool-link {
+            display: inline-block; background: var(--brand-green); color: white;
+            padding: 10px 20px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 0.9rem; text-align: center; transition: background 0.2s;
+        }
+        .tool-link:hover { background: #064E3B; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--brand-purple); text-decoration: none; font-weight: 500; margin-bottom: 2rem; }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .tools-hero h1 { font-size: 1.75rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="apps.html">Apps</a> <span>&rsaquo; Finance & Money Tools</span>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <section class="tools-hero">
+            <div class="container">
+                <h1>Finance & Money Tools</h1>
+                <p>Free calculators for loans, mortgages, taxes, and managing your money.</p>
+            </div>
+        </section>
+
+        <section class="tools-section">
+            <div class="container">
+                <a href="apps.html" class="back-link">&larr; Back to All Tools</a>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <span class="tool-icon">🏦</span>
+                        <h3 class="tool-title">Loan Calculator</h3>
+                        <p class="tool-desc">Calculate loan payments, interest, and amortization schedules.</p>
+                        <a href="apps/loan-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">📊</span>
+                        <h3 class="tool-title">Compound Interest Calculator</h3>
+                        <p class="tool-desc">Calculate compound interest growth for investments over time.</p>
+                        <a href="apps/compound-interest.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🏠</span>
+                        <h3 class="tool-title">Mortgage Calculator</h3>
+                        <p class="tool-desc">Calculate mortgage payments and compare loan options.</p>
+                        <a href="apps/mortgage-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🎯</span>
+                        <h3 class="tool-title">Savings Goal Calculator</h3>
+                        <p class="tool-desc">Plan how to reach your savings goals with monthly targets.</p>
+                        <a href="apps/savings-goal.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">💱</span>
+                        <h3 class="tool-title">Currency Converter</h3>
+                        <p class="tool-desc">Convert between 30+ world currencies with live rates.</p>
+                        <a href="apps/currency-converter.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🧾</span>
+                        <h3 class="tool-title">Expense Splitter</h3>
+                        <p class="tool-desc">Split bills and expenses fairly between groups.</p>
+                        <a href="apps/expense-splitter.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">📉</span>
+                        <h3 class="tool-title">Break-Even Calculator</h3>
+                        <p class="tool-desc">Find your break-even point for products and services.</p>
+                        <a href="apps/break-even.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🧮</span>
+                        <h3 class="tool-title">Tax Calculator</h3>
+                        <p class="tool-desc">Estimate Australian income tax for FY 2024-25.</p>
+                        <a href="apps/tax-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🧾</span>
+                        <h3 class="tool-title">Invoice Generator</h3>
+                        <p class="tool-desc">Create professional invoices and download as PDF.</p>
+                        <a href="apps/invoice-generator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">💹</span>
+                        <h3 class="tool-title">Markup Calculator</h3>
+                        <p class="tool-desc">Calculate profit margins and markups for pricing.</p>
+                        <a href="apps/markup-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">💳</span>
+                        <h3 class="tool-title">Tip Calculator</h3>
+                        <p class="tool-desc">Calculate tips and split bills between people easily.</p>
+                        <a href="apps/tip-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🏷️</span>
+                        <h3 class="tool-title">Discount Calculator</h3>
+                        <p class="tool-desc">Calculate sale prices, savings, and compare deals.</p>
+                        <a href="apps/discount-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

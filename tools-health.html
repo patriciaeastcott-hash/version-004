@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health & Lifestyle Tools | Digital ABCs</title>
+    <meta name="description" content="Free health and lifestyle calculators. BMI, calories, water intake, sleep, workout timers and more. No sign-up required.">
+    <meta property="og:title" content="Health & Lifestyle Tools | Digital ABCs">
+    <meta property="og:description" content="Free health and lifestyle calculators for wellness and fitness.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+    <link rel="canonical" href="https://digitalabcs.com.au/tools-health">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-purple: #5B21B6;
+            --brand-green: #065F46;
+            --brand-light: #F3F4F6;
+            --accent: #059669;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1F2937; }
+        .tools-hero {
+            background: linear-gradient(135deg, #059669 0%, #065F46 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .tools-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .tools-hero p { font-size: 1.1rem; color: #D1FAE5; max-width: 600px; margin: 0 auto; }
+        .breadcrumb { padding: 1rem 0; background: white; border-bottom: 1px solid #E5E7EB; }
+        .breadcrumb a { color: var(--brand-purple); text-decoration: none; }
+        .breadcrumb span { color: #6B7280; }
+        .tools-section { padding: 3rem 0; }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .tool-card {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            border: 1px solid #E5E7EB; transition: all 0.2s ease;
+            display: flex; flex-direction: column;
+        }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--accent); }
+        .tool-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .tool-title { font-size: 1.1rem; font-weight: 600; color: var(--brand-navy); margin-bottom: 0.5rem; }
+        .tool-desc { color: #6B7280; font-size: 0.9rem; line-height: 1.5; flex-grow: 1; margin-bottom: 1rem; }
+        .tool-link {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 10px 20px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 0.9rem; text-align: center; transition: background 0.2s;
+        }
+        .tool-link:hover { background: #047857; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--brand-purple); text-decoration: none; font-weight: 500; margin-bottom: 2rem; }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .tools-hero h1 { font-size: 1.75rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="apps.html">Apps</a> <span>&rsaquo; Health & Lifestyle Tools</span>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <section class="tools-hero">
+            <div class="container">
+                <h1>Health & Lifestyle Tools</h1>
+                <p>Free tools for health, fitness, and everyday life.</p>
+            </div>
+        </section>
+
+        <section class="tools-section">
+            <div class="container">
+                <a href="apps.html" class="back-link">&larr; Back to All Tools</a>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <span class="tool-icon">⚖️</span>
+                        <h3 class="tool-title">BMI Calculator</h3>
+                        <p class="tool-desc">Calculate Body Mass Index with health category guidance.</p>
+                        <a href="apps/bmi-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🔥</span>
+                        <h3 class="tool-title">Calorie Calculator</h3>
+                        <p class="tool-desc">Calculate daily calorie needs based on your goals.</p>
+                        <a href="apps/calorie-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">💧</span>
+                        <h3 class="tool-title">Water Intake Calculator</h3>
+                        <p class="tool-desc">Calculate daily water needs and track your intake.</p>
+                        <a href="apps/water-intake.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">😴</span>
+                        <h3 class="tool-title">Sleep Calculator</h3>
+                        <p class="tool-desc">Find optimal sleep and wake times based on sleep cycles.</p>
+                        <a href="apps/sleep-calculator.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🏋️</span>
+                        <h3 class="tool-title">Workout Timer</h3>
+                        <p class="tool-desc">HIIT and interval training timer with custom workouts.</p>
+                        <a href="apps/workout-timer.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🍳</span>
+                        <h3 class="tool-title">Recipe Scaler</h3>
+                        <p class="tool-desc">Scale recipe ingredients up or down for any serving size.</p>
+                        <a href="apps/recipe-scaler.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🐕</span>
+                        <h3 class="tool-title">Pet Age Calculator</h3>
+                        <p class="tool-desc">Convert pet age to human years for dogs and cats.</p>
+                        <a href="apps/pet-age.html" class="tool-link">Use Now</a>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">👶</span>
+                        <h3 class="tool-title">Due Date Calculator</h3>
+                        <p class="tool-desc">Calculate pregnancy due date and track milestones.</p>
+                        <a href="apps/due-date.html" class="tool-link">Use Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Digital ABCs</h4>
+                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="insights.php">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
