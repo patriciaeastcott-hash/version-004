@@ -55,16 +55,16 @@
         </section>
         <section class="contact-tabs section-padding">
             <div class="container">
-                <div class="tabs-container">
-                    <button class="tab-btn active" data-tab="business">Business Inquiry</button>
-                    <button class="tab-btn" data-tab="app-support">App Support</button>
+                <div class="tabs-container" role="tablist" aria-label="Contact options">
+                    <button class="tab-btn active" data-tab="business" role="tab" aria-selected="true" aria-controls="business-tab" id="tab-business">Business Inquiry</button>
+                    <button class="tab-btn" data-tab="app-support" role="tab" aria-selected="false" aria-controls="app-support-tab" id="tab-app-support">App Support</button>
                 </div>
             </div>
         </section>
         <section class="contact-section section-padding">
             <div class="container contact-container">
                 <!-- Business Inquiry Tab -->
-                <div id="business-tab" class="tab-content active">
+                <div id="business-tab" class="tab-content active" role="tabpanel" aria-labelledby="tab-business">
                     <div class="contact-form">
                         <h2 class="section-title-left">Book Your Free Call</h2>
                         <p>Tell me about your workflow problem, and we'll schedule a 15-minute call to see if I can help.</p>
@@ -92,7 +92,7 @@
                 </div>
 
                 <!-- App Support Tab -->
-                <div id="app-support-tab" class="tab-content">
+                <div id="app-support-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-app-support">
                     <div class="app-support-container">
                         <h2 class="section-title-left">Mobile App Support</h2>
                         <p class="lead-text">Having trouble with our mobile apps? We're here to help! Check out our resources or get in touch with our support team.</p>

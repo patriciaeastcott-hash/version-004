@@ -59,37 +59,40 @@
         <section class="tool-hero"><div class="container"><span class="status-badge">Free Tool</span><h1>Hash Generator</h1><p>Generate MD5, SHA-1, SHA-256, and SHA-512 cryptographic hashes from any text.</p></div></section>
         <section class="tool-section"><div class="container"><div class="tool-card">
             <div class="input-group">
-                <label>Enter Text to Hash</label>
-                <textarea id="inputText" placeholder="Type or paste your text here..." oninput="generateHashes()"></textarea>
+                <label for="inputText">Enter Text to Hash</label>
+                <textarea id="inputText" placeholder="Type or paste your text here..." oninput="generateHashes()" aria-describedby="hashHelp"></textarea>
+                <span id="hashHelp" class="sr-only">Enter any text to generate cryptographic hashes</span>
             </div>
             <button class="generate-btn" onclick="generateHashes()">Generate All Hashes</button>
             <div class="hash-results">
                 <div class="hash-item">
                     <div class="hash-header"><span class="hash-label">MD5</span><span class="hash-length">32 characters</span></div>
-                    <div class="hash-value"><input type="text" id="md5Hash" readonly><button onclick="copyHash('md5Hash')">Copy</button></div>
+                    <div class="hash-value"><input type="text" id="md5Hash" readonly aria-label="MD5 hash result"><button onclick="copyHash('md5Hash')" aria-label="Copy MD5 hash">Copy</button></div>
                 </div>
                 <div class="hash-item">
                     <div class="hash-header"><span class="hash-label">SHA-1</span><span class="hash-length">40 characters</span></div>
-                    <div class="hash-value"><input type="text" id="sha1Hash" readonly><button onclick="copyHash('sha1Hash')">Copy</button></div>
+                    <div class="hash-value"><input type="text" id="sha1Hash" readonly aria-label="SHA-1 hash result"><button onclick="copyHash('sha1Hash')" aria-label="Copy SHA-1 hash">Copy</button></div>
                 </div>
                 <div class="hash-item">
                     <div class="hash-header"><span class="hash-label">SHA-256</span><span class="hash-length">64 characters</span></div>
-                    <div class="hash-value"><input type="text" id="sha256Hash" readonly><button onclick="copyHash('sha256Hash')">Copy</button></div>
+                    <div class="hash-value"><input type="text" id="sha256Hash" readonly aria-label="SHA-256 hash result"><button onclick="copyHash('sha256Hash')" aria-label="Copy SHA-256 hash">Copy</button></div>
                 </div>
                 <div class="hash-item">
                     <div class="hash-header"><span class="hash-label">SHA-512</span><span class="hash-length">128 characters</span></div>
-                    <div class="hash-value"><input type="text" id="sha512Hash" readonly><button onclick="copyHash('sha512Hash')">Copy</button></div>
+                    <div class="hash-value"><input type="text" id="sha512Hash" readonly aria-label="SHA-512 hash result"><button onclick="copyHash('sha512Hash')" aria-label="Copy SHA-512 hash">Copy</button></div>
                 </div>
             </div>
-            <div class="compare-section">
-                <h3>Compare Hashes</h3>
+            <div class="compare-section" role="region" aria-labelledby="compare-heading">
+                <h3 id="compare-heading">Compare Hashes</h3>
                 <div class="compare-row">
-                    <input type="text" id="hash1" placeholder="First hash...">
-                    <span style="color:#6B7280;">vs</span>
-                    <input type="text" id="hash2" placeholder="Second hash...">
-                    <button class="compare-btn" onclick="compareHashes()">Compare</button>
+                    <label for="hash1" class="sr-only">First hash to compare</label>
+                    <input type="text" id="hash1" placeholder="First hash..." aria-label="First hash to compare">
+                    <span style="color:#6B7280;" aria-hidden="true">vs</span>
+                    <label for="hash2" class="sr-only">Second hash to compare</label>
+                    <input type="text" id="hash2" placeholder="Second hash..." aria-label="Second hash to compare">
+                    <button class="compare-btn" onclick="compareHashes()" aria-describedby="compareResult">Compare</button>
                 </div>
-                <div class="compare-result" id="compareResult" style="display:none;"></div>
+                <div class="compare-result" id="compareResult" style="display:none;" role="status" aria-live="polite"></div>
             </div>
             <div class="pro-banner"><h3>File Hash Verification</h3><p>Hash files, checksum verification, and batch processing.</p><a href="https://buy.stripe.com/4gw7vT5SG1OPdZSaEE">Upgrade to Pro - $6.99</a></div>
         </div></div></section>
