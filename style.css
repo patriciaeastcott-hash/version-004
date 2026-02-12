@@ -121,6 +121,40 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     color: var(--color-white);
 }
 
+/* WCAG: Ensure links in text are distinguishable */
+main a:not(.btn):not(.app-link):not(.decoder-btn):not(.tool-link) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+/* WCAG: Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* WCAG: High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn, .app-link, .decoder-btn {
+        border: 2px solid currentColor;
+    }
+}
+
+/* WCAG: Form validation styles */
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--color-red-error);
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+    border-color: var(--color-green-cta);
+}
+
 
 /* 3. Header & Navigation */
 .site-header {
