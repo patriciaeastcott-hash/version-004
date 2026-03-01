@@ -12,9 +12,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apps | Digital ABCs</title>
-    <meta name="description" content="Self-quantification apps and free utility tools from Digital ABCs. Track patterns, gain insights, and understand yourself better.">
+    <meta name="description" content="Self-quantification apps from Digital ABCs. Linguistic Decoder, Mood Tracker, Decision Journal — plus 50+ free utility tools.">
     <meta property="og:title" content="Apps | Digital ABCs">
-    <meta property="og:description" content="Self-quantification apps that grow more valuable over time. Plus 50+ free utility tools.">
+    <meta property="og:description" content="Self-quantification apps that grow more valuable over time. Track patterns, gain insights, understand yourself.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
 
@@ -32,41 +32,13 @@
             text-align: center;
         }
 
-        .apps-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
+        .apps-hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+        .apps-hero p { font-size: 1.2rem; color: #E0E7FF; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
-        .apps-hero p {
-            font-size: 1.2rem;
-            color: #E0E7FF;
-            max-width: 650px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .apps-section {
-            padding: 4rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.75rem;
-            color: #1E3A8A;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: #4B5563;
-            font-size: 1.05rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .apps-section { padding: 4rem 0; }
+        .section-header { text-align: center; margin-bottom: 2.5rem; }
+        .section-header h2 { font-size: 1.75rem; color: #1E3A8A; margin-bottom: 0.5rem; }
+        .section-header p { color: #4B5563; font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
 
         .apps-grid {
             display: grid;
@@ -110,44 +82,13 @@
             letter-spacing: 0.5px;
         }
 
-        .app-badge.beta {
-            background: #D1FAE5;
-            color: #065F46;
-        }
+        .app-badge.beta { background: #D1FAE5; color: #065F46; }
+        .app-badge.coming { background: #FEF3C7; color: #78350F; }
+        .app-badge.dev { background: #E5E7EB; color: #4B5563; }
 
-        .app-badge.coming {
-            background: #FEF3C7;
-            color: #78350F;
-        }
-
-        .app-badge.dev {
-            background: #FED7AA;
-            color: #9A3412;
-        }
-
-        .app-badge.available {
-            background: #EDE9FE;
-            color: #5B21B6;
-        }
-
-        .app-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .app-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #1E3A8A;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-desc {
-            color: #4B5563;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
+        .app-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .app-title { font-size: 1.35rem; font-weight: 700; color: #1E3A8A; margin-bottom: 0.5rem; }
+        .app-desc { color: #4B5563; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1; }
 
         .app-problem {
             background: #F9FAFB;
@@ -179,14 +120,59 @@
             text-align: center;
         }
 
-        .app-link:hover {
-            background: #6D28D9;
-            color: white;
+        .app-link:hover { background: #6D28D9; color: white; }
+
+        .secondary-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .secondary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .secondary-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .secondary-card:hover {
+            border-color: #5B21B6;
+            transform: translateY(-2px);
+        }
+
+        .secondary-icon {
+            font-size: 1.5rem;
+            background: #F3F4F6;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .secondary-badge {
+            display: inline-block;
+            background: #E5E7EB;
+            color: #6B7280;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
         }
 
         .tools-section {
-            background: #F9FAFB;
             padding: 4rem 0;
+            background: white;
             border-top: 1px solid #E5E7EB;
         }
 
@@ -230,7 +216,7 @@
         }
 
         .category-card {
-            background: white;
+            background: #F9FAFB;
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid #E5E7EB;
@@ -242,36 +228,17 @@
 
         .category-card:hover {
             border-color: #5B21B6;
+            background: white;
             transform: translateY(-2px);
         }
 
-        .category-card h4 {
-            color: #1E3A8A;
-            margin: 0.5rem 0 0.25rem;
-            font-size: 1rem;
-        }
-
-        .category-card p {
-            color: #6B7280;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .category-card .arrow {
-            color: #5B21B6;
-            font-weight: 600;
-            margin-top: 0.5rem;
-            display: block;
-        }
+        .category-card h4 { color: #1E3A8A; margin: 0.5rem 0 0.25rem; font-size: 1rem; }
+        .category-card p { color: #6B7280; font-size: 0.9rem; margin: 0; }
+        .category-card .arrow { color: #5B21B6; font-weight: 600; margin-top: 0.5rem; display: block; }
 
         @media (max-width: 768px) {
-            .apps-hero h1 {
-                font-size: 2rem;
-            }
-
-            .apps-grid {
-                grid-template-columns: 1fr;
-            }
+            .apps-hero h1 { font-size: 2rem; }
+            .apps-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -308,7 +275,7 @@
         <section class="apps-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Self-quantification apps</h2>
+                    <h2>Self-quantification suite</h2>
                     <p>Our flagship products — designed to reveal patterns that only emerge through consistent tracking.</p>
                 </div>
 
@@ -323,45 +290,71 @@
                             <strong>The problem it solves</strong>
                             Miscommunication costs relationships, time, and sanity. This app gives you tools to understand what's really being said.
                         </div>
-                        <a href="apps/decoder.html" class="app-link">Learn more</a>
+                        <a href="apps/decoder.html" class="app-link">Join beta testing</a>
                     </div>
 
                     <div class="app-card">
                         <span class="app-badge coming">Coming soon</span>
-                        <span class="app-icon">🛡️</span>
-                        <h3 class="app-title">CompliancePulse</h3>
-                        <p class="app-desc">Compliance monitoring meets market intelligence. Continuously scans for ISO/GDPR risks while watching government feeds for grants, tenders, and regulatory changes.</p>
-                        <div class="app-problem">
-                            <strong>The problem it solves</strong>
-                            Small businesses get blindsided by compliance issues and miss opportunities because they can't monitor everything.
-                        </div>
-                        <a href="apps/compliancepulse.html" class="app-link">Learn more</a>
-                    </div>
-
-                    <div class="app-card">
-                        <span class="app-badge dev">In development</span>
                         <span class="app-icon">📊</span>
-                        <h3 class="app-title">Smart Capture Finance</h3>
-                        <p class="app-desc">The "black box" recorder for financial workflows. Watch how you process invoices and payments to identify exactly where time and money are being lost.</p>
+                        <h3 class="app-title">Mood + Energy Tracker</h3>
+                        <p class="app-desc">Discover patterns in your mood and energy you never knew existed. Quick 60-second check-ins reveal correlations that improve your wellbeing.</p>
                         <div class="app-problem">
                             <strong>The problem it solves</strong>
-                            You know your invoicing process is inefficient but can't prove it or find where the bottlenecks are.
+                            You can't improve what you don't measure. After 30 days, see what actually affects your mood and energy.
                         </div>
-                        <a href="apps/smartcapture.html" class="app-link">Learn more</a>
+                        <a href="apps/mood-tracker.html" class="app-link">Learn more</a>
                     </div>
 
                     <div class="app-card">
-                        <span class="app-badge dev">In development</span>
-                        <span class="app-icon">🚚</span>
-                        <h3 class="app-title">BBB Driver</h3>
-                        <p class="app-desc">Route management and delivery tracking built for BBB Logistics drivers. Smarter routes, proof of delivery, and real-time customer updates.</p>
+                        <span class="app-badge coming">Coming soon</span>
+                        <span class="app-icon">📝</span>
+                        <h3 class="app-title">Decision Journal</h3>
+                        <p class="app-desc">Track your decisions and outcomes to improve your judgment over time. Data proves which decision-making strategies actually work for you.</p>
                         <div class="app-problem">
                             <strong>The problem it solves</strong>
-                            Drivers spend too much time on admin that isn't driving. Route planning, customer updates, and paperwork eat into the day.
+                            You think you're a good decision-maker, but can you prove it? Log decisions, track outcomes, and see the data.
                         </div>
-                        <a href="apps/bbbdriver.html" class="app-link">Learn more</a>
+                        <a href="apps/decision-journal.html" class="app-link">Learn more</a>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <section class="secondary-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Other projects</h2>
+                    <p>Secondary projects we're exploring. Development depends on user interest.</p>
+                </div>
+
+                <div class="secondary-grid">
+                    <a href="apps/compliancepulse.html" class="secondary-card">
+                        <div class="secondary-icon">🛡️</div>
+                        <div>
+                            <span class="secondary-badge">Coming soon</span>
+                            <h4 style="margin: 0 0 0.25rem; color: #1E3A8A;">CompliancePulse</h4>
+                            <p style="margin: 0; color: #4B5563; font-size: 0.9rem;">Compliance monitoring meets market intelligence. Scan for risks while watching for grants and regulatory changes.</p>
+                        </div>
+                    </a>
+
+                    <a href="apps/smartcapture.html" class="secondary-card">
+                        <div class="secondary-icon">📊</div>
+                        <div>
+                            <span class="secondary-badge">In development</span>
+                            <h4 style="margin: 0 0 0.25rem; color: #1E3A8A;">Smart Capture Finance</h4>
+                            <p style="margin: 0; color: #4B5563; font-size: 0.9rem;">The "black box" recorder for financial workflows. Find where time and money are being lost.</p>
+                        </div>
+                    </a>
+
+                    <a href="apps/bbbdriver.html" class="secondary-card">
+                        <div class="secondary-icon">🚚</div>
+                        <div>
+                            <span class="secondary-badge">Internal tool</span>
+                            <h4 style="margin: 0 0 0.25rem; color: #1E3A8A;">BBB Driver</h4>
+                            <p style="margin: 0; color: #4B5563; font-size: 0.9rem;">Route management and delivery tracking for BBB Logistics drivers.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -397,42 +390,42 @@
                     <a href="tools-productivity.html" class="category-card" style="border-left: 4px solid #5B21B6;">
                         <span style="font-size: 1.5rem;">📊</span>
                         <h4>Business & productivity</h4>
-                        <p>ROI calculator, timers, habit tracker, task prioritiser, and more. <strong>13 tools</strong></p>
+                        <p>ROI calculator, timers, habit tracker, task prioritiser. <strong>13 tools</strong></p>
                         <span class="arrow">View all &rarr;</span>
                     </a>
 
                     <a href="tools-finance.html" class="category-card" style="border-left: 4px solid #10B981;">
                         <span style="font-size: 1.5rem;">💰</span>
                         <h4>Finance & money</h4>
-                        <p>Loan, mortgage, tax calculators, invoice generator, expense splitter. <strong>12 tools</strong></p>
+                        <p>Loan, mortgage, tax calculators, invoice generator. <strong>12 tools</strong></p>
                         <span class="arrow">View all &rarr;</span>
                     </a>
 
                     <a href="tools-calculators.html" class="category-card" style="border-left: 4px solid #7C3AED;">
                         <span style="font-size: 1.5rem;">🔢</span>
                         <h4>Calculators & converters</h4>
-                        <p>Percentage, age, BMI, unit converter, word counter. <strong>4 tools</strong></p>
+                        <p>Percentage, age, BMI, unit converter. <strong>4 tools</strong></p>
                         <span class="arrow">View all &rarr;</span>
                     </a>
 
                     <a href="tools-developer.html" class="category-card" style="border-left: 4px solid #1E3A8A;">
                         <span style="font-size: 1.5rem;">{ }</span>
                         <h4>Developer tools</h4>
-                        <p>JSON formatter, Base64, hash generator, regex tester, colour tools. <strong>11 tools</strong></p>
+                        <p>JSON formatter, Base64, hash generator, regex. <strong>11 tools</strong></p>
                         <span class="arrow">View all &rarr;</span>
                     </a>
 
                     <a href="tools-health.html" class="category-card" style="border-left: 4px solid #059669;">
                         <span style="font-size: 1.5rem;">💪</span>
                         <h4>Health & lifestyle</h4>
-                        <p>BMI, calorie, water intake, sleep calculator, workout timer. <strong>8 tools</strong></p>
+                        <p>BMI, calorie, water intake, sleep calculator. <strong>8 tools</strong></p>
                         <span class="arrow">View all &rarr;</span>
                     </a>
 
                     <a href="tools-planning.html" class="category-card" style="border-left: 4px solid #DC2626;">
                         <span style="font-size: 1.5rem;">🎯</span>
                         <h4>Planning & decisions</h4>
-                        <p>Event budget planner, decision maker, moving cost calculator. <strong>3 tools</strong></p>
+                        <p>Event budget planner, decision maker, moving cost. <strong>3 tools</strong></p>
                         <span class="arrow">View all &rarr;</span>
                     </a>
 

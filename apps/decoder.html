@@ -12,259 +12,274 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linguistic Decoder | Digital ABCs</title>
-    <meta name="description" content="Linguistic Decoder - AI-powered app to understand conversations. Decode hidden meanings in work emails, family chats, and relationship conversations.">
+    <meta name="description" content="Understand what people really mean. AI-powered conversation analysis that reveals hidden meanings, emotional tone, and communication patterns over time.">
     <meta property="og:title" content="Linguistic Decoder | Digital ABCs">
-    <meta property="og:description" content="Transform confusing conversations into clarity with AI-powered linguistic analysis.">
+    <meta property="og:description" content="Analyse conversations to reveal patterns, emotions, and insights. Beta testing now open.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
-    <meta property="og:url" content="https://digitalabcs.com.au/apps/decoder">
-    <link rel="canonical" href="https://digitalabcs.com.au/apps/decoder">
-    
+
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 
     <style>
-        :root {
-            --brand-navy: #1E3A8A;
-            --brand-purple: #5B21B6;
-            --brand-green: #065F46;
-            --brand-light: #F3F4F6;
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #F9FAFB; 
-            color: #1F2937; 
-        }
-
-        /* HERO SECTION */
         .decoder-hero {
-            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
-            color: white; 
-            padding: 6rem 0; 
+            background: linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%);
+            color: white;
+            padding: 5rem 0;
             text-align: center;
         }
 
-        .decoder-hero h1 { 
-            font-size: 3rem; 
+        .decoder-hero h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .decoder-hero p {
+            font-size: 1.2rem;
+            color: #E0E7FF;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .beta-badge {
+            display: inline-block;
+            background: #D1FAE5;
+            color: #065F46;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .beta-section {
+            background: linear-gradient(135deg, #065F46 0%, #064E3B 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .beta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            color: #1F2937;
+        }
+
+        .platform-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #1E3A8A;
             margin-bottom: 1rem;
         }
 
-        .decoder-hero p { 
-            font-size: 1.25rem; 
-            color: #E0E7FF; 
-            max-width: 700px; 
-            margin: 0 auto; 
-            line-height: 1.6; 
+        .platform-card .icon {
+            font-size: 2rem;
         }
 
-        /* DECODER SECTION */
-        .decoder-section {
-            padding: 5rem 0;
+        .platform-card .limit {
+            background: #FEF3C7;
+            color: #78350F;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
-        .decoder-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .decoder-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            border: 1px solid #E5E7EB;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .decoder-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: var(--brand-purple);
-        }
-
-        .decoder-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .decoder-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--brand-navy);
-            margin-bottom: 0.75rem;
-        }
-
-        .decoder-desc {
+        .platform-card ol {
+            padding-left: 1.25rem;
             color: #4B5563;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
+            margin: 1.5rem 0;
         }
 
-        .decoder-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
+        .platform-card ol li {
+            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
-        .decoder-features li {
-            margin-bottom: 0.5rem;
-            color: #4B5563;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .decoder-features li::before {
-            content: "✓";
-            color: var(--brand-green);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .decoder-btn {
+        .platform-card a.store-link {
             display: inline-block;
-            background: var(--brand-purple);
+            background: #111827;
             color: white;
-            padding: 12px 28px;
+            padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.2s;
-            text-align: center;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .decoder-btn:hover {
+        .platform-card a.install-btn {
+            display: block;
+            background: #5B21B6;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .platform-card a.install-btn:hover {
             background: #6D28D9;
         }
 
-        .decoder-btn.secondary {
-            background: var(--brand-green);
+        .deadline-banner {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
         }
 
-        .decoder-btn.secondary:hover {
-            background: #064E3B;
+        .deadline-banner p {
+            color: #78350F;
+            margin: 0;
+            font-weight: 600;
         }
 
-        /* USE CASE SECTION */
-        .use-case-section {
+        .promo-box {
             background: white;
             border-radius: 16px;
-            padding: 3rem;
-            margin-top: 4rem;
-        }
-
-        .use-case-title {
-            font-size: 2rem;
-            color: var(--brand-navy);
-            margin-bottom: 2rem;
+            padding: 2rem;
             text-align: center;
+            margin-top: 2rem;
         }
 
-        .use-case-grid {
+        .promo-box h4 {
+            color: #1E3A8A;
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-code {
+            background: #F0FDF4;
+            border: 2px dashed #10B981;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .promo-code span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #065F46;
+            letter-spacing: 4px;
+        }
+
+        .features-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .use-case-item {
-            border-left: 4px solid var(--brand-purple);
-            padding-left: 1.5rem;
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid #5B21B6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
-        .use-case-item h3 {
-            color: var(--brand-navy);
+        .feature-card h3 {
+            color: #1E3A8A;
             margin-bottom: 0.75rem;
-            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .use-case-item p {
+        .feature-card p {
             color: #4B5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card ul {
+            color: #6B7280;
+            font-size: 0.9rem;
+            padding-left: 1.25rem;
+        }
+
+        .feature-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .use-cases-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .use-case-card {
+            padding: 1.5rem;
+            border-left: 4px solid #5B21B6;
+            background: #F9FAFB;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .use-case-card h4 {
+            color: #1E3A8A;
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case-card p {
+            color: #4B5563;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* CTA SECTION */
-        .decoder-cta {
-            background: linear-gradient(135deg, var(--brand-green) 0%, #064E3B 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 16px;
-            margin-top: 4rem;
+        .feedback-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            padding: 4rem 0;
             text-align: center;
         }
 
-        .decoder-cta h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
+        .feedback-section h2 {
             color: white;
-        }
-
-        .decoder-cta p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .decoder-cta .decoder-btn {
-            background: white;
-            color: var(--brand-green);
-            font-weight: 700;
-        }
-
-        .decoder-cta .decoder-btn:hover {
-            background: #F3F4F6;
-        }
-
-        /* FEATURE BOXES */
-        .feature-box {
-            background: linear-gradient(135deg, #F0F9FF 0%, #F5F3FF 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 3rem;
-        }
-
-        .feature-box h3 {
-            color: var(--brand-navy);
             margin-bottom: 1rem;
-            font-size: 1.25rem;
         }
 
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .feature-list li {
-            margin-bottom: 0.75rem;
-            color: #4B5563;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .feature-list li::before {
-            content: "→";
-            color: var(--brand-purple);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
+        .feedback-section p {
+            color: #BFDBFE;
+            max-width: 550px;
+            margin: 0 auto 2rem;
         }
 
         @media (max-width: 768px) {
-            .decoder-hero h1 { 
-                font-size: 2rem; 
+            .beta-grid {
+                grid-template-columns: 1fr;
             }
 
-            .use-case-section {
-                padding: 1.5rem;
+            .decoder-hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -272,7 +287,7 @@
 
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <header class="site-header">
         <div class="container">
             <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
@@ -281,320 +296,145 @@
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="../index.html">Home</a></li>
-                    
                     <li><a href="../apps.html">Apps</a></li>
                     <li><a href="../insights.php">Insights</a></li>
                     <li><a href="../about.html">About</a></li>
                     <li><a href="../contact.html">Contact</a></li>
-                    
                 </ul>
             </nav>
         </div>
     </header>
 
     <main id="main-content">
-        
+
         <section class="decoder-hero">
             <div class="container">
-                <span style="display: inline-block; background: #D1FAE5; color: #065F46; padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">Beta Testing Now Open</span>
+                <span class="beta-badge">Beta testing now open</span>
                 <h1>Linguistic Decoder</h1>
-                <p>Ever felt confused by a text message? Wondered what someone really meant? Use advanced AI to analyse conversations and reveal the hidden meanings behind the words.</p>
+                <p>Understand what people really mean. Analyse conversations to reveal hidden meanings, emotional tone, and communication patterns that only emerge over time.</p>
             </div>
         </section>
 
-        <!-- BETA TESTING SECTION -->
-        <section id="beta-testing" style="background: linear-gradient(135deg, #065F46 0%, #064E3B 100%); color: white; padding: 3rem 0;">
+        <section class="beta-section">
             <div class="container">
-                <div style="display: grid; grid-template-columns: 1fr 320px; gap: 3rem; align-items: start;">
-                    <div>
-                        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: white;">Join the Beta Testing Group</h2>
-                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #D1FAE5;">
-                            Register to get your promo code for full access to all features. Help us refine the Linguistic Decoder app with your feedback.
-                        </p>
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                            <a href="https://snack.expo.dev/@pe_mtd_2024/lingustic-decoder-version-1---testing-group-2-" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: white; color: #065F46; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700;">
-                                Open in Expo Snack
-                            </a>
-                            <a href="#how-to-access" style="display: inline-block; background: transparent; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 2px solid white;">
-                                How to Access
-                            </a>
-                        </div>
-                        <div style="text-align: center; margin-top: 1rem;">
-                            <div style="background: white; padding: 1rem; border-radius: 12px; display: inline-block;">
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://snack.expo.dev/@pe_mtd_2024/lingustic-decoder-version-1---testing-group-2-" alt="QR code to open Linguistic Decoder app in Expo Go" style="width: 180px; height: 180px; display: block;">
-                            </div>
-                            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #D1FAE5;">Scan with Expo Go app</p>
-                        </div>
-                    </div>
-
-                    <!-- REGISTRATION FORM -->
-                    <div id="registration-panel" style="background: white; border-radius: 16px; padding: 2rem; color: #1F2937;">
-                        <h3 style="color: var(--brand-navy); margin: 0 0 0.5rem 0; font-size: 1.25rem;">Get Your Promo Code</h3>
-                        <p style="color: #6B7280; font-size: 0.9rem; margin-bottom: 1.5rem;">Register for beta access and unlock all features.</p>
-
-                        <!-- Step 1: Email/Phone Entry -->
-                        <div id="step1-form">
-                            <form id="testerRegistrationForm" onsubmit="sendVerificationCode(event)">
-                                <div style="margin-bottom: 1rem;">
-                                    <label for="contactMethod" style="display: block; font-weight: 600; color: #374151; margin-bottom: 0.5rem; font-size: 0.9rem;">Contact Method</label>
-                                    <select id="contactMethod" name="contactMethod" required style="width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 1rem; background: white;">
-                                        <option value="email">Email</option>
-                                        <option value="phone">Mobile Phone</option>
-                                    </select>
-                                </div>
-                                <div style="margin-bottom: 1rem;">
-                                    <label for="contactValue" id="contactLabel" style="display: block; font-weight: 600; color: #374151; margin-bottom: 0.5rem; font-size: 0.9rem;">Email Address</label>
-                                    <input type="email" id="contactValue" name="contactValue" required placeholder="you@example.com" style="width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 1rem; box-sizing: border-box;">
-                                </div>
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; color: #4B5563; cursor: pointer;">
-                                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required style="margin-top: 3px;">
-                                        <span>I agree to receive communications about the beta test and provide feedback</span>
-                                    </label>
-                                </div>
-                                <button type="submit" style="width: 100%; padding: 14px; background: var(--brand-green); color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer;">
-                                    Send Verification Code
-                                </button>
-                            </form>
-                        </div>
-
-                        <!-- Step 2: Verification -->
-                        <div id="step2-verify" style="display: none;">
-                            <p style="color: #4B5563; font-size: 0.9rem; margin-bottom: 1rem;">
-                                We've sent a 6-digit code to <strong id="sentToDisplay"></strong>. Enter it below:
-                            </p>
-                            <form id="verificationForm" onsubmit="verifyCode(event)">
-                                <div style="margin-bottom: 1rem;">
-                                    <label for="verificationCode" style="display: block; font-weight: 600; color: #374151; margin-bottom: 0.5rem; font-size: 0.9rem;">Verification Code</label>
-                                    <input type="text" id="verificationCode" name="verificationCode" required placeholder="Enter 6-digit code" maxlength="6" pattern="[0-9]{6}" style="width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 1.25rem; text-align: center; letter-spacing: 8px; font-family: 'Roboto Mono', monospace; box-sizing: border-box;">
-                                </div>
-                                <button type="submit" style="width: 100%; padding: 14px; background: var(--brand-purple); color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer;">
-                                    Verify & Get Promo Code
-                                </button>
-                            </form>
-                            <p style="text-align: center; margin-top: 1rem;">
-                                <button onclick="resendCode()" style="background: none; border: none; color: var(--brand-purple); cursor: pointer; font-size: 0.9rem; text-decoration: underline;">Resend Code</button>
-                            </p>
-                        </div>
-
-                        <!-- Step 3: Success - Promo Code Revealed -->
-                        <div id="step3-success" style="display: none; text-align: center;">
-                            <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
-                            <h4 style="color: var(--brand-green); margin: 0 0 0.5rem 0;">You're In!</h4>
-                            <p style="color: #4B5563; font-size: 0.9rem; margin-bottom: 1.5rem;">Use this promo code in the app to unlock all features:</p>
-                            <div style="background: #F0FDF4; border: 2px dashed var(--brand-green); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem;">
-                                <span style="font-family: 'Roboto Mono', monospace; font-size: 1.75rem; font-weight: bold; color: var(--brand-green); letter-spacing: 4px;">demo26</span>
-                            </div>
-                            <p style="color: #6B7280; font-size: 0.85rem; margin-bottom: 1.5rem;">Copy this code and enter it in the app's Settings &gt; Promo Code section.</p>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScVR_GdXj84bNZLMdnHrmV-FgVJKa-EHLSerJgfFWepu7cXsA/viewform?usp=header" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; padding: 14px; background: var(--brand-navy); color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; text-align: center;">
-                                Share Your Feedback
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <script>
-            // Registration form logic
-            let userContact = '';
-            let generatedCode = '';
-
-            document.getElementById('contactMethod').addEventListener('change', function() {
-                const label = document.getElementById('contactLabel');
-                const input = document.getElementById('contactValue');
-                if (this.value === 'phone') {
-                    label.textContent = 'Mobile Number';
-                    input.type = 'tel';
-                    input.placeholder = '04XX XXX XXX';
-                } else {
-                    label.textContent = 'Email Address';
-                    input.type = 'email';
-                    input.placeholder = 'you@example.com';
-                }
-            });
-
-            function sendVerificationCode(e) {
-                e.preventDefault();
-                userContact = document.getElementById('contactValue').value;
-
-                // Generate a random 6-digit code (in production, this would be sent via email/SMS)
-                generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
-
-                // For demo purposes, show the code in console and alert
-                console.log('Verification code:', generatedCode);
-                alert('For demo purposes, your verification code is: ' + generatedCode + '\n\n(In production, this would be sent to your ' + document.getElementById('contactMethod').value + ')');
-
-                // Show step 2
-                document.getElementById('step1-form').style.display = 'none';
-                document.getElementById('step2-verify').style.display = 'block';
-                document.getElementById('sentToDisplay').textContent = userContact;
-            }
-
-            function verifyCode(e) {
-                e.preventDefault();
-                const enteredCode = document.getElementById('verificationCode').value;
-
-                if (enteredCode === generatedCode) {
-                    // Success - show promo code
-                    document.getElementById('step2-verify').style.display = 'none';
-                    document.getElementById('step3-success').style.display = 'block';
-
-                    // Store in localStorage that user is verified
-                    localStorage.setItem('linguisticDecoderBetaTester', JSON.stringify({
-                        contact: userContact,
-                        verified: true,
-                        date: new Date().toISOString()
-                    }));
-                } else {
-                    alert('Invalid code. Please try again.');
-                }
-            }
-
-            function resendCode() {
-                generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
-                console.log('New verification code:', generatedCode);
-                alert('New verification code: ' + generatedCode + '\n\n(In production, this would be sent to your contact)');
-            }
-
-            // Check if user is already verified
-            document.addEventListener('DOMContentLoaded', function() {
-                const stored = localStorage.getItem('linguisticDecoderBetaTester');
-                if (stored) {
-                    const data = JSON.parse(stored);
-                    if (data.verified) {
-                        document.getElementById('step1-form').style.display = 'none';
-                        document.getElementById('step3-success').style.display = 'block';
-                    }
-                }
-            });
-        </script>
-
-        <!-- HOW TO ACCESS SECTION -->
-        <section id="how-to-access" style="background: #F9FAFB; padding: 4rem 0;">
-            <div class="container">
-                <h2 style="color: var(--brand-navy); text-align: center; margin-bottom: 2rem; font-size: 2rem;">How to Access the Beta</h2>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #E5E7EB;">
-                        <div style="background: #EEF2FF; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem; font-weight: bold; color: var(--brand-purple);">1</div>
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem;">Install Expo Go</h3>
-                        <p style="color: #4B5563; margin-bottom: 1rem;">Download the free Expo Go app on your phone:</p>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                            <a href="https://apps.apple.com/app/expo-go/id982107779" target="_blank" style="display: inline-block; background: #111827; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">
-                                App Store (iOS)
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=host.exp.exponent" target="_blank" style="display: inline-block; background: #111827; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">
-                                Google Play
-                            </a>
-                        </div>
-                    </div>
-
-                    <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #E5E7EB;">
-                        <div style="background: #EEF2FF; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem; font-weight: bold; color: var(--brand-purple);">2</div>
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem;">Scan or Click</h3>
-                        <p style="color: #4B5563; margin-bottom: 1rem;">Choose your preferred method:</p>
-                        <ul style="color: #4B5563; padding-left: 1.25rem; margin: 0;">
-                            <li style="margin-bottom: 0.5rem;"><strong>Scan QR code</strong> above with Expo Go</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Or</strong> click "Open in Expo Snack" button</li>
-                            <li><strong>Or</strong> visit the link on your phone</li>
-                        </ul>
-                    </div>
-
-                    <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #E5E7EB;">
-                        <div style="background: #EEF2FF; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem; font-weight: bold; color: var(--brand-purple);">3</div>
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem;">Start Testing</h3>
-                        <p style="color: #4B5563; margin-bottom: 1rem;">The app will load in Expo Go. You can:</p>
-                        <ul style="color: #4B5563; padding-left: 1.25rem; margin: 0;">
-                            <li style="margin-bottom: 0.5rem;">Analyse conversations immediately</li>
-                            <li style="margin-bottom: 0.5rem;">Create speaker profiles</li>
-                            <li>Explore all features</li>
-                        </ul>
-                    </div>
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: white; margin-bottom: 0.5rem;">Join the beta</h2>
+                    <p style="color: #D1FAE5; font-size: 1.1rem;">Limited spots available. Help us refine the app with your feedback.</p>
                 </div>
 
-                <div style="background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 12px; padding: 1.5rem; text-align: center;">
-                    <p style="color: #78350F; margin: 0;"><strong>Direct Link:</strong> <a href="https://snack.expo.dev/@pe_mtd_2024/lingustic-decoder-version-1---testing-group-2-" target="_blank" style="color: #92400E; word-break: break-all;">https://snack.expo.dev/@pe_mtd_2024/lingustic-decoder-version-1---testing-group-2-</a></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- APP FEATURES SECTION -->
-        <section style="background: white; padding: 4rem 0; border-bottom: 1px solid #E5E7EB;">
-            <div class="container">
-                <h2 style="color: var(--brand-navy); text-align: center; margin-bottom: 0.5rem; font-size: 2rem;">Current Beta Features</h2>
-                <p style="text-align: center; color: #6B7280; margin-bottom: 3rem;">Version 1 - Testing Group 2</p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-
-                    <div style="border-left: 4px solid var(--brand-purple); padding-left: 1.5rem;">
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">👤</span> Speaker Profiles
+                <div class="beta-grid">
+                    <div class="platform-card">
+                        <h3>
+                            <span class="icon"></span>
+                            iOS testers
+                            <span class="limit">Limited to 50</span>
                         </h3>
-                        <p style="color: #4B5563; line-height: 1.6;">Create and manage profiles for people in your conversations. Track communication patterns, set relationship types, and get personalised insights for each speaker.</p>
-                        <ul style="color: #6B7280; font-size: 0.9rem; margin-top: 0.75rem; padding-left: 1.25rem;">
-                            <li>Add speaker name and relationship type</li>
-                            <li>Save communication history per speaker</li>
-                            <li>Update profiles as relationships evolve</li>
-                        </ul>
+                        <ol>
+                            <li>Download <strong>TestFlight</strong> from the Apple App Store</li>
+                            <li>Click the link below to join the beta</li>
+                            <li>Install <strong>Linguistic Decoder</strong> from TestFlight</li>
+                        </ol>
+                        <a href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener" class="store-link">Get TestFlight</a>
+                        <a href="https://testflight.apple.com/join/4U45d2Vh" target="_blank" rel="noopener" class="install-btn">Join iOS Beta</a>
                     </div>
 
-                    <div style="border-left: 4px solid var(--brand-green); padding-left: 1.5rem;">
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">🧠</span> AI Conversation Analysis
+                    <div class="platform-card">
+                        <h3>
+                            <span class="icon">🤖</span>
+                            Android testers
+                            <span class="limit">Limited to 50</span>
                         </h3>
-                        <p style="color: #4B5563; line-height: 1.6;">Paste any conversation and get instant AI-powered insights into emotional states, communication goals, and hidden meanings.</p>
-                        <ul style="color: #6B7280; font-size: 0.9rem; margin-top: 0.75rem; padding-left: 1.25rem;">
-                            <li>Emotional state identification</li>
-                            <li>Communication goal detection</li>
+                        <ol>
+                            <li>Download <strong>App Tester by Firebase</strong> from Google Play</li>
+                            <li>Click the link below to join the beta</li>
+                            <li>Install <strong>Linguistic Decoder</strong> from App Tester</li>
+                        </ol>
+                        <a href="https://play.google.com/store/apps/details?id=com.google.firebase.appdistribution.debug" target="_blank" rel="noopener" class="store-link">Get App Tester</a>
+                        <a href="https://appdistribution.firebase.dev/i/420608d2fd0120d8" target="_blank" rel="noopener" class="install-btn">Join Android Beta</a>
+                    </div>
+                </div>
+
+                <div class="deadline-banner">
+                    <p>⏰ Registration closes <strong>March 14th, 2026</strong></p>
+                </div>
+
+                <div class="promo-box">
+                    <h4>Unlock all features for free</h4>
+                    <p style="color: #6B7280; font-size: 0.9rem;">Use this promo code in the app to access all premium features during beta:</p>
+                    <div class="promo-code">
+                        <span>demo26</span>
+                    </div>
+                    <p style="color: #6B7280; font-size: 0.85rem; margin: 0;">Go to Settings → Promo Code to redeem</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">What you can do</h2>
+                    <p style="color: #4B5563; max-width: 600px; margin: 0.5rem auto 0;">Analyse any conversation and build a history of insights that grow more valuable over time.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3><span style="font-size: 1.5rem;">🧠</span> Conversation analysis</h3>
+                        <p>Paste text from any source — SMS, email, Slack, WhatsApp. Get AI-powered insights in seconds.</p>
+                        <ul>
+                            <li>Emotional tone identification</li>
+                            <li>Hidden meanings revealed</li>
+                            <li>Communication style analysis</li>
                             <li>Plain English translation</li>
                         </ul>
                     </div>
 
-                    <div style="border-left: 4px solid #F59E0B; padding-left: 1.5rem;">
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">💬</span> Response Suggestions
-                        </h3>
-                        <p style="color: #4B5563; line-height: 1.6;">Get AI-generated response options tailored to your situation - diplomatic, assertive, or collaborative approaches.</p>
-                        <ul style="color: #6B7280; font-size: 0.9rem; margin-top: 0.75rem; padding-left: 1.25rem;">
+                    <div class="feature-card" style="border-left-color: #10B981;">
+                        <h3><span style="font-size: 1.5rem;">👤</span> Speaker profiles</h3>
+                        <p>Create profiles for people in your conversations. Track patterns and get personalised insights for each relationship.</p>
+                        <ul>
+                            <li>Tag conversations by person</li>
+                            <li>Track communication history</li>
+                            <li>Relationship type settings</li>
+                            <li>Pattern recognition over time</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #F59E0B;">
+                        <h3><span style="font-size: 1.5rem;">💬</span> Response suggestions</h3>
+                        <p>Get AI-generated response options tailored to your situation — diplomatic, assertive, or collaborative.</p>
+                        <ul>
                             <li>Multiple response styles</li>
-                            <li>Impact prediction before sending</li>
+                            <li>Impact prediction</li>
                             <li>Context-aware suggestions</li>
                         </ul>
                     </div>
 
-                    <div style="border-left: 4px solid #EC4899; padding-left: 1.5rem;">
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">📚</span> Educational Library
-                        </h3>
-                        <p style="color: #4B5563; line-height: 1.6;">Access expert communication techniques including Grey Rock, BIFF, and "I" statements - available offline.</p>
-                        <ul style="color: #6B7280; font-size: 0.9rem; margin-top: 0.75rem; padding-left: 1.25rem;">
+                    <div class="feature-card" style="border-left-color: #EC4899;">
+                        <h3><span style="font-size: 1.5rem;">📚</span> Educational library</h3>
+                        <p>Access expert communication techniques including Grey Rock, BIFF, and "I" statements — works offline.</p>
+                        <ul>
                             <li>Proven communication strategies</li>
-                            <li>Works offline</li>
+                            <li>Available offline</li>
                             <li>Learn at your own pace</li>
                         </ul>
                     </div>
 
-                    <div style="border-left: 4px solid #8B5CF6; padding-left: 1.5rem;">
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">💾</span> Save & History
-                        </h3>
-                        <p style="color: #4B5563; line-height: 1.6;">Auto-save every analysis to build your communication skills over time. Review past conversations and track your progress.</p>
-                        <ul style="color: #6B7280; font-size: 0.9rem; margin-top: 0.75rem; padding-left: 1.25rem;">
-                            <li>Automatic conversation saving</li>
-                            <li>Searchable history</li>
-                            <li>Track improvement over time</li>
+                    <div class="feature-card" style="border-left-color: #8B5CF6;">
+                        <h3><span style="font-size: 1.5rem;">📈</span> Historical tracking</h3>
+                        <p>Build a history of analyses. See trends in your communication over weeks and months.</p>
+                        <ul>
+                            <li>Timeline view by person</li>
+                            <li>Relationship health scores</li>
+                            <li>Communication improvement tracking</li>
                         </ul>
                     </div>
 
-                    <div style="border-left: 4px solid #06B6D4; padding-left: 1.5rem;">
-                        <h3 style="color: var(--brand-navy); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">🔒</span> Privacy First
-                        </h3>
-                        <p style="color: #4B5563; line-height: 1.6;">All data stored locally on your device. We never store your conversations on our servers.</p>
-                        <ul style="color: #6B7280; font-size: 0.9rem; margin-top: 0.75rem; padding-left: 1.25rem;">
+                    <div class="feature-card" style="border-left-color: #06B6D4;">
+                        <h3><span style="font-size: 1.5rem;">🔒</span> Privacy first</h3>
+                        <p>All data stored locally on your device. We never store your conversations on our servers.</p>
+                        <ul>
                             <li>Local storage only</li>
-                            <li>No server-side conversation logs</li>
+                            <li>No server-side logs</li>
                             <li>Your privacy guaranteed</li>
                         </ul>
                     </div>
@@ -602,289 +442,39 @@
             </div>
         </section>
 
-        <!-- FAQ SECTION -->
-        <section id="faq" style="background: #F9FAFB; padding: 4rem 0;">
+        <section class="use-cases-section">
             <div class="container">
-                <h2 style="color: var(--brand-navy); text-align: center; margin-bottom: 2rem; font-size: 2rem;">Frequently Asked Questions</h2>
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">Who it's for</h2>
+                    <p style="color: #4B5563;">Whether it's work emails, family texts, or relationship chats — understand what's really being said.</p>
+                </div>
 
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <details style="background: white; border-radius: 12px; margin-bottom: 1rem; border: 1px solid #E5E7EB;">
-                        <summary style="padding: 1.5rem; cursor: pointer; font-weight: 600; color: var(--brand-navy); list-style: none;">
-                            What is Expo Go and why do I need it?
-                        </summary>
-                        <div style="padding: 0 1.5rem 1.5rem; color: #4B5563; line-height: 1.6;">
-                            <p>Expo Go is a free app that lets you run development versions of mobile apps without installing them permanently. It's the standard way to test apps during development. Simply download Expo Go from the App Store or Google Play, then scan the QR code or open the link to run Linguistic Decoder.</p>
-                        </div>
-                    </details>
-
-                    <details style="background: white; border-radius: 12px; margin-bottom: 1rem; border: 1px solid #E5E7EB;">
-                        <summary style="padding: 1.5rem; cursor: pointer; font-weight: 600; color: var(--brand-navy); list-style: none;">
-                            Is my conversation data secure?
-                        </summary>
-                        <div style="padding: 0 1.5rem 1.5rem; color: #4B5563; line-height: 1.6;">
-                            <p>Yes. All your conversation data is stored locally on your device only. We do not store your conversations on any server. The AI analysis is processed securely, but the conversation content is never saved by us. You have full control over your data.</p>
-                        </div>
-                    </details>
-
-                    <details style="background: white; border-radius: 12px; margin-bottom: 1rem; border: 1px solid #E5E7EB;">
-                        <summary style="padding: 1.5rem; cursor: pointer; font-weight: 600; color: var(--brand-navy); list-style: none;">
-                            How do I create and update speaker profiles?
-                        </summary>
-                        <div style="padding: 0 1.5rem 1.5rem; color: #4B5563; line-height: 1.6;">
-                            <p>In the app, go to the Speaker Profiles section. Tap "Add New Speaker" to create a profile. Enter the speaker's name (or nickname) and select your relationship type (work colleague, family member, friend, partner, etc.). You can update profiles anytime by tapping on them and editing the details. Profiles help the AI provide more accurate, personalised analysis.</p>
-                        </div>
-                    </details>
-
-                    <details style="background: white; border-radius: 12px; margin-bottom: 1rem; border: 1px solid #E5E7EB;">
-                        <summary style="padding: 1.5rem; cursor: pointer; font-weight: 600; color: var(--brand-navy); list-style: none;">
-                            The app isn't loading. What should I do?
-                        </summary>
-                        <div style="padding: 0 1.5rem 1.5rem; color: #4B5563; line-height: 1.6;">
-                            <p>Try these troubleshooting steps:</p>
-                            <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                                <li>Make sure you have the latest version of Expo Go installed</li>
-                                <li>Check your internet connection - Expo requires internet to load the app</li>
-                                <li>Close Expo Go completely and reopen it</li>
-                                <li>Try scanning the QR code again or use the direct link</li>
-                                <li>If on iOS, try opening the link in Safari instead of scanning</li>
-                            </ol>
-                            <p style="margin-top: 1rem;">Still having issues? Email us at <a href="mailto:info@digitalabcs.com.au" style="color: var(--brand-purple);">info@digitalabcs.com.au</a></p>
-                        </div>
-                    </details>
-
-                    <details style="background: white; border-radius: 12px; margin-bottom: 1rem; border: 1px solid #E5E7EB;">
-                        <summary style="padding: 1.5rem; cursor: pointer; font-weight: 600; color: var(--brand-navy); list-style: none;">
-                            How do I report a bug or suggest a feature?
-                        </summary>
-                        <div style="padding: 0 1.5rem 1.5rem; color: #4B5563; line-height: 1.6;">
-                            <p>We'd love to hear from you! As a beta tester, your feedback is invaluable. Please email your bug reports or feature suggestions to <a href="mailto:info@digitalabcs.com.au?subject=Linguistic%20Decoder%20Beta%20Feedback" style="color: var(--brand-purple);">info@digitalabcs.com.au</a> with the subject line "Linguistic Decoder Beta Feedback". Include:</p>
-                            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                                <li>Your device type (iPhone/Android) and OS version</li>
-                                <li>What you were doing when the issue occurred</li>
-                                <li>Screenshots if possible</li>
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details style="background: white; border-radius: 12px; margin-bottom: 1rem; border: 1px solid #E5E7EB;">
-                        <summary style="padding: 1.5rem; cursor: pointer; font-weight: 600; color: var(--brand-navy); list-style: none;">
-                            Will my data be saved when the app updates?
-                        </summary>
-                        <div style="padding: 0 1.5rem 1.5rem; color: #4B5563; line-height: 1.6;">
-                            <p>During the beta testing phase via Expo Go, data persistence between sessions may vary. We recommend not relying on the app for permanent storage during testing. Once the app is officially released on the App Store/Google Play, your data will be properly saved on your device.</p>
-                        </div>
-                    </details>
-
-                    <details style="background: white; border-radius: 12px; margin-bottom: 1rem; border: 1px solid #E5E7EB;">
-                        <summary style="padding: 1.5rem; cursor: pointer; font-weight: 600; color: var(--brand-navy); list-style: none;">
-                            Is this app a replacement for professional help?
-                        </summary>
-                        <div style="padding: 0 1.5rem 1.5rem; color: #4B5563; line-height: 1.6;">
-                            <p><strong>No.</strong> Linguistic Decoder is an educational tool designed to help you understand conversations better. It is not a substitute for professional mental health services, legal advice, relationship counselling, or medical diagnosis. If you're experiencing serious relationship issues, mental health concerns, or need professional guidance, please seek help from qualified professionals.</p>
-                        </div>
-                    </details>
-
-                    <details style="background: white; border-radius: 12px; margin-bottom: 1rem; border: 1px solid #E5E7EB;">
-                        <summary style="padding: 1.5rem; cursor: pointer; font-weight: 600; color: var(--brand-navy); list-style: none;">
-                            When will the full app be available?
-                        </summary>
-                        <div style="padding: 0 1.5rem 1.5rem; color: #4B5563; line-height: 1.6;">
-                            <p>We're currently in beta testing to refine the app based on real user feedback. The full release on the App Store and Google Play is planned for later this year. Beta testers will be notified when the official version launches and may receive special early-adopter benefits.</p>
-                        </div>
-                    </details>
+                <div class="use-case-grid">
+                    <div class="use-case-card">
+                        <h4>Workplace communication</h4>
+                        <p>Decode passive-aggressive emails, understand office dynamics, and craft better professional responses.</p>
+                    </div>
+                    <div class="use-case-card" style="border-left-color: #10B981;">
+                        <h4>Family relationships</h4>
+                        <p>Navigate complex family dynamics. Understand what's really being said (and not said) in family chats.</p>
+                    </div>
+                    <div class="use-case-card" style="border-left-color: #F59E0B;">
+                        <h4>Romantic relationships</h4>
+                        <p>Build better communication patterns. Understand your partner's communication style and improve together.</p>
+                    </div>
+                    <div class="use-case-card" style="border-left-color: #EC4899;">
+                        <h4>Neurodivergent communication</h4>
+                        <p>If you struggle to read between the lines, let AI help decode the subtext that others seem to understand intuitively.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="decoder-section">
+        <section class="feedback-section">
             <div class="container">
-
-                <div style="background: white; border-radius: 16px; padding: 3rem; margin-bottom: 3rem; border: 1px solid #E5E7EB;">
-                    <h2 style="color: var(--brand-navy); margin-bottom: 1.5rem; font-size: 1.8rem;">Why Linguistic Decoder?</h2>
-                    <div class="decoder-grid">
-                        <div class="decoder-card">
-                            <span class="decoder-icon">🧠</span>
-                            <h3 class="decoder-title">AI-Powered Analysis</h3>
-                            <p class="decoder-desc">
-                                Advanced linguistic AI examines tone, emotion, and communication patterns to decode what people really mean.
-                            </p>
-                        </div>
-
-                        <div class="decoder-card">
-                            <span class="decoder-icon">👥</span>
-                            <h3 class="decoder-title">Multi-Speaker Insights</h3>
-                            <p class="decoder-desc">
-                                Understand every perspective in the conversation, not just one side of the story.
-                            </p>
-                        </div>
-
-                        <div class="decoder-card">
-                            <span class="decoder-icon">✍️</span>
-                            <h3 class="decoder-title">Test Before You Send</h3>
-                            <p class="decoder-desc">
-                                See how your response will impact the conversation before hitting send.
-                            </p>
-                        </div>
-
-                        <div class="decoder-card">
-                            <span class="decoder-icon">📚</span>
-                            <h3 class="decoder-title">Save & Learn</h3>
-                            <p class="decoder-desc">
-                                Auto-save every analysis to build your communication skills over time.
-                            </p>
-                        </div>
-
-                        <div class="decoder-card">
-                            <span class="decoder-icon">🎯</span>
-                            <h3 class="decoder-title">Context-Aware</h3>
-                            <p class="decoder-desc">
-                                Tailor insights to your specific relationship type (work, family, romantic, friends).
-                            </p>
-                        </div>
-
-                        <div class="decoder-card">
-                            <span class="decoder-icon">📵</span>
-                            <h3 class="decoder-title">Offline Library</h3>
-                            <p class="decoder-desc">
-                                Access expert communication strategies anytime, anywhere without internet.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="feature-box">
-                    <h3>🔧 How It Works</h3>
-                    <ul class="feature-list">
-                        <li><strong>Paste any conversation:</strong> Text, email, or chat – Linguistic Decoder handles it all.</li>
-                        <li><strong>Add context:</strong> Tell us the relationship type and age group for accurate insights.</li>
-                        <li><strong>Get instant AI analysis:</strong> See emotional states, communication goals, and hidden meanings.</li>
-                        <li><strong>View suggested responses:</strong> Get diplomatic, assertive, or collaborative options.</li>
-                        <li><strong>Test impact:</strong> See your response's potential impact before you send it.</li>
-                        <li><strong>Save for learning:</strong> Build your communication skills over time.</li>
-                    </ul>
-                </div>
-
-                <div style="background: linear-gradient(135deg, #F0F9FF 0%, #F5F3FF 100%); padding: 2rem; border-radius: 12px; margin-top: 3rem;">
-                    <h3 style="color: var(--brand-navy); margin-bottom: 1rem; font-size: 1.25rem;">🎯 Deep Analysis Features</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                        <div>
-                            <h4 style="color: var(--brand-purple); margin-bottom: 0.75rem;">Emotional State Identification</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">Understand the true emotional states of every speaker in the conversation.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--brand-purple); margin-bottom: 0.75rem;">Communication Goal Detection</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">Identify what each person really wants to achieve in the conversation.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--brand-purple); margin-bottom: 0.75rem;">Rhetorical Strategy Breakdown</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">Discover the techniques people are using and why.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--brand-purple); margin-bottom: 0.75rem;">Unmet Needs Recognition</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">Uncover the underlying needs that aren't being expressed.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--brand-purple); margin-bottom: 0.75rem;">Plain English Translation</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">Get clarity on what's really being said without the complexity.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--brand-purple); margin-bottom: 0.75rem;">Impact Prediction</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">Know how your response will impact the conversation before you send it.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: white; border-radius: 16px; padding: 3rem; margin-top: 3rem; border: 1px solid #E5E7EB;">
-                    <h3 style="color: var(--brand-navy); margin-bottom: 1.5rem; font-size: 1.5rem;">📚 Educational Library</h3>
-                    <p style="color: #4B5563; margin-bottom: 1.5rem;">Learn proven communication techniques including:</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-                        <div style="padding: 1rem; background: #F9FAFB; border-radius: 8px;">
-                            <strong style="color: var(--brand-navy);">Grey Rock Method</strong>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin-top: 0.5rem;">Maintain emotional boundaries in difficult conversations.</p>
-                        </div>
-                        <div style="padding: 1rem; background: #F9FAFB; border-radius: 8px;">
-                            <strong style="color: var(--brand-navy);">BIFF Response Strategy</strong>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin-top: 0.5rem;">Brief, Informative, Friendly, and Firm responses.</p>
-                        </div>
-                        <div style="padding: 1rem; background: #F9FAFB; border-radius: 8px;">
-                            <strong style="color: var(--brand-navy);">"I" Statements</strong>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin-top: 0.5rem;">Express yourself without blame or defensiveness.</p>
-                        </div>
-                        <div style="padding: 1rem; background: #F9FAFB; border-radius: 8px;">
-                            <strong style="color: var(--brand-navy);">Active Listening</strong>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin-top: 0.5rem;">Truly understand what others are communicating.</p>
-                        </div>
-                        <div style="padding: 1rem; background: #F9FAFB; border-radius: 8px;">
-                            <strong style="color: var(--brand-navy);">Boundary Setting</strong>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin-top: 0.5rem;">Establish healthy limits in relationships.</p>
-                        </div>
-                        <div style="padding: 1rem; background: #F9FAFB; border-radius: 8px;">
-                            <strong style="color: var(--brand-navy);">Digital Safety</strong>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin-top: 0.5rem;">Navigate online communication safely and effectively.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="use-case-section">
-                    <h2 class="use-case-title">Perfect For:</h2>
-                    <div class="use-case-grid">
-                        <div class="use-case-item">
-                            <h3>Navigating Workplace Dynamics</h3>
-                            <p>Understand your boss, colleagues, and clients better. Decode office politics and communicate more effectively.</p>
-                        </div>
-                        <div class="use-case-item">
-                            <h3>Improving Personal Relationships</h3>
-                            <p>Strengthen bonds with partners, friends, and family through better understanding and communication.</p>
-                        </div>
-                        <div class="use-case-item">
-                            <h3>Understanding Family Patterns</h3>
-                            <p>Decode family communication patterns and break unhelpful cycles.</p>
-                        </div>
-                        <div class="use-case-item">
-                            <h3>Resolving Conflicts</h3>
-                            <p>Address misunderstandings before they escalate into serious conflicts.</p>
-                        </div>
-                        <div class="use-case-item">
-                            <h3>Building Healthier Habits</h3>
-                            <p>Learn communication techniques that work and integrate them into your daily interactions.</p>
-                        </div>
-                        <div class="use-case-item">
-                            <h3>Learning & Self-Development</h3>
-                            <p>Build emotional intelligence and communication skills through real conversation analysis.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: white; border-radius: 16px; padding: 3rem; margin-top: 3rem; border: 1px solid #E5E7EB;">
-                    <h3 style="color: var(--brand-navy); margin-bottom: 1.5rem; font-size: 1.5rem;">🔐 Privacy & Safety</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                        <div>
-                            <h4 style="color: var(--brand-green); margin-bottom: 0.75rem;">✓ All Data Stored Locally</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">Your conversations stay on your device. We never store them on our servers.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--brand-green); margin-bottom: 0.75rem;">✓ No Conversation History</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">We don't keep records of what you analyse. Your privacy is guaranteed.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--brand-green); margin-bottom: 0.75rem;">✓ Report & Safety</h4>
-                            <p style="color: #4B5563; font-size: 0.95rem;">Report inappropriate content instantly if you encounter it.</p>
-                        </div>
-                    </div>
-                    <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #E5E7EB; color: #4B5563; font-size: 0.9rem;">
-                        <strong>Educational tool only.</strong> Linguistic Decoder is not a substitute for professional mental health services, legal advice, or medical diagnosis. Please seek professional help if you're experiencing mental health concerns or legal issues.
-                    </p>
-                </div>
-
-                <div class="decoder-cta">
-                    <h3>Ready to Transform Your Conversations?</h3>
-                    <p>Join our beta testing group and help us improve with your valuable feedback.</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="#beta-testing" class="decoder-btn">Get Your Promo Code</a>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScVR_GdXj84bNZLMdnHrmV-FgVJKa-EHLSerJgfFWepu7cXsA/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="decoder-btn" style="background: transparent; border: 2px solid white;">Share Feedback Survey</a>
-                    </div>
-                </div>
-
+                <h2>Help us make it better</h2>
+                <p>Your feedback shapes the app. Tell us what works, what doesn't, and what you wish it could do.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScVR_GdXj84bNZLMdnHrmV-FgVJKa-EHLSerJgfFWepu7cXsA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Share your feedback</a>
             </div>
         </section>
 
@@ -900,7 +490,6 @@
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        
                         <li><a href="../apps.html">Apps</a></li>
                         <li><a href="../about.html">About</a></li>
                         <li><a href="../insights.php">Insights</a></li>
@@ -923,11 +512,10 @@
                     </p>
                 </div>
             </div>
-            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+            <div class="footer-bottom">
                 <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
