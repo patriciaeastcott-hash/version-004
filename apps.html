@@ -12,242 +12,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apps | Digital ABCs</title>
-    <meta name="description" content="Apps and tools I've built to fill gaps in everyday life. Linguistic Decoder, AI tools, 50+ free utilities - all free to use.">
+    <meta name="description" content="Self-quantification apps from Digital ABCs. Linguistic Decoder, Mood Tracker, Decision Journal — plus 50+ free utility tools.">
     <meta property="og:title" content="Apps | Digital ABCs">
-    <meta property="og:description" content="Apps and free tools built to fill gaps in everyday life. No sign-up required.">
+    <meta property="og:description" content="Self-quantification apps that grow more valuable over time. Track patterns, gain insights, understand yourself.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
-    <meta property="og:url" content="https://digitalabcs.com.au/apps">
-    <link rel="canonical" href="https://digitalabcs.com.au/apps">
 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
-        :root {
-            --brand-navy: #1E3A8A;
-            --brand-purple: #5B21B6;
-            --brand-green: #065F46;
-            --brand-light: #F3F4F6;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F9FAFB;
-            color: #1F2937;
-        }
-
         .apps-hero {
             background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
             color: white;
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .apps-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .apps-hero p {
-            font-size: 1.25rem;
-            color: #E0E7FF;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .apps-section {
             padding: 5rem 0;
-        }
-
-        .section-header {
             text-align: center;
-            margin-bottom: 3rem;
         }
 
-        .section-header h2 {
-            font-size: 2rem;
-            color: var(--brand-navy);
-            margin-bottom: 0.5rem;
-        }
+        .apps-hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+        .apps-hero p { font-size: 1.2rem; color: #E0E7FF; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
-        .section-header p {
-            color: #4B5563;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .apps-section { padding: 4rem 0; }
+        .section-header { text-align: center; margin-bottom: 2.5rem; }
+        .section-header h2 { font-size: 1.75rem; color: #1E3A8A; margin-bottom: 0.5rem; }
+        .section-header p { color: #4B5563; font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
 
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
         }
 
         .app-card {
             background: white;
             border-radius: 16px;
-            padding: 2.5rem;
+            padding: 2rem;
             border: 1px solid #E5E7EB;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             position: relative;
             overflow: hidden;
         }
 
         .app-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: var(--brand-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: #5B21B6;
         }
 
         .app-card.featured {
-            border: 2px solid var(--brand-green);
+            border: 2px solid #5B21B6;
+            background: linear-gradient(135deg, #FAFBFF 0%, #F5F3FF 100%);
         }
 
-        .app-card.featured::before {
-            content: "Coming Soon";
-            position: absolute; top: 0; right: 0;
-            background: var(--brand-green); color: white;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
+        .app-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-bottom-left-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .app-card.coming::before {
-            content: "Coming Soon";
-            position: absolute; top: 0; right: 0;
-            background: #FEF3C7; color: #78350F;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
-        }
+        .app-badge.beta { background: #D1FAE5; color: #065F46; }
+        .app-badge.coming { background: #FEF3C7; color: #78350F; }
+        .app-badge.dev { background: #E5E7EB; color: #4B5563; }
 
-        .app-card.coming {
-            border: 2px solid #FDE68A;
-        }
-
-        .app-card.available::before {
-            content: "Available";
-            position: absolute; top: 0; right: 0;
-            background: #D1FAE5; color: #065F46;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
-        }
-
-        .app-card.dev::before {
-            content: "In Development";
-            position: absolute; top: 0; right: 0;
-            background: #F59E0B; color: #111827;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
-        }
-
-        .app-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .app-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--brand-navy);
-            margin-bottom: 0.75rem;
-        }
-
-        .app-desc {
-            color: #4B5563;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
+        .app-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .app-title { font-size: 1.35rem; font-weight: 700; color: #1E3A8A; margin-bottom: 0.5rem; }
+        .app-desc { color: #4B5563; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1; }
 
         .app-problem {
-            background: #F3F4F6;
+            background: #F9FAFB;
             padding: 1rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
+            border-left: 3px solid #5B21B6;
         }
 
         .app-problem strong {
-            color: var(--brand-navy);
+            color: #1E3A8A;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .app-link {
             display: inline-block;
-            background: var(--brand-purple);
+            background: #5B21B6;
             color: white;
-            padding: 12px 28px;
-            border-radius: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             transition: background 0.2s;
             text-align: center;
         }
 
-        .app-link:hover {
-            background: #6D28D9;
-        }
+        .app-link:hover { background: #6D28D9; color: white; }
 
-        .app-link.secondary {
-            background: var(--brand-green);
-        }
-
-        .app-link.secondary:hover {
-            background: #064E3B;
-        }
-
-        .approach-section {
-            background: white;
+        .secondary-section {
             padding: 4rem 0;
+            background: #F9FAFB;
             border-top: 1px solid #E5E7EB;
         }
 
-        .approach-grid {
+        .secondary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .secondary-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .secondary-card:hover {
+            border-color: #5B21B6;
+            transform: translateY(-2px);
+        }
+
+        .secondary-icon {
+            font-size: 1.5rem;
+            background: #F3F4F6;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .secondary-badge {
+            display: inline-block;
+            background: #E5E7EB;
+            color: #6B7280;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .tools-section {
+            padding: 4rem 0;
+            background: white;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .ai-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .ai-tool-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .ai-tool-card:hover {
+            border-color: #5B21B6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .ai-tool-icon {
+            font-size: 2rem;
+            background: #EDE9FE;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            gap: 1rem;
         }
 
-        .approach-card {
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--brand-purple);
+        .category-card {
             background: #F9FAFB;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            display: block;
         }
 
-        .approach-card h3 {
-            color: var(--brand-navy);
-            margin-top: 0;
-            margin-bottom: 1rem;
+        .category-card:hover {
+            border-color: #5B21B6;
+            background: white;
+            transform: translateY(-2px);
         }
 
-        .approach-card p {
-            color: #4B5563;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
+        .category-card h4 { color: #1E3A8A; margin: 0.5rem 0 0.25rem; font-size: 1rem; }
+        .category-card p { color: #6B7280; font-size: 0.9rem; margin: 0; }
+        .category-card .arrow { color: #5B21B6; font-weight: 600; margin-top: 0.5rem; display: block; }
 
         @media (max-width: 768px) {
-            .apps-hero h1 {
-                font-size: 2rem;
-            }
-
-            .apps-grid {
-                grid-template-columns: 1fr;
-            }
+            .apps-hero h1 { font-size: 2rem; }
+            .apps-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -276,199 +267,179 @@
 
         <section class="apps-hero">
             <div class="container">
-                <h1>What I've Built</h1>
-                <p>Every app here started with me going "there has to be a better way." When I can't find a tool that does what I need, I build one.</p>
+                <h1>Apps that grow with you</h1>
+                <p>Self-quantification tools that become more valuable over time. Track patterns, gain insights, and understand yourself better through accumulated data.</p>
             </div>
         </section>
 
         <section class="apps-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>The Bigger Projects</h2>
-                    <p>Apps I'm building to solve problems I keep running into. Some are ready, some are still cooking.</p>
+                    <h2>Self-quantification suite</h2>
+                    <p>Our flagship products — designed to reveal patterns that only emerge through consistent tracking.</p>
                 </div>
 
                 <div class="apps-grid">
 
                     <div class="app-card featured">
-                        <div>
-                            <span class="app-icon">🧠</span>
-                            <h3 class="app-title">Linguistic Decoder</h3>
-                            <p class="app-desc">AI-powered conversation analysis that reveals what people really mean. Decode work emails, family texts, relationship chats - understand the hidden meanings behind the words.</p>
-                            <div class="app-problem">
-                                <strong>The Problem It Solves:</strong>
-                                Miscommunication costs relationships, time, and sanity. This app gives you the tools to understand what's really being said.
-                            </div>
+                        <span class="app-badge beta">Beta testing</span>
+                        <span class="app-icon">🧠</span>
+                        <h3 class="app-title">Linguistic Decoder</h3>
+                        <p class="app-desc">AI-powered conversation analysis that reveals what people really mean. Decode work emails, family texts, relationship chats — understand the hidden meanings behind the words.</p>
+                        <div class="app-problem">
+                            <strong>The problem it solves</strong>
+                            Miscommunication costs relationships, time, and sanity. This app gives you tools to understand what's really being said.
                         </div>
-                        <a href="apps/decoder.html" class="app-link">Learn More</a>
+                        <a href="apps/decoder.html" class="app-link">Join beta testing</a>
                     </div>
 
-                    <div class="app-card coming">
-                        <div>
-                            <span class="app-icon">🛡️</span>
-                            <h3 class="app-title">CompliancePulse</h3>
-                            <p class="app-desc">Compliance monitoring meets market intelligence. Continuously scans for ISO/GDPR risks while watching government feeds for grants, tenders, and regulatory changes.</p>
-                            <div class="app-problem">
-                                <strong>The Problem It Solves:</strong>
-                                Small businesses get blindsided by compliance issues and miss opportunities because they can't monitor everything. This does it automatically.
-                            </div>
+                    <div class="app-card">
+                        <span class="app-badge coming">Coming soon</span>
+                        <span class="app-icon">📊</span>
+                        <h3 class="app-title">Mood + Energy Tracker</h3>
+                        <p class="app-desc">Discover patterns in your mood and energy you never knew existed. Quick 60-second check-ins reveal correlations that improve your wellbeing.</p>
+                        <div class="app-problem">
+                            <strong>The problem it solves</strong>
+                            You can't improve what you don't measure. After 30 days, see what actually affects your mood and energy.
                         </div>
-                        <a href="apps/compliancepulse.html" class="app-link">Learn More</a>
+                        <a href="apps/mood-tracker.html" class="app-link">Learn more</a>
                     </div>
 
-                    <div class="app-card dev">
-                        <div>
-                            <span class="app-icon">📊</span>
-                            <h3 class="app-title">Smart Capture Finance</h3>
-                            <p class="app-desc">The "black box" recorder for financial workflows. It watches how you process invoices and payments to identify exactly where time and money are being lost.</p>
-                            <div class="app-problem">
-                                <strong>The Problem It Solves:</strong>
-                                You know your invoicing process is inefficient but can't prove it or find where the bottlenecks are. This records everything and shows you the truth.
-                            </div>
+                    <div class="app-card">
+                        <span class="app-badge coming">Coming soon</span>
+                        <span class="app-icon">📝</span>
+                        <h3 class="app-title">Decision Journal</h3>
+                        <p class="app-desc">Track your decisions and outcomes to improve your judgment over time. Data proves which decision-making strategies actually work for you.</p>
+                        <div class="app-problem">
+                            <strong>The problem it solves</strong>
+                            You think you're a good decision-maker, but can you prove it? Log decisions, track outcomes, and see the data.
                         </div>
-                        <a href="apps/smartcapture.html" class="app-link" style="background: #F59E0B;">Learn More</a>
-                    </div>
-
-                    <div class="app-card dev">
-                        <div>
-                            <span class="app-icon">🚚</span>
-                            <h3 class="app-title">BBB Driver</h3>
-                            <p class="app-desc">Route management and delivery tracking built for BBB Logistics drivers. Smarter routes, proof of delivery, and real-time customer updates.</p>
-                            <div class="app-problem">
-                                <strong>The Problem It Solves:</strong>
-                                Drivers spend too much time on admin that isn't driving. Route planning, customer updates, and paperwork eat into the day.
-                            </div>
-                        </div>
-                        <a href="apps/bbbdriver.html" class="app-link" style="background: #F59E0B;">Learn More</a>
+                        <a href="apps/decision-journal.html" class="app-link">Learn more</a>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- UTILITY TOOLS SECTION -->
-        <section class="apps-section" style="background: white; border-top: 1px solid #E5E7EB;">
+        <section class="secondary-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Free Utility Tools</h2>
-                    <p>50+ handy tools built to help with everyday tasks. Free to use, no sign-up required.</p>
+                    <h2>Other projects</h2>
+                    <p>Secondary projects we're exploring. Development depends on user interest.</p>
                 </div>
 
-                <!-- AI TOOLS - Featured -->
-                <div class="apps-grid" style="margin-bottom: 3rem;">
-                    <div class="app-card available">
+                <div class="secondary-grid">
+                    <a href="apps/compliancepulse.html" class="secondary-card">
+                        <div class="secondary-icon">🛡️</div>
                         <div>
-                            <span class="app-icon">✍️</span>
-                            <h3 class="app-title">AI Prompt Builder</h3>
-                            <p class="app-desc">Turn vague ideas into clear, powerful AI prompts with an interactive refinement tool.</p>
+                            <span class="secondary-badge">Coming soon</span>
+                            <h4 style="margin: 0 0 0.25rem; color: #1E3A8A;">CompliancePulse</h4>
+                            <p style="margin: 0; color: #4B5563; font-size: 0.9rem;">Compliance monitoring meets market intelligence. Scan for risks while watching for grants and regulatory changes.</p>
                         </div>
-                        <a href="prompt_refinement.html" class="app-link">Use Now</a>
-                    </div>
-                    <div class="app-card available">
-                        <div>
-                            <span class="app-icon">🎨</span>
-                            <h3 class="app-title">AI Image Generator</h3>
-                            <p class="app-desc">Generate images from text descriptions using Google Imagen 3 for your projects.</p>
-                        </div>
-                        <a href="image_generator.html" class="app-link">Use Now</a>
-                    </div>
-                </div>
-
-                <!-- CATEGORY CARDS -->
-                <h3 style="color: var(--brand-navy); margin: 0 0 1.5rem; font-size: 1.3rem;">Browse by Category</h3>
-                <div class="apps-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-
-                    <a href="tools-productivity.html" class="app-card" style="text-decoration: none; border-left: 4px solid #5B21B6;">
-                        <div>
-                            <span class="app-icon">📊</span>
-                            <h3 class="app-title">Business & Productivity</h3>
-                            <p class="app-desc">ROI calculator, timers, habit tracker, task prioritizer, and more. <strong>13 tools</strong></p>
-                        </div>
-                        <span style="color: #5B21B6; font-weight: 600;">View All &rarr;</span>
                     </a>
 
-                    <a href="tools-finance.html" class="app-card" style="text-decoration: none; border-left: 4px solid #065F46;">
+                    <a href="apps/smartcapture.html" class="secondary-card">
+                        <div class="secondary-icon">📊</div>
                         <div>
-                            <span class="app-icon">💰</span>
-                            <h3 class="app-title">Finance & Money</h3>
-                            <p class="app-desc">Loan, mortgage, tax calculators, invoice generator, expense splitter. <strong>12 tools</strong></p>
+                            <span class="secondary-badge">In development</span>
+                            <h4 style="margin: 0 0 0.25rem; color: #1E3A8A;">Smart Capture Finance</h4>
+                            <p style="margin: 0; color: #4B5563; font-size: 0.9rem;">The "black box" recorder for financial workflows. Find where time and money are being lost.</p>
                         </div>
-                        <span style="color: #065F46; font-weight: 600;">View All &rarr;</span>
                     </a>
 
-                    <a href="tools-calculators.html" class="app-card" style="text-decoration: none; border-left: 4px solid #7C3AED;">
+                    <a href="apps/bbbdriver.html" class="secondary-card">
+                        <div class="secondary-icon">🚚</div>
                         <div>
-                            <span class="app-icon">🔢</span>
-                            <h3 class="app-title">Calculators & Converters</h3>
-                            <p class="app-desc">Percentage, age, BMI, unit converter, word counter. <strong>4 tools</strong></p>
+                            <span class="secondary-badge">Internal tool</span>
+                            <h4 style="margin: 0 0 0.25rem; color: #1E3A8A;">BBB Driver</h4>
+                            <p style="margin: 0; color: #4B5563; font-size: 0.9rem;">Route management and delivery tracking for BBB Logistics drivers.</p>
                         </div>
-                        <span style="color: #7C3AED; font-weight: 600;">View All &rarr;</span>
                     </a>
-
-                    <a href="tools-developer.html" class="app-card" style="text-decoration: none; border-left: 4px solid #1E3A8A;">
-                        <div>
-                            <span class="app-icon">{ }</span>
-                            <h3 class="app-title">Developer Tools</h3>
-                            <p class="app-desc">JSON formatter, Base64, hash generator, regex tester, color tools. <strong>11 tools</strong></p>
-                        </div>
-                        <span style="color: #1E3A8A; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
-                    <a href="tools-health.html" class="app-card" style="text-decoration: none; border-left: 4px solid #059669;">
-                        <div>
-                            <span class="app-icon">💪</span>
-                            <h3 class="app-title">Health & Lifestyle</h3>
-                            <p class="app-desc">BMI, calorie, water intake, sleep calculator, workout timer. <strong>8 tools</strong></p>
-                        </div>
-                        <span style="color: #059669; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
-                    <a href="tools-planning.html" class="app-card" style="text-decoration: none; border-left: 4px solid #DC2626;">
-                        <div>
-                            <span class="app-icon">🎯</span>
-                            <h3 class="app-title">Planning & Decisions</h3>
-                            <p class="app-desc">Event budget planner, decision maker, moving cost calculator. <strong>3 tools</strong></p>
-                        </div>
-                        <span style="color: #DC2626; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
                 </div>
             </div>
         </section>
 
-        <section class="approach-section">
+        <section class="tools-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>How I Build Stuff</h2>
-                    <p>Every app follows the same pattern: I hit a problem, get annoyed, and build something to fix it.</p>
+                    <h2>Free utility tools</h2>
+                    <p>50+ handy tools for everyday tasks. Free to use, no sign-up required.</p>
                 </div>
 
-                <div class="approach-grid">
-                    <div class="approach-card">
-                        <h3>1. Hit the Problem</h3>
-                        <p>I run into something that's harder than it should be. A calculation I keep doing manually. A tool that doesn't exist. Something that bugs me.</p>
-                    </div>
-                    <div class="approach-card" style="border-left-color: var(--brand-green);">
-                        <h3>2. Build the Thing</h3>
-                        <p>I build it the way I actually need it to work - not the way some software company thinks it should work.</p>
-                    </div>
-                    <div class="approach-card" style="border-left-color: #F59E0B;">
-                        <h3>3. Share It</h3>
-                        <p>If it helps me, it'll probably help someone else. So I put it here for free. No sign-ups, no nonsense.</p>
-                    </div>
+                <h3 style="color: #1E3A8A; margin-bottom: 1rem; font-size: 1.1rem;">AI-powered tools</h3>
+                <div class="ai-tools-grid">
+                    <a href="prompt_refinement.html" class="ai-tool-card">
+                        <div class="ai-tool-icon">✍️</div>
+                        <div>
+                            <h4 style="margin: 0 0 0.25rem; color: #1E3A8A;">AI Prompt Builder</h4>
+                            <p style="margin: 0; color: #4B5563; font-size: 0.9rem;">Turn vague ideas into clear, powerful AI prompts with an interactive refinement tool.</p>
+                        </div>
+                    </a>
+                    <a href="image_generator.html" class="ai-tool-card">
+                        <div class="ai-tool-icon">🎨</div>
+                        <div>
+                            <h4 style="margin: 0 0 0.25rem; color: #1E3A8A;">AI Image Generator</h4>
+                            <p style="margin: 0; color: #4B5563; font-size: 0.9rem;">Generate images from text descriptions using Google Imagen 3 for your projects.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <h3 style="color: #1E3A8A; margin: 2rem 0 1rem; font-size: 1.1rem;">Browse by category</h3>
+                <div class="category-grid">
+
+                    <a href="tools-productivity.html" class="category-card" style="border-left: 4px solid #5B21B6;">
+                        <span style="font-size: 1.5rem;">📊</span>
+                        <h4>Business & productivity</h4>
+                        <p>ROI calculator, timers, habit tracker, task prioritiser. <strong>13 tools</strong></p>
+                        <span class="arrow">View all &rarr;</span>
+                    </a>
+
+                    <a href="tools-finance.html" class="category-card" style="border-left: 4px solid #10B981;">
+                        <span style="font-size: 1.5rem;">💰</span>
+                        <h4>Finance & money</h4>
+                        <p>Loan, mortgage, tax calculators, invoice generator. <strong>12 tools</strong></p>
+                        <span class="arrow">View all &rarr;</span>
+                    </a>
+
+                    <a href="tools-calculators.html" class="category-card" style="border-left: 4px solid #7C3AED;">
+                        <span style="font-size: 1.5rem;">🔢</span>
+                        <h4>Calculators & converters</h4>
+                        <p>Percentage, age, BMI, unit converter. <strong>4 tools</strong></p>
+                        <span class="arrow">View all &rarr;</span>
+                    </a>
+
+                    <a href="tools-developer.html" class="category-card" style="border-left: 4px solid #1E3A8A;">
+                        <span style="font-size: 1.5rem;">{ }</span>
+                        <h4>Developer tools</h4>
+                        <p>JSON formatter, Base64, hash generator, regex. <strong>11 tools</strong></p>
+                        <span class="arrow">View all &rarr;</span>
+                    </a>
+
+                    <a href="tools-health.html" class="category-card" style="border-left: 4px solid #059669;">
+                        <span style="font-size: 1.5rem;">💪</span>
+                        <h4>Health & lifestyle</h4>
+                        <p>BMI, calorie, water intake, sleep calculator. <strong>8 tools</strong></p>
+                        <span class="arrow">View all &rarr;</span>
+                    </a>
+
+                    <a href="tools-planning.html" class="category-card" style="border-left: 4px solid #DC2626;">
+                        <span style="font-size: 1.5rem;">🎯</span>
+                        <h4>Planning & decisions</h4>
+                        <p>Event budget planner, decision maker, moving cost. <strong>3 tools</strong></p>
+                        <span class="arrow">View all &rarr;</span>
+                    </a>
+
                 </div>
             </div>
         </section>
 
-        <section style="background: var(--brand-navy); color: white; padding: 4rem 0; text-align: center;">
+        <section class="cta-section" style="background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%); padding: 4rem 0; text-align: center;">
             <div class="container">
-                <h2 style="font-size: 2rem; margin-bottom: 1rem; color: white;">Got an Idea for a Tool?</h2>
-                <p style="color: #BFDBFE; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    If there's something that should exist but doesn't, let me know. The best tools I've built started as someone saying "I wish there was a thing that..."
+                <h2 style="color: white; margin-bottom: 1rem;">Got an idea for a tool?</h2>
+                <p style="color: #BFDBFE; max-width: 550px; margin: 0 auto 2rem;">
+                    If there's something that should exist but doesn't, let us know. The best tools we've built started as someone saying "I wish there was a thing that..."
                 </p>
-                <a href="contact.html" style="background: var(--brand-green); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
-                    Get in Touch
-                </a>
+                <a href="contact.html" class="btn btn-primary">Get in touch</a>
             </div>
         </section>
 
@@ -478,8 +449,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Digital ABCs</h4>
-                    <p>Apps that fill the gaps. Built for fun, shared for free.</p>
+                    <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
+                    <p>Simple, beautiful tools for self-understanding.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
@@ -493,9 +464,9 @@
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                        <li><a href="privacy.html">Privacy policy</a></li>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="ai_transparency.html">AI transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -506,8 +477,8 @@
                     </p>
                 </div>
             </div>
-            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
-                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>

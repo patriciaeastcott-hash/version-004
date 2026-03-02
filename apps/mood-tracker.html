@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood + Energy Tracker | Digital ABCs</title>
+    <meta name="description" content="Discover patterns in your mood and energy you never knew existed. Quick daily check-ins reveal correlations that improve your wellbeing.">
+    <meta property="og:title" content="Mood + Energy Tracker | Digital ABCs">
+    <meta property="og:description" content="Quick daily check-ins. Long-term insights. Understand what actually affects your wellbeing.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .app-hero {
+            background: linear-gradient(135deg, #10B981 0%, #065F46 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .app-hero h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .app-hero p {
+            font-size: 1.2rem;
+            color: #D1FAE5;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .coming-badge {
+            display: inline-block;
+            background: #FEF3C7;
+            color: #78350F;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .value-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .features-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-left: 4px solid #10B981;
+            background: #F9FAFB;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .feature-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #4B5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card ul {
+            color: #6B7280;
+            font-size: 0.9rem;
+            padding-left: 1.25rem;
+        }
+
+        .feature-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mockup-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #065F46 0%, #064E3B 100%);
+            text-align: center;
+        }
+
+        .mockup-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-section p {
+            color: #D1FAE5;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mockup-preview {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 350px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .mockup-preview h4 {
+            color: #1E3A8A;
+            margin-bottom: 1.5rem;
+        }
+
+        .slider-mock {
+            margin-bottom: 1.5rem;
+        }
+
+        .slider-mock label {
+            display: flex;
+            justify-content: space-between;
+            color: #4B5563;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .slider-track {
+            height: 8px;
+            background: linear-gradient(to right, #FCA5A5, #FCD34D, #86EFAC);
+            border-radius: 4px;
+        }
+
+        .tags-mock {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #F3F4F6;
+            color: #4B5563;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        .tag.selected {
+            background: #10B981;
+            color: white;
+        }
+
+        .audience-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .audience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid #5B21B6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .audience-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+        }
+
+        .audience-card p {
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .notify-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            text-align: center;
+        }
+
+        .notify-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .notify-section p {
+            color: #BFDBFE;
+            max-width: 550px;
+            margin: 0 auto 2rem;
+        }
+
+        .email-form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+
+        .email-form button {
+            background: #10B981;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .app-hero h1 {
+                font-size: 2rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../apps.html">Apps</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="app-hero">
+            <div class="container">
+                <span class="coming-badge">Coming soon</span>
+                <h1>Mood + Energy Tracker</h1>
+                <p>Discover patterns in your mood and energy you never knew existed. Quick daily check-ins reveal correlations that improve your wellbeing.</p>
+            </div>
+        </section>
+
+        <section class="value-section">
+            <div class="container">
+                <div class="value-grid">
+                    <div class="value-card">
+                        <div class="icon">⚡</div>
+                        <h3>60-second check-ins</h3>
+                        <p>Two sliders, optional tags, done. Quick enough to do daily without it feeling like a chore.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon">📊</div>
+                        <h3>Patterns emerge over time</h3>
+                        <p>After 30 days, the app reveals correlations you'd never notice otherwise. What actually affects your mood?</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon">🎯</div>
+                        <h3>Actionable insights</h3>
+                        <p>"Your mood drops 2 days after staying up past midnight." "Energy is 30% higher on days you exercise."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">What you'll be able to do</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Daily check-in</h3>
+                        <p>Two simple sliders: mood (sad → happy) and energy (exhausted → energised). Add optional tags and a one-line note.</p>
+                        <ul>
+                            <li>Mood slider: How are you feeling?</li>
+                            <li>Energy slider: How's your energy?</li>
+                            <li>Quick tags: stressed, relaxed, anxious, focused</li>
+                            <li>Log multiple times per day</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #5B21B6;">
+                        <h3>Calendar heatmap</h3>
+                        <p>See your entire year at a glance. Spot trends, identify good and bad periods, understand your patterns.</p>
+                        <ul>
+                            <li>Year-at-a-glance view</li>
+                            <li>Colour-coded by mood/energy</li>
+                            <li>Tap any day to see details</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #F59E0B;">
+                        <h3>Trend graphs</h3>
+                        <p>Line graphs showing mood and energy over time. Weekly, monthly, and yearly views. See your averages by day of week.</p>
+                        <ul>
+                            <li>Mood and energy over time</li>
+                            <li>Day-of-week patterns</li>
+                            <li>"You're happiest on Saturdays"</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #EC4899;">
+                        <h3>Correlation engine</h3>
+                        <p>After 30+ days of data, unlock AI-powered insights that reveal what actually affects your wellbeing.</p>
+                        <ul>
+                            <li>Time-lagged effects (late night → bad mood 2 days later)</li>
+                            <li>Tag correlations (exercise → higher energy)</li>
+                            <li>Weekly patterns (Sunday Scaries)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mockup-section">
+            <div class="container">
+                <h2>Simple by design</h2>
+                <p>The faster it is to log, the more likely you'll do it daily. And daily data is what reveals the patterns.</p>
+
+                <div class="mockup-preview">
+                    <h4>How are you feeling right now?</h4>
+
+                    <div class="slider-mock">
+                        <label><span>😢</span><span>Mood</span><span>😊</span></label>
+                        <div class="slider-track"></div>
+                    </div>
+
+                    <div class="slider-mock">
+                        <label><span>🪫</span><span>Energy</span><span>🔋</span></label>
+                        <div class="slider-track"></div>
+                    </div>
+
+                    <div class="tags-mock">
+                        <span class="tag">stressed</span>
+                        <span class="tag selected">relaxed</span>
+                        <span class="tag">anxious</span>
+                        <span class="tag selected">focused</span>
+                        <span class="tag">overwhelmed</span>
+                    </div>
+
+                    <button style="width: 100%; background: #10B981; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem;">Save check-in</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="audience-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">Who it's for</h2>
+                </div>
+
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <h3>Self-improvement seekers</h3>
+                        <p>You journal, meditate, or track habits. You want data to back up your intuitions about what affects your mood.</p>
+                    </div>
+                    <div class="audience-card" style="border-left-color: #10B981;">
+                        <h3>Neurodivergent adults</h3>
+                        <p>ADHD, autism, bipolar, anxiety — external structure helps. See what triggers good and bad days, and work with your brain.</p>
+                    </div>
+                    <div class="audience-card" style="border-left-color: #D4AF37;">
+                        <h3>Pattern-seekers</h3>
+                        <p>You already track fitness, sleep, or nutrition. Now connect physical metrics to emotional states for complete self-knowledge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="notify-section">
+            <div class="container">
+                <h2>Get notified when it launches</h2>
+                <p>Be the first to know when Mood + Energy Tracker is ready. Early access for the first 100 sign-ups.</p>
+                <form class="email-form" action="#" method="post">
+                    <input type="email" placeholder="you@example.com" required aria-label="Email address">
+                    <button type="submit">Notify me</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
+                    <p>Simple, beautiful tools for self-understanding.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy policy</a></li>
+                        <li><a href="../terms.html">Terms of service</a></li>
+                        <li><a href="../ai_transparency.html">AI transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

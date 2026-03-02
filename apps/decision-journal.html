@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Journal | Digital ABCs</title>
+    <meta name="description" content="Track your decisions and outcomes to improve your judgment over time. Data-driven insights into what makes you a better decision-maker.">
+    <meta property="og:title" content="Decision Journal | Digital ABCs">
+    <meta property="og:description" content="Log decisions, track outcomes, improve your judgment. Data proves which strategies work for you.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .app-hero {
+            background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .app-hero h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .app-hero p {
+            font-size: 1.2rem;
+            color: #E9D5FF;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .coming-badge {
+            display: inline-block;
+            background: #FEF3C7;
+            color: #78350F;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .value-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .how-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .how-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .how-card .step {
+            width: 60px;
+            height: 60px;
+            background: #5B21B6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .how-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+        }
+
+        .how-card p {
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .features-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-left: 4px solid #7C3AED;
+            background: white;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #4B5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card ul {
+            color: #6B7280;
+            font-size: 0.9rem;
+            padding-left: 1.25rem;
+        }
+
+        .feature-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .insights-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%);
+            text-align: center;
+        }
+
+        .insights-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .insights-section p {
+            color: #E9D5FF;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .insight-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .insight-example {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .insight-example p {
+            color: white;
+            font-size: 1rem;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .audience-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .audience-card {
+            background: #F9FAFB;
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid #5B21B6;
+        }
+
+        .audience-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+        }
+
+        .audience-card p {
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .notify-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            text-align: center;
+        }
+
+        .notify-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .notify-section p {
+            color: #BFDBFE;
+            max-width: 550px;
+            margin: 0 auto 2rem;
+        }
+
+        .email-form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+
+        .email-form button {
+            background: #7C3AED;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .app-hero h1 {
+                font-size: 2rem;
+            }
+
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="../assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../apps.html">Apps</a></li>
+                    <li><a href="../insights.php">Insights</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="app-hero">
+            <div class="container">
+                <span class="coming-badge">Coming soon</span>
+                <h1>Decision Journal</h1>
+                <p>Track your decisions and outcomes to improve your judgment over time. Data proves which decision-making strategies actually work for you.</p>
+            </div>
+        </section>
+
+        <section class="value-section">
+            <div class="container">
+                <div class="value-grid">
+                    <div class="value-card">
+                        <div class="icon">✍️</div>
+                        <h3>Clarify your thinking</h3>
+                        <p>Writing down your reasoning before deciding forces clarity. What are the options? What's your confidence level?</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon">⏰</div>
+                        <h3>Track outcomes</h3>
+                        <p>Set a check-in date. When it arrives, rate the outcome. What would you do differently? Build a feedback loop.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon">📈</div>
+                        <h3>Improve judgment</h3>
+                        <p>After enough decisions, see the data: Are you overconfident? Does your gut actually work? What contexts lead to better outcomes?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">How it works</h2>
+                </div>
+
+                <div class="how-grid">
+                    <div class="how-card">
+                        <div class="step">1</div>
+                        <h3>Log the decision</h3>
+                        <p>Record what you're deciding, the options you considered, your reasoning, and your confidence level (0-100%).</p>
+                    </div>
+                    <div class="how-card">
+                        <div class="step">2</div>
+                        <h3>Set a check-in</h3>
+                        <p>When will you know how it turned out? 1 week? 6 months? The app reminds you when it's time to evaluate.</p>
+                    </div>
+                    <div class="how-card">
+                        <div class="step">3</div>
+                        <h3>Rate the outcome</h3>
+                        <p>How did it turn out vs expectations? What did you learn? Would you decide differently? Close the loop.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">What you'll be able to do</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Decision logging</h3>
+                        <p>Structured templates that capture what matters without being burdensome.</p>
+                        <ul>
+                            <li>What's the decision?</li>
+                            <li>Options considered</li>
+                            <li>Your reasoning</li>
+                            <li>Confidence level (0-100%)</li>
+                            <li>Categories: Work, Personal, Financial, Health</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #10B981;">
+                        <h3>Outcome tracking</h3>
+                        <p>When your check-in date arrives, the app prompts you to evaluate.</p>
+                        <ul>
+                            <li>Rate: Much worse → Much better than expected</li>
+                            <li>What actually happened?</li>
+                            <li>What would you do differently?</li>
+                            <li>Lessons learned</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #F59E0B;">
+                        <h3>Calibration analysis</h3>
+                        <p>Are you well-calibrated? Does your confidence match actual outcomes?</p>
+                        <ul>
+                            <li>Confidence vs outcome charts</li>
+                            <li>Overconfidence detection</li>
+                            <li>Underconfidence detection</li>
+                            <li>"Lower your estimates by ~25%"</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #EC4899;">
+                        <h3>Pattern insights</h3>
+                        <p>After enough data, see what contexts lead to your best decisions.</p>
+                        <ul>
+                            <li>Decision by category performance</li>
+                            <li>Gut vs analysed decisions</li>
+                            <li>Time-pressure impact</li>
+                            <li>Stress context correlation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="insights-section">
+            <div class="container">
+                <h2>The insights you'll get</h2>
+                <p>After logging enough decisions and outcomes, you'll see patterns like these:</p>
+
+                <div class="insight-examples">
+                    <div class="insight-example">
+                        <p>"Your gut instinct is right 67% of the time in personal decisions, but only 45% in financial ones."</p>
+                    </div>
+                    <div class="insight-example">
+                        <p>"Decisions made under stress have 40% worse outcomes. You might want to delay important choices when stressed."</p>
+                    </div>
+                    <div class="insight-example">
+                        <p>"You're overconfident in work decisions. You predicted 90% success but actually succeeded 65% of the time."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="audience-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">Who it's for</h2>
+                </div>
+
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <h3>Professionals</h3>
+                        <p>Managers, founders, investors — anyone making frequent high-stakes decisions who wants to systematically improve their judgment.</p>
+                    </div>
+                    <div class="audience-card" style="border-left-color: #10B981;">
+                        <h3>Career builders</h3>
+                        <p>Job changes, project choices, relationship investments. Track the big decisions that shape your life and learn from them.</p>
+                    </div>
+                    <div class="audience-card" style="border-left-color: #D4AF37;">
+                        <h3>Self-improvers</h3>
+                        <p>Anyone working on better judgment. Replace "I think I'm good at decisions" with "here's the data on my decisions."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="notify-section">
+            <div class="container">
+                <h2>Get notified when it launches</h2>
+                <p>Be the first to know when Decision Journal is ready. Early access for the first 100 sign-ups.</p>
+                <form class="email-form" action="#" method="post">
+                    <input type="email" placeholder="you@example.com" required aria-label="Email address">
+                    <button type="submit">Notify me</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
+                    <p>Simple, beautiful tools for self-understanding.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="../apps.html">Apps</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../insights.php">Insights</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy policy</a></li>
+                        <li><a href="../terms.html">Terms of service</a></li>
+                        <li><a href="../ai_transparency.html">AI transparency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
