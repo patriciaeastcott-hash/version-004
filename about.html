@@ -13,11 +13,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Digital ABCs</title>
     <meta name="description" content="The story behind Digital ABCs: a practical software business built with honesty, grit, and a bias toward work that actually helps.">
+    <meta name="description" content="Digital ABCs builds self-quantification apps for iOS, Android, and web. Simple, beautiful tools for self-understanding. Founded by Trish Eastcott.">
 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -39,6 +40,10 @@
                 linear-gradient(135deg, #1E3A8A 0%, #111827 72%);
             color: white;
             padding: 6rem 0 5rem;
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
         }
 
         .about-hero h1 {
@@ -62,6 +67,20 @@
             margin-top: 2rem;
         }
 
+        .about-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: #E0E7FF;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
         .section-shell {
             padding: 4.5rem 0;
         }
@@ -77,6 +96,22 @@
             grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
             gap: 2rem;
             align-items: start;
+        .mission-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .mission-card {
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #E5E7EB;
+            background: #F9FAFB;
         }
 
         .story-image {
@@ -88,8 +123,71 @@
             background-size: cover;
             background-position: center;
             box-shadow: 0 20px 40px -28px rgba(17, 24, 39, 0.35);
+        .founder-image {
+            background: linear-gradient(135deg, #1E3A8A 0%, #5B21B6 100%);
+            border-radius: 16px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
         }
 
+        .founder-content h2 {
+            color: #1E3A8A;
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-content .title {
+            color: #5B21B6;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-content p {
+            color: #4B5563;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .personality-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .personality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .personality-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .personality-card h4 {
+            color: #1E3A8A;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .personality-card p {
+            color: #4B5563;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .logistics-section {
+            padding: 4rem 0;
+            background: #F0FDF4;
+            border-top: 1px solid #BBF7D0;
         .section-kicker {
             display: inline-block;
             margin-bottom: 0.8rem;
@@ -157,6 +255,21 @@
             margin-top: 0.9rem;
         }
 
+        .logistics-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border-left: 4px solid #10B981;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logistics-card h2 {
+            color: #1E3A8A;
+            margin-bottom: 1rem;
+        }
+
         .context-card li + li {
             margin-top: 0.45rem;
         }
@@ -197,19 +310,33 @@
         .cta-panel p {
             color: #D1FAE5;
         }
+        .logistics-card p {
+            color: #4B5563;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
 
         @media (max-width: 960px) {
-            .story-grid,
+            .founder-grid,
             .commitments-grid,
             .context-grid,
             .cta-panel {
+               
                 grid-template-columns: 1fr;
+           
             }
+
+            .founder-image {
+                height: 250px;
+            }
+
         }
 
         @media (max-width: 720px) {
             .about-hero h1 {
+               
                 font-size: 2.2rem;
+           
             }
 
             .hero-actions {
@@ -232,21 +359,23 @@
             <a href="index.html" class="logo" aria-label="Digital ABCs Home">
                 <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
             </a>
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+            </a>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="apps.html">Apps We've Built</a></li>
+                    <li><a href="apps.html">Apps</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html" class="active">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" id="main-content">
+
         <section class="about-hero">
             <div class="container">
                 <span class="section-kicker" style="color:#BFDBFE;">Why This Business Exists</span>
@@ -259,6 +388,22 @@
                 <div class="hero-actions">
                     <a href="apps/decoder.html#beta-access" class="btn btn-primary">Join the Beta</a>
                     <a href="contact.html#business-enquiry" class="btn btn-secondary">Book a Call</a>
+                <h1>Simple tools for self-understanding</h1>
+                <p>We build self-quantification apps that become more valuable over time, revealing patterns and insights that only emerge through consistent tracking.</p>
+            </div>
+        </section>
+
+        <section class="mission-section">
+            <div class="container">
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <h3>Our mission</h3>
+                        <p>To provide simple, beautiful tools for self-understanding. We build apps that grow more valuable over time, making it easy to track patterns and impossible to leave once you have months of personal history.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>Our vision</h3>
+                        <p>A world where self-awareness is accessible to everyone. We envision a future where understanding your own patterns — moods, habits, relationships, health — is as natural as checking your email. Where data-driven self-knowledge empowers better decisions without feeling clinical or overwhelming.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -288,11 +433,44 @@
                         limitations. If something is not ready, it is not ready. If a simpler fix will do the job, that is
                         the fix worth recommending.
                     </p>
+        <section class="values-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h2 style="color: #1E3A8A;">What we believe</h2>
+                    <p style="color: #4B5563; max-width: 600px; margin: 0.5rem auto 0;">Our core values guide every decision we make, from product design to data handling.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h4>Clarity over complexity</h4>
+                        <p>We choose simple, understandable interfaces over feature bloat. Every screen should have one primary purpose.</p>
+                    </div>
+                    <div class="value-card" style="border-left-color: #10B981;">
+                        <h4>Privacy as a right</h4>
+                        <p>Users trust us with intimate data. We never sell data, we use minimal collection, and we comply with Australian Privacy Principles.</p>
+                    </div>
+                    <div class="value-card" style="border-left-color: #D4AF37;">
+                        <h4>Value before effort</h4>
+                        <p>Show users what they'll get before asking them to work. Demo data first, then logging. Value previews before paywalls.</p>
+                    </div>
+                    <div class="value-card" style="border-left-color: #60A5FA;">
+                        <h4>Human insight, AI assistance</h4>
+                        <p>AI helps spot patterns, but users interpret meaning. We augment self-awareness, we don't replace it.</p>
+                    </div>
+                    <div class="value-card" style="border-left-color: #F59E0B;">
+                        <h4>Data lock-in as moat</h4>
+                        <p>Users stay because their history is valuable, not because we hide export. We celebrate data accumulation openly.</p>
+                    </div>
+                    <div class="value-card" style="border-left-color: #EC4899;">
+                        <h4>Accessible by default</h4>
+                        <p>WCAG 2.1 Level AAA compliance isn't a nice-to-have, it's table stakes. Everyone deserves beautiful, usable tools.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section-shell alt">
+        <section class="founder-section">
             <div class="container">
                 <div class="section-intro">
                     <span class="section-kicker">What Clients Get</span>
@@ -325,11 +503,23 @@
                             the trust model.
                         </p>
                     </article>
+                <div class="founder-grid">
+                    <div class="founder-image" style="background-image: url('assets/profile.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="founder-content">
+                        <h2>Trish Eastcott</h2>
+                        <p class="title">Founder, Digital ABCs</p>
+                        <p>I'm a First Nations, neurodivergent single mum. I've got bipolar, CPTSD, and ADHD. If you've ever dealt with Centrelink while trying to juggle mental health and parenting, you already know what that's like.</p>
+                        <p>Here's the thing about being neurodivergent: my brain sees gaps everywhere. Where most people see "this is just how it's done," I see the thing that should be easier but isn't. The tracker that doesn't exist. The tool that almost works but not quite. So I build them.</p>
+                        <p>I'm completely self-taught — no computer science degree, no coding bootcamp. Just YouTube, Google, and stubborn persistence until things work. Everything I know about building software, I learned by doing it.</p>
+                        <p>Digital ABCs started as tools I built for myself. Apps to track my moods, understand my patterns, and make sense of my own experience. Then I realised other people — especially other neurodivergent people — need these same tools. So I started sharing them.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section-shell">
+        <section class="personality-section">
             <div class="container">
                 <div class="section-intro">
                     <span class="section-kicker">Why The Future Feels Real</span>
@@ -338,6 +528,9 @@
                         The future of the business is not based on a single big promise. It is based on visible progress:
                         live tools, a real beta, product pages with honest status, and custom work that solves actual workflow problems.
                     </p>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="color: #1E3A8A;">How we show up</h2>
+                    <p style="color: #4B5563;">Our brand personality guides how we communicate with you.</p>
                 </div>
 
                 <div class="context-grid">
@@ -371,11 +564,47 @@
                     <p style="margin-top:1rem;">
                         <a href="bbblogistics.html" class="btn btn-primary">Visit BBB Logistics</a>
                     </p>
+                <div class="personality-grid">
+                    <div class="personality-card">
+                        <h4>Personal & empowering</h4>
+                        <p>We speak directly to "you" and celebrate your progress.</p>
+                    </div>
+                    <div class="personality-card">
+                        <h4>Insightful & curious</h4>
+                        <p>We help you notice patterns and invite reflection.</p>
+                    </div>
+                    <div class="personality-card">
+                        <h4>Calm & unrushed</h4>
+                        <p>No urgency, no pressure. We respect your pace.</p>
+                    </div>
+                    <div class="personality-card">
+                        <h4>Trustworthy & transparent</h4>
+                        <p>We're honest about what AI does and what data we collect.</p>
+                    </div>
+                    <div class="personality-card">
+                        <h4>Approachable & clear</h4>
+                        <p>Plain language always. We explain the complex simply.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section-shell">
+        <section class="logistics-section">
+            <div class="container">
+                <div class="logistics-card">
+                    <h2>Beach to Bridge to Bush Logistics</h2>
+                    <p>The other thing I do happened by accident. I started driving for an international cuisine franchise because I needed flexible income that didn't require me to sit in an office pretending to be normal for 8 hours. Turns out, I love being on the road.</p>
+                    <p>Along the way, I started noticing local businesses that needed delivery support — especially seasonal stuff. A restaurant that gets slammed during summer. A farm shop that needs extra runs during harvest. Small operators who can't justify a full-time driver but need someone reliable when it counts.</p>
+                    <p>Finding opportunity in the gaps is kind of my thing. When everything went sideways during the hard times, I looked at what I had — a car, time between school pickups, and a willingness to hustle — and turned it into something that works.</p>
+                    <p style="margin-top: 1.5rem; margin-bottom: 0;">
+                        <a href="bbblogistics.html" class="btn btn-success">Learn about BBB Logistics</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" style="background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%); padding: 4rem 0; text-align: center;">
             <div class="container">
                 <div class="cta-panel">
                     <div>
@@ -390,6 +619,11 @@
                         <a href="contact.html#business-enquiry" class="btn btn-primary">Book a Call</a>
                     </div>
                 </div>
+                <h2 style="color: white; margin-bottom: 1rem;">Ready to understand yourself better?</h2>
+                <p style="color: #BFDBFE; max-width: 550px; margin: 0 auto 2rem;">
+                    Explore our apps and start tracking the patterns that matter to you.
+                </p>
+                <a href="apps.html" class="btn btn-primary">Explore our apps</a>
             </div>
         </section>
     </main>
@@ -400,11 +634,12 @@
                 <div class="footer-col">
                     <h4>Digital ABCs</h4>
                     <p>Practical apps and workflow tools built with honesty, resilience, and a bias toward useful work.</p>
+                    <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
+                    <p>Simple, beautiful tools for self-understanding.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="services.html">Services</a></li>
                         <li><a href="apps.html">Apps</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
@@ -415,9 +650,9 @@
                     <h4>Legal</h4>
                     <ul>
                         <li><a href="legal.html">Legal Hub</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                        <li><a href="privacy.html">Privacy policy</a></li>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="ai_transparency.html">AI transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -429,6 +664,8 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
+            <div class="footer-bottom">
                 <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
             </div>
         </div>

@@ -12,11 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital ABCs | Honest Apps for Workflow Problems</title>
     <meta name="description" content="Digital ABCs builds practical apps, workflow tools, and beta products in the open. Straight answers, honest status updates, and no overbuilt nonsense.">
+    <title>Digital ABCs | Understand yourself through data</title>
+    <meta name="description" content="Digital ABCs builds self-quantification apps that become more valuable over time. Track patterns, gain insights, and understand yourself better.">
 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -40,6 +42,13 @@
             padding: 6rem 0 5rem;
             position: relative;
             overflow: hidden;
+        .hero-modern {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            color: white;
+            padding: 5rem 0 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .home-hero::after {
@@ -47,6 +56,16 @@
             position: absolute;
             inset: 0;
             background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            pointer-events: none;
+        .hero-bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(124, 58, 237, 0.3) 1px, transparent 1px);
             background-size: 30px 30px;
             opacity: 0.3;
             pointer-events: none;
@@ -165,6 +184,19 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
+        .hero-modern h1 {
+            font-size: 2.75rem;
+            margin: 1rem 0;
+            color: white;
+            font-weight: 700;
+        }
+
+        .hero-modern .subtitle {
+            color: #E0E7FF;
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
 
         .status-card h3 {
@@ -245,6 +277,18 @@
             background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
+        .value-card-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+        }
+
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: -5rem;
+            position: relative;
+            z-index: 10;
         }
 
         .progress-grid {
@@ -293,6 +337,24 @@
 
         .progress-item a {
             font-weight: 600;
+        .value-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #E5E7EB;
+            text-align: center;
+        }
+
+        .value-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
         }
 
         .promise-card {
@@ -307,9 +369,22 @@
             margin-bottom: 1rem;
         }
 
+        .value-card p {
+            color: #4B5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         .promise-card ul {
             padding-left: 1.1rem;
             color: #D1D5DB;
+            background: white;
+        }
+
+        .featured-apps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
         }
 
         .promise-card li + li {
@@ -356,6 +431,55 @@
 
         .future-card.proof {
             background: var(--surface-blue);
+        .app-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #E5E7EB;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border-color: #5B21B6;
+        }
+
+        .app-card.featured {
+            border: 2px solid #5B21B6;
+            background: linear-gradient(135deg, #FAFBFF 0%, #F5F3FF 100%);
+        }
+
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .app-card-icon {
+            font-size: 2rem;
+            background: #F3F4F6;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .app-card.featured .app-card-icon {
+            background: #EDE9FE;
+        }
+
+        .app-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .future-card.founder {
@@ -413,6 +537,125 @@
                 align-items: stretch;
             }
         }
+
+        .app-badge.beta {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .app-badge.coming {
+            background: #FEF3C7;
+            color: #78350F;
+        }
+
+        .app-badge.free {
+            background: #EDE9FE;
+            color: #5B21B6;
+        }
+
+        .audience-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .audience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid #5B21B6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .audience-card h3 {
+            color: #1E3A8A;
+            margin-bottom: 0.75rem;
+        }
+
+        .audience-card p {
+            color: #4B5563;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .tools-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .tool-category {
+            background: #F9FAFB;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .tool-category:hover {
+            background: white;
+            border-color: #5B21B6;
+            transform: translateY(-2px);
+        }
+
+        .tool-category-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .tool-category h4 {
+            color: #1E3A8A;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .tool-category p {
+            color: #6B7280;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #BFDBFE;
+            max-width: 550px;
+            margin: 0 auto 2rem auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-modern h1 {
+                font-size: 2rem;
+            }
+
+            .value-cards {
+                margin-top: -3rem;
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -426,12 +669,10 @@
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="apps.html">Apps We've Built</a></li>
+                    <li><a href="apps.html">Apps</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -475,6 +716,15 @@
                         </li>
                     </ul>
                 </aside>
+
+        <section class="hero-modern">
+            <div class="hero-bg-grid" aria-hidden="true"></div>
+            <div class="container" style="position: relative; z-index: 2;">
+                <p style="color: #D4AF37; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 0.5rem;">Self-quantification apps</p>
+                <h1>Understand yourself through data</h1>
+                <p class="subtitle">
+                    We build apps that become more valuable over time, revealing patterns and insights that only emerge through consistent tracking. Turn daily logging into long-term self-knowledge.
+                </p>
             </div>
         </section>
 
@@ -552,6 +802,7 @@
         </section>
 
         <section class="section-shell surface-split">
+        <section class="value-card-section">
             <div class="container">
                 <div class="section-intro">
                     <span class="section-kicker">How It Works</span>
@@ -596,6 +847,22 @@
                             <li>We will not recommend unnecessary complexity just to make a project sound bigger.</li>
                         </ul>
                     </aside>
+                <div class="value-cards">
+                    <div class="value-card">
+                        <div class="value-card-icon">📈</div>
+                        <h3>Data that grows with you</h3>
+                        <p>The longer you track, the more valuable your insights become. See patterns that only emerge over weeks and months.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-card-icon">🧠</div>
+                        <h3>AI-assisted insights</h3>
+                        <p>Our apps help spot patterns you might miss, but you interpret what they mean. We augment self-awareness, not replace it.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-card-icon">🔒</div>
+                        <h3>Your data stays yours</h3>
+                        <p>We never sell your data. Minimal collection, transparent AI processing, and full compliance with Australian privacy principles.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -609,6 +876,9 @@
                         There is a real path forward here: one public beta, a growing set of useful tools, and a product
                         roadmap grounded in lived business problems rather than trend chasing.
                     </p>
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h2 style="color: #1E3A8A;">Our apps</h2>
+                    <p style="color: #4B5563; max-width: 600px; margin: 0.5rem auto 0;">Simple, beautiful tools for self-understanding. Each one designed to grow more valuable the longer you use it.</p>
                 </div>
 
                 <div class="future-grid">
@@ -646,11 +916,78 @@
                         </p>
                         <p><a href="about.html">Read the story</a></p>
                     </article>
+                <div class="featured-apps">
+                    <a href="apps/decoder.html" class="app-card featured">
+                        <div class="app-card-header">
+                            <div class="app-card-icon">🧠</div>
+                            <div>
+                                <span class="app-badge beta">Beta testing</span>
+                                <h3 style="margin: 0.5rem 0 0; color: #1E3A8A;">Linguistic Decoder</h3>
+                            </div>
+                        </div>
+                        <p style="color: #4B5563; line-height: 1.6; margin: 0;">
+                            AI-powered conversation analysis that reveals what people really mean. Decode work emails, family texts, relationship chats — understand the hidden meanings behind the words.
+                        </p>
+                        <p style="color: #5B21B6; font-weight: 600; margin: 0;">Learn more &rarr;</p>
+                    </a>
+
+                    <a href="apps/compliancepulse.html" class="app-card">
+                        <div class="app-card-header">
+                            <div class="app-card-icon">🛡️</div>
+                            <div>
+                                <span class="app-badge coming">Coming soon</span>
+                                <h3 style="margin: 0.5rem 0 0; color: #1E3A8A;">CompliancePulse</h3>
+                            </div>
+                        </div>
+                        <p style="color: #4B5563; line-height: 1.6; margin: 0;">
+                            Compliance monitoring meets market intelligence. Continuously scans for ISO/GDPR risks while watching government feeds for grants, tenders, and regulatory changes.
+                        </p>
+                        <p style="color: #5B21B6; font-weight: 600; margin: 0;">Learn more &rarr;</p>
+                    </a>
+
+                    <a href="apps/smartcapture.html" class="app-card">
+                        <div class="app-card-header">
+                            <div class="app-card-icon">📊</div>
+                            <div>
+                                <span class="app-badge coming">In development</span>
+                                <h3 style="margin: 0.5rem 0 0; color: #1E3A8A;">Smart Capture Finance</h3>
+                            </div>
+                        </div>
+                        <p style="color: #4B5563; line-height: 1.6; margin: 0;">
+                            The "black box" recorder for financial workflows. Watch how you process invoices and payments to identify exactly where time and money are being lost.
+                        </p>
+                        <p style="color: #5B21B6; font-weight: 600; margin: 0;">Learn more &rarr;</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="audience-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h2 style="color: #1E3A8A;">Who we build for</h2>
+                    <p style="color: #4B5563; max-width: 600px; margin: 0.5rem auto 0;">Our apps are designed for people who want to understand themselves better through accumulated data and pattern recognition.</p>
+                </div>
+
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <h3>Self-improvement seekers</h3>
+                        <p>People aged 25-45 who actively work on personal growth — journaling, therapy, meditation, habit formation. You want to make better decisions by understanding your patterns and gain self-awareness without weekly therapy sessions.</p>
+                    </div>
+                    <div class="audience-card" style="border-left-color: #10B981;">
+                        <h3>Neurodivergent adults</h3>
+                        <p>Adults with ADHD, autism, bipolar, or anxiety who benefit from external structure and pattern recognition. Our tools help you see what triggers good and bad days, and work with your brain rather than against it.</p>
+                    </div>
+                    <div class="audience-card" style="border-left-color: #D4AF37;">
+                        <h3>Health-conscious quantifiers</h3>
+                        <p>You already track fitness, sleep, and nutrition. Now you want to expand into emotional and mental tracking — connecting physical metrics to emotional states for comprehensive self-knowledge.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section-shell">
+        <section class="tools-section">
             <div class="container">
                 <div class="cta-panel">
                     <div>
@@ -664,9 +1001,59 @@
                         <a href="apps/decoder.html#beta-access" class="btn btn-secondary">Join the Beta</a>
                         <a href="contact.html#business-enquiry" class="btn btn-primary">Book a Call</a>
                     </div>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="color: #1E3A8A;">50+ free utility tools</h2>
+                    <p style="color: #4B5563;">All free, no sign-up required. Just tools that do what they say.</p>
+                </div>
+
+                <div class="tools-grid">
+                    <a href="tools-productivity.html" class="tool-category">
+                        <span class="tool-category-icon">📊</span>
+                        <h4>Productivity</h4>
+                        <p>13 tools</p>
+                    </a>
+                    <a href="tools-finance.html" class="tool-category">
+                        <span class="tool-category-icon">💰</span>
+                        <h4>Finance</h4>
+                        <p>12 tools</p>
+                    </a>
+                    <a href="tools-developer.html" class="tool-category">
+                        <span class="tool-category-icon">{ }</span>
+                        <h4>Developer</h4>
+                        <p>11 tools</p>
+                    </a>
+                    <a href="tools-health.html" class="tool-category">
+                        <span class="tool-category-icon">💪</span>
+                        <h4>Health</h4>
+                        <p>8 tools</p>
+                    </a>
+                    <a href="tools-calculators.html" class="tool-category">
+                        <span class="tool-category-icon">🔢</span>
+                        <h4>Calculators</h4>
+                        <p>4 tools</p>
+                    </a>
+                    <a href="tools-planning.html" class="tool-category">
+                        <span class="tool-category-icon">🎯</span>
+                        <h4>Planning</h4>
+                        <p>3 tools</p>
+                    </a>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="apps.html" class="btn btn-ghost">Browse all tools &rarr;</a>
                 </div>
             </div>
         </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to understand yourself better?</h2>
+                <p>Start tracking today. The best time to begin was a year ago — the second best time is now.</p>
+                <a href="apps.html" class="btn btn-primary" style="margin-right: 1rem;">Explore our apps</a>
+                <a href="about.html" class="btn btn-ghost" style="background: transparent; color: white; border-color: rgba(255,255,255,0.3);">Learn about us</a>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
@@ -675,11 +1062,12 @@
                 <div class="footer-col">
                     <h4>Digital ABCs</h4>
                     <p>Practical apps, workflow tools, and honest product builds for people who need real progress.</p>
+                    <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
+                    <p>Simple, beautiful tools for self-understanding.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="services.html">Services</a></li>
                         <li><a href="apps.html">Apps</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
@@ -693,6 +1081,9 @@
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="ai_transparency.html">AI Transparency</a></li>
+                        <li><a href="privacy.html">Privacy policy</a></li>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="ai_transparency.html">AI transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -704,6 +1095,8 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
+            <div class="footer-bottom">
                 <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
             </div>
         </div>

@@ -13,17 +13,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linguistic Decoder | Digital ABCs</title>
     <meta name="description" content="Linguistic Decoder is Digital ABCs' active public beta. See what it does, what the current limitations are, and how to test it honestly.">
+    <meta name="description" content="Understand what people really mean. AI-powered conversation analysis that reveals hidden meanings, emotional tone, and communication patterns over time.">
     <meta property="og:title" content="Linguistic Decoder | Digital ABCs">
     <meta property="og:description" content="Open the current Linguistic Decoder beta, see the limits, and send useful feedback.">
+    <meta property="og:description" content="Analyse conversations to reveal patterns, emotions, and insights. Beta testing now open.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
     <meta property="og:url" content="https://digitalabcs.com.au/apps/decoder">
     <link rel="canonical" href="https://digitalabcs.com.au/apps/decoder">
 
+
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 
     <style>
@@ -66,12 +69,19 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
+            background: linear-gradient(135deg, #5B21B6 0%, #1E3A8A 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
         }
 
         .decoder-hero h1 {
             color: white;
             font-size: 3rem;
+        .decoder-hero h1 {
+            font-size: 2.75rem;
             margin-bottom: 1rem;
+            color: white;
         }
 
         .decoder-hero p {
@@ -79,6 +89,38 @@
             font-size: 1.1rem;
             line-height: 1.75;
             max-width: 760px;
+        .decoder-hero p {
+            font-size: 1.2rem;
+            color: #E0E7FF;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .beta-badge {
+            display: inline-block;
+            background: #D1FAE5;
+            color: #065F46;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .beta-section {
+            background: linear-gradient(135deg, #065F46 0%, #064E3B 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .beta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
         }
 
         .hero-actions {
@@ -86,6 +128,23 @@
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 2rem;
+        .platform-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            color: #1F2937;
+        }
+
+        .platform-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #1E3A8A;
+            margin-bottom: 1rem;
+        }
+
+        .platform-card .icon {
+            font-size: 2rem;
         }
 
         .hero-panel {
@@ -100,6 +159,19 @@
             color: white;
             font-size: 1.15rem;
             margin-bottom: 0.9rem;
+        .platform-card .limit {
+            background: #FEF3C7;
+            color: #78350F;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .platform-card ol {
+            padding-left: 1.25rem;
+            color: #4B5563;
+            margin: 1.5rem 0;
         }
 
         .hero-panel ul {
@@ -112,6 +184,9 @@
             margin-top: 0.8rem;
             padding-top: 0.8rem;
             border-top: 1px solid rgba(191, 219, 254, 0.15);
+        .platform-card ol li {
+            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
         .hero-panel strong {
@@ -135,6 +210,29 @@
         .section-intro {
             max-width: 760px;
             margin-bottom: 1.8rem;
+        .platform-card a.store-link {
+            display: inline-block;
+            background: #111827;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-card a.install-btn {
+            display: block;
+            background: #5B21B6;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 1.5rem;
         }
 
         .section-kicker {
@@ -150,6 +248,36 @@
         .section-intro h2 {
             font-size: 2.2rem;
             margin-bottom: 0.8rem;
+        .platform-card a.install-btn:hover {
+            background: #6D28D9;
+        }
+
+        .deadline-banner {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .deadline-banner p {
+            color: #78350F;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .promo-box {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .promo-box h4 {
+            color: #1E3A8A;
+            margin-bottom: 0.5rem;
         }
 
         .section-intro p {
@@ -162,6 +290,28 @@
         .feature-grid,
         .limit-grid,
         .support-grid {
+        .promo-code {
+            background: #F0FDF4;
+            border: 2px dashed #10B981;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .promo-code span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #065F46;
+            letter-spacing: 4px;
+        }
+
+        .features-section {
+            padding: 4rem 0;
+            background: #F9FAFB;
+        }
+
+        .features-grid {
             display: grid;
             gap: 1.2rem;
         }
@@ -185,11 +335,29 @@
         }
 
         .card h3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid #5B21B6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card h3 {
+            color: #1E3A8A;
             margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .card p,
         .card li {
+        .feature-card p {
             color: #4B5563;
             line-height: 1.7;
         }
@@ -207,10 +375,20 @@
         .card.beta {
             background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%);
             border-color: #86EFAC;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card ul {
+            color: #6B7280;
+            font-size: 0.9rem;
+            padding-left: 1.25rem;
         }
 
         .card.limit {
             background: linear-gradient(180deg, #FFFFFF 0%, #FFFBEB 100%);
+        .feature-card ul li {
+            margin-bottom: 0.5rem;
         }
 
         .card.support {
@@ -219,6 +397,15 @@
 
         .qr-box {
             text-align: center;
+        .use-cases-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .qr-box img {
@@ -234,6 +421,22 @@
             font-family: 'Roboto Mono', monospace;
             font-size: 0.84rem;
             word-break: break-all;
+        .use-case-card {
+            padding: 1.5rem;
+            border-left: 4px solid #5B21B6;
+            background: #F9FAFB;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .use-case-card h4 {
+            color: #1E3A8A;
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case-card p {
+            color: #4B5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         @media (max-width: 960px) {
@@ -244,11 +447,33 @@
             .support-grid {
                 grid-template-columns: 1fr;
             }
+        .feedback-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .feedback-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .feedback-section p {
+            color: #BFDBFE;
+            max-width: 550px;
+            margin: 0 auto 2rem;
         }
 
         @media (max-width: 720px) {
             .decoder-hero h1 {
                 font-size: 2.15rem;
+        @media (max-width: 768px) {
+            .beta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .decoder-hero h1 {
+                font-size: 2rem;
             }
 
             .hero-actions {
@@ -262,6 +487,7 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+
     <header class="site-header">
         <div class="container">
             <a href="../index.html" class="logo" aria-label="Digital ABCs Home">
@@ -272,16 +498,17 @@
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="../services.html">Services</a></li>
                     <li><a href="../apps.html" class="active">Apps We've Built</a></li>
+                    <li><a href="../apps.html">Apps</a></li>
                     <li><a href="../insights.php">Insights</a></li>
                     <li><a href="../about.html">About</a></li>
                     <li><a href="../contact.html">Contact</a></li>
-                    <li><a href="../portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main id="main-content">
+
         <section class="decoder-hero">
             <div class="container hero-grid">
                 <div>
@@ -295,6 +522,49 @@
                     <div class="hero-actions">
                         <a href="https://snack.expo.dev/@pe_mtd_2024/lingustic-decoder-version-1---testing-group-2-" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Beta Build</a>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLScVR_GdXj84bNZLMdnHrmV-FgVJKa-EHLSerJgfFWepu7cXsA/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Share Feedback</a>
+            <div class="container">
+                <span class="beta-badge">Beta testing now open</span>
+                <h1>Linguistic Decoder</h1>
+                <p>Understand what people really mean. Analyse conversations to reveal hidden meanings, emotional tone, and communication patterns that only emerge over time.</p>
+            </div>
+        </section>
+
+        <section class="beta-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: white; margin-bottom: 0.5rem;">Join the beta</h2>
+                    <p style="color: #D1FAE5; font-size: 1.1rem;">Limited spots available. Help us refine the app with your feedback.</p>
+                </div>
+
+                <div class="beta-grid">
+                    <div class="platform-card">
+                        <h3>
+                            <span class="icon"></span>
+                            iOS testers
+                            <span class="limit">Limited to 50</span>
+                        </h3>
+                        <ol>
+                            <li>Download <strong>TestFlight</strong> from the Apple App Store</li>
+                            <li>Click the link below to join the beta</li>
+                            <li>Install <strong>Linguistic Decoder</strong> from TestFlight</li>
+                        </ol>
+                        <a href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener" class="store-link">Get TestFlight</a>
+                        <a href="https://testflight.apple.com/join/4U45d2Vh" target="_blank" rel="noopener" class="install-btn">Join iOS Beta</a>
+                    </div>
+
+                    <div class="platform-card">
+                        <h3>
+                            <span class="icon">🤖</span>
+                            Android testers
+                            <span class="limit">Limited to 50</span>
+                        </h3>
+                        <ol>
+                            <li>Download <strong>App Tester by Firebase</strong> from Google Play</li>
+                            <li>Click the link below to join the beta</li>
+                            <li>Install <strong>Linguistic Decoder</strong> from App Tester</li>
+                        </ol>
+                        <a href="https://play.google.com/store/apps/details?id=com.google.firebase.appdistribution.debug" target="_blank" rel="noopener" class="store-link">Get App Tester</a>
+                        <a href="https://appdistribution.firebase.dev/i/420608d2fd0120d8" target="_blank" rel="noopener" class="install-btn">Join Android Beta</a>
                     </div>
                 </div>
 
@@ -349,11 +619,24 @@
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://snack.expo.dev/@pe_mtd_2024/lingustic-decoder-version-1---testing-group-2-" alt="QR code to open the Linguistic Decoder beta build">
                         <p style="margin-top:1rem;">Open with Expo Go or use the direct beta link above.</p>
                     </article>
+
+                <div class="deadline-banner">
+                    <p>⏰ Registration closes <strong>March 14th, 2026</strong></p>
+                </div>
+
+                <div class="promo-box">
+                    <h4>Unlock all features for free</h4>
+                    <p style="color: #6B7280; font-size: 0.9rem;">Use this promo code in the app to access all premium features during beta:</p>
+                    <div class="promo-code">
+                        <span>demo26</span>
+                    </div>
+                    <p style="color: #6B7280; font-size: 0.85rem; margin: 0;">Go to Settings → Promo Code to redeem</p>
                 </div>
             </div>
         </section>
 
         <section class="section-shell border-top">
+        <section class="features-section">
             <div class="container">
                 <div class="section-intro">
                     <span class="section-kicker">Current Beta Scope</span>
@@ -363,6 +646,22 @@
                         and lets people test whether the direction is useful.
                     </p>
                 </div>
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">What you can do</h2>
+                    <p style="color: #4B5563; max-width: 600px; margin: 0.5rem auto 0;">Analyse any conversation and build a history of insights that grow more valuable over time.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3><span style="font-size: 1.5rem;">🧠</span> Conversation analysis</h3>
+                        <p>Paste text from any source — SMS, email, Slack, WhatsApp. Get AI-powered insights in seconds.</p>
+                        <ul>
+                            <li>Emotional tone identification</li>
+                            <li>Hidden meanings revealed</li>
+                            <li>Communication style analysis</li>
+                            <li>Plain English translation</li>
+                        </ul>
+                    </div>
 
                 <div class="feature-grid">
                     <article class="card">
@@ -379,11 +678,62 @@
                         <h3>Open product direction</h3>
                         <p>Use the beta to understand how Digital ABCs builds: openly, iteratively, and without pretending unfinished work is release-ready.</p>
                     </article>
+                    <div class="feature-card" style="border-left-color: #10B981;">
+                        <h3><span style="font-size: 1.5rem;">👤</span> Speaker profiles</h3>
+                        <p>Create profiles for people in your conversations. Track patterns and get personalised insights for each relationship.</p>
+                        <ul>
+                            <li>Tag conversations by person</li>
+                            <li>Track communication history</li>
+                            <li>Relationship type settings</li>
+                            <li>Pattern recognition over time</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #F59E0B;">
+                        <h3><span style="font-size: 1.5rem;">💬</span> Response suggestions</h3>
+                        <p>Get AI-generated response options tailored to your situation — diplomatic, assertive, or collaborative.</p>
+                        <ul>
+                            <li>Multiple response styles</li>
+                            <li>Impact prediction</li>
+                            <li>Context-aware suggestions</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #EC4899;">
+                        <h3><span style="font-size: 1.5rem;">📚</span> Educational library</h3>
+                        <p>Access expert communication techniques including Grey Rock, BIFF, and "I" statements — works offline.</p>
+                        <ul>
+                            <li>Proven communication strategies</li>
+                            <li>Available offline</li>
+                            <li>Learn at your own pace</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #8B5CF6;">
+                        <h3><span style="font-size: 1.5rem;">📈</span> Historical tracking</h3>
+                        <p>Build a history of analyses. See trends in your communication over weeks and months.</p>
+                        <ul>
+                            <li>Timeline view by person</li>
+                            <li>Relationship health scores</li>
+                            <li>Communication improvement tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" style="border-left-color: #06B6D4;">
+                        <h3><span style="font-size: 1.5rem;">🔒</span> Privacy first</h3>
+                        <p>All data stored locally on your device. We never store your conversations on our servers.</p>
+                        <ul>
+                            <li>Local storage only</li>
+                            <li>No server-side logs</li>
+                            <li>Your privacy guaranteed</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section-shell border-top">
+        <section class="use-cases-section">
             <div class="container">
                 <div class="section-intro">
                     <span class="section-kicker">Important Limits</span>
@@ -408,11 +758,34 @@
                         <h3>Not for high-risk situations</h3>
                         <p>If safety, abuse, self-harm, or urgent welfare issues are involved, do not rely on an AI beta tool.</p>
                     </article>
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #1E3A8A;">Who it's for</h2>
+                    <p style="color: #4B5563;">Whether it's work emails, family texts, or relationship chats — understand what's really being said.</p>
+                </div>
+
+                <div class="use-case-grid">
+                    <div class="use-case-card">
+                        <h4>Workplace communication</h4>
+                        <p>Decode passive-aggressive emails, understand office dynamics, and craft better professional responses.</p>
+                    </div>
+                    <div class="use-case-card" style="border-left-color: #10B981;">
+                        <h4>Family relationships</h4>
+                        <p>Navigate complex family dynamics. Understand what's really being said (and not said) in family chats.</p>
+                    </div>
+                    <div class="use-case-card" style="border-left-color: #F59E0B;">
+                        <h4>Romantic relationships</h4>
+                        <p>Build better communication patterns. Understand your partner's communication style and improve together.</p>
+                    </div>
+                    <div class="use-case-card" style="border-left-color: #EC4899;">
+                        <h4>Neurodivergent communication</h4>
+                        <p>If you struggle to read between the lines, let AI help decode the subtext that others seem to understand intuitively.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section-shell border-top">
+        <section class="feedback-section">
             <div class="container">
                 <div class="section-intro">
                     <span class="section-kicker">Privacy and Feedback</span>
@@ -450,6 +823,9 @@
                         </p>
                     </article>
                 </div>
+                <h2>Help us make it better</h2>
+                <p>Your feedback shapes the app. Tell us what works, what doesn't, and what you wish it could do.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScVR_GdXj84bNZLMdnHrmV-FgVJKa-EHLSerJgfFWepu7cXsA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Share your feedback</a>
             </div>
         </section>
     </main>
@@ -460,11 +836,12 @@
                 <div class="footer-col">
                     <h4>Digital ABCs</h4>
                     <p>Practical apps and workflow tools with honest beta status and clear limits.</p>
+                    <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
+                    <p>Simple, beautiful tools for self-understanding.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="../services.html">Services</a></li>
                         <li><a href="../apps.html">Apps</a></li>
                         <li><a href="../about.html">About</a></li>
                         <li><a href="../insights.php">Insights</a></li>
@@ -478,6 +855,9 @@
                         <li><a href="../privacy.html">Privacy Policy</a></li>
                         <li><a href="../terms.html">Terms of Service</a></li>
                         <li><a href="../ai_transparency.html">AI Transparency</a></li>
+                        <li><a href="../privacy.html">Privacy policy</a></li>
+                        <li><a href="../terms.html">Terms of service</a></li>
+                        <li><a href="../ai_transparency.html">AI transparency</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -489,6 +869,8 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
+            <div class="footer-bottom">
                 <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
