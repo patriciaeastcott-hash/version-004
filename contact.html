@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4JD4ZCN0G8');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Digital ABCs</title>
-    <meta name="description" content="Get in touch with Digital ABCs for app development, delivery logistics, or tech support. Based in Western Sydney, serving businesses across Australia.">
+    <meta name="description" content="Talk to Digital ABCs about workflow problems, custom app work, beta participation, or app support.">
     <meta property="og:title" content="Contact | Digital ABCs">
-    <meta property="og:description" content="Contact us for app development, BBB Logistics deliveries, or tech support.">
+    <meta property="og:description" content="Book a call, join the beta, or get app support from Digital ABCs.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
     <meta property="og:url" content="https://digitalabcs.com.au/contact.html">
@@ -25,9 +23,160 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --surface-blue: #EFF6FF;
+            --surface-purple: #F5F3FF;
+            --surface-green: #ECFDF5;
+            --border: #E5E7EB;
+        }
+
+        body {
+            background: #F9FAFB;
+            color: #1F2937;
+        }
+
+        .contact-hero {
+            background:
+                radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 28%),
+                linear-gradient(135deg, #1E3A8A 0%, #111827 72%);
+            color: white;
+            padding: 5.5rem 0 4.5rem;
+        }
+
+        .contact-hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            max-width: 760px;
+        }
+
+        .contact-hero p {
+            color: #DBEAFE;
+            font-size: 1.12rem;
+            line-height: 1.75;
+            max-width: 760px;
+        }
+
+        .section-shell {
+            padding: 4rem 0;
+        }
+
+        .section-shell.border-top {
+            border-top: 1px solid var(--border);
+        }
+
+        .grid-main {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+            gap: 1.25rem;
+            align-items: start;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.75rem;
+            box-shadow: 0 16px 38px -30px rgba(17, 24, 39, 0.24);
+        }
+
+        .panel h2,
+        .panel h3 {
+            margin-bottom: 0.8rem;
+        }
+
+        .panel p,
+        .panel li {
+            color: #4B5563;
+            line-height: 1.7;
+        }
+
+        .panel ul {
+            padding-left: 1.1rem;
+        }
+
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #5B21B6;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .path-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 16px 38px -30px rgba(17, 24, 39, 0.18);
+        }
+
+        .path-card h3 {
+            margin-bottom: 0.55rem;
+        }
+
+        .path-card p {
+            color: #4B5563;
+            margin-bottom: 1rem;
+        }
+
+        .path-card.beta {
+            background: var(--surface-green);
+        }
+
+        .path-card.help {
+            background: var(--surface-blue);
+        }
+
+        .path-card.support {
+            background: var(--surface-purple);
+        }
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .meta-list li + li {
+            margin-top: 0.7rem;
+            padding-top: 0.7rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .small-note {
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            color: #6B7280;
+        }
+
+        @media (max-width: 960px) {
+            .grid-main,
+            .path-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="logo" aria-label="Digital ABCs Home">
@@ -46,101 +195,119 @@
             </nav>
         </div>
     </header>
+
     <main id="main-content">
-        <section class="hero">
+        <section class="contact-hero">
             <div class="container">
-                <h1>Let's Connect</h1>
-                <p class="subtitle">Whether you're interested in our services or need support for our mobile apps, we're here to help. Choose an option below.</p>
+                <span class="section-kicker" style="color:#BFDBFE;">Contact</span>
+                <h1>Book practical help, try the beta, or get app support.</h1>
+                <p>
+                    This page is split by intent so you can get to the right next step quickly. If you need workflow help,
+                    use the business enquiry path. If you want to support the product direction, start with the beta.
+                </p>
             </div>
         </section>
-        <section class="contact-tabs section-padding">
-            <div class="container">
-                <div class="tabs-container" role="tablist" aria-label="Contact options">
-                    <button class="tab-btn active" data-tab="business" role="tab" aria-selected="true" aria-controls="business-tab" id="tab-business">Business Inquiry</button>
-                    <button class="tab-btn" data-tab="app-support" role="tab" aria-selected="false" aria-controls="app-support-tab" id="tab-app-support">App Support</button>
-                </div>
-            </div>
-        </section>
-        <section class="contact-section section-padding">
-            <div class="container contact-container">
-                <!-- Business Inquiry Tab -->
-                <div id="business-tab" class="tab-content active" role="tabpanel" aria-labelledby="tab-business">
-                    <div class="contact-form">
-                        <h2 class="section-title-left">Book Your Free Call</h2>
-                        <p>Tell me about your workflow problem, and we'll schedule a 15-minute call to see if I can help.</p>
-                       <iframe data-tally-src="https://tally.so/embed/mOWjWk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="822" frameborder="0" marginheight="0" marginwidth="0" title="Website Contact"></iframe>
-                       <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-                    </div>
-                    <div class="contact-details">
-                        <h2 class="section-title-left">Direct Contact Details</h2>
-                        <p>Prefer to reach out directly? Here's how you can find us. We'll get back to you within one business day.</p>
-                        <div class="details-card">
-                            <h3>Email Us</h3>
-                            <p>For general inquiries or service questions.</p>
+
+        <section class="section-shell" id="business-enquiry">
+            <div class="container grid-main">
+                <section class="panel">
+                    <span class="section-kicker">Business Enquiry</span>
+                    <h2>Book your free call</h2>
+                    <p>
+                        Use this if you have a workflow bottleneck, a tool you want built, or you need a straight answer
+                        about whether a problem is actually worth solving with software.
+                    </p>
+                    <iframe data-tally-src="https://tally.so/embed/mOWjWk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="822" frameborder="0" marginheight="0" marginwidth="0" title="Website Contact"></iframe>
+                    <script>
+                        var d=document,w="https://tally.so/widgets/embed.js",v=function(){if(typeof Tally!=="undefined"){Tally.loadEmbeds();}else{d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc;});}};
+                        if(typeof Tally!=="undefined"){v();}else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}
+                    </script>
+                </section>
+
+                <aside class="panel">
+                    <span class="section-kicker">Direct Contact</span>
+                    <h2>Prefer email?</h2>
+                    <p>If you already know what you need, email directly and keep it simple.</p>
+                    <ul class="meta-list">
+                        <li>
+                            <strong>Email</strong><br>
                             <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a>
-                        </div>
-                        <div class="details-card">
-                            <h3>Our Location</h3>
-                            <p>Proudly based in and serving Western Sydney, with clients all across Australia.</p>
-                            <span>Toongabbie, NSW, Australia</span>
-                        </div>
-                         <div class="details-card">
-                            <h3>Business Hours</h3>
-                            <p>Monday – Thursday<br>10:00 AM – 2:00 PM AEDT</p>
-                        </div>
-                    </div>
+                        </li>
+                        <li>
+                            <strong>Location</strong><br>
+                            Toongabbie, NSW, Australia
+                        </li>
+                        <li>
+                            <strong>Hours</strong><br>
+                            Monday to Thursday, 10:00 AM to 2:00 PM AEDT
+                        </li>
+                    </ul>
+                    <p class="small-note">Response target: within one business day where possible.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section-shell border-top">
+            <div class="container">
+                <span class="section-kicker">Choose The Right Path</span>
+                <h2 style="margin-bottom:1rem;">The fastest route depends on what you are here for.</h2>
+
+                <div class="path-grid">
+                    <article class="path-card beta">
+                        <h3>Join the beta</h3>
+                        <p>Try the active public beta for Linguistic Decoder and send product feedback after using it.</p>
+                        <a href="apps/decoder.html#beta-access" class="btn btn-primary">Go to the Beta</a>
+                    </article>
+
+                    <article class="path-card help">
+                        <h3>Get practical help</h3>
+                        <p>Bring a workflow problem, a messy process, or a tool idea that needs an honest assessment.</p>
+                        <a href="#business-enquiry" class="btn btn-primary">Book a Call</a>
+                    </article>
+
+                    <article class="path-card support">
+                        <h3>Need app support?</h3>
+                        <p>Use the support centre for troubleshooting, FAQs, and the best direct route for app help.</p>
+                        <a href="apps/support.html" class="btn btn-primary">Open Support Centre</a>
+                    </article>
                 </div>
+            </div>
+        </section>
 
-                <!-- App Support Tab -->
-                <div id="app-support-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-app-support">
-                    <div class="app-support-container">
-                        <h2 class="section-title-left">Mobile App Support</h2>
-                        <p class="lead-text">Having trouble with our mobile apps? We're here to help! Check out our resources or get in touch with our support team.</p>
-                        
-                        <div class="support-options">
-                            <div class="support-option">
-                                <h3>📱 Mobile Apps</h3>
-                                <p style="color: #4B5563; font-size: 0.9rem;">Our mobile apps are currently in development. App Store and Google Play links will be available once apps are launched.</p>
-                                <span style="display: inline-block; background: #FEF3C7; color: #78350F; padding: 5px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Coming Soon</span>
-                            </div>
+        <section class="section-shell border-top">
+            <div class="container grid-main">
+                <section class="panel">
+                    <span class="section-kicker">Current Product Paths</span>
+                    <h2>What you can do today</h2>
+                    <ul>
+                        <li><strong>Linguistic Decoder:</strong> public beta access is available now.</li>
+                        <li><strong>CompliancePulse:</strong> register interest via the product page or email.</li>
+                        <li><strong>Smart Capture Finance:</strong> interest is open, but it is not public beta yet.</li>
+                    </ul>
+                    <p class="small-note">
+                        This split is intentional. Different products are at different stages, and the site now reflects that openly.
+                    </p>
+                </section>
 
-                            <div class="support-option">
-                                <h3>❓ Common Issues</h3>
-                                <ul class="support-list">
-                                    <li><strong>App won't open?</strong> Try force-closing the app and clearing the cache in your device settings.</li>
-                                    <li><strong>Login problems?</strong> Ensure you're using the correct credentials and check your internet connection.</li>
-                                    <li><strong>Feature not working?</strong> Update your app to the latest version from the App Store or Google Play.</li>
-                                    <li><strong>Performance issues?</strong> Restart your device and ensure you have enough storage space.</li>
-                                </ul>
-                            </div>
-
-                            <div class="support-option">
-                                <h3>📖 Support Resources</h3>
-                                <p>For more detailed guides and tutorials:</p>
-                                <a href="apps/support.html" class="support-link">Visit Our App Support Center →</a>
-                            </div>
-
-                            <div class="support-option">
-                                <h3>💬 Still Need Help?</h3>
-                                <p>If you haven't found what you need, please reach out directly:</p>
-                                <div class="support-contact">
-                                    <p><strong>Email:</strong> <a href="mailto:support@digitalabcs.com.au">support@digitalabcs.com.au</a></p>
-                                    <p><strong>Subject:</strong> Include your app name and the issue you're experiencing</p>
-                                    <p><strong>Response time:</strong> Within one business day</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <aside class="panel">
+                    <span class="section-kicker">Support Email</span>
+                    <h2>App issues and product questions</h2>
+                    <p>
+                        For app-specific problems, bug reports, or account questions, use the support path first or email:
+                    </p>
+                    <p><a href="mailto:support@digitalabcs.com.au">support@digitalabcs.com.au</a></p>
+                    <p class="small-note">Include the app name, device type, and what went wrong.</p>
+                </aside>
             </div>
         </section>
     </main>
+
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Digital ABCs</h4>
-                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                    <p>Practical apps, workflow tools, and honest product builds without unnecessary theatre.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
@@ -155,6 +322,7 @@
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul>
+                        <li><a href="legal.html">Legal Hub</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="ai_transparency.html">AI Transparency</a></li>
@@ -169,261 +337,9 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
-                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <style>
-        .contact-tabs {
-            background-color: #F3F4F6;
-            border-bottom: 1px solid #E5E7EB;
-        }
-
-        .tabs-container {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            background: white;
-            border: 2px solid #E5E7EB;
-            color: #1F2937;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn:hover {
-            border-color: #5B21B6;
-            color: #5B21B6;
-        }
-
-        .tab-btn.active {
-            background: #5B21B6;
-            color: white;
-            border-color: #5B21B6;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .app-support-container {
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .lead-text {
-            font-size: 1.1rem;
-            color: #4B5563;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .support-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .support-option {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .support-option h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #1E3A8A;
-        }
-
-        .app-stores {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .app-store-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.25rem;
-            padding: 1rem;
-            border: 2px solid #E5E7EB;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #1F2937;
-            font-size: 0.875rem;
-            transition: all 0.3s ease;
-        }
-
-        .app-store-link:hover {
-            border-color: #5B21B6;
-            background: #F9F5FF;
-        }
-
-        .app-store-link .store-name {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .app-store-ios {
-            border-color: #666;
-        }
-
-        .app-store-android {
-            border-color: #3DDC84;
-        }
-
-        .support-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .support-list li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #F3F4F6;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .support-list li:last-child {
-            border-bottom: none;
-        }
-
-        .support-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: #5B21B6;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .support-link:hover {
-            background: #F9F5FF;
-            color: #6D28D9;
-        }
-
-        .support-contact {
-            background: #F3F4F6;
-            padding: 1rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-        }
-
-        .support-contact p {
-            margin: 0.5rem 0;
-        }
-
-        .support-contact a {
-            color: #5B21B6;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .support-contact a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .tabs-container {
-                gap: 0.5rem;
-            }
-
-            .tab-btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.95rem;
-            }
-
-            .support-options {
-                grid-template-columns: 1fr;
-            }
-
-            .app-stores {
-                flex-direction: row;
-            }
-
-            .app-store-link {
-                flex: 1;
-            }
-        }
-
-        .tally-float-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ba38eb;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            padding: 14px 22px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            z-index: 9999;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .tally-float-btn:hover {
-            background-color: #065F46;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 600px) {
-            .tally-float-btn {
-                padding: 12px 18px;
-                font-size: 14px;
-                bottom: 15px;
-                right: 15px;
-            }
-        }
-    </style> 
-    <button class="tally-float-btn" data-tally-open="wkDaP1"
-    data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true"
-    data-tally-hide-title="false" data-tally-emoji-text="💡"
-    data-tally-emoji-animation="tada">Got a workflow problem?</button>
-    <script>
-        // Tab switching functionality
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tab = btn.getAttribute('data-tab');
-                
-                // Remove active class from all buttons and tabs
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding tab
-                btn.classList.add('active');
-                document.getElementById(tab + '-tab').classList.add('active');
-            });
-        });
-    </script></body>
+</body>
 </html>

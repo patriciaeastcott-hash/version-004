@@ -10,8 +10,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital ABCs | Custom App Development for Workflow Bottlenecks</title>
-    <meta name="description" content="Digital ABCs builds custom applications that eliminate workflow bottlenecks. We deep-dive into your business processes to find what's slowing you down, then build the tech to fix it.">
+    <title>Digital ABCs | Honest Apps for Workflow Problems</title>
+    <meta name="description" content="Digital ABCs builds practical apps, workflow tools, and beta products in the open. Straight answers, honest status updates, and no overbuilt nonsense.">
 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,54 +20,399 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .hero-modern {
-            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
-            color: white; padding: 6rem 0 4rem 0; text-align: center;
-            position: relative; overflow: hidden;
+        :root {
+            --surface-blue: #EFF6FF;
+            --surface-purple: #F5F3FF;
+            --surface-green: #ECFDF5;
+            --surface-warm: #FFFBEB;
+            --border: #E5E7EB;
         }
 
-        .hero-bg-grid {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(91, 33, 182, 0.3) 1px, transparent 1px);
-            background-size: 30px 30px; opacity: 0.3; pointer-events: none;
+        body {
+            background: #FFFFFF;
         }
 
-        .product-showcase {
-            background: white; border-radius: 20px; padding: 3rem;
-            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.15);
-            border: 1px solid #E5E7EB; margin-top: -3rem; position: relative; z-index: 10;
-            max-width: 900px; margin-left: auto; margin-right: auto;
-            display: flex; flex-direction: column; md:flex-row; gap: 2rem;
-            align-items: center; text-align: left;
+        .home-hero {
+            background:
+                radial-gradient(circle at top right, rgba(96, 165, 250, 0.22), transparent 32%),
+                linear-gradient(135deg, #1E3A8A 0%, #111827 72%);
+            color: white;
+            padding: 6rem 0 5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .badge-live {
-            background: #065F46; color: white; padding: 5px 12px; border-radius: 50px;
-            font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
-            display: inline-block; margin-bottom: 10px;
+        .home-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            pointer-events: none;
         }
 
-        .approach-section {
-            background-color: #F9FAFB; padding: 4rem 0; border-top: 1px solid #E5E7EB;
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+            gap: 2rem;
+            align-items: end;
         }
 
-        .approach-card {
-            background: white; padding: 2rem; border-radius: 12px; border: 1px solid #E5E7EB;
-            display: flex; flex-direction: column; gap: 15px; transition: transform 0.2s;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #BFDBFE;
         }
-        .approach-card:hover { transform: scale(1.02); border-color: #5B21B6; }
 
-        .apps-section {
-            padding: 4rem 0;
+        .home-hero h1 {
+            color: white;
+            font-size: 3.35rem;
+            max-width: 760px;
+            margin-bottom: 1rem;
         }
 
-        .app-card {
-            background: white; padding: 1.5rem; border-radius: 12px; border: 1px dashed #9CA3AF;
-            display: flex; align-items: center; gap: 15px; transition: transform 0.2s;
+        .hero-copy {
+            color: #DBEAFE;
+            font-size: 1.15rem;
+            line-height: 1.75;
+            max-width: 720px;
         }
-        .app-card:hover { transform: scale(1.02); border-color: #5B21B6; }
-        .app-card.featured { border: 2px solid #065F46; border-style: solid; }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .hero-note {
+            margin-top: 1rem;
+            color: #BFDBFE;
+            font-size: 0.95rem;
+        }
+
+        .hero-panel {
+            background: rgba(17, 24, 39, 0.58);
+            border: 1px solid rgba(191, 219, 254, 0.18);
+            border-radius: 20px;
+            padding: 1.5rem;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 18px 50px -28px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-panel h2 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-panel li + li {
+            margin-top: 0.85rem;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(191, 219, 254, 0.15);
+        }
+
+        .hero-panel strong {
+            display: block;
+            color: white;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-panel span {
+            color: #D1D5DB;
+            font-size: 0.95rem;
+        }
+
+        .status-band {
+            margin-top: -2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .status-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 18px 40px -28px rgba(17, 24, 39, 0.28);
+        }
+
+        .status-label {
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .status-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .status-card p {
+            color: #4B5563;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .section-shell {
+            padding: 4.5rem 0;
+        }
+
+        .section-intro {
+            max-width: 760px;
+            margin-bottom: 2rem;
+        }
+
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #5B21B6;
+        }
+
+        .section-intro h2 {
+            font-size: 2.35rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-intro p {
+            color: #4B5563;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .reality-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .reality-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.75rem;
+            box-shadow: 0 14px 35px -28px rgba(17, 24, 39, 0.25);
+        }
+
+        .reality-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .reality-card p,
+        .reality-card li {
+            color: #4B5563;
+        }
+
+        .reality-card ul {
+            padding-left: 1.1rem;
+            margin-top: 0.9rem;
+        }
+
+        .reality-card li + li {
+            margin-top: 0.45rem;
+        }
+
+        .surface-split {
+            background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .progress-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .progress-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .progress-step {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: #111827;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .progress-item h3 {
+            margin-bottom: 0.4rem;
+        }
+
+        .progress-item p {
+            color: #4B5563;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-item a {
+            font-weight: 600;
+        }
+
+        .promise-card {
+            background: #111827;
+            color: white;
+            border-radius: 22px;
+            padding: 2rem;
+        }
+
+        .promise-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .promise-card ul {
+            padding-left: 1.1rem;
+            color: #D1D5DB;
+        }
+
+        .promise-card li + li {
+            margin-top: 0.6rem;
+        }
+
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .future-card {
+            border-radius: 20px;
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+        }
+
+        .future-card h3 {
+            margin-bottom: 0.6rem;
+        }
+
+        .future-card p,
+        .future-card li {
+            color: #4B5563;
+        }
+
+        .future-card ul {
+            padding-left: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .future-card li + li {
+            margin-top: 0.5rem;
+        }
+
+        .future-card.beta {
+            background: var(--surface-green);
+        }
+
+        .future-card.next {
+            background: var(--surface-warm);
+        }
+
+        .future-card.proof {
+            background: var(--surface-blue);
+        }
+
+        .future-card.founder {
+            background: var(--surface-purple);
+        }
+
+        .cta-panel {
+            background: linear-gradient(135deg, #065F46 0%, #111827 100%);
+            border-radius: 24px;
+            padding: 2.5rem;
+            color: white;
+            display: grid;
+            grid-template-columns: 1.35fr auto;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .cta-panel h2,
+        .cta-panel p {
+            color: white;
+        }
+
+        .cta-panel p {
+            max-width: 650px;
+            color: #D1FAE5;
+        }
+
+        @media (max-width: 960px) {
+            .hero-inner,
+            .progress-grid,
+            .cta-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .status-grid,
+            .reality-grid,
+            .future-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .home-hero h1 {
+                font-size: 2.35rem;
+            }
+
+            .status-grid,
+            .reality-grid,
+            .future-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
     </style>
 </head>
 <body>
@@ -93,146 +438,235 @@
     </header>
 
     <main id="main-content">
+        <section class="home-hero">
+            <div class="container hero-inner">
+                <div>
+                    <span class="eyebrow">Built in public. Plain English. No spin.</span>
+                    <h1>Apps and workflow tools for people who need things to actually work.</h1>
+                    <p class="hero-copy">
+                        Digital ABCs builds practical software, tests ideas in the open, and says clearly what is ready,
+                        what is still experimental, and what still needs work. If something is in beta, we will call it
+                        beta. If it is not ready, we will say that too.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="apps/decoder.html#beta-access" class="btn btn-primary">Join the Beta</a>
+                        <a href="contact.html#business-enquiry" class="btn btn-secondary">Book a Call</a>
+                    </div>
+                    <p class="hero-note">
+                        The current public beta is <strong>Linguistic Decoder</strong>. The rest of the roadmap is visible,
+                        but not dressed up as finished.
+                    </p>
+                </div>
 
-        <section class="hero-modern">
-            <div class="hero-bg-grid"></div>
-            <div class="container" style="position: relative; z-index: 2;">
-                <span style="color: #A78BFA; font-weight: bold; letter-spacing: 2px; font-size: 0.9rem;">APP DEVELOPMENT + PROCESS CONSULTING</span>
-                <h1 style="font-size: 3rem; margin: 1rem 0;">Your Workflow Has a Bottleneck.<br>We Find It. We Fix It.</h1>
-                <p class="subtitle" style="color: #E0E7FF; max-width: 700px; margin: 0 auto;">
-                    Digital ABCs builds custom applications by first understanding what's actually slowing your business down.
-                    We deep-dive into your processes, identify the friction points, then build technology that removes them.
-                </p>
+                <aside class="hero-panel" aria-label="Current build status">
+                    <h2>What is true right now</h2>
+                    <ul>
+                        <li>
+                            <strong>Public beta is live</strong>
+                            <span>Linguistic Decoder is available to test now through the current beta path.</span>
+                        </li>
+                        <li>
+                            <strong>Free tools are available</strong>
+                            <span>Workflow, finance, productivity, and developer tools are already usable on the site.</span>
+                        </li>
+                        <li>
+                            <strong>More products are in build</strong>
+                            <span>CompliancePulse and Smart Capture Finance are still being shaped, not oversold.</span>
+                        </li>
+                    </ul>
+                </aside>
             </div>
         </section>
 
-        <div class="container" style="padding-bottom: 4rem;">
-            <div class="product-showcase">
-                <div style="flex: 1;">
-                    <span class="badge-live">Our Approach</span>
-                    <h2 style="font-size: 2rem; color: #1E3A8A; margin: 0.5rem 0;">Process First. Tech Second.</h2>
-                    <p style="color: #4B5563; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                        Most tech companies want to sell you software. We want to understand your business first.
-                        Where are you losing time? Where's the manual work piling up? What tasks make you think "there has to be a better way"?
-                    </p>
-                    <ul style="color: #4B5563; margin-bottom: 2rem; padding-left: 20px;">
-                        <li style="margin-bottom:8px;"><strong>Deep Process Analysis:</strong> We map your workflows to find the real problems.</li>
-                        <li style="margin-bottom:8px;"><strong>Custom Solutions:</strong> We build apps tailored to how you actually work.</li>
-                        <li><strong>Practical Technology:</strong> No over-engineered nonsense. Just tools that work.</li>
-                    </ul>
-                    <a href="services.html" class="btn btn-primary" style="padding: 12px 30px; font-size: 1.1rem;">
-                        See Our Services
-                    </a>
-                </div>
-                <div style="flex: 1; text-align: center; background: #F3F4F6; padding: 2rem; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <div style="font-size: 5rem;">🔍</div>
-                </div>
+        <div class="status-band">
+            <div class="container status-grid">
+                <article class="status-card">
+                    <span class="status-label" style="background:#D1FAE5;color:#065F46;">Available Now</span>
+                    <h3>50+ free utility tools</h3>
+                    <p>Useful tools are already live and usable. No waitlist theatre, no fake scarcity.</p>
+                </article>
+                <article class="status-card">
+                    <span class="status-label" style="background:#DBEAFE;color:#1E3A8A;">Public Beta</span>
+                    <h3>Linguistic Decoder</h3>
+                    <p>An open beta you can actually try, with clear caveats about where it is up to.</p>
+                </article>
+                <article class="status-card">
+                    <span class="status-label" style="background:#FEF3C7;color:#92400E;">In Build</span>
+                    <h3>CompliancePulse + Smart Capture</h3>
+                    <p>Promising products, but still in development. Interest is welcome. Pretending they are done is not.</p>
+                </article>
+                <article class="status-card">
+                    <span class="status-label" style="background:#EDE9FE;color:#5B21B6;">Non-Negotiable</span>
+                    <h3>Straight answers</h3>
+                    <p>If a workflow is not worth automating, or a feature is not ready, you will hear that plainly.</p>
+                </article>
             </div>
         </div>
 
-        <section class="approach-section">
+        <section class="section-shell">
             <div class="container">
-                <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem;">
-                    <div>
-                        <h2 class="section-title" style="margin-bottom: 0.5rem;">How We Work</h2>
-                        <p style="color: #4B5563;">From bottleneck to breakthrough.</p>
-                    </div>
-                </div>
-
-                <div class="values-grid">
-                    <div class="approach-card">
-                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%; width: fit-content;">1</div>
-                        <div>
-                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Listen & Map</h3>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin: 5px 0;">
-                                We sit down with you and map out your current processes. Not what you think happens - what actually happens. The messy bits, the workarounds, all of it.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="approach-card">
-                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%; width: fit-content;">2</div>
-                        <div>
-                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Find the Friction</h3>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin: 5px 0;">
-                                We identify where time disappears. Where errors creep in. Where your team is doing repetitive work that technology should handle.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="approach-card">
-                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%; width: fit-content;">3</div>
-                        <div>
-                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Build the Solution</h3>
-                            <p style="font-size: 0.9rem; color: #4B5563; margin: 5px 0;">
-                                We design and build custom applications that solve your specific problems. Not generic software - tools built for how your business actually runs.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="apps-section">
-            <div class="container">
-                <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem;">
-                    <div>
-                        <h2 class="section-title" style="margin-bottom: 0.5rem;">Apps We've Built</h2>
-                        <p style="color: #4B5563;">Real solutions for real problems.</p>
-                    </div>
-                    <a href="apps.html" style="color: #5B21B6; font-weight: bold; text-decoration: none;">View All Apps &rarr;</a>
-                </div>
-
-                <div class="values-grid">
-                    <div class="app-card featured">
-                        <div style="font-size: 2rem; background: #ECFDF5; padding: 15px; border-radius: 50%;">🧠</div>
-                        <div>
-                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Linguistic Decoder</h3>
-                            <p style="font-size: 0.85rem; color: #4B5563; margin: 5px 0;">
-                                <span style="color: #78350F; font-weight: bold; background: #FEF3C7; padding: 2px 8px; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Coming Soon</span><br>
-                                AI-powered conversation analysis. Understand what people really mean in texts, emails, and chats.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="app-card">
-                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%;">🛡️</div>
-                        <div>
-                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">CompliancePulse</h3>
-                            <p style="font-size: 0.85rem; color: #4B5563; margin: 5px 0;">
-                                <span style="color: #78350F; font-weight: bold; background: #FEF3C7; padding: 2px 8px; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Coming Soon</span><br>
-                                Compliance monitoring meets market intelligence. Spots risks and opportunities automatically.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="app-card">
-                        <div style="font-size: 2rem; background: #F3F4F6; padding: 15px; border-radius: 50%;">📊</div>
-                        <div>
-                            <h3 style="margin: 0; color: #1F2937; font-size: 1.1rem;">Smart Capture Finance</h3>
-                            <p style="font-size: 0.85rem; color: #4B5563; margin: 5px 0;">
-                                <span style="color: #F59E0B; font-weight: bold;">In Development</span><br>
-                                The "black box" for financial workflows. Records and analyses where your invoicing process loses time.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-       <section class="values-intro section-padding">
-            <div class="container">
-                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <h2 class="section-title">Built by Someone Who Gets It.</h2>
-                    <p class="section-subtitle">
-                        Digital ABCs was started by a First Nations, neurodivergent single mum who spent years watching businesses drown in inefficient processes.
-                        When you've had to make every hour count, you learn to spot waste. When your brain works differently, you see solutions others miss.
+                <div class="section-intro">
+                    <span class="section-kicker">Reality First</span>
+                    <h2>What you can support right now</h2>
+                    <p>
+                        Support does not mean blind faith. It means testing what exists, sharing useful feedback,
+                        booking practical work when you need it, and following products that are being built honestly.
                     </p>
-                    <a href="about.html" class="btn btn-secondary" style="margin-top: 1rem;">Read the Story</a>
+                </div>
+
+                <div class="reality-grid">
+                    <article class="reality-card">
+                        <h3>Try the beta</h3>
+                        <p>Linguistic Decoder is the clearest way to see how Digital ABCs works in practice.</p>
+                        <ul>
+                            <li>Open the current beta build</li>
+                            <li>Read the known limitations first</li>
+                            <li>Share real feedback after using it</li>
+                        </ul>
+                        <p><a href="apps/decoder.html#beta-access">Go to the beta</a></p>
+                    </article>
+
+                    <article class="reality-card">
+                        <h3>Use the tools</h3>
+                        <p>There are already free tools on the site for ROI, timing processes, meeting costs, prompts, and more.</p>
+                        <ul>
+                            <li>Useful now</li>
+                            <li>No account required</li>
+                            <li>Built from real workflow pain points</li>
+                        </ul>
+                        <p><a href="apps.html#available-now">Browse available tools</a></p>
+                    </article>
+
+                    <article class="reality-card">
+                        <h3>Book practical help</h3>
+                        <p>If you need a custom workflow fix or a straight assessment of a bottleneck, that is available now too.</p>
+                        <ul>
+                            <li>Custom app development</li>
+                            <li>Workflow review</li>
+                            <li>Tech support without jargon</li>
+                        </ul>
+                        <p><a href="contact.html#business-enquiry">Book a call</a></p>
+                    </article>
                 </div>
             </div>
         </section>
 
+        <section class="section-shell surface-split">
+            <div class="container">
+                <div class="section-intro">
+                    <span class="section-kicker">How It Works</span>
+                    <h2>No mystery process. No “trust us” gap.</h2>
+                    <p>
+                        The process is simple: understand the problem properly, tell the truth about the fix, then build
+                        the smallest practical version that improves real work.
+                    </p>
+                </div>
+
+                <div class="progress-grid">
+                    <div class="progress-list">
+                        <article class="progress-item">
+                            <div class="progress-step">1</div>
+                            <div>
+                                <h3>Find the real friction</h3>
+                                <p>We look at what is actually happening, not the polished version people put in decks and SOPs.</p>
+                            </div>
+                        </article>
+                        <article class="progress-item">
+                            <div class="progress-step" style="background:#5B21B6;">2</div>
+                            <div>
+                                <h3>Say what is worth fixing</h3>
+                                <p>Some problems need software. Some need a cleaner process. The answer is not always “build more tech”.</p>
+                            </div>
+                        </article>
+                        <article class="progress-item">
+                            <div class="progress-step" style="background:#065F46;">3</div>
+                            <div>
+                                <h3>Build in a way you can maintain</h3>
+                                <p>Tools should reduce load, not create a new system you have to babysit.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <aside class="promise-card">
+                        <h3>What Digital ABCs will not overpromise</h3>
+                        <ul>
+                            <li>We will not pretend a beta is a finished product.</li>
+                            <li>We will not sell “AI magic” without explaining what the system actually does.</li>
+                            <li>We will not bury trade-offs behind jargon, vague timelines, or inflated claims.</li>
+                            <li>We will not recommend unnecessary complexity just to make a project sound bigger.</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell">
+            <div class="container">
+                <div class="section-intro">
+                    <span class="section-kicker">What Is Next</span>
+                    <h2>A future worth backing has to be visible, not vague.</h2>
+                    <p>
+                        There is a real path forward here: one public beta, a growing set of useful tools, and a product
+                        roadmap grounded in lived business problems rather than trend chasing.
+                    </p>
+                </div>
+
+                <div class="future-grid">
+                    <article class="future-card beta">
+                        <h3>Public beta now</h3>
+                        <p><strong>Linguistic Decoder</strong> is open for testing now.</p>
+                        <ul>
+                            <li>Direct access to the beta path</li>
+                            <li>Feedback loop is visible</li>
+                            <li>Support and transparency pages are linked</li>
+                        </ul>
+                    </article>
+
+                    <article class="future-card next">
+                        <h3>Next products in line</h3>
+                        <p><strong>CompliancePulse</strong> and <strong>Smart Capture Finance</strong> are still in build, with honest “not ready yet” positioning.</p>
+                        <ul>
+                            <li>Register interest without fake launch pressure</li>
+                            <li>See the problem each product is designed to solve</li>
+                            <li>Follow progress without being misled</li>
+                        </ul>
+                    </article>
+
+                    <article class="future-card proof">
+                        <h3>Proof of intent</h3>
+                        <p>The work is not just ideas on a page. There are already public tools, product pages, support pages, and live workflows behind the brand.</p>
+                    </article>
+
+                    <article class="future-card founder">
+                        <h3>Built with grit, not polish-for-polish’s-sake</h3>
+                        <p>
+                            Digital ABCs is built by a First Nations, neurodivergent single mum who learned to work
+                            inside real constraints. That matters because the business is shaped around usefulness,
+                            honesty, and resilience, not performative founder myth-making.
+                        </p>
+                        <p><a href="about.html">Read the story</a></p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell">
+            <div class="container">
+                <div class="cta-panel">
+                    <div>
+                        <h2>Want to help move it forward?</h2>
+                        <p>
+                            Start with the beta if you want to see the product direction. Book a call if you have a workflow
+                            problem that needs a practical fix now.
+                        </p>
+                    </div>
+                    <div class="hero-actions" style="margin-top:0;">
+                        <a href="apps/decoder.html#beta-access" class="btn btn-secondary">Join the Beta</a>
+                        <a href="contact.html#business-enquiry" class="btn btn-primary">Book a Call</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -240,7 +674,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Digital ABCs</h4>
-                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                    <p>Practical apps, workflow tools, and honest product builds for people who need real progress.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
@@ -255,6 +689,7 @@
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul>
+                        <li><a href="legal.html">Legal Hub</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="ai_transparency.html">AI Transparency</a></li>
@@ -269,26 +704,9 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
-                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <style>
-        .tally-float-btn {
-            position: fixed; bottom: 20px; right: 20px; background-color: #5B21B6; color: #fff;
-            border: none; border-radius: 50px; padding: 14px 22px; font-size: 16px; font-weight: 600;
-            cursor: pointer; z-index: 9999; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex; align-items: center; gap: 8px; transition: all 0.2s ease-in-out;
-        }
-        .tally-float-btn:hover { background-color: #065F46; transform: translateY(-2px); }
-        @media (max-width: 600px) { .tally-float-btn { padding: 12px 18px; font-size: 14px; bottom: 15px; right: 15px; } }
-    </style>
-    <button class="tally-float-btn" data-tally-open="wkDaP1"
-        data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true"
-        data-tally-hide-title="false" data-tally-emoji-text="💡"
-        data-tally-emoji-animation="tada">Got a workflow problem?
-    </button>
-    <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>

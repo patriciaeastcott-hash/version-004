@@ -12,9 +12,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apps We've Built | Digital ABCs</title>
-    <meta name="description" content="Custom applications built by Digital ABCs. Linguistic Decoder, CompliancePulse, Smart Capture Finance and more - real solutions for real workflow problems.">
+    <meta name="description" content="See what Digital ABCs has live now, what is in public beta, and what is still being built. Honest product status without the usual spin.">
     <meta property="og:title" content="Apps We've Built | Digital ABCs">
-    <meta property="og:description" content="Custom applications that solve real workflow problems. See what we've built.">
+    <meta property="og:description" content="What exists now, what is in beta, and what is next at Digital ABCs.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
     <meta property="og:url" content="https://digitalabcs.com.au/apps">
@@ -28,225 +28,277 @@
 
     <style>
         :root {
-            --brand-navy: #1E3A8A;
-            --brand-purple: #5B21B6;
-            --brand-green: #065F46;
-            --brand-light: #F3F4F6;
+            --surface-blue: #EFF6FF;
+            --surface-purple: #F5F3FF;
+            --surface-green: #ECFDF5;
+            --surface-warm: #FFFBEB;
+            --border: #E5E7EB;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F9FAFB;
+            background: #F9FAFB;
             color: #1F2937;
         }
 
         .apps-hero {
-            background: linear-gradient(135deg, #1E3A8A 0%, #111827 100%);
+            background:
+                radial-gradient(circle at top left, rgba(91, 33, 182, 0.18), transparent 28%),
+                linear-gradient(135deg, #1E3A8A 0%, #111827 72%);
             color: white;
-            padding: 6rem 0;
-            text-align: center;
+            padding: 6rem 0 5rem;
         }
 
         .apps-hero h1 {
+            color: white;
             font-size: 3rem;
             margin-bottom: 1rem;
+            max-width: 800px;
         }
 
         .apps-hero p {
-            font-size: 1.25rem;
-            color: #E0E7FF;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
+            color: #DBEAFE;
+            font-size: 1.15rem;
+            line-height: 1.75;
+            max-width: 760px;
         }
 
-        .apps-section {
-            padding: 5rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            color: var(--brand-navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: #4B5563;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .app-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            border: 1px solid #E5E7EB;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+        .hero-actions {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .app-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: var(--brand-purple);
+        .section-shell {
+            padding: 4.5rem 0;
         }
 
-        .app-card.featured {
-            border: 2px solid var(--brand-green);
+        .section-shell.border-top {
+            border-top: 1px solid var(--border);
         }
 
-        .app-card.featured::before {
-            content: "Coming Soon";
-            position: absolute; top: 0; right: 0;
-            background: var(--brand-green); color: white;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
+        .section-intro {
+            max-width: 760px;
+            margin-bottom: 2rem;
         }
 
-        .app-card.coming::before {
-            content: "Coming Soon";
-            position: absolute; top: 0; right: 0;
-            background: #FEF3C7; color: #78350F;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
-        }
-
-        .app-card.coming {
-            border: 2px solid #FDE68A;
-        }
-
-        .app-card.available::before {
-            content: "Available";
-            position: absolute; top: 0; right: 0;
-            background: #D1FAE5; color: #065F46;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
-        }
-
-        .app-card.dev::before {
-            content: "In Development";
-            position: absolute; top: 0; right: 0;
-            background: #F59E0B; color: #111827;
-            font-size: 0.75rem; font-weight: bold; padding: 5px 15px;
-            border-bottom-left-radius: 12px; text-transform: uppercase;
-        }
-
-        .app-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .app-title {
-            font-size: 1.5rem;
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            color: var(--brand-navy);
-            margin-bottom: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #5B21B6;
         }
 
-        .app-desc {
+        .section-intro h2 {
+            font-size: 2.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-intro p {
             color: #4B5563;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
+            font-size: 1.05rem;
+            line-height: 1.75;
         }
 
-        .app-problem {
-            background: #F3F4F6;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
+        .status-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.2rem;
         }
 
-        .app-problem strong {
-            color: var(--brand-navy);
-            display: block;
+        .status-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 15px 35px -28px rgba(17, 24, 39, 0.22);
+        }
+
+        .status-pill {
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            padding: 0.28rem 0.68rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .status-card h3 {
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
-        .app-link {
-            display: inline-block;
-            background: var(--brand-purple);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s;
-            text-align: center;
-        }
-
-        .app-link:hover {
-            background: #6D28D9;
-        }
-
-        .app-link.secondary {
-            background: var(--brand-green);
-        }
-
-        .app-link.secondary:hover {
-            background: #064E3B;
-        }
-
-        .approach-section {
-            background: white;
-            padding: 4rem 0;
-            border-top: 1px solid #E5E7EB;
-        }
-
-        .approach-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .approach-card {
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--brand-purple);
-            background: #F9FAFB;
-        }
-
-        .approach-card h3 {
-            color: var(--brand-navy);
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        .approach-card p {
+        .status-card p {
             color: #4B5563;
-            line-height: 1.6;
             margin-bottom: 0;
         }
 
-        @media (max-width: 768px) {
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 16px 38px -30px rgba(17, 24, 39, 0.26);
+        }
+
+        .product-card.beta {
+            border-color: #86EFAC;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%);
+        }
+
+        .product-card.future {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFFBEB 100%);
+        }
+
+        .product-card.secondary {
+            background: linear-gradient(180deg, #FFFFFF 0%, #F5F3FF 100%);
+        }
+
+        .product-card.utility {
+            background: linear-gradient(180deg, #FFFFFF 0%, #EFF6FF 100%);
+        }
+
+        .product-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .product-card p,
+        .product-card li {
+            color: #4B5563;
+            line-height: 1.65;
+        }
+
+        .product-card ul {
+            padding-left: 1.1rem;
+            margin: 0;
+        }
+
+        .product-card li + li {
+            margin-top: 0.45rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .note-box {
+            background: #111827;
+            color: white;
+            border-radius: 22px;
+            padding: 2rem;
+        }
+
+        .note-box h3 {
+            color: white;
+            margin-bottom: 0.8rem;
+        }
+
+        .note-box p,
+        .note-box li {
+            color: #D1D5DB;
+        }
+
+        .note-box ul {
+            padding-left: 1.1rem;
+        }
+
+        .tool-category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .tool-category {
+            display: block;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            color: inherit;
+            text-decoration: none;
+            box-shadow: 0 15px 35px -28px rgba(17, 24, 39, 0.18);
+        }
+
+        .tool-category:hover {
+            text-decoration: none;
+            border-color: #5B21B6;
+        }
+
+        .tool-category h3 {
+            margin-bottom: 0.45rem;
+        }
+
+        .tool-category p {
+            color: #4B5563;
+            margin-bottom: 0.75rem;
+        }
+
+        .tool-category span {
+            font-weight: 600;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1.2rem;
+        }
+
+        .support-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.75rem;
+        }
+
+        .support-card h3 {
+            margin-bottom: 0.7rem;
+        }
+
+        .support-card p,
+        .support-card li {
+            color: #4B5563;
+        }
+
+        .support-card ul {
+            padding-left: 1.1rem;
+        }
+
+        @media (max-width: 960px) {
+            .status-row,
+            .tool-category-grid,
+            .support-grid,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
             .apps-hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .apps-grid {
-                grid-template-columns: 1fr;
+            .hero-actions,
+            .card-actions {
+                flex-direction: column;
+                align-items: stretch;
             }
         }
     </style>
@@ -275,205 +327,246 @@
     </header>
 
     <main id="main-content">
-
         <section class="apps-hero">
             <div class="container">
-                <h1>Apps We've Built</h1>
-                <p>Every app here started with someone saying "there has to be a better way." We listened, we dug into the problem, and we built the solution.</p>
-            </div>
-        </section>
-
-        <section class="apps-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Applications</h2>
-                    <p>Real tools solving real problems. Each one built to eliminate a specific workflow bottleneck.</p>
-                </div>
-
-                <div class="apps-grid">
-
-                    <div class="app-card featured">
-                        <div>
-                            <span class="app-icon">🧠</span>
-                            <h3 class="app-title">Linguistic Decoder</h3>
-                            <p class="app-desc">AI-powered conversation analysis that reveals what people really mean. Decode work emails, family texts, relationship chats - understand the hidden meanings behind the words.</p>
-                            <div class="app-problem">
-                                <strong>The Problem It Solves:</strong>
-                                Miscommunication costs relationships, time, and sanity. This app gives you the tools to understand what's really being said.
-                            </div>
-                        </div>
-                        <a href="apps/decoder.html" class="app-link">Learn More</a>
-                    </div>
-
-                    <div class="app-card coming">
-                        <div>
-                            <span class="app-icon">🛡️</span>
-                            <h3 class="app-title">CompliancePulse</h3>
-                            <p class="app-desc">Compliance monitoring meets market intelligence. Continuously scans for ISO/GDPR risks while watching government feeds for grants, tenders, and regulatory changes.</p>
-                            <div class="app-problem">
-                                <strong>The Problem It Solves:</strong>
-                                Small businesses get blindsided by compliance issues and miss opportunities because they can't monitor everything. This does it automatically.
-                            </div>
-                        </div>
-                        <a href="apps/compliancepulse.html" class="app-link">Learn More</a>
-                    </div>
-
-                    <div class="app-card dev">
-                        <div>
-                            <span class="app-icon">📊</span>
-                            <h3 class="app-title">Smart Capture Finance</h3>
-                            <p class="app-desc">The "black box" recorder for financial workflows. It watches how you process invoices and payments to identify exactly where time and money are being lost.</p>
-                            <div class="app-problem">
-                                <strong>The Problem It Solves:</strong>
-                                You know your invoicing process is inefficient but can't prove it or find where the bottlenecks are. This records everything and shows you the truth.
-                            </div>
-                        </div>
-                        <a href="apps/smartcapture.html" class="app-link" style="background: #F59E0B;">Learn More</a>
-                    </div>
-
-                    <div class="app-card dev">
-                        <div>
-                            <span class="app-icon">🚚</span>
-                            <h3 class="app-title">BBB Driver</h3>
-                            <p class="app-desc">Route management and delivery tracking built for BBB Logistics drivers. Smarter routes, proof of delivery, and real-time customer updates.</p>
-                            <div class="app-problem">
-                                <strong>The Problem It Solves:</strong>
-                                Drivers spend too much time on admin that isn't driving. Route planning, customer updates, and paperwork eat into the day.
-                            </div>
-                        </div>
-                        <a href="apps/bbbdriver.html" class="app-link" style="background: #F59E0B;">Learn More</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- UTILITY TOOLS SECTION -->
-        <section class="apps-section" style="background: white; border-top: 1px solid #E5E7EB;">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Free Utility Tools</h2>
-                    <p>50+ handy tools built to help with everyday tasks. Free to use, no sign-up required.</p>
-                </div>
-
-                <!-- AI TOOLS - Featured -->
-                <div class="apps-grid" style="margin-bottom: 3rem;">
-                    <div class="app-card available">
-                        <div>
-                            <span class="app-icon">✍️</span>
-                            <h3 class="app-title">AI Prompt Builder</h3>
-                            <p class="app-desc">Turn vague ideas into clear, powerful AI prompts with an interactive refinement tool.</p>
-                        </div>
-                        <a href="prompt_refinement.html" class="app-link">Use Now</a>
-                    </div>
-                    <div class="app-card available">
-                        <div>
-                            <span class="app-icon">🎨</span>
-                            <h3 class="app-title">AI Image Generator</h3>
-                            <p class="app-desc">Generate images from text descriptions using Google Imagen 3 for your projects.</p>
-                        </div>
-                        <a href="image_generator.html" class="app-link">Use Now</a>
-                    </div>
-                </div>
-
-                <!-- CATEGORY CARDS -->
-                <h3 style="color: var(--brand-navy); margin: 0 0 1.5rem; font-size: 1.3rem;">Browse by Category</h3>
-                <div class="apps-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-
-                    <a href="tools-productivity.html" class="app-card" style="text-decoration: none; border-left: 4px solid #5B21B6;">
-                        <div>
-                            <span class="app-icon">📊</span>
-                            <h3 class="app-title">Business & Productivity</h3>
-                            <p class="app-desc">ROI calculator, timers, habit tracker, task prioritizer, and more. <strong>13 tools</strong></p>
-                        </div>
-                        <span style="color: #5B21B6; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
-                    <a href="tools-finance.html" class="app-card" style="text-decoration: none; border-left: 4px solid #065F46;">
-                        <div>
-                            <span class="app-icon">💰</span>
-                            <h3 class="app-title">Finance & Money</h3>
-                            <p class="app-desc">Loan, mortgage, tax calculators, invoice generator, expense splitter. <strong>12 tools</strong></p>
-                        </div>
-                        <span style="color: #065F46; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
-                    <a href="tools-calculators.html" class="app-card" style="text-decoration: none; border-left: 4px solid #7C3AED;">
-                        <div>
-                            <span class="app-icon">🔢</span>
-                            <h3 class="app-title">Calculators & Converters</h3>
-                            <p class="app-desc">Percentage, age, BMI, unit converter, word counter. <strong>4 tools</strong></p>
-                        </div>
-                        <span style="color: #7C3AED; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
-                    <a href="tools-developer.html" class="app-card" style="text-decoration: none; border-left: 4px solid #1E3A8A;">
-                        <div>
-                            <span class="app-icon">{ }</span>
-                            <h3 class="app-title">Developer Tools</h3>
-                            <p class="app-desc">JSON formatter, Base64, hash generator, regex tester, color tools. <strong>11 tools</strong></p>
-                        </div>
-                        <span style="color: #1E3A8A; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
-                    <a href="tools-health.html" class="app-card" style="text-decoration: none; border-left: 4px solid #059669;">
-                        <div>
-                            <span class="app-icon">💪</span>
-                            <h3 class="app-title">Health & Lifestyle</h3>
-                            <p class="app-desc">BMI, calorie, water intake, sleep calculator, workout timer. <strong>8 tools</strong></p>
-                        </div>
-                        <span style="color: #059669; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
-                    <a href="tools-planning.html" class="app-card" style="text-decoration: none; border-left: 4px solid #DC2626;">
-                        <div>
-                            <span class="app-icon">🎯</span>
-                            <h3 class="app-title">Planning & Decisions</h3>
-                            <p class="app-desc">Event budget planner, decision maker, moving cost calculator. <strong>3 tools</strong></p>
-                        </div>
-                        <span style="color: #DC2626; font-weight: 600;">View All &rarr;</span>
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="approach-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>How We Build Apps</h2>
-                    <p>Every app follows the same process: understand the problem deeply, then build exactly what's needed.</p>
-                </div>
-
-                <div class="approach-grid">
-                    <div class="approach-card">
-                        <h3>1. Find the Real Problem</h3>
-                        <p>Not the symptom. Not what you think the problem is. The actual root cause that's eating your time or money.</p>
-                    </div>
-                    <div class="approach-card" style="border-left-color: var(--brand-green);">
-                        <h3>2. Build for Your Reality</h3>
-                        <p>We design around how you actually work - not how software thinks you should work. No forcing square pegs into round holes.</p>
-                    </div>
-                    <div class="approach-card" style="border-left-color: #F59E0B;">
-                        <h3>3. Keep It Simple</h3>
-                        <p>If it needs a training course to use, we've failed. Our apps should feel obvious from the first time you open them.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section style="background: var(--brand-navy); color: white; padding: 4rem 0; text-align: center;">
-            <div class="container">
-                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Got a Problem That Needs an App?</h2>
-                <p style="color: #BFDBFE; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    If you've got a workflow that's driving you mad, let's talk. We might already be building something that solves it, or we can build it together.
+                <h1>What exists now, what is in beta, and what is still being built.</h1>
+                <p>
+                    This page is meant to help, not impress. If something is live, you can use it. If something is in beta,
+                    you will see the caveats. If something is still in development, we will not pretend otherwise.
                 </p>
-                <a href="contact.html" style="background: var(--brand-green); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
-                    Tell Me About Your Problem
-                </a>
+                <div class="hero-actions">
+                    <a href="apps/decoder.html#beta-access" class="btn btn-primary">Join the Beta</a>
+                    <a href="contact.html#business-enquiry" class="btn btn-secondary">Book a Call</a>
+                </div>
             </div>
         </section>
 
+        <section class="section-shell">
+            <div class="container">
+                <div class="status-row">
+                    <article class="status-card">
+                        <span class="status-pill" style="background:#D1FAE5;color:#065F46;">Live</span>
+                        <h3>Free tools are already available</h3>
+                        <p>Useful workflow and productivity tools are live on the site right now.</p>
+                    </article>
+                    <article class="status-card">
+                        <span class="status-pill" style="background:#DBEAFE;color:#1E3A8A;">Beta</span>
+                        <h3>Linguistic Decoder is the active public beta</h3>
+                        <p>It is the clearest place to see the product direction and give feedback that matters.</p>
+                    </article>
+                    <article class="status-card">
+                        <span class="status-pill" style="background:#FEF3C7;color:#92400E;">In Build</span>
+                        <h3>More products are coming, not pretending</h3>
+                        <p>CompliancePulse and Smart Capture Finance are progressing, but they are not being sold as finished.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell border-top">
+            <div class="container">
+                <div class="section-intro">
+                    <span class="section-kicker">Public Beta</span>
+                    <h2>Start with the product you can actually try.</h2>
+                    <p>
+                        The beta-first path matters because it shows the business is building in public, taking feedback
+                        seriously, and not asking people to believe in an invisible future.
+                    </p>
+                </div>
+
+                <div class="product-grid">
+                    <article class="product-card beta">
+                        <span class="status-pill" style="background:#D1FAE5;color:#065F46;">Public Beta</span>
+                        <h3>Linguistic Decoder</h3>
+                        <p>
+                            Conversation analysis for people trying to understand what is really being said in texts,
+                            chats, and emails. The beta is available now with direct access and clear limitations.
+                        </p>
+                        <ul>
+                            <li>Open beta access is live</li>
+                            <li>Known limitations are documented</li>
+                            <li>Feedback path is visible</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="apps/decoder.html#beta-access" class="btn btn-primary">Join the Beta</a>
+                            <a href="apps/support.html" class="btn btn-secondary">Support & FAQ</a>
+                        </div>
+                    </article>
+
+                    <aside class="note-box">
+                        <h3>Why the beta is first</h3>
+                        <p>
+                            A public beta is the strongest proof on the site because it lets people inspect the work
+                            directly. That is more credible than polished claims about a future product stack.
+                        </p>
+                        <ul>
+                            <li>Real beta path</li>
+                            <li>No fake promo-code gate</li>
+                            <li>No pretending early-stage work is complete</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell border-top" id="available-now">
+            <div class="container">
+                <div class="section-intro">
+                    <span class="section-kicker">Available Now</span>
+                    <h2>Useful tools that are already doing real work.</h2>
+                    <p>
+                        These tools are live now and can be used immediately. They are part of the same philosophy:
+                        practical, clear, and built around actual friction points.
+                    </p>
+                </div>
+
+                <div class="product-grid">
+                    <article class="product-card utility">
+                        <span class="status-pill" style="background:#DBEAFE;color:#1E3A8A;">Live Tools</span>
+                        <h3>Workflow and AI tools</h3>
+                        <p>Prompt refinement, image generation, ROI calculation, timing workflows, and more are already available.</p>
+                        <ul>
+                            <li>Free to use</li>
+                            <li>No sign-up required for the website tools</li>
+                            <li>Built from recurring client and founder pain points</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="prompt_refinement.html" class="btn btn-primary">Use Prompt Builder</a>
+                            <a href="image_generator.html" class="btn btn-secondary">Use Image Generator</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card secondary">
+                        <span class="status-pill" style="background:#EDE9FE;color:#5B21B6;">Practical Help</span>
+                        <h3>Custom workflow work is available too</h3>
+                        <p>
+                            The product roadmap is only part of the business. If you need a workflow problem understood
+                            and fixed now, you can book practical help directly.
+                        </p>
+                        <ul>
+                            <li>Workflow bottleneck reviews</li>
+                            <li>Custom app builds</li>
+                            <li>General tech support without padding</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="services.html" class="btn btn-primary">View Services</a>
+                            <a href="contact.html#business-enquiry" class="btn btn-secondary">Book a Call</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="tool-category-grid" style="margin-top:1.25rem;">
+                    <a href="tools-productivity.html" class="tool-category">
+                        <h3>Business & Productivity</h3>
+                        <p>ROI calculators, timers, habit tools, and workflow helpers.</p>
+                        <span>Browse category &rarr;</span>
+                    </a>
+                    <a href="tools-finance.html" class="tool-category">
+                        <h3>Finance & Money</h3>
+                        <p>Loan, mortgage, invoice, and money-planning utilities.</p>
+                        <span>Browse category &rarr;</span>
+                    </a>
+                    <a href="tools-developer.html" class="tool-category">
+                        <h3>Developer Tools</h3>
+                        <p>Formatter, encoders, testing helpers, and quick technical utilities.</p>
+                        <span>Browse category &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell border-top">
+            <div class="container">
+                <div class="section-intro">
+                    <span class="section-kicker">Next In Line</span>
+                    <h2>Products being built with clear status, not invented momentum.</h2>
+                    <p>
+                        These pages exist because the ideas and use cases are real. Their status is kept honest so people
+                        can follow progress without being misled.
+                    </p>
+                </div>
+
+                <div class="product-grid">
+                    <article class="product-card future">
+                        <span class="status-pill" style="background:#FEF3C7;color:#92400E;">Coming Soon</span>
+                        <h3>CompliancePulse</h3>
+                        <p>
+                            A compliance and opportunity-monitoring product aimed at helping small operators avoid being
+                            blindsided by regulatory change and missed grants or tenders.
+                        </p>
+                        <ul>
+                            <li>Problem and intended direction are documented</li>
+                            <li>Launch timing is not overstated</li>
+                            <li>Interest can be registered now</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="apps/compliancepulse.html" class="btn btn-primary">View Product Page</a>
+                            <a href="mailto:info@digitalabcs.com.au?subject=CompliancePulse%20Interest" class="btn btn-secondary">Register Interest</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card future">
+                        <span class="status-pill" style="background:#FEF3C7;color:#92400E;">In Development</span>
+                        <h3>Smart Capture Finance</h3>
+                        <p>
+                            A tool intended to record financial workflows so bottlenecks, rework, and wasted time can be
+                            measured instead of guessed at.
+                        </p>
+                        <ul>
+                            <li>Closed-stage build, not public beta</li>
+                            <li>Interest is open</li>
+                            <li>Roadmap is visible without pretending it is complete</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="apps/smartcapture.html" class="btn btn-primary">View Product Page</a>
+                            <a href="mailto:waitlist@digitalabcs.com.au?subject=Smart%20Capture%20Finance%20Interest" class="btn btn-secondary">Register Interest</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell border-top">
+            <div class="container">
+                <div class="section-intro">
+                    <span class="section-kicker">Also Built Here</span>
+                    <h2>BBB Logistics still exists, but it is not the main public pitch.</h2>
+                    <p>
+                        BBB Logistics remains part of the wider business story and informs some internal tooling, but the
+                        main Digital ABCs site is now focused on the apps and workflow products.
+                    </p>
+                </div>
+
+                <div class="product-grid">
+                    <article class="product-card secondary">
+                        <span class="status-pill" style="background:#EDE9FE;color:#5B21B6;">Internal Product</span>
+                        <h3>BBB Driver</h3>
+                        <p>
+                            A route and delivery tool being developed around BBB Logistics operational needs. Relevant,
+                            but not the centre of the public Digital ABCs pitch.
+                        </p>
+                        <div class="card-actions">
+                            <a href="apps/bbbdriver.html" class="btn btn-secondary">View BBB Driver</a>
+                            <a href="bbblogistics.html" class="btn btn-secondary">View BBB Logistics</a>
+                        </div>
+                    </article>
+
+                    <article class="support-card">
+                        <h3>If you want to support the build</h3>
+                        <p>There are three useful ways to do that:</p>
+                        <ul>
+                            <li>Try the beta and send feedback</li>
+                            <li>Use the free tools and share the ones that help</li>
+                            <li>Book paid work if you need a workflow fixed now</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="apps/decoder.html#beta-access" class="btn btn-primary">Join the Beta</a>
+                            <a href="contact.html#business-enquiry" class="btn btn-secondary">Book a Call</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -481,7 +574,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Digital ABCs</h4>
-                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                    <p>Honest product status, practical apps, and workflow tools built around real problems.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
@@ -496,6 +589,7 @@
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul>
+                        <li><a href="legal.html">Legal Hub</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="ai_transparency.html">AI Transparency</a></li>
@@ -510,10 +604,9 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
-                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
