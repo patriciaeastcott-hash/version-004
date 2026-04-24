@@ -132,6 +132,22 @@
             font-weight: 500;
         }
 
+        .prototype-note {
+            margin: 1rem 0 0;
+            padding: 0.9rem 1rem;
+            background: #FFFBEB;
+            border: 1px solid #FDE68A;
+            border-radius: 8px;
+            color: #78350F;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .prototype-note a {
+            color: var(--brand-navy);
+            font-weight: 600;
+        }
+
         .login-divider {
             display: flex;
             align-items: center;
@@ -476,13 +492,13 @@
                 <!-- Tab Switcher -->
                 <div class="tabs">
                     <button class="tab active" onclick="showTab('login')">Sign In</button>
-                    <button class="tab" onclick="showTab('register')">Create Account</button>
+                    <button class="tab" onclick="showTab('register')">Create Demo Account</button>
                 </div>
 
                 <!-- Login Form -->
                 <div id="loginForm">
                     <h2 class="login-title">Welcome Back</h2>
-                    <p class="login-subtitle">Sign in to access your services and apps</p>
+                    <p class="login-subtitle">Sign in to the demo account stored in this browser.</p>
 
                     <div class="login-error" id="loginError" role="alert" aria-live="assertive">
                         Invalid email or password. Please try again.
@@ -501,14 +517,14 @@
                     </form>
 
                     <div class="login-footer">
-                        <a href="mailto:info@digitalabcs.com.au?subject=Password%20Reset%20Request">Forgot your password?</a>
+                        Demo access is browser-only. <a href="mailto:info@digitalabcs.com.au?subject=Portal%20Demo%20Help">Need help or want production access details?</a>
                     </div>
                 </div>
 
                 <!-- Register Form -->
                 <div id="registerForm" style="display: none;">
-                    <h2 class="login-title">Create Your Account</h2>
-                    <p class="login-subtitle">Get access to all services, apps, and tools</p>
+                    <h2 class="login-title">Create a Demo Account</h2>
+                    <p class="login-subtitle">This prototype stores account details in this browser only.</p>
 
                     <div class="login-error" id="registerError" role="alert" aria-live="assertive"></div>
 
@@ -533,11 +549,15 @@
                             <label for="regPasswordConfirm">Confirm Password</label>
                             <input type="password" id="regPasswordConfirm" placeholder="Confirm your password" required minlength="8">
                         </div>
-                        <button type="submit" class="login-btn" style="background: var(--brand-purple);">Create Account</button>
+                        <button type="submit" class="login-btn" style="background: var(--brand-purple);">Create Demo Account</button>
                     </form>
 
+                    <div class="prototype-note">
+                        This portal is a front-end prototype using browser <code>localStorage</code>. Do not use a real password or sensitive information here. Review the <a href="legal.html">Legal Hub</a>, <a href="ai_transparency.html">AI Transparency</a>, <a href="privacy.html">Privacy Policy</a>, <a href="terms.html">Terms of Service</a>, and the child or regional notices linked below if they apply to you.
+                    </div>
+
                     <div class="login-footer">
-                        By creating an account you agree to our <a href="terms.html">Terms of service</a> and <a href="privacy.html">Privacy policy</a>.
+                        By using this demo you agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.
                     </div>
                 </div>
             </div>
@@ -776,12 +796,17 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
+                                <div class="footer-col">
+                    <h4>Trust &amp; Legal</h4>
                     <ul>
-                        <li><a href="privacy.html">Privacy policy</a></li>
-                        <li><a href="terms.html">Terms of service</a></li>
-                        <li><a href="ai_transparency.html">AI transparency</a></li>
+                        <li><a href="legal.html">Legal Hub</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="children-privacy.html">Children's Privacy Notice</a></li>
+                        <li><a href="children-terms.html">Children's Terms Notice</a></li>
+                        <li><a href="us-privacy-notice.html">U.S. Privacy Notice</a></li>
+                        <li><a href="eea-uk-privacy-notice.html">EEA / UK Privacy Notice</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
