@@ -148,16 +148,13 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="apps.html">Apps We've Built</a></li>
+                    <li><a href="apps.html">Current Projects</a></li>
                     <li><a href="insights.php" class="active">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="portal.html" class="btn-login">Client Login</a></li>
                 </ul>
             </nav>
         </div>
-        <script async src="https://tally.so/widgets/embed.js"></script>
     </header>
 
     <main id="main-content">
@@ -193,9 +190,9 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
 
             <div class="section-divider"></div>
             <div style="background: #f0f9ff; padding: 30px; border-radius: 8px; margin-top: 40px; border-left: 5px solid var(--color-purple, #5B21B6);">
-                <h3 style="margin-top:0; color: var(--color-navy, #1E3A8A);">Overwhelmed by the chaos?</h3>
-                <p style="margin-bottom: 20px;">You don't have to navigate this alone. Let's audit your systems and find your stability.</p>
-                <a href="contact.html" class="btn-read-more">Book a Digital Systems Audit</a>
+                <h3 style="margin-top:0; color: var(--color-navy, #1E3A8A);">Want to talk to Digital ABCs?</h3>
+                <p style="margin-bottom: 20px;">Use the contact form for a written enquiry first, or open the call booking from the contact page if you know you need a conversation.</p>
+                <a href="contact.html" class="btn-read-more">Go to Contact</a>
             </div>
 
         </article>
@@ -205,22 +202,22 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Digital ABCs</h4>
-                    <p>Finding workflow bottlenecks and building the apps that fix them.</p>
+                    <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
+                    <p>Founder-led self-quantification and educational apps built in Western Sydney.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="apps.html">Current Projects</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Legal</h4>
+                    <h4>Trust &amp; Legal</h4>
                     <ul>
+                        <li><a href="legal.html">Legal Hub</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="ai_transparency.html">AI Transparency</a></li>
@@ -235,18 +232,9 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
                 </div>
             </div>
             <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
-                <p>&copy; 2025 Digital ABCs. All rights reserved.</p>
+                <p>&copy; 2026 Digital ABCs. All rights reserved. | <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a></p>
             </div>
         </div>
     </footer>
-    
-    <style>
-        .tally-float-btn {
-            position: fixed; bottom: 20px; right: 20px; background-color: #5B21B6; color: #fff; border: none; border-radius: 50px; padding: 14px 22px; font-size: 16px; font-weight: 600; cursor: pointer; z-index: 9999; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 8px; transition: all 0.2s ease-in-out;
-        }
-        .tally-float-btn:hover { background-color: #065F46; transform: translateY(-2px); }
-        @media (max-width: 600px) { .tally-float-btn { padding: 12px 18px; font-size: 14px; bottom: 15px; right: 15px; } }
-    </style>
-    <button class="tally-float-btn" data-tally-open="wkDaP1" data-tally-layout="modal" data-tally-width="700" data-tally-overlay="true" data-tally-hide-title="false" data-tally-emoji-text="💡" data-tally-emoji-animation="tada">Got a workflow problem?</button>
 </body>
 </html>

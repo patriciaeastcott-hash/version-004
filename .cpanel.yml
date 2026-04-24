@@ -11,6 +11,7 @@ deployment:
     - /bin/cp terms.html $DEPLOYPATH
     - /bin/cp privacy.html $DEPLOYPATH
     - /bin/cp ai_transparency.html $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
     - /bin/cp insights.php $DEPLOYPATH
     - /bin/cp article.php $DEPLOYPATH
     - /bin/cp image_generator.html $DEPLOYPATH

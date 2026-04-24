@@ -11,9 +11,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Digital ABCs</title>
-    <meta name="description" content="Talk to Digital ABCs about workflow problems, custom app work, beta participation, or app support.">
+    <meta name="description" content="Send a message to Digital ABCs, get app support, or open the book-a-call popup for workflow conversations. Email contact is the primary path.">
     <meta property="og:title" content="Contact | Digital ABCs">
-    <meta property="og:description" content="Book a call, join the beta, or get app support from Digital ABCs.">
+    <meta property="og:description" content="Send a message, get app support, or book a call with Digital ABCs when a workflow conversation is needed.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
     <meta property="og:url" content="https://digitalabcs.com.au/contact.html">
@@ -23,7 +23,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
     <style>
         :root {
             --surface-blue: #EFF6FF;
@@ -57,6 +56,14 @@
             font-size: 1.12rem;
             line-height: 1.75;
             max-width: 760px;
+        }
+
+        .hero-actions,
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .section-shell {
@@ -130,7 +137,7 @@
             margin-bottom: 1rem;
         }
 
-        .path-card.beta {
+        .path-card.contact {
             background: var(--surface-green);
         }
 
@@ -160,6 +167,32 @@
             color: #6B7280;
         }
 
+        .btn-tertiary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            min-width: 44px;
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-md);
+            border: 1px solid #CBD5E1;
+            background: white;
+            color: #1E3A8A;
+            font-family: var(--font-primary);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-tertiary:hover {
+            background: #F8FAFC;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+
         @media (max-width: 960px) {
             .grid-main,
             .path-grid {
@@ -170,6 +203,12 @@
         @media (max-width: 720px) {
             .contact-hero h1 {
                 font-size: 2.2rem;
+            }
+
+            .hero-actions,
+            .button-row {
+                flex-direction: column;
+                align-items: stretch;
             }
         }
     </style>
@@ -185,7 +224,7 @@
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="apps.html">Current Projects</a></li>
                     <li><a href="insights.php">Insights</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
@@ -198,34 +237,61 @@
         <section class="contact-hero">
             <div class="container">
                 <span class="section-kicker" style="color:#BFDBFE;">Contact</span>
-                <h1>Book practical help, try the beta, or get app support.</h1>
+                <h1>Send a message first. Book a call when it makes sense.</h1>
                 <p>
-                    This page is split by intent so you can get to the right next step quickly. If you need workflow help,
-                    use the business enquiry path. If you want to support the product direction, start with the beta.
+                    Email contact is the primary path here. Use the contact form for product questions, partnership enquiries,
+                    support direction, or general Digital ABCs messages. If you specifically want a workflow conversation, use the book-a-call popup.
                 </p>
+                <div class="hero-actions">
+                    <a href="#contact-form" class="btn btn-primary">Open the contact form</a>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-tally-open="wkDaP1"
+                        data-tally-layout="modal"
+                        data-tally-width="700"
+                        data-tally-overlay="true"
+                        data-tally-hide-title="false"
+                    >
+                        Book a call
+                    </button>
+                </div>
             </div>
         </section>
 
-        <section class="section-shell" id="business-enquiry">
+        <section class="section-shell" id="contact-form">
             <div class="container grid-main">
                 <section class="panel">
-                    <span class="section-kicker">Business Enquiry</span>
-                    <h2>Book your free call</h2>
+                    <span class="section-kicker">Contact Form</span>
+                    <h2>Send an email enquiry</h2>
                     <p>
-                        Use this if you have a workflow bottleneck, a tool you want built, or you need a straight answer
-                        about whether a problem is actually worth solving with software.
+                        This is the primary contact method for Digital ABCs. Use it for general contact, partnership questions,
+                        project interest, or anything that should arrive as a written email enquiry first.
                     </p>
-                    <iframe data-tally-src="https://tally.so/embed/mOWjWk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="822" frameborder="0" marginheight="0" marginwidth="0" title="Website Contact"></iframe>
-                    <script>
-                        var d=document,w="https://tally.so/widgets/embed.js",v=function(){if(typeof Tally!=="undefined"){Tally.loadEmbeds();}else{d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc;});}};
-                        if(typeof Tally!=="undefined"){v();}else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}
-                    </script>
+                    <iframe data-tally-src="https://tally.so/embed/mOWjWk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="822" frameborder="0" marginheight="0" marginwidth="0" title="Digital ABCs contact form"></iframe>
                 </section>
 
                 <aside class="panel">
-                    <span class="section-kicker">Direct Contact</span>
-                    <h2>Prefer email?</h2>
-                    <p>If you already know what you need, email directly and keep it simple.</p>
+                    <span class="section-kicker">Direct Details</span>
+                    <h2>Need a different route?</h2>
+                    <p>
+                        Use the form if you are not sure where your enquiry belongs. If you already know you need a call,
+                        open the booking popup instead of treating it as the default path.
+                    </p>
+                    <div class="button-row">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-tally-open="wkDaP1"
+                            data-tally-layout="modal"
+                            data-tally-width="700"
+                            data-tally-overlay="true"
+                            data-tally-hide-title="false"
+                        >
+                            Book a call
+                        </button>
+                        <a href="mailto:info@digitalabcs.com.au" class="btn-tertiary">Email directly</a>
+                    </div>
                     <ul class="meta-list">
                         <li>
                             <strong>Email</strong><br>
@@ -251,21 +317,31 @@
                 <h2 style="margin-bottom:1rem;">The fastest route depends on what you are here for.</h2>
 
                 <div class="path-grid">
-                    <article class="path-card beta">
-                        <h3>Join the beta</h3>
-                        <p>Try the active public beta for Linguistic Decoder and send product feedback after using it.</p>
-                        <a href="apps/decoder.html#beta-access" class="btn btn-primary">Go to the Beta</a>
+                    <article class="path-card contact">
+                        <h3>Send a message</h3>
+                        <p>Use the contact form for general email enquiries, project questions, partnership ideas, or anything that should start in writing.</p>
+                        <a href="#contact-form" class="btn btn-primary">Use the contact form</a>
                     </article>
 
                     <article class="path-card help">
-                        <h3>Get practical help</h3>
-                        <p>Bring a workflow problem, a messy process, or a tool idea that needs an honest assessment.</p>
-                        <a href="#business-enquiry" class="btn btn-primary">Book a Call</a>
+                        <h3>Book a call</h3>
+                        <p>If you know you need a conversation about a workflow problem or project fit, open the call-booking popup directly.</p>
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            data-tally-open="wkDaP1"
+                            data-tally-layout="modal"
+                            data-tally-width="700"
+                            data-tally-overlay="true"
+                            data-tally-hide-title="false"
+                        >
+                            Book a call
+                        </button>
                     </article>
 
                     <article class="path-card support">
                         <h3>Need app support?</h3>
-                        <p>Use the support centre for troubleshooting, FAQs, and the best direct route for app help.</p>
+                        <p>Use the support centre for troubleshooting, FAQs, disclaimers, and the best direct route for app help.</p>
                         <a href="apps/support.html" class="btn btn-primary">Open Support Centre</a>
                     </article>
                 </div>
@@ -282,11 +358,11 @@
                     <h2>What you can do today</h2>
                     <ul>
                         <li><strong>Linguistic Decoder:</strong> public beta access is available now.</li>
-                        <li><strong>CompliancePulse:</strong> register interest via the product page or email.</li>
-                        <li><strong>Smart Capture Finance:</strong> interest is open, but it is not public beta yet.</li>
+                        <li><strong>Compliance Tool:</strong> register interest via the current projects page or email.</li>
+                        <li><strong>Bright Spark and Minecraft add-ons:</strong> interest is open, but these are concept-stage children's projects rather than public releases.</li>
                     </ul>
                     <p class="small-note">
-                        This split is intentional. Different products are at different stages, and the site now reflects that openly.
+                        Different projects are at different stages. The site is meant to show that openly instead of flattening everything into the same message.
                     </p>
                 </section>
 
@@ -307,21 +383,19 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Digital ABCs</h4>
-                    <p>Practical apps, workflow tools, and honest product builds without unnecessary theatre.</p>
                     <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
-                    <p>Simple, beautiful tools for self-understanding.</p>
+                    <p>Founder-led self-quantification and educational apps built in Western Sydney.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="apps.html">Current Projects</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                                <div class="footer-col">
+                <div class="footer-col">
                     <h4>Trust &amp; Legal</h4>
                     <ul>
                         <li><a href="legal.html">Legal Hub</a></li>
@@ -343,9 +417,33 @@
                 </div>
             </div>
             <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem; text-align: center; color: #D1D5DB;">
-                <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
+                <p>&copy; 2026 Digital ABCs. All rights reserved. | <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a></p>
             </div>
         </div>
     </footer>
+
+    <script>
+        var d = document;
+        var tallyScript = "https://tally.so/widgets/embed.js";
+        var loadTally = function () {
+            if (typeof Tally !== "undefined") {
+                Tally.loadEmbeds();
+            } else {
+                d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function (frame) {
+                    frame.src = frame.dataset.tallySrc;
+                });
+            }
+        };
+
+        if (typeof Tally !== "undefined") {
+            loadTally();
+        } else if (d.querySelector('script[src="' + tallyScript + '"]') == null) {
+            var script = d.createElement("script");
+            script.src = tallyScript;
+            script.onload = loadTally;
+            script.onerror = loadTally;
+            d.body.appendChild(script);
+        }
+    </script>
 </body>
 </html>
