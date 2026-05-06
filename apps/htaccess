@@ -4,8 +4,8 @@ RewriteCond %{HTTP_HOST} ^www\.digitalabcs\.com\.au$ [NC]
 RewriteRule ^ https://digitalabcs.com.au%{REQUEST_URI} [R=301,L]
 
 <Files 403.shtml>
-order allow,deny
-allow from all
+    order allow,deny
+    allow from all
 </Files>
 
 deny from 52.167.144.145

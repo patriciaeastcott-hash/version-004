@@ -11,7 +11,7 @@ const PREVIEW_WINDOW_SECONDS = 600;
 const EXCERPT_MIN_LENGTH = 18;
 const EXCERPT_MAX_LENGTH = 1200;
 const CONTEXT_MAX_LENGTH = 240;
-const DEFAULT_MODEL = 'gemini-2.5-flash-preview-09-2025';
+const DEFAULT_MODEL = 'gemini-3-flash-preview';
 const CTA_COPY = 'This is a lightweight preview. Join the beta for the fuller Linguistic Decoder experience on iPhone or Android.';
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
