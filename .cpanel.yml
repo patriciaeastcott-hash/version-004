@@ -7,7 +7,9 @@ deployment:
     - /bin/cp services.html $DEPLOYPATH
     - /bin/cp apps.html $DEPLOYPATH
     - /bin/cp bbblogistics.html $DEPLOYPATH
+    - /bin/cp account-deletion.html $DEPLOYPATH
     - /bin/cp contact.html $DEPLOYPATH
+    - /bin/cp support.html $DEPLOYPATH
     - /bin/cp terms.html $DEPLOYPATH
     - /bin/cp privacy.html $DEPLOYPATH
     - /bin/cp ai_transparency.html $DEPLOYPATH
