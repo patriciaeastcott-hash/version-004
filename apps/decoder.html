@@ -10,39 +10,39 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linguistic Decoder app - conversation pattern analysis beta | Digital ABCs</title>
-    <meta name="description" content="Linguistic Decoder is a public beta app for AI-assisted conversation analysis. Explore communication patterns, emotional tone, and relationship dynamics on iOS and Android.">
-    <meta name="keywords" content="Linguistic Decoder, conversation analysis app, communication pattern app, AI text analyser, relationship dynamics app, self-quantification app, iOS beta app, Android beta app, Digital ABCs">
+    <title>Linguistic Decoder beta - conversation insight for everyday messages | Digital ABCs</title>
+    <meta name="description" content="Try a lightweight Linguistic Decoder web preview, then join the public beta for iPhone or Android. Explore AI-assisted conversation insight without overclaiming certainty.">
+    <meta name="keywords" content="Linguistic Decoder, conversation analysis app, AI text analyser, communication patterns, TestFlight beta, Android beta, Digital ABCs">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Digital ABCs">
     <link rel="canonical" href="https://digitalabcs.com.au/apps/decoder.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://digitalabcs.com.au/apps/decoder.html">
-    <meta property="og:title" content="Linguistic Decoder - conversation analysis in public beta">
-    <meta property="og:description" content="Explore the Linguistic Decoder public beta for iOS and Android and review the product limits, support surface, and trust pages.">
+    <meta property="og:title" content="Linguistic Decoder - try the preview, then join the beta">
+    <meta property="og:description" content="See the style of insight Linguistic Decoder can provide, then join the public beta for a fuller experience on iPhone or Android.">
     <meta property="og:image" content="https://digitalabcs.com.au/assets/og-decoder-app.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_AU">
     <meta property="og:site_name" content="Digital ABCs">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Linguistic Decoder - conversation analysis beta">
-    <meta name="twitter:description" content="AI-assisted conversation analysis in public beta for iOS and Android.">
+    <meta name="twitter:title" content="Linguistic Decoder beta">
+    <meta name="twitter:description" content="Try a quick preview, then join the full Linguistic Decoder beta.">
     <meta name="twitter:image" content="https://digitalabcs.com.au/assets/og-decoder-app.png">
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Linguistic Decoder",
-      "operatingSystem": "iOS, Android",
+      "operatingSystem": "iOS, Android, Web preview",
       "applicationCategory": "LifestyleApplication",
       "inLanguage": "en-AU",
-      "description": "AI-assisted conversation analysis app for exploring communication patterns, emotional tone, and relationship dynamics.",
+      "description": "AI-assisted conversation insight for written exchanges, designed to help users inspect tone, clarity, and possible communication patterns.",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -57,102 +57,201 @@
     </script>
     <style>
         body {
-            background: #F8FAFC;
+            background:
+                radial-gradient(circle at top left, rgba(96, 165, 250, 0.13), transparent 26%),
+                radial-gradient(circle at top right, rgba(124, 58, 237, 0.12), transparent 22%),
+                #F8FAFC;
             color: #111827;
         }
 
         .page-hero {
-            background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%);
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 15% 10%, rgba(96, 165, 250, 0.4), transparent 18%),
+                radial-gradient(circle at 90% 15%, rgba(196, 181, 253, 0.35), transparent 18%),
+                linear-gradient(135deg, #1E3A8A 0%, #111827 48%, #5B21B6 100%);
             color: #FFFFFF;
             padding: 6rem 0 5rem;
         }
 
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -10% -35% 55%;
+            height: 420px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 62%);
+            pointer-events: none;
+        }
+
         .hero-grid {
+            position: relative;
+            z-index: 1;
             display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.9fr);
+            grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.88fr);
             gap: 1.5rem;
-            align-items: end;
+            align-items: stretch;
+        }
+
+        .hero-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .beta-pill {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: fit-content;
             margin-bottom: 1rem;
-            padding: 0.35rem 0.8rem;
+            padding: 0.42rem 0.9rem;
             border-radius: 999px;
-            background: #DCFCE7;
+            background: rgba(220, 252, 231, 0.96);
             color: #166534;
             font-size: 0.86rem;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            box-shadow: 0 12px 28px -24px rgba(15, 23, 42, 0.65);
+        }
+
+        .beta-pill::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #16A34A;
         }
 
         .page-hero h1 {
             color: #FFFFFF;
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            max-width: 760px;
         }
 
         .page-hero p {
             color: #E2E8F0;
             max-width: 760px;
-            line-height: 1.75;
-            font-size: 1.08rem;
+            line-height: 1.78;
+            font-size: 1.1rem;
+        }
+
+        .hero-actions,
+        .download-actions,
+        .preview-cta-actions,
+        .result-cta-actions,
+        .card-actions,
+        .trust-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.95rem;
         }
 
         .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
             margin-top: 2rem;
         }
 
+        .hero-note {
+            margin-top: 1rem;
+            color: #C7D2FE;
+            font-size: 0.95rem;
+        }
+
+        .hero-note a {
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
         .hero-panel {
-            background: rgba(15, 23, 42, 0.82);
+            display: grid;
+            gap: 1rem;
+        }
+
+        .hero-card,
+        .hero-metric {
+            border-radius: 24px;
             border: 1px solid rgba(226, 232, 240, 0.18);
-            border-radius: 20px;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 28px 60px -42px rgba(15, 23, 42, 0.9);
+        }
+
+        .hero-card {
             padding: 1.5rem;
         }
 
-        .hero-panel h2,
-        .hero-panel strong {
+        .hero-card h2,
+        .hero-card strong,
+        .hero-card p {
             color: #FFFFFF;
         }
 
-        .hero-panel h2 {
+        .hero-card h2 {
             font-size: 1.15rem;
             margin-bottom: 1rem;
         }
 
-        .hero-panel ul {
+        .hero-card ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .hero-panel li + li {
+        .hero-card li + li {
             margin-top: 0.9rem;
             padding-top: 0.9rem;
-            border-top: 1px solid rgba(226, 232, 240, 0.15);
+            border-top: 1px solid rgba(226, 232, 240, 0.14);
         }
 
-        .hero-panel span {
+        .hero-card span {
             display: block;
-            margin-top: 0.25rem;
-            color: #E2E8F0;
+            margin-top: 0.28rem;
+            color: #DBEAFE;
             line-height: 1.65;
         }
 
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .hero-metric {
+            padding: 1rem;
+            min-height: 116px;
+        }
+
+        .hero-metric strong {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: #FFFFFF;
+            font-size: 1rem;
+        }
+
+        .hero-metric span {
+            color: #DBEAFE;
+            line-height: 1.55;
+            font-size: 0.94rem;
+        }
+
         .section-shell {
-            padding: 4.25rem 0;
+            padding: 4.5rem 0;
         }
 
         .section-shell.alt {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.82);
             border-top: 1px solid #E5E7EB;
             border-bottom: 1px solid #E5E7EB;
         }
 
+        .section-shell.dark {
+            background:
+                linear-gradient(135deg, #111827 0%, #172554 65%, #312E81 100%);
+        }
+
         .section-intro {
-            max-width: 780px;
+            max-width: 820px;
             margin-bottom: 2rem;
         }
 
@@ -161,97 +260,429 @@
             margin-bottom: 0.75rem;
             color: #5B21B6;
             font-size: 0.92rem;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .section-shell.dark .section-intro .kicker {
+            color: #BFDBFE;
         }
 
         .section-intro h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 0.85rem;
         }
 
         .section-intro p {
             color: #374151;
-            line-height: 1.75;
-            font-size: 1.02rem;
+            line-height: 1.78;
+            font-size: 1.05rem;
         }
 
-        .card-grid {
+        .section-shell.dark .section-intro h2,
+        .section-shell.dark .section-intro p {
+            color: #FFFFFF;
+        }
+
+        .section-shell.dark .section-intro p {
+            color: #DBEAFE;
+        }
+
+        .preview-shell {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+            gap: 1.3rem;
+            align-items: start;
         }
 
-        .access-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1.25rem;
-        }
-
-        .card {
+        .preview-panel,
+        .result-panel,
+        .info-card,
+        .download-card,
+        .email-card,
+        .limit-card {
             background: #FFFFFF;
             border: 1px solid #E5E7EB;
-            border-radius: 20px;
-            padding: 1.75rem;
-            box-shadow: 0 16px 36px -30px rgba(15, 23, 42, 0.24);
-            height: 100%;
+            border-radius: 24px;
+            box-shadow: 0 18px 38px -30px rgba(15, 23, 42, 0.28);
         }
 
-        .card h3 {
-            margin-bottom: 0.75rem;
+        .preview-panel,
+        .result-panel,
+        .info-card,
+        .download-card,
+        .limit-card {
+            padding: 1.6rem;
         }
 
-        .card p,
-        .card li {
+        .preview-panel h3,
+        .result-panel h3,
+        .info-card h3,
+        .download-card h3,
+        .email-card h3,
+        .limit-card h3 {
+            margin-bottom: 0.7rem;
+        }
+
+        .preview-panel p,
+        .result-panel p,
+        .info-card p,
+        .info-card li,
+        .download-card p,
+        .download-card li,
+        .email-card p,
+        .limit-card p {
             color: #374151;
             line-height: 1.7;
         }
 
-        .card ul,
-        .card ol {
-            padding-left: 1.15rem;
-            margin-top: 1rem;
+        .preview-form {
+            display: grid;
+            gap: 1rem;
         }
 
-        .card li + li {
-            margin-top: 0.4rem;
+        .privacy-callout,
+        .preview-rule,
+        .metric-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            width: fit-content;
+            padding: 0.45rem 0.78rem;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            font-weight: 600;
         }
 
-        .card-actions {
+        .privacy-callout {
+            background: #EEF2FF;
+            color: #312E81;
+        }
+
+        .preview-rule {
+            margin-top: 0.3rem;
+            background: #F0FDF4;
+            color: #166534;
+        }
+
+        .metric-badge {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .sample-chip-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.85rem;
-            margin-top: 1.5rem;
+            gap: 0.75rem;
         }
 
-        .link-list {
+        .sample-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.72rem 0.95rem;
+            border: 1px solid #C7D2FE;
+            border-radius: 999px;
+            background: #F8FAFC;
+            color: #1E3A8A;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+        }
+
+        .sample-chip:hover {
+            background: #EEF2FF;
+            transform: translateY(-1px);
+            box-shadow: 0 12px 20px -18px rgba(30, 58, 138, 0.45);
+        }
+
+        .sample-chip small {
+            color: #5B21B6;
+            font-family: "Roboto Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+
+        .field-group {
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .field-group label {
+            font-weight: 600;
+            color: #1F2937;
+        }
+
+        .field-group textarea,
+        .field-group input {
+            width: 100%;
+            padding: 0.95rem 1rem;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            color: #111827;
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            border-radius: 16px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .field-group textarea {
+            min-height: 220px;
+            resize: vertical;
+        }
+
+        .field-group textarea:focus,
+        .field-group input:focus {
+            border-color: #5B21B6;
+            box-shadow: 0 0 0 4px rgba(91, 33, 182, 0.12);
+            outline: none;
+        }
+
+        .field-help {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+
+        .preview-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.85rem;
-            margin-top: 1.5rem;
+            gap: 0.8rem;
+            align-items: center;
         }
 
-        .link-list a {
+        .btn-tertiary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             min-height: 44px;
-            padding: 0.75rem 1rem;
-            border-radius: 12px;
-            background: #F8FAFC;
+            min-width: 44px;
+            padding: 0.85rem 1.1rem;
+            border-radius: 14px;
             border: 1px solid #CBD5E1;
-            text-decoration: none;
+            background: #FFFFFF;
+            color: #1E3A8A;
+            font-family: var(--font-primary);
+            font-size: 0.98rem;
             font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
 
-        .link-list a:hover {
-            background: #EEF2FF;
-            border-color: #5B21B6;
+        .btn-tertiary:hover {
+            background: #F8FAFC;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
             text-decoration: none;
+        }
+
+        .loader-box {
+            display: none;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.9rem 1rem;
+            border-radius: 16px;
+            background: #F8FAFC;
+            border: 1px solid #E5E7EB;
+            color: #374151;
+        }
+
+        .loader-box.active {
+            display: flex;
+        }
+
+        .loader-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #C7D2FE;
+            border-top-color: #5B21B6;
+            animation: spin 0.9s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .result-panel {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .placeholder-box,
+        .result-box,
+        .preview-upgrade {
+            border-radius: 20px;
+        }
+
+        .placeholder-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.9rem;
+            min-height: 520px;
+            padding: 1.6rem;
+            background:
+                radial-gradient(circle at top right, rgba(191, 219, 254, 0.55), transparent 32%),
+                linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
+            border: 2px dashed #C7D2FE;
+        }
+
+        .placeholder-box strong {
+            color: #1E3A8A;
+            font-size: 1.15rem;
+        }
+
+        .placeholder-box p {
+            color: #475569;
+        }
+
+        .result-box {
+            display: none;
+            gap: 1rem;
+        }
+
+        .result-box.active {
+            display: grid;
+        }
+
+        .result-item {
+            padding: 1rem 1.05rem;
+            border-radius: 18px;
+            border: 1px solid #E5E7EB;
+            background: #FFFFFF;
+        }
+
+        .result-item strong {
+            display: block;
+            margin-bottom: 0.42rem;
+            color: #1E3A8A;
+        }
+
+        .result-item p {
+            color: #334155;
+        }
+
+        .result-error {
+            display: none;
+            padding: 1rem 1.05rem;
+            border-radius: 18px;
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+            color: #991B1B;
+        }
+
+        .result-error.active {
+            display: block;
+        }
+
+        .preview-upgrade {
+            margin-top: auto;
+            padding: 1.25rem;
+            background:
+                linear-gradient(135deg, #111827 0%, #1E3A8A 60%, #5B21B6 100%);
+            border: 1px solid rgba(226, 232, 240, 0.14);
+        }
+
+        .preview-upgrade h3,
+        .preview-upgrade p,
+        .preview-upgrade a {
+            color: #FFFFFF;
+        }
+
+        .preview-upgrade p {
+            color: #DBEAFE;
+            margin-bottom: 1rem;
+        }
+
+        .info-grid,
+        .limits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.2rem;
+        }
+
+        .info-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #1E3A8A 0%, #5B21B6 70%, #10B981 100%);
+        }
+
+        .download-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+            gap: 1.25rem;
+            align-items: start;
+        }
+
+        .download-stack {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .download-card .micro-note {
+            margin-top: 0.7rem;
+            font-size: 0.92rem;
+            color: #64748B;
+        }
+
+        .download-card ul {
+            padding-left: 1.15rem;
+            margin-top: 1rem;
+        }
+
+        .download-card li + li {
+            margin-top: 0.35rem;
+        }
+
+        .email-card {
+            padding: 1.6rem;
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .email-frame {
+            margin-top: 1rem;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+        }
+
+        .email-frame iframe {
+            width: 100%;
+            min-height: 620px;
+            border: 0;
+            background: #FFFFFF;
+        }
+
+        .email-card .small-note {
+            margin-top: 0.9rem;
+            color: #6B7280;
+            font-size: 0.92rem;
+        }
+
+        .limits-grid .limit-card {
+            background: #FFFFFF;
         }
 
         .trust-box {
-            background: linear-gradient(135deg, #111827 0%, #1E3A8A 100%);
-            border-radius: 24px;
+            background:
+                radial-gradient(circle at top right, rgba(96, 165, 250, 0.22), transparent 24%),
+                linear-gradient(135deg, #111827 0%, #1E3A8A 70%, #312E81 100%);
+            border-radius: 28px;
             padding: 2rem;
         }
 
@@ -263,14 +694,11 @@
 
         .trust-box p {
             color: #E5E7EB;
-            line-height: 1.7;
+            line-height: 1.72;
         }
 
         .trust-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.85rem;
-            margin-top: 1.5rem;
+            margin-top: 1.4rem;
         }
 
         .trust-links a {
@@ -281,13 +709,13 @@
             padding: 0.75rem 1rem;
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             text-decoration: none;
             font-weight: 600;
         }
 
         .trust-links a:hover {
-            background: rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.15);
             color: #FFFFFF;
         }
 
@@ -303,23 +731,67 @@
             color: #E5E7EB;
         }
 
-        @media (max-width: 960px) {
+        @media (max-width: 1100px) {
             .hero-grid,
-            .card-grid,
-            .access-grid {
+            .preview-shell,
+            .download-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-metrics {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 960px) {
+            .info-grid,
+            .limits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-metrics {
                 grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 720px) {
-            .page-hero h1 {
-                font-size: 2.2rem;
+            .page-hero {
+                padding: 5rem 0 4rem;
+            }
+
+            .page-hero h1,
+            .section-intro h2 {
+                font-size: 2.25rem;
             }
 
             .hero-actions,
-            .card-actions {
+            .download-actions,
+            .preview-cta-actions,
+            .result-cta-actions,
+            .card-actions,
+            .preview-actions,
+            .trust-links {
                 flex-direction: column;
                 align-items: stretch;
+            }
+
+            .preview-panel,
+            .result-panel,
+            .info-card,
+            .download-card,
+            .email-card,
+            .limit-card,
+            .hero-card,
+            .hero-metric {
+                padding: 1.25rem;
+            }
+
+            .placeholder-box {
+                min-height: 420px;
+            }
+
+            .email-frame iframe {
+                min-height: 720px;
             }
         }
     </style>
@@ -347,113 +819,288 @@
     <main id="main-content">
         <section class="page-hero">
             <div class="container hero-grid">
-                <div>
+                <div class="hero-copy">
                     <span class="beta-pill">Public beta</span>
-                    <h1>Linguistic Decoder</h1>
+                    <h1>See what a conversation is doing before you decide what it means.</h1>
                     <p>
-                        Linguistic Decoder is the current flagship Digital ABCs beta. It helps users analyse written conversations for
-                        communication patterns, emotional tone, and relationship dynamics while being explicit about beta limits, AI limits,
-                        and the need for human judgment.
+                        Linguistic Decoder is built for written conversations that feel unclear, loaded, or easy to second-guess.
+                        The quick preview below shows the style of insight you can expect. The full beta goes further than the web preview
+                        and is available now for iPhone and Android.
                     </p>
                     <div class="hero-actions">
-                        <a href="#beta-access" class="btn btn-primary">See beta access</a>
-                        <a href="support.html" class="btn btn-secondary">Open support</a>
+                        <a href="https://testflight.apple.com/join/4U45d2Vh" target="_blank" rel="noopener" class="btn btn-primary" data-beta-cta="hero-ios">Join on iPhone</a>
+                        <a href="https://appdistribution.firebase.dev/i/420608d2fd0120d8" target="_blank" rel="noopener" class="btn btn-secondary" data-beta-cta="hero-android">Join on Android</a>
+                        <a href="#web-preview" class="btn btn-tertiary">Try the web preview</a>
                     </div>
+                    <p class="hero-note">
+                        Prefer email updates instead? <a href="#download-now">Join by email</a>.
+                    </p>
                 </div>
 
-                <aside class="hero-panel" aria-label="Product status">
-                    <h2>Status at a glance</h2>
-                    <ul>
-                        <li>
-                            <strong>Available now in public beta</strong>
-                            <span>iOS and Android testers can access the current build through TestFlight and Firebase App Distribution.</span>
-                        </li>
-                        <li>
-                            <strong>Built for conversation analysis</strong>
-                            <span>The product is intended to help users inspect patterns and possible meaning, not to provide certainty or advice.</span>
-                        </li>
-                        <li>
-                            <strong>Trust pages are part of the product surface</strong>
-                            <span>Privacy, AI transparency, terms, child notices, and regional notices are linked directly from this page.</span>
-                        </li>
-                    </ul>
+                <aside class="hero-panel" aria-label="Why this page exists">
+                    <div class="hero-card">
+                        <h2>What this page is meant to do</h2>
+                        <ul>
+                            <li>
+                                <strong>Show the value fast</strong>
+                                <span>The preview is there so visitors can see the style of analysis before committing to the beta.</span>
+                            </li>
+                            <li>
+                                <strong>Stay grounded in ordinary communication</strong>
+                                <span>The goal is not to manufacture conflict. The product should prove it can find value in everyday written exchanges.</span>
+                            </li>
+                            <li>
+                                <strong>Keep the trust surface visible</strong>
+                                <span>Privacy, AI transparency, terms, and support stay clear without becoming the first thing people hit.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="hero-metrics" aria-label="At a glance">
+                        <div class="hero-metric">
+                            <strong>Quick preview</strong>
+                            <span>Short web demo for a lightweight slice of analysis.</span>
+                        </div>
+                        <div class="hero-metric">
+                            <strong>Full beta</strong>
+                            <span>Richer experience available on iPhone and Android right now.</span>
+                        </div>
+                        <div class="hero-metric">
+                            <strong>Ordinary messages welcome</strong>
+                            <span>Useful insight should still show up in normal, non-dramatic conversations.</span>
+                        </div>
+                    </div>
                 </aside>
+            </div>
+        </section>
+
+        <section class="section-shell" id="web-preview">
+            <div class="container">
+                <div class="section-intro">
+                    <span class="kicker">Quick preview</span>
+                    <h2>Try a short conversation excerpt and see the style of result.</h2>
+                    <p>
+                        This web preview is intentionally limited. It gives you a fast, lightweight slice of tone and pattern insight,
+                        then points you to the full beta for a deeper Linguistic Decoder experience.
+                    </p>
+                </div>
+
+                <div class="preview-shell">
+                    <section class="preview-panel" aria-labelledby="preview-heading">
+                        <div class="metric-badge">1-turn preview</div>
+                        <h3 id="preview-heading">Paste a short, non-sensitive excerpt</h3>
+                        <p>
+                            Keep it brief and remove names, phone numbers, addresses, or anything private. The preview sends your text to Google Gemini
+                            for processing and is designed for ordinary written communication, not crisis, legal, or medical situations.
+                        </p>
+                        <div class="sample-chip-row" aria-label="Sample conversations">
+                            <button type="button" class="sample-chip" data-sample="groceries">
+                                Home logistics
+                                <small>sample 01</small>
+                            </button>
+                            <button type="button" class="sample-chip" data-sample="work">
+                                Work check-in
+                                <small>sample 02</small>
+                            </button>
+                            <button type="button" class="sample-chip" data-sample="dinner">
+                                Dinner plans
+                                <small>sample 03</small>
+                            </button>
+                        </div>
+                        <span class="preview-rule">This preview should not go looking for conflict to make the app interesting.</span>
+
+                        <form id="decoder-preview-form" class="preview-form">
+                            <div class="field-group">
+                                <label for="preview-excerpt">Conversation excerpt</label>
+                                <textarea id="preview-excerpt" name="excerpt" maxlength="1200" placeholder="Paste a short excerpt here. Example: 'Sam: I’m leaving work now. Want me to pick up anything?&#10;Alex: Could you grab milk and bananas?&#10;Sam: Yep. I’ll be home in about 25 minutes.'"></textarea>
+                                <p class="field-help">Short snippets work best here. Longer or highly sensitive content belongs in the full beta, with your own judgment.</p>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="preview-context">Optional context</label>
+                                <input id="preview-context" name="context" maxlength="240" type="text" placeholder="Example: two partners coordinating groceries after work">
+                                <p class="field-help">Optional context helps the preview stay grounded without pretending it knows the full story.</p>
+                            </div>
+
+                            <div class="preview-actions">
+                                <button type="submit" class="btn btn-primary">Preview the analysis</button>
+                                <button type="button" id="clear-preview" class="btn-tertiary">Clear</button>
+                                <span class="privacy-callout">Do not paste private, identifying, or crisis-related messages.</span>
+                            </div>
+                        </form>
+
+                        <div id="preview-loader" class="loader-box" role="status" aria-live="polite">
+                            <span class="loader-dot" aria-hidden="true"></span>
+                            <span>Building a lightweight preview...</span>
+                        </div>
+                    </section>
+
+                    <aside class="result-panel" aria-labelledby="result-heading">
+                        <h3 id="result-heading">What the preview returns</h3>
+                        <p>
+                            You will get a quick read on tone, a possible pattern, one easy-to-miss detail, and a reflection prompt.
+                            The full beta is built to go deeper than this short web surface.
+                        </p>
+
+                        <div id="preview-placeholder" class="placeholder-box">
+                            <strong>Ordinary messages should still reveal something useful.</strong>
+                            <p>
+                                A helpful tool should be able to spot clarity, warmth, pacing, directness, or ambiguity in normal conversations,
+                                not only in dramatic ones.
+                            </p>
+                            <p>
+                                Use one of the three sample chips above or paste your own short excerpt to see a lightweight example of the Linguistic Decoder style.
+                            </p>
+                        </div>
+
+                        <div id="preview-error" class="result-error" aria-live="polite"></div>
+
+                        <div id="preview-results" class="result-box" aria-live="polite">
+                            <div class="result-item">
+                                <strong>Tone snapshot</strong>
+                                <p id="result-tone"></p>
+                            </div>
+                            <div class="result-item">
+                                <strong>Possible communication pattern</strong>
+                                <p id="result-pattern"></p>
+                            </div>
+                            <div class="result-item">
+                                <strong>What may be easy to miss</strong>
+                                <p id="result-miss"></p>
+                            </div>
+                            <div class="result-item">
+                                <strong>One reflection prompt</strong>
+                                <p id="result-reflection"></p>
+                            </div>
+                        </div>
+
+                        <div class="preview-upgrade">
+                            <h3>Want the fuller version?</h3>
+                            <p id="result-cta-copy">
+                                This is a lightweight preview. Join the beta for the fuller Linguistic Decoder experience on iPhone or Android.
+                            </p>
+                            <div class="result-cta-actions">
+                                <a href="https://testflight.apple.com/join/4U45d2Vh" target="_blank" rel="noopener" class="btn btn-primary" data-beta-cta="result-ios">Join on iPhone</a>
+                                <a href="https://appdistribution.firebase.dev/i/420608d2fd0120d8" target="_blank" rel="noopener" class="btn btn-secondary" data-beta-cta="result-android">Join on Android</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </section>
 
         <section class="section-shell alt">
             <div class="container">
                 <div class="section-intro">
-                    <span class="kicker">What the beta does</span>
-                    <h2>The current beta is designed for careful pattern inspection.</h2>
+                    <span class="kicker">Everyday value</span>
+                    <h2>The point is clearer communication, not forced drama.</h2>
                     <p>
-                        The product direction is focused on helping people slow down, inspect wording more clearly, and recognise patterns
-                        that may be hard to see in the moment.
+                        Linguistic Decoder should feel useful when messages are ordinary, practical, affectionate, ambiguous, or slightly uneven.
+                        If the app only feels impressive when it invents conflict, it is doing the wrong job.
                     </p>
                 </div>
 
-                <div class="card-grid">
-                    <article class="card">
-                        <h3>Analyse written conversations</h3>
-                        <p>Paste or review text-based conversations to explore tone, possible subtext, and communication patterns.</p>
+                <div class="info-grid">
+                    <article class="info-card">
+                        <h3>See tone faster</h3>
+                        <p>Spot reassurance, directness, hesitation, or emotional distance without treating any one line as absolute proof.</p>
                     </article>
 
-                    <article class="card">
-                        <h3>Support reflection, not certainty</h3>
-                        <p>The output is meant to help users think more clearly, not to replace lived context, judgment, or professional advice.</p>
+                    <article class="info-card">
+                        <h3>Catch small patterns</h3>
+                        <p>Notice pacing, reciprocity, follow-through, or ambiguity that can be easy to miss when you are already inside the conversation.</p>
                     </article>
 
-                    <article class="card">
-                        <h3>Stay explicit about limits</h3>
-                        <p>The beta surfaces its support page and trust pages clearly because honest framing is part of the product standard.</p>
+                    <article class="info-card">
+                        <h3>Reflect before reacting</h3>
+                        <p>Use the output as a pause point so you can think more clearly before sending the next message or drawing a conclusion.</p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Useful for home logistics</h3>
+                        <p>Even simple coordination messages can reveal whether the exchange feels warm, collaborative, rushed, or unclear.</p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Useful for work check-ins</h3>
+                        <p>Short professional exchanges can still show responsiveness, clarity, expectation-setting, and pressure points.</p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Useful for social planning</h3>
+                        <p>Friendly messages often contain small cues about reassurance, flexibility, enthusiasm, or uncertainty.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section-shell" id="beta-access">
+        <section class="section-shell dark" id="download-now">
             <div class="container">
                 <div class="section-intro">
-                    <span class="kicker">Beta access</span>
-                    <h2>How to try the current build</h2>
+                    <span class="kicker">Go deeper</span>
+                    <h2>Join the full beta or leave your email.</h2>
                     <p>
-                        Start with non-sensitive examples. Review the support page and trust pages before using the app for anything that feels emotionally,
-                        legally, or professionally sensitive.
+                        The web preview is deliberately narrow. The beta is where Linguistic Decoder is meant to do more than a quick single-turn read.
                     </p>
                 </div>
 
-                <div class="access-grid">
-                    <article class="card">
-                        <h3>iOS beta access</h3>
-                        <ol>
-                            <li>Install TestFlight from the Apple App Store.</li>
-                            <li>Open the Digital ABCs TestFlight invite.</li>
-                            <li>Install Linguistic Decoder from the beta listing.</li>
-                        </ol>
-                        <div class="card-actions">
-                            <a href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener" class="btn btn-secondary">Get TestFlight</a>
-                            <a href="https://testflight.apple.com/join/4U45d2Vh" target="_blank" rel="noopener" class="btn btn-primary">Join iOS beta</a>
-                        </div>
-                    </article>
+                <div class="download-layout">
+                    <div class="download-stack">
+                        <article class="download-card">
+                            <h3>Join on iPhone</h3>
+                            <p>
+                                Open the current TestFlight invite and install the latest Linguistic Decoder beta build directly from Apple’s beta flow.
+                            </p>
+                            <ul>
+                                <li>Fastest route if you are ready to test now</li>
+                                <li>Good fit if you want more than the quick web preview</li>
+                                <li>Support and trust pages stay available from the website</li>
+                            </ul>
+                            <div class="download-actions" style="margin-top:1.2rem;">
+                                <a href="https://testflight.apple.com/join/4U45d2Vh" target="_blank" rel="noopener" class="btn btn-primary" data-beta-cta="download-ios">Open TestFlight invite</a>
+                                <a href="../support.html" class="btn btn-tertiary">Read support</a>
+                            </div>
+                            <p class="micro-note">This link opens the current iPhone beta invite directly.</p>
+                        </article>
 
-                    <article class="card">
-                        <h3>Android beta access</h3>
-                        <ol>
-                            <li>Install App Tester by Firebase from Google Play.</li>
-                            <li>Open the current Digital ABCs Android beta invite.</li>
-                            <li>Install Linguistic Decoder from the beta listing.</li>
-                        </ol>
-                        <div class="card-actions">
-                            <a href="https://play.google.com/store/apps/details?id=com.google.firebase.appdistribution.debug" target="_blank" rel="noopener" class="btn btn-secondary">Get App Tester</a>
-                            <a href="https://appdistribution.firebase.dev/i/420608d2fd0120d8" target="_blank" rel="noopener" class="btn btn-primary">Join Android beta</a>
-                        </div>
-                    </article>
-                </div>
+                        <article class="download-card">
+                            <h3>Join on Android</h3>
+                            <p>
+                                Open the current Firebase App Distribution invite and install the latest Linguistic Decoder beta build directly from the Android test flow.
+                            </p>
+                            <ul>
+                                <li>Direct route if you want the beta instead of only the preview</li>
+                                <li>Built for testing, feedback, and fuller product exploration</li>
+                                <li>Uses the current Android beta distribution link</li>
+                            </ul>
+                            <div class="download-actions" style="margin-top:1.2rem;">
+                                <a href="https://appdistribution.firebase.dev/i/420608d2fd0120d8" target="_blank" rel="noopener" class="btn btn-secondary" data-beta-cta="download-android">Open Android beta invite</a>
+                                <a href="../support.html#faq" class="btn btn-tertiary">Read FAQs</a>
+                            </div>
+                            <p class="micro-note">This link opens the current Android beta invite directly.</p>
+                        </article>
+                    </div>
 
-                <div class="link-list">
-                    <a href="support.html">Read support and FAQs</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScVR_GdXj84bNZLMdnHrmV-FgVJKa-EHLSerJgfFWepu7cXsA/viewform?usp=header" target="_blank" rel="noopener">Send beta feedback</a>
-                    <a href="mailto:info@digitalabcs.com.au?subject=Linguistic%20Decoder%20Beta%20Feedback">Email feedback</a>
+                    <aside class="email-card">
+                        <h3>Prefer email updates?</h3>
+                        <p>
+                            Use the existing Digital ABCs contact form as the email waitlist path if you want beta updates or want to register interest before installing.
+                        </p>
+                        <div class="email-frame">
+                            <iframe
+                                data-tally-src="https://tally.so/embed/mOWjWk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                                loading="lazy"
+                                height="620"
+                                frameborder="0"
+                                marginheight="0"
+                                marginwidth="0"
+                                title="Digital ABCs contact form for beta updates"
+                            ></iframe>
+                        </div>
+                        <p class="small-note">
+                            If you use this path, mention Linguistic Decoder beta interest in your message so the enquiry is routed correctly.
+                        </p>
+                    </aside>
                 </div>
             </div>
         </section>
@@ -462,26 +1109,24 @@
             <div class="container">
                 <div class="section-intro">
                     <span class="kicker">Important limits</span>
-                    <h2>What Linguistic Decoder is not</h2>
+                    <h2>Useful reflection tool, not a certainty machine.</h2>
                     <p>
-                        The product page needs to keep the limits visible so the beta is not mistaken for a finished or professional-grade service.
+                        The trust surface still matters. It is simply positioned after the value demonstration instead of blocking the first interaction.
                     </p>
                 </div>
 
-                <div class="card-grid">
-                    <article class="card">
+                <div class="limits-grid">
+                    <article class="limit-card">
                         <h3>Not medical or mental health advice</h3>
-                        <p>The beta can support reflection, but it does not diagnose, treat, or replace qualified health support.</p>
+                        <p>The beta and the preview can support reflection, but they do not diagnose, treat, or replace qualified support.</p>
                     </article>
-
-                    <article class="card">
+                    <article class="limit-card">
                         <h3>Not legal or professional advice</h3>
-                        <p>The output should not be relied on for contracts, disputes, employment matters, or other professional decisions.</p>
+                        <p>Do not rely on the output for contracts, disputes, employment matters, or other professional decisions.</p>
                     </article>
-
-                    <article class="card">
-                        <h3>Not a high-risk safety tool</h3>
-                        <p>If a situation involves abuse, self-harm, immediate danger, or urgent welfare issues, do not rely on a beta AI app.</p>
+                    <article class="limit-card">
+                        <h3>Not for crisis or safety decisions</h3>
+                        <p>If a situation involves abuse, self-harm, immediate danger, or urgent welfare concerns, do not rely on a beta AI product.</p>
                     </article>
                 </div>
             </div>
@@ -492,14 +1137,16 @@
                 <div class="trust-box">
                     <h2>Use the beta with the trust pages open.</h2>
                     <p>
-                        Linguistic Decoder should be read together with its support surface and the Digital ABCs trust pages. That is how the product
-                        explains data handling, AI use, child contexts, and regional notices without overclaiming certainty.
+                        The preview and the app are both AI-assisted surfaces. Before you submit anything sensitive, read how Digital ABCs handles
+                        privacy, AI processing, account deletion, child contexts, and regional notices.
                     </p>
                     <div class="trust-links">
+                        <a href="../support.html">Support and FAQs</a>
                         <a href="../legal.html">Legal Hub</a>
                         <a href="../ai_transparency.html">AI Transparency</a>
                         <a href="../privacy.html">Privacy Policy</a>
                         <a href="../terms.html">Terms of Service</a>
+                        <a href="../account-deletion.html">Account deletion</a>
                         <a href="../children-privacy.html">Children's Privacy Notice</a>
                         <a href="../children-terms.html">Children's Terms Notice</a>
                         <a href="../us-privacy-notice.html">U.S. Privacy Notice</a>
@@ -552,5 +1199,199 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        var d = document;
+        var tallyScript = "https://tally.so/widgets/embed.js";
+        var loadTally = function () {
+            if (typeof Tally !== "undefined") {
+                Tally.loadEmbeds();
+            } else {
+                d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function (frame) {
+                    frame.src = frame.dataset.tallySrc;
+                });
+            }
+        };
+
+        if (typeof Tally !== "undefined") {
+            loadTally();
+        } else if (d.querySelector('script[src="' + tallyScript + '"]') == null) {
+            var script = d.createElement("script");
+            script.src = tallyScript;
+            script.onload = loadTally;
+            script.onerror = loadTally;
+            d.body.appendChild(script);
+        }
+    </script>
+
+    <script>
+        (function () {
+            var form = document.getElementById('decoder-preview-form');
+            var excerptField = document.getElementById('preview-excerpt');
+            var contextField = document.getElementById('preview-context');
+            var clearButton = document.getElementById('clear-preview');
+            var loader = document.getElementById('preview-loader');
+            var placeholder = document.getElementById('preview-placeholder');
+            var errorBox = document.getElementById('preview-error');
+            var resultBox = document.getElementById('preview-results');
+            var toneField = document.getElementById('result-tone');
+            var patternField = document.getElementById('result-pattern');
+            var missField = document.getElementById('result-miss');
+            var reflectionField = document.getElementById('result-reflection');
+            var ctaCopyField = document.getElementById('result-cta-copy');
+            var chips = document.querySelectorAll('.sample-chip');
+            var betaLinks = document.querySelectorAll('[data-beta-cta]');
+
+            var samples = {
+                groceries: {
+                    excerpt: "Sam: I’m leaving work now. Want me to pick up anything?\nAlex: Could you grab milk and bananas?\nSam: Yep. I’ll be home in about 25 minutes.\nAlex: Perfect, thanks.",
+                    context: "Two partners coordinating groceries after work."
+                },
+                work: {
+                    excerpt: "Priya: I can send the draft by 3pm.\nJordan: That works. If anything slips, just let me know before the client call.\nPriya: Will do. I’m nearly through the last section.",
+                    context: "Two colleagues coordinating a deadline."
+                },
+                dinner: {
+                    excerpt: "Mia: Dinner still good for 7?\nRenee: Yes, I may be 10 minutes late because the train is slow.\nMia: No stress. I’ll order once you’re close.\nRenee: Thank you, see you soon.",
+                    context: "Friends confirming dinner after work."
+                }
+            };
+
+            function trackEvent(name, params) {
+                if (typeof gtag === "function") {
+                    gtag('event', name, params || {});
+                }
+            }
+
+            function setLoading(isLoading) {
+                loader.classList.toggle('active', isLoading);
+                excerptField.disabled = isLoading;
+                contextField.disabled = isLoading;
+                clearButton.disabled = isLoading;
+                form.querySelector('button[type="submit"]').disabled = isLoading;
+            }
+
+            function clearError() {
+                errorBox.textContent = '';
+                errorBox.classList.remove('active');
+            }
+
+            function showError(message) {
+                placeholder.style.display = 'none';
+                resultBox.classList.remove('active');
+                errorBox.textContent = message;
+                errorBox.classList.add('active');
+            }
+
+            function showResults(payload) {
+                clearError();
+                placeholder.style.display = 'none';
+                toneField.textContent = payload.toneSnapshot || '';
+                patternField.textContent = payload.possiblePattern || '';
+                missField.textContent = payload.easyToMiss || '';
+                reflectionField.textContent = payload.reflectionPrompt || '';
+                ctaCopyField.textContent = payload.cta || 'This is a lightweight preview. Join the beta for the fuller Linguistic Decoder experience on iPhone or Android.';
+                resultBox.classList.add('active');
+            }
+
+            function resetPreview() {
+                excerptField.value = '';
+                contextField.value = '';
+                clearError();
+                resultBox.classList.remove('active');
+                placeholder.style.display = 'flex';
+            }
+
+            chips.forEach(function (chip) {
+                chip.addEventListener('click', function () {
+                    var sample = samples[chip.getAttribute('data-sample')];
+                    if (!sample) {
+                        return;
+                    }
+
+                    excerptField.value = sample.excerpt;
+                    contextField.value = sample.context;
+                    clearError();
+                    resultBox.classList.remove('active');
+                    placeholder.style.display = 'flex';
+                    excerptField.focus();
+                    trackEvent('decoder_preview_sample_selected', {
+                        event_category: 'decoder_preview',
+                        event_label: chip.getAttribute('data-sample')
+                    });
+                });
+            });
+
+            clearButton.addEventListener('click', resetPreview);
+
+            betaLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    trackEvent('decoder_beta_cta_clicked', {
+                        event_category: 'decoder_beta',
+                        event_label: link.getAttribute('data-beta-cta')
+                    });
+                });
+            });
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                var excerpt = excerptField.value.trim();
+                var context = contextField.value.trim();
+
+                clearError();
+
+                if (!excerpt) {
+                    showError('Paste a short conversation excerpt first.');
+                    return;
+                }
+
+                setLoading(true);
+                trackEvent('decoder_preview_started', {
+                    event_category: 'decoder_preview',
+                    event_label: 'submit'
+                });
+
+                try {
+                    var response = await fetch('decoder-demo.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            excerpt: excerpt,
+                            context: context
+                        })
+                    });
+
+                    var payload = await response.json();
+
+                    if (!response.ok) {
+                        showError(payload.error || 'The preview could not be generated right now. You can still join the beta below.');
+                        trackEvent('decoder_preview_error', {
+                            event_category: 'decoder_preview',
+                            event_label: String(response.status)
+                        });
+                        return;
+                    }
+
+                    showResults(payload);
+                    trackEvent('decoder_preview_completed', {
+                        event_category: 'decoder_preview',
+                        event_label: 'success'
+                    });
+                } catch (error) {
+                    showError('The preview is unavailable right now. You can still join the beta or leave your email below.');
+                    trackEvent('decoder_preview_error', {
+                        event_category: 'decoder_preview',
+                        event_label: 'network'
+                    });
+                } finally {
+                    setLoading(false);
+                }
+            });
+        }());
+    </script>
 </body>
 </html>
