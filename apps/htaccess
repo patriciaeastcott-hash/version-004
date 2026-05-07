@@ -10,4 +10,4 @@ RewriteRule ^ https://digitalabcs.com.au%{REQUEST_URI} [R=301,L]
 
 deny from 52.167.144.145
 
-DECODER-API-KEY "AIzaSyAohtRQPFLw6yxnwZOQkU5OJIXT4TMhiPk"
+DECODER-API-KEY "AIzaSyA5xqyzVU_4ewMt3PgIv-r2RA-uxr4uHLY"
