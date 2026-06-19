@@ -150,7 +150,7 @@
               "name": "Is Linguistic Decoder available on Android?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Android is not live yet. Linguistic Decoder is currently available on iPhone through the Apple App Store, and Android interest can be registered through Digital ABCs."
+                "text": "Android is not live yet. Linguistic Decoder is currently available on iPhone through the Apple App Store. Digital ABCs is preparing the Android release and welcomes beta testers at info@digitalabcs.com.au."
               }
             },
             {
@@ -218,58 +218,52 @@
             justify-content: center;
         }
 
-        .hero-product-lockup {
-            display: block;
-            width: min(100%, 560px);
-            height: auto;
-            margin: 0 0 1.35rem;
-            padding: 0.85rem 1rem;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.96);
-            box-shadow: 0 18px 44px -32px rgba(0, 0, 0, 0.4);
-        }
-
         .product-identity {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
             width: fit-content;
-            margin-bottom: 1rem;
-            padding: 0.45rem 0.85rem 0.45rem 0.45rem;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #FFFFFF;
-            font-weight: 800;
+            margin-bottom: 1.25rem;
         }
 
         .product-identity img {
-            width: 48px;
-            height: 48px;
-            border-radius: 13px;
+            width: 64px;
+            height: 64px;
+            border-radius: 15px;
+            box-shadow: 0 16px 30px -18px rgba(0, 0, 0, 0.7);
         }
 
-        .product-identity span {
+        .page-hero .product-name,
+        .page-hero .product-byline {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .page-hero .product-name {
             color: #FFFFFF;
+            font-size: 1.45rem;
+            font-weight: 800;
         }
 
-        .beta-pill {
+        .page-hero .product-byline {
+            margin-top: 0.3rem;
+            color: #CBD5E1;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .availability-status {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             width: fit-content;
             margin-bottom: 1rem;
-            padding: 0.42rem 0.9rem;
-            border-radius: 999px;
-            background: rgba(220, 252, 231, 0.96);
-            color: #166534;
+            color: #BBF7D0;
             font-size: 0.86rem;
             font-weight: 700;
-            letter-spacing: 0.01em;
-            box-shadow: 0 12px 28px -24px rgba(15, 23, 42, 0.65);
         }
 
-        .beta-pill::before {
+        .availability-status::before {
             content: "";
             width: 8px;
             height: 8px;
@@ -1235,12 +1229,14 @@
         <section class="page-hero">
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <div class="product-identity" aria-label="Linguistic Decoder app">
+                    <div class="product-identity" aria-label="Linguistic Decoder by Digital ABCs">
                         <img src="../assets/brand/linguistic-decoder-icon.png" alt="Linguistic Decoder app icon">
-                        <span>iPhone app</span>
+                        <div>
+                            <p class="product-name">Linguistic Decoder&trade;</p>
+                            <p class="product-byline">by Digital ABCs&trade;</p>
+                        </div>
                     </div>
-                    <img src="../assets/brand/product-lockup-linguistic-decoder-tm.png" alt="Linguistic Decoder by Digital ABCs" class="hero-product-lockup">
-                    <span class="beta-pill">Available now</span>
+                    <span class="availability-status">Available now on iPhone</span>
                     <h1>Decode the signal inside a confusing message.</h1>
                     <p>
                         Linguistic Decoder helps you read written conversations with more structure: what was said, what the pattern might suggest,
@@ -1326,7 +1322,7 @@
                         <h3>Current availability</h3>
                         <p>
                             Linguistic Decoder is available now for iPhone through the Apple App Store.
-                            Android is not live yet; Digital ABCs is preparing the Google Play path and accepts Android interest through contact.
+                            Android is not live yet; Digital ABCs is preparing the Google Play path and welcomes volunteer beta testers at info@digitalabcs.com.au.
                         </p>
                         <p>
                             The product is privacy-aware, AI-assisted, and intentionally framed as communication clarity rather than diagnosis,
@@ -1561,18 +1557,18 @@
                         <article class="download-card">
                             <h3>Android status</h3>
                             <p>
-                                Android is not live yet. The Google Play path is being prepared, and email is the right route if you want Android updates.
+                                Android is not live yet. Digital ABCs is preparing the Google Play path and needs beta testers for the Linguistic Decoder Android release.
                             </p>
                             <ul>
                                 <li>Google Play is the intended public route once Android is live</li>
-                                <li>Interest can be registered through the contact path</li>
+                                <li>Beta volunteers can contact Digital ABCs by email</li>
                                 <li>Trust pages will stay visible from the website</li>
                             </ul>
                             <div class="download-actions" style="margin-top:1.2rem;">
-                                <a href="../contact.html" class="btn btn-secondary" data-beta-cta="download-android">Register Android interest</a>
+                                <a href="mailto:info@digitalabcs.com.au?subject=Android%20Beta%20Tester%20-%20Linguistic%20Decoder" class="btn btn-secondary" data-beta-cta="download-android">Volunteer for Android beta</a>
                                 <a href="../support.html#faq" class="btn btn-tertiary">Read FAQs</a>
                             </div>
-                            <p class="micro-note">Mention Android interest in your message so it is routed correctly.</p>
+                            <p class="micro-note">Anyone wishing to volunteer can email info@digitalabcs.com.au and mention Android beta testing.</p>
                         </article>
                     </div>
 
@@ -1657,8 +1653,8 @@
                     <article class="faq-card">
                         <h3>Is Android available?</h3>
                         <p>
-                            Not yet. The current public route is the iPhone App Store listing. Android interest can be registered
-                            through the Digital ABCs contact path while the Google Play path is prepared.
+                            Not yet. The current public route is the iPhone App Store listing. Digital ABCs is preparing the Android release
+                            and welcomes beta testers; volunteers can email info@digitalabcs.com.au.
                         </p>
                     </article>
 

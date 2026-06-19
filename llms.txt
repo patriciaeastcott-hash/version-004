@@ -16,7 +16,7 @@ Current status:
 
 - Available now on iPhone through the Apple App Store.
 - Android is not live yet.
-- Android interest can be registered through Digital ABCs contact.
+- Digital ABCs is seeking volunteer beta testers for the Linguistic Decoder Android release. Volunteers can email info@digitalabcs.com.au.
 - Five free analyses are available to start.
 
 Important limits:
