@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4JD4ZCN0G8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4JD4ZCN0G8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights and founder story | Digital ABCs</title>
+    <meta name="description" content="Digital ABCs insights, founder story, trustworthy AI notes, product decisions, privacy explainers, and practical lessons behind Linguistic Decoder.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="author" content="Digital ABCs">
+    <link rel="canonical" href="https://digitalabcs.com.au/insights.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://digitalabcs.com.au/insights.html">
+    <meta property="og:title" content="Insights and founder story - Digital ABCs">
+    <meta property="og:description" content="Founder-led notes on trustworthy AI, product decisions, governance, and the story behind Digital ABCs.">
+    <meta property="og:image" content="https://digitalabcs.com.au/assets/og-about.png">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:site_name" content="Digital ABCs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Insights and founder story - Digital ABCs">
+    <meta name="twitter:description" content="The Digital ABCs story hub for trustworthy AI, Linguistic Decoder, governance, and founder-led build notes.">
+    <meta name="twitter:image" content="https://digitalabcs.com.au/assets/og-about.png">
+    <link rel="icon" href="assets/brand/favicon-abc-tm.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/brand/favicon-abc-tm.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #F8FAFC;
+        }
+
+        .insights-hero {
+            min-height: 620px;
+            display: grid;
+            align-items: center;
+            padding: 5rem 0 4rem;
+            color: #FFFFFF;
+            background:
+                linear-gradient(115deg, rgba(15, 23, 42, 0.94), rgba(30, 58, 138, 0.88) 48%, rgba(91, 33, 182, 0.72)),
+                url("assets/app-store/insights-trends.jpg") center right / contain no-repeat,
+                #0F172A;
+        }
+
+        .insights-hero .container {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 3rem;
+            align-items: end;
+        }
+
+        .insights-hero h1 {
+            max-width: 820px;
+            color: #FFFFFF;
+            font-size: clamp(2.7rem, 7vw, 5.4rem);
+            line-height: 0.98;
+            margin: 0 0 1.2rem;
+        }
+
+        .insights-hero p {
+            max-width: 720px;
+            color: #E0F2FE;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .hero-proof {
+            display: grid;
+            gap: 0.8rem;
+            padding: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 22px;
+            background: rgba(15, 23, 42, 0.62);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+        }
+
+        .hero-proof span {
+            color: #D4AF37;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.78rem;
+        }
+
+        .hero-proof strong {
+            color: #FFFFFF;
+            font-size: 1.35rem;
+            line-height: 1.25;
+        }
+
+        .section-soft {
+            padding: 5rem 0;
+        }
+
+        .section-heading {
+            max-width: 780px;
+            margin-bottom: 2rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-heading p {
+            color: #4B5563;
+            line-height: 1.75;
+            font-size: 1.04rem;
+        }
+
+        .founder-feature {
+            display: grid;
+            grid-template-columns: minmax(280px, 0.88fr) minmax(0, 1.12fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .founder-image {
+            min-height: 560px;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #111827;
+            box-shadow: 0 28px 80px -48px rgba(15, 23, 42, 0.7);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .founder-copy {
+            padding: 2rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 24px;
+            background:
+                radial-gradient(circle at top right, rgba(45, 212, 191, 0.12), transparent 32%),
+                #FFFFFF;
+        }
+
+        .founder-copy h2 {
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            line-height: 1.04;
+            margin-bottom: 1rem;
+        }
+
+        .founder-copy p {
+            color: #374151;
+            line-height: 1.78;
+            font-size: 1.02rem;
+        }
+
+        .founder-values {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.6rem;
+        }
+
+        .founder-value {
+            padding: 1rem;
+            border-radius: 16px;
+            background: #F1F5F9;
+        }
+
+        .founder-value h3 {
+            margin: 0 0 0.45rem;
+            font-size: 1rem;
+        }
+
+        .founder-value p {
+            margin: 0;
+            color: #4B5563;
+            font-size: 0.94rem;
+            line-height: 1.6;
+        }
+
+        .carousel-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            border: 1px solid rgba(30, 58, 138, 0.14);
+            background: #FFFFFF;
+            box-shadow: 0 26px 70px -54px rgba(15, 23, 42, 0.55);
+        }
+
+        .post-carousel {
+            display: flex;
+            transition: transform 500ms ease;
+        }
+
+        .post-card {
+            min-width: 33.333%;
+            padding: 1rem;
+        }
+
+        .post-card-inner {
+            height: 100%;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.4rem;
+            border-radius: 18px;
+            color: #FFFFFF;
+            background: linear-gradient(145deg, #0F172A, #1E3A8A 54%, #5B21B6);
+        }
+
+        .post-card:nth-child(2n) .post-card-inner {
+            background: linear-gradient(145deg, #101827, #134E4A 52%, #1E3A8A);
+        }
+
+        .post-card:nth-child(3n) .post-card-inner {
+            background: linear-gradient(145deg, #111827, #4C1D95 55%, #0891B2);
+        }
+
+        .post-card span {
+            width: fit-content;
+            margin-bottom: 1rem;
+            padding: 0.36rem 0.7rem;
+            border-radius: 999px;
+            color: #FDE68A;
+            background: rgba(212, 175, 55, 0.16);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .post-card h3 {
+            color: #FFFFFF;
+            font-size: 1.45rem;
+            line-height: 1.2;
+            margin-bottom: 0.9rem;
+        }
+
+        .post-card p {
+            color: #DBEAFE;
+            line-height: 1.65;
+        }
+
+        .post-card a {
+            color: #FFFFFF;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.7rem;
+            padding: 0 1rem 1rem;
+        }
+
+        .carousel-controls button {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #CBD5E1;
+            border-radius: 50%;
+            background: #FFFFFF;
+            color: #0F172A;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .insight-tile {
+            padding: 1.4rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 18px;
+            background: #FFFFFF;
+        }
+
+        .insight-tile h3 {
+            margin-bottom: 0.6rem;
+        }
+
+        .insight-tile p {
+            color: #4B5563;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1000px) {
+            .insights-hero .container,
+            .founder-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-proof {
+                max-width: 420px;
+            }
+
+            .post-card {
+                min-width: 50%;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .insights-hero {
+                min-height: auto;
+                background:
+                    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 58, 138, 0.9)),
+                    #0F172A;
+            }
+
+            .founder-image {
+                min-height: 420px;
+            }
+
+            .founder-values,
+            .insight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Digital ABCs Home">
+                <img src="assets/brand/primary-logo-fullcolour-horizontal-tm.svg" alt="Digital ABCs Logo" class="logo-img">
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="apps/decoder.html">Linguistic Decoder</a></li>
+                    <li><a href="apps.html">Products</a></li>
+                    <li><a href="insights.html" class="active">Insights</a></li>
+                    <li><a href="legal.html">Trust</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="https://apps.apple.com/au/app/linguistic-decoder/id6758027843">Try it free</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="insights-hero">
+            <div class="container">
+                <div>
+                    <p class="section-kicker">Insights by Digital ABCs</p>
+                    <h1>The story behind the products.</h1>
+                    <p>Practical notes on trustworthy AI, product choices, privacy, communication patterns, and the lived constraints that shape Digital ABCs.</p>
+                </div>
+                <aside class="hero-proof" aria-label="Insights page focus">
+                    <span>Content hub</span>
+                    <strong>Founder story, product notes, governance explainers, and useful reading for people deciding whether this brand is for them.</strong>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section-soft">
+            <div class="container">
+                <div class="founder-feature">
+                    <div class="founder-image">
+                        <img src="assets/founder/founder-story.png" alt="Digital ABCs founder working from a professional office setting.">
+                    </div>
+                    <div class="founder-copy">
+                        <p class="section-kicker">Founder story</p>
+                        <h2>Built by someone who had to learn the pattern first.</h2>
+                        <p>Digital ABCs is founder-led and built from real constraints: family responsibilities, limited time, self-taught technical work, and a refusal to release tools that make bigger promises than they can keep.</p>
+                        <p>The work started from a simple belief: people make better decisions when they can see what is happening clearly. Linguistic Decoder applies that belief to conversations. Future products will only launch when the trust, governance, and product readiness are strong enough to support them.</p>
+                        <div class="founder-values">
+                            <article class="founder-value">
+                                <h3>No inflated certainty</h3>
+                                <p>Digital ABCs explains what AI can support and where human judgement still matters.</p>
+                            </article>
+                            <article class="founder-value">
+                                <h3>Release carefully</h3>
+                                <p>Social Skill Simulation is under OT review. Contract Compass comes next. Anchor waits for greater trust in AI.</p>
+                            </article>
+                            <article class="founder-value">
+                                <h3>Plain-language trust</h3>
+                                <p>Privacy, redaction, governance, and model use should be understandable before someone submits anything.</p>
+                            </article>
+                            <article class="founder-value">
+                                <h3>Useful over flashy</h3>
+                                <p>The goal is clarity that helps people act, not complexity that makes the product feel clever.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-soft" aria-labelledby="featured-posts">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Featured reading</p>
+                    <h2>Start here.</h2>
+                    <p>A rolling set of short story notes and explainers for people who want to understand the thinking behind Digital ABCs before they try the product.</p>
+                </div>
+                <div class="carousel-wrap">
+                    <div class="post-carousel" id="post-carousel" aria-live="polite">
+                        <article class="post-card">
+                            <div class="post-card-inner">
+                                <div>
+                                    <span>Founder note</span>
+                                    <h3>Why Linguistic Decoder comes first</h3>
+                                    <p>Conversations are everyday, emotional, and easy to misunderstand. This is where Digital ABCs can offer practical clarity without pretending to be therapy or legal advice.</p>
+                                </div>
+                                <a href="apps/decoder.html">Read the product page</a>
+                            </div>
+                        </article>
+                        <article class="post-card">
+                            <div class="post-card-inner">
+                                <div>
+                                    <span>Trust</span>
+                                    <h3>What happens after someone presses analyse</h3>
+                                    <p>A plain-English walkthrough of redaction, AI processing, framework review, and how protected details are restored for the user report.</p>
+                                </div>
+                                <a href="legal.html">See the trust hub</a>
+                            </div>
+                        </article>
+                        <article class="post-card">
+                            <div class="post-card-inner">
+                                <div>
+                                    <span>Product roadmap</span>
+                                    <h3>Why some products are waiting</h3>
+                                    <p>Contract Compass is planned next, but it is about twelve months away. Anchor waits until public trust in AI is strong enough for the type of support it would provide.</p>
+                                </div>
+                                <a href="apps.html">View the product portfolio</a>
+                            </div>
+                        </article>
+                        <article class="post-card">
+                            <div class="post-card-inner">
+                                <div>
+                                    <span>Governance</span>
+                                    <h3>Trust is built in the product boundaries</h3>
+                                    <p>Digital ABCs uses governance, privacy review, AI transparency, and cautious release decisions to keep product claims matched to product capability.</p>
+                                </div>
+                                <a href="ai_transparency.html">Read AI transparency</a>
+                            </div>
+                        </article>
+                        <article class="post-card">
+                            <div class="post-card-inner">
+                                <div>
+                                    <span>Communication</span>
+                                    <h3>What a message can sound like versus how it lands</h3>
+                                    <p>Linguistic Decoder helps people test possible meaning, emotional impact, and response options before a message becomes a pattern.</p>
+                                </div>
+                                <a href="apps/decoder.html">Explore Linguistic Decoder</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-controls" aria-label="Featured post carousel controls">
+                        <button type="button" id="carousel-prev" aria-label="Previous featured posts">&#8592;</button>
+                        <button type="button" id="carousel-next" aria-label="Next featured posts">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-soft">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Content streams</p>
+                    <h2>What will live here next.</h2>
+                    <p>This page will grow into the main story and education hub, with practical posts that help users understand the brand before they download.</p>
+                </div>
+                <div class="insight-grid">
+                    <article class="insight-tile">
+                        <h3>Product explainers</h3>
+                        <p>Short, clear posts on what each product does, what it does not do, and how users should think about the output.</p>
+                    </article>
+                    <article class="insight-tile">
+                        <h3>Trustworthy AI notes</h3>
+                        <p>Plain-English guidance on model use, redaction, human accountability, limitations, and safe product boundaries.</p>
+                    </article>
+                    <article class="insight-tile">
+                        <h3>Founder build notes</h3>
+                        <p>Transparent lessons from building Digital ABCs carefully, including product decisions, release timing, and constraints.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/brand/primary-logo-white-tm.png" alt="Digital ABCs" class="footer-logo">
+                    <p>Trustworthy AI tools for real-life clarity. Built in New South Wales, Australia.</p>
+                </div>
+                <nav class="footer-col" aria-label="Footer navigation">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="apps/decoder.html">Linguistic Decoder</a></li>
+                        <li><a href="apps.html">Products</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-col" aria-label="Legal navigation">
+                    <h4>Trust &amp; Legal</h4>
+                    <ul>
+                        <li><a href="legal.html">Legal Hub</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai_transparency.html">AI Transparency</a></li>
+                        <li><a href="account-deletion.html">Account deletion</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>
+                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                        Toongabbie, NSW, Australia
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Digital ABCs. All rights reserved.</p>
+            <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a>
+        </div>
+    </footer>
+
+    <script>
+      const carousel = document.getElementById('post-carousel');
+      const next = document.getElementById('carousel-next');
+      const prev = document.getElementById('carousel-prev');
+      const cards = carousel ? Array.from(carousel.children) : [];
+      let carouselIndex = 0;
+
+      function visibleCount() {
+        if (window.matchMedia('(max-width: 720px)').matches) return 1;
+        if (window.matchMedia('(max-width: 1000px)').matches) return 2;
+        return 3;
+      }
+
+      function updateCarousel() {
+        if (!carousel || !cards.length) return;
+        const maxIndex = Math.max(0, cards.length - visibleCount());
+        carouselIndex = Math.max(0, Math.min(carouselIndex, maxIndex));
+        const width = cards[0].getBoundingClientRect().width;
+        carousel.style.transform = `translateX(${-carouselIndex * width}px)`;
+      }
+
+      if (next && prev) {
+        next.addEventListener('click', function () {
+          carouselIndex += 1;
+          updateCarousel();
+        });
+        prev.addEventListener('click', function () {
+          carouselIndex -= 1;
+          updateCarousel();
+        });
+        window.addEventListener('resize', updateCarousel);
+        window.setInterval(function () {
+          if (!cards.length) return;
+          const maxIndex = Math.max(0, cards.length - visibleCount());
+          carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
+          updateCarousel();
+        }, 6500);
+        updateCarousel();
+      }
+    </script>
+</body>
+</html>

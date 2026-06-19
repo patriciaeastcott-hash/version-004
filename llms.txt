@@ -44,7 +44,7 @@ Privacy and AI handling:
 - Home: https://digitalabcs.com.au/
 - Products: https://digitalabcs.com.au/apps.html
 - Linguistic Decoder: https://digitalabcs.com.au/apps/decoder.html
-- Story and Insights: https://digitalabcs.com.au/insights.php
+- Story and Insights: https://digitalabcs.com.au/insights.html
 - Support and FAQs: https://digitalabcs.com.au/support.html
 - AI Transparency: https://digitalabcs.com.au/ai_transparency.html
 - Legal Hub: https://digitalabcs.com.au/legal.html
