@@ -729,6 +729,10 @@ details p {
     box-shadow: none;
 }
 
+.trust-list article:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
 .trust-map {
     margin-top: 28px;
     padding: 22px;
