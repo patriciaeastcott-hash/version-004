@@ -53,7 +53,8 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
     <meta name="description" content="Read the latest insights on AI, automation, and compliance from Digital ABCs.">
     
     <link rel="canonical" href="https://digitalabcs.com.au/article.php?id=<?php echo htmlspecialchars($clean_name); ?>">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/brand/favicon-abc-tm.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/brand/favicon-abc-tm.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,15 +144,17 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="logo" aria-label="Digital ABCs Home">
-                <img src="assets/logo.png" alt="Digital ABCs Logo" class="logo-img">
+                <img src="assets/brand/primary-logo-fullcolour-horizontal-tm.svg" alt="Digital ABCs Logo" class="logo-img">
             </a>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="apps.html">Current Projects</a></li>
-                    <li><a href="insights.php" class="active">Insights</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="apps/decoder.html">Linguistic Decoder</a></li>
+                    <li><a href="apps.html">Products</a></li>
+                    <li><a href="insights.php">Insights</a></li>
+                    <li><a href="legal.html">Trust</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="https://apps.apple.com/au/app/linguistic-decoder/id6758027843">Try it free</a></li>
                 </ul>
             </nav>
         </div>
@@ -202,13 +205,14 @@ if (!empty($clean_name) && file_exists($file_path) && str_ends_with($clean_name,
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Powered by <span class="footer-brand">Digital ABCs</span></h4>
-                    <p>Founder-led self-quantification and educational apps built in Western Sydney.</p>
+                    <img src="assets/brand/primary-logo-white-tm.png" alt="Digital ABCs" class="footer-logo">
+                    <p>Trustworthy AI tools for real-life clarity, built in New South Wales.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigate</h4>
                     <ul>
-                        <li><a href="apps.html">Current Projects</a></li>
+                        <li><a href="apps/decoder.html">Linguistic Decoder</a></li>
+<li><a href="apps.html">Products</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="insights.php">Insights</a></li>
                         <li><a href="contact.html">Contact</a></li>

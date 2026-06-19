@@ -38,7 +38,7 @@
     --dark-border: #334155;
 
     /* Typography */
-    --font-primary: 'Tenorite', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-code: 'JetBrains Mono', 'Roboto Mono', monospace;
 
     /* Spacing (8px base unit) */
@@ -279,7 +279,7 @@ button, .btn, a.btn, input[type="submit"] {
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 18px;
+    gap: var(--space-xl);
     align-items: center;
 }
 
@@ -1141,6 +1141,7 @@ textarea:invalid:not(:placeholder-shown) {
 .tool-hero,
 .tools-hero,
 .brand-hero,
+.logistics-hero,
 .cta-section {
     position: relative;
     isolation: isolate;
@@ -1160,7 +1161,8 @@ textarea:invalid:not(:placeholder-shown) {
 .contact-hero::before,
 .tool-hero::before,
 .tools-hero::before,
-.brand-hero::before::before,
+.brand-hero::before,
+.logistics-hero::before,
 .cta-section::before {
     content: "";
     position: absolute;
@@ -1180,7 +1182,8 @@ textarea:invalid:not(:placeholder-shown) {
 .contact-hero::after,
 .tool-hero::after,
 .tools-hero::after,
-.brand-hero::after::after {
+.brand-hero::after,
+.logistics-hero::after {
     content: "";
     position: absolute;
     right: max(24px, calc((100vw - 1200px) / 2));
@@ -1205,7 +1208,8 @@ textarea:invalid:not(:placeholder-shown) {
 .contact-hero h1,
 .tool-hero h1,
 .tools-hero h1,
-.brand-hero h1 h1,
+.brand-hero h1,
+.logistics-hero h1,
 .cta-section h2 {
     color: var(--color-white) !important;
     max-width: 860px;
@@ -1220,7 +1224,8 @@ textarea:invalid:not(:placeholder-shown) {
 .contact-hero p,
 .tool-hero p,
 .tools-hero p,
-.brand-hero p p,
+.brand-hero p,
+.logistics-hero p,
 .cta-section p {
     color: rgba(255, 255, 255, 0.82) !important;
     max-width: 720px;
@@ -1232,7 +1237,8 @@ textarea:invalid:not(:placeholder-shown) {
 .contact-hero .container,
 .tool-hero .container,
 .tools-hero .container,
-.brand-hero .container .container,
+.brand-hero .container,
+.logistics-hero .container,
 .hero .container,
 .cta-section .container {
     position: relative;
@@ -1249,14 +1255,16 @@ textarea:invalid:not(:placeholder-shown) {
 .contact-hero .btn-primary,
 .tool-hero .btn-primary,
 .tools-hero .btn-primary,
-.brand-hero .btn-primary .btn-primary,
+.brand-hero .btn-primary,
+.logistics-hero .btn-primary,
 .cta-section .btn-primary,
 .hero .btn-premium,
 .page-hero .btn-premium,
 .contact-hero .btn-premium,
 .tool-hero .btn-premium,
 .tools-hero .btn-premium,
-.brand-hero .btn-premium .btn-premium,
+.brand-hero .btn-premium,
+.logistics-hero .btn-premium,
 .cta-section .btn-premium {
     color: #041016 !important;
     background: linear-gradient(135deg, var(--future-cyan), var(--future-gold)) !important;
@@ -1268,7 +1276,8 @@ textarea:invalid:not(:placeholder-shown) {
 .contact-hero .btn-secondary,
 .tool-hero .btn-secondary,
 .tools-hero .btn-secondary,
-.brand-hero .btn-secondary .btn-secondary,
+.brand-hero .btn-secondary,
+.logistics-hero .btn-secondary,
 .cta-section .btn-secondary {
     color: var(--color-white) !important;
     border: 1px solid rgba(255,255,255,0.28);
@@ -1354,13 +1363,6 @@ textarea:invalid:not(:placeholder-shown) {
     color: var(--color-white) !important;
 }
 
-.footer-logo {
-    width: 170px;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 18px;
-}
-
 .footer-col a,
 .footer-bottom,
 .site-footer p {
@@ -1400,7 +1402,8 @@ textarea:invalid:not(:placeholder-shown) {
     .contact-hero::after,
     .tool-hero::after,
     .tools-hero::after,
-    .brand-hero::after::after {
+    .brand-hero::after,
+    .logistics-hero::after {
         width: 54vw;
         height: 220px;
         top: auto;
@@ -1450,6 +1453,7 @@ textarea:invalid:not(:placeholder-shown) {
     .tool-hero,
     .tools-hero,
     .brand-hero,
+    .logistics-hero,
     .cta-section {
         min-height: 360px;
         padding: 4rem 0 !important;

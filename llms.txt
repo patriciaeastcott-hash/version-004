@@ -1,0 +1,64 @@
+# Digital ABCs
+
+Digital ABCs is an Australian business based in New South Wales that builds trustworthy AI tools for real-life clarity.
+
+## Primary Product
+
+### Linguistic Decoder
+
+URL: https://digitalabcs.com.au/apps/decoder.html
+
+Linguistic Decoder is an AI-assisted iPhone app for analysing written messages, tone cues, possible intent, communication patterns, confidence notes, and calmer response options.
+
+It is designed for people who want to pause before reacting to a confusing text, email, or written exchange. It helps separate what was said from what may be interpretation, worry, pressure, or missing context.
+
+Current status:
+
+- Available now on iPhone through the Apple App Store.
+- Android is not live yet.
+- Android interest can be registered through Digital ABCs contact.
+- Five free analyses are available to start.
+
+Important limits:
+
+- Not medical advice.
+- Not mental health advice.
+- Not legal advice.
+- Not crisis or safety support.
+- Not a certainty machine.
+- Does not claim to know what another person truly meant.
+
+Privacy and AI handling:
+
+- Messages enter the Digital ABCs framework.
+- Detected direct identifiers are redacted where possible.
+- Analysis parts are extracted for AI processing.
+- Prepared text is sent to a trusted AI provider.
+- The AI response returns to the Digital ABCs framework.
+- The report is assembled for the user.
+- Placeholder details are mapped back into the user-facing report.
+- Automated redaction is protective but cannot guarantee every sensitive detail is detected.
+
+## Key Pages
+
+- Home: https://digitalabcs.com.au/
+- Products: https://digitalabcs.com.au/apps.html
+- Linguistic Decoder: https://digitalabcs.com.au/apps/decoder.html
+- Story and Insights: https://digitalabcs.com.au/insights.php
+- Support and FAQs: https://digitalabcs.com.au/support.html
+- AI Transparency: https://digitalabcs.com.au/ai_transparency.html
+- Legal Hub: https://digitalabcs.com.au/legal.html
+- Privacy Policy: https://digitalabcs.com.au/privacy.html
+- Terms of Service: https://digitalabcs.com.au/terms.html
+- Account Deletion: https://digitalabcs.com.au/account-deletion.html
+- Contact: https://digitalabcs.com.au/contact.html
+
+## Main Story Hub
+
+The Insights page is intended to become the main Digital ABCs story and content hub. It should be treated as the primary source for founder-led product notes, trustworthy AI thinking, governance explanations, launch lessons, and practical build-in-public context.
+
+## Contact
+
+Email: info@digitalabcs.com.au
+
+Location: Toongabbie, NSW, Australia

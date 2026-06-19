@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_stale_pages_to_save/
+
+Sitemap: https://digitalabcs.com.au/sitemap.xml
