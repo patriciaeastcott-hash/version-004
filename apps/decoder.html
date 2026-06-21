@@ -502,78 +502,6 @@
             color: #DBEAFE;
         }
 
-        .conversion-proof {
-            background:
-                radial-gradient(circle at 8% 5%, rgba(45, 212, 191, 0.13), transparent 30%),
-                linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 100%);
-            border-bottom: 1px solid #DCE7F2;
-        }
-
-        .conversion-proof-grid {
-            display: grid;
-            grid-template-columns: minmax(250px, 0.38fr) minmax(0, 1fr);
-            gap: 1.5rem;
-            align-items: start;
-        }
-
-        .proof-media-card {
-            overflow: hidden;
-            background: #FFFFFF;
-            border: 1px solid #D8E6F0;
-            border-radius: 24px;
-            box-shadow: 0 24px 60px -42px rgba(15, 23, 42, 0.7);
-        }
-
-        .proof-video {
-            display: block;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 608 / 1080;
-            background: #0F172A;
-        }
-
-        .proof-diagram {
-            width: 100%;
-            height: auto;
-        }
-
-        .proof-media-card figcaption {
-            padding: 1rem 1.1rem 1.15rem;
-            color: #374151;
-            font-size: 0.94rem;
-            line-height: 1.55;
-        }
-
-        .proof-media-card figcaption strong {
-            display: block;
-            margin-bottom: 0.25rem;
-            color: #1E3A8A;
-            font-size: 1rem;
-        }
-
-        .proof-conversion-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            padding: 1.2rem 1.3rem;
-            color: #FFFFFF;
-            background: linear-gradient(135deg, #1E3A8A, #5B21B6);
-            border-radius: 18px;
-        }
-
-        .proof-conversion-row p {
-            flex: 1 1 360px;
-            margin: 0;
-            color: #FFFFFF;
-            line-height: 1.6;
-        }
-
-        .proof-conversion-row .btn {
-            flex: 0 0 auto;
-        }
-
         .preview-shell {
             display: grid;
             grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
@@ -1197,7 +1125,6 @@
         }
 
         @media (max-width: 960px) {
-            .conversion-proof-grid,
             .info-grid,
             .limits-grid,
             .seo-grid,
@@ -1229,7 +1156,6 @@
             }
 
             .hero-actions,
-            .proof-conversion-row,
             .download-actions,
             .preview-cta-actions,
             .result-cta-actions,
@@ -1238,10 +1164,6 @@
             .trust-links {
                 flex-direction: column;
                 align-items: stretch;
-            }
-
-            .proof-conversion-row .btn {
-                width: 100%;
             }
 
             .process-flow {
@@ -1374,46 +1296,6 @@
             </div>
         </section>
 
-        <section class="section-shell conversion-proof" aria-labelledby="see-it-heading">
-            <div class="container">
-                <div class="section-intro">
-                    <span class="kicker">See the difference</span>
-                    <h2 id="see-it-heading">From “what did that mean?” to a clearer next move.</h2>
-                    <p>
-                        Watch the 28-second overview, then see why Linguistic Decoder goes beyond a quick tone guess.
-                        It uses a structured, evidence-aware review and keeps uncertainty visible instead of manufacturing certainty.
-                    </p>
-                </div>
-
-                <div class="conversion-proof-grid">
-                    <figure class="proof-media-card">
-                        <video class="proof-video" controls playsinline preload="metadata" poster="../assets/media/linguistic-decoder-video-poster.png">
-                            <source src="../assets/media/linguistic-decoder-branded.mp4" type="video/mp4">
-                            <track src="../assets/media/linguistic-decoder-captions.vtt" kind="captions" srclang="en" label="English" default>
-                            Your browser does not support embedded video. You can <a href="../assets/media/linguistic-decoder-branded.mp4">open the video directly</a>.
-                        </video>
-                        <figcaption>
-                            <strong>Clarity in under 30 seconds</strong>
-                            A quick look at how Linguistic Decoder turns a confusing message into something you can work with.
-                        </figcaption>
-                    </figure>
-
-                    <figure class="proof-media-card">
-                        <img class="proof-diagram" src="../assets/media/why-linguistic-decoder-is-different.png" alt="Comparison diagram showing typical chat analysis tools giving quick generic labels, while Linguistic Decoder uses seven layers: conversation input, framework, structured review, human-guided AI analysis, recognised frameworks, scoring and validation, and actionable output.">
-                        <figcaption>
-                            <strong>Why it is different from a generic chatbot</strong>
-                            Evidence before confidence, safety before convenience, pattern analysis over time, and transparent reasoning.
-                        </figcaption>
-                    </figure>
-                </div>
-
-                <div class="proof-conversion-row">
-                    <p><strong>Ready to read the next message more clearly?</strong> Start with five free analyses on iPhone.</p>
-                    <a href="https://apps.apple.com/au/app/linguistic-decoder/id6758027843" target="_blank" rel="noopener" class="btn btn-primary" data-beta-cta="proof-ios">Try it free on the App Store</a>
-                </div>
-            </div>
-        </section>
-
         <section class="section-shell">
             <div class="container">
                 <div class="section-intro">
@@ -1455,9 +1337,9 @@
             <div class="container">
                 <div class="section-intro">
                     <span class="kicker">Inside the app</span>
-                    <h2>Real App Store screenshots, not a made-up preview.</h2>
+                    <h2>Linguistic Decoder has five main analysis points.</h2>
                     <p>
-                        See how Linguistic Decoder moves from a conversation to patterns, speaker profiles, suggested actions, and response testing.
+                        See how it moves from a conversation to patterns, speaker profiles, suggested actions, and response testing.
                         The app is designed to help you notice what is happening before you decide what to do next.
                     </p>
                 </div>
@@ -1513,10 +1395,11 @@
             <div class="container">
                 <div class="section-intro">
                     <span class="kicker">Everyday value</span>
-                    <h2>The point is clearer communication, not forced drama.</h2>
+                    <h2>The point is clearer calmer communication, not emotionally taxing drama.</h2>
                     <p>
                         Linguistic Decoder should feel useful when messages are ordinary, practical, affectionate, ambiguous, or slightly uneven.
-                        If the app only feels impressive when it invents conflict, it is doing the wrong job.
+                        If the app only feels impressive when there is conflict then its not doing what it should be.
+                        It is built to return unbias reports that look at profiles (more than 3 conversations analysed between a group of people), insights (these are based on all your interactions as a whole and how your communication has been after 10 analysis have been completed.
                     </p>
                 </div>
 

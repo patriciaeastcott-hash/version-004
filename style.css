@@ -1355,7 +1355,7 @@ textarea:invalid:not(:placeholder-shown) {
 }
 
 .footer-logo {
-    width: 170px;
+    width: 120px;
     max-width: 100%;
     height: auto;
     margin-bottom: 18px;
