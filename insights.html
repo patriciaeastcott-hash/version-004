@@ -274,8 +274,31 @@
 
         .insight-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: 1fr;
             gap: 1rem;
+        }
+
+        .content-streams-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .content-streams-image {
+            margin: 0;
+            min-height: 0;
+        }
+
+        .content-streams-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 560px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
         }
 
         .insight-tile {
@@ -296,8 +319,16 @@
 
         @media (max-width: 1000px) {
             .insights-hero .container,
-            .founder-feature {
+            .founder-feature,
+            .content-streams-layout {
                 grid-template-columns: 1fr;
+            }
+
+            .content-streams-image img {
+                height: auto;
+                min-height: 0;
+                max-height: 680px;
+                object-position: center 28%;
             }
 
             .hero-proof {
@@ -621,24 +652,31 @@
 
         <section class="section-soft">
             <div class="container">
-                <div class="section-heading">
-                    <p class="section-kicker">Content streams</p>
-                    <h2>What will live here next.</h2>
-                    <p>This page will grow into the main story and education hub, with practical posts that help users understand the brand before they download.</p>
-                </div>
-                <div class="insight-grid">
-                    <article class="insight-tile">
-                        <h3>Product explainers</h3>
-                        <p>Short, clear posts on what each product does, what it does not do, and how users should think about the output.</p>
-                    </article>
-                    <article class="insight-tile">
-                        <h3>Trustworthy AI notes</h3>
-                        <p>Plain-English guidance on model use, redaction, human accountability, limitations, and safe product boundaries.</p>
-                    </article>
-                    <article class="insight-tile">
-                        <h3>Founder build notes</h3>
-                        <p>Transparent lessons from building Digital ABCs carefully, including product decisions, release timing, and constraints.</p>
-                    </article>
+                <div class="content-streams-layout">
+                    <div class="content-streams-copy">
+                        <div class="section-heading">
+                            <p class="section-kicker">Content streams</p>
+                            <h2>What will live here next.</h2>
+                            <p>This page will grow into the main story and education hub, with practical posts that help users understand the brand before they download.</p>
+                        </div>
+                        <div class="insight-grid">
+                            <article class="insight-tile">
+                                <h3>Product explainers</h3>
+                                <p>Short, clear posts on what each product does, what it does not do, and how users should think about the output.</p>
+                            </article>
+                            <article class="insight-tile">
+                                <h3>Trustworthy AI notes</h3>
+                                <p>Plain-English guidance on model use, redaction, human accountability, limitations, and safe product boundaries.</p>
+                            </article>
+                            <article class="insight-tile">
+                                <h3>Founder build notes</h3>
+                                <p>Transparent lessons from building Digital ABCs carefully, including product decisions, release timing, and constraints.</p>
+                            </article>
+                        </div>
+                    </div>
+                    <figure class="content-streams-image">
+                        <img src="assets/founder/insights-content-streams.png" alt="Digital ABCs founder in her office" loading="lazy" width="1122" height="1402">
+                    </figure>
                 </div>
             </div>
         </section>
@@ -647,38 +685,42 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <img src="assets/brand/primary-logo-white-tm.png" alt="Digital ABCs" class="footer-logo">
-                    <p>Trustworthy AI tools for real-life clarity. Built in New South Wales, Australia.</p>
-                </div>
-                <nav class="footer-col" aria-label="Footer navigation">
-                    <h4>Navigate</h4>
-                    <ul>
-                        <li><a href="apps/decoder.html">Linguistic Decoder</a></li>
-                        <li><a href="apps.html">Products</a></li>
-                        <li><a href="insights.html">Insights</a></li>
-                        <li><a href="support.html">Support</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="about.html">About</a></li>
-                    </ul>
-                </nav>
-                <nav class="footer-col" aria-label="Legal navigation">
-                    <h4>Trust &amp; Legal</h4>
-                    <ul>
-                        <li><a href="legal.html">Legal Hub</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="ai_transparency.html">AI Transparency</a></li>
-                        <li><a href="account-deletion.html">Account deletion</a></li>
-                    </ul>
-                </nav>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <p>
-                        <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
-                        Toongabbie, NSW, Australia
-                    </p>
-                </div>
+            <div class="footer-col">
+                <img src="assets/brand/primary-logo-white-tm.png" alt="Digital ABCs" class="footer-logo">
+                <p>Trustworthy AI tools for real-life clarity. Built in New South Wales, Australia.</p>
+            </div>
+            <nav class="footer-col" aria-label="Footer navigation">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="apps/decoder.html">Linguistic Decoder</a></li>
+                    <li><a href="apps.html">Products</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <nav class="footer-col" aria-label="Legal navigation">
+                <h4>Trust & Legal</h4>
+                <ul>
+                    <li><a href="legal.html">Legal Hub</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="ai_transparency.html">AI Transparency</a></li>
+                    <li><a href="account-deletion.html">Account deletion</a></li>
+                    <li><a href="children-privacy.html">Children's Privacy Notice</a></li>
+                    <li><a href="children-terms.html">Children's Terms Notice</a></li>
+                    <li><a href="us-privacy-notice.html">U.S. Privacy Notice</a></li>
+                    <li><a href="eea-uk-privacy-notice.html">EEA / UK Privacy Notice</a></li>
+                </ul>
+            </nav>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p>
+                    <a href="mailto:info@digitalabcs.com.au">info@digitalabcs.com.au</a><br>
+                    Toongabbie, NSW, Australia
+                </p>
+            </div>
             </div>
         </div>
         <div class="container footer-bottom">
