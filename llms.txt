@@ -8,15 +8,14 @@ Digital ABCs is an Australian business based in New South Wales that builds trus
 
 URL: https://digitalabcs.com.au/apps/decoder.html
 
-Linguistic Decoder is an AI-assisted iPhone app for analysing written messages, tone cues, possible intent, communication patterns, confidence notes, and calmer response options.
+Linguistic Decoder is an AI-assisted mobile app for analysing written messages, tone cues, possible intent, communication patterns, confidence notes, and calmer response options.
 
 It is designed for people who want to pause before reacting to a confusing text, email, or written exchange. It helps separate what was said from what may be interpretation, worry, pressure, or missing context.
 
 Current status:
 
 - Available now on iPhone through the Apple App Store.
-- Android is not live yet.
-- Android interest can be registered through Digital ABCs contact.
+- Available now on Android through Google Play: https://play.google.com/store/apps/details?id=com.digitalabcs.decoder&pcampaignid=web_share
 - Five free analyses are available to start.
 
 Important limits:
